@@ -1,0 +1,53 @@
+{
+    "name": "Cisco Meraki",
+    "description": "<p>Meraki was a company that provided products for large-scale, distributed wired and wireless networks.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/cisco-meraki.png",
+    "tags": [
+        "api service provider",
+        "have api",
+        "networks"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/cisco-meraki\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Cisco Meraki",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/cisco-meraki.png",
+            "humanURL": "https:\/\/meraki.cisco.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/cisco-meraki-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/cisco-meraki-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Developers",
+            "url": "https:\/\/meraki.cisco.com\/technologies\/cmx-api"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/meraki"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/meraki"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/meraki.cisco.com\/"
+        }
+    ]
+}
