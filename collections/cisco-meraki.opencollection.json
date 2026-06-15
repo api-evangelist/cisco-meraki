@@ -1,0 +1,606 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the organizations the user has privileges on",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/organizations",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List the organizations the user has privileges on"
+        },
+        {
+          "info": {
+            "name": "Return an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/organizations/:organizationId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return an organization"
+        },
+        {
+          "info": {
+            "name": "Update an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/api/v1/organizations/:organizationId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an organization"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the networks in an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/organizations/:organizationId/networks",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List the networks in an organization"
+        },
+        {
+          "info": {
+            "name": "Create a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/api/v1/organizations/:organizationId/networks",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a network"
+        },
+        {
+          "info": {
+            "name": "Return a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a network"
+        },
+        {
+          "info": {
+            "name": "Update a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a network"
+        },
+        {
+          "info": {
+            "name": "Delete a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a network"
+        },
+        {
+          "info": {
+            "name": "List the clients that have used this network in the timespan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/clients",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List the clients that have used this network in the timespan"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the devices in an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/organizations/:organizationId/devices",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List the devices in an organization"
+        },
+        {
+          "info": {
+            "name": "List the devices in a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/devices",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List the devices in a network"
+        },
+        {
+          "info": {
+            "name": "Return a single device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/devices/:serial",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single device"
+        },
+        {
+          "info": {
+            "name": "Update the attributes of a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/api/v1/devices/:serial",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the attributes of a device"
+        },
+        {
+          "info": {
+            "name": "Reboot a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/api/v1/devices/:serial/reboot",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reboot a device"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Switch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the switch ports for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/devices/:serial/switch/ports",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List the switch ports for a switch"
+        },
+        {
+          "info": {
+            "name": "Return a switch port",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/devices/:serial/switch/ports/:portId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a switch port"
+        },
+        {
+          "info": {
+            "name": "Update a switch port",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/api/v1/devices/:serial/switch/ports/:portId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a switch port"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Wireless",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the SSIDs in a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/wireless/ssids",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List the SSIDs in a network"
+        },
+        {
+          "info": {
+            "name": "Return a single SSID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/wireless/ssids/:number",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a single SSID"
+        },
+        {
+          "info": {
+            "name": "Update the attributes of an SSID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/wireless/ssids/:number",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the attributes of an SSID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Appliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the VLANs for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/appliance/vlans",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List the VLANs for an MX network"
+        },
+        {
+          "info": {
+            "name": "Add a VLAN",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/api/v1/networks/:networkId/appliance/vlans",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a VLAN"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Camera",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate a snapshot of what the camera sees at the specified time",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/api/v1/devices/:serial/camera/generateSnapshot",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate a snapshot of what the camera sees at the specified time"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "LiveTools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Enqueue a job to ping a target host from the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/api/v1/devices/:serial/liveTools/ping",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to ping a target host from the device"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
