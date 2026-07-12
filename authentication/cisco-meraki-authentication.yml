@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cisco-meraki-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: merakiApiKey
+  type: apiKey
+  in: header
+  parameter: X-Cisco-Meraki-API-Key
+  sources:
+  - openapi/cisco-meraki-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/cisco-meraki-openapi.yml

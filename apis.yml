@@ -65,6 +65,10 @@ apis:
       - type: Documentation
         url: https://developer.cisco.com/meraki/webhooks/
 common:
+  - type: DomainSecurity
+    url: security/cisco-meraki-domain-security.yml
+  - type: Authentication
+    url: authentication/cisco-meraki-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/cisco-meraki
   - type: Website
@@ -81,6 +85,8 @@ common:
     url: https://github.com/meraki/dashboard-api-python
   - type: Community
     url: https://community.meraki.com
+  - type: Blog
+    url: https://meraki.cisco.com/blog/feed/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
