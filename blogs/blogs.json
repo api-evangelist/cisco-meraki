@@ -1,0 +1,18 @@
+{
+  "repo": "cisco-meraki",
+  "feeds": [
+    {
+      "source": "https://meraki.cisco.com/blog/feed/",
+      "feed_url": "https://meraki.cisco.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://community.meraki.com",
+      "error": "HTTPError"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 10
+}
