@@ -1,0 +1,157 @@
+openapi: 3.1.0
+info:
+  title: Cisco Meraki Dashboard Appliance Devices API
+  description: 'RESTful API for managing and monitoring Cisco Meraki cloud networking
+
+    across organizations, networks, devices, SSIDs, switch ports, security
+
+    appliances, cameras, and clients. Authentication uses an API key passed
+
+    via the X-Cisco-Meraki-API-Key header or as a Bearer token.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Cisco Meraki Developer Hub
+    url: https://developer.cisco.com/meraki/api-v1/
+servers:
+- url: https://api.meraki.com/api/v1
+  description: Meraki Dashboard API v1
+security:
+- merakiApiKey: []
+- bearerAuth: []
+tags:
+- name: Devices
+paths:
+  /organizations/{organizationId}/devices:
+    parameters:
+    - in: path
+      name: organizationId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Devices
+      summary: List the devices in an organization
+      operationId: getOrganizationDevices
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List of devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+  /networks/{networkId}/devices:
+    parameters:
+    - in: path
+      name: networkId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Devices
+      summary: List the devices in a network
+      operationId: getNetworkDevices
+      responses:
+        '200':
+          description: List of devices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Device'
+  /devices/{serial}:
+    parameters:
+    - in: path
+      name: serial
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Devices
+      summary: Return a single device
+      operationId: getDevice
+      responses:
+        '200':
+          description: A device
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+    put:
+      tags:
+      - Devices
+      summary: Update the attributes of a device
+      operationId: updateDevice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+      responses:
+        '200':
+          description: Updated device
+  /devices/{serial}/reboot:
+    parameters:
+    - in: path
+      name: serial
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Devices
+      summary: Reboot a device
+      operationId: rebootDevice
+      responses:
+        '202':
+          description: Reboot requested
+components:
+  schemas:
+    Device:
+      type: object
+      properties:
+        serial:
+          type: string
+        name:
+          type: string
+        model:
+          type: string
+        mac:
+          type: string
+        lanIp:
+          type: string
+        networkId:
+          type: string
+        firmware:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        lat:
+          type: number
+        lng:
+          type: number
+        address:
+          type: string
+  securitySchemes:
+    merakiApiKey:
+      type: apiKey
+      in: header
+      name: X-Cisco-Meraki-API-Key
+    bearerAuth:
+      type: http
+      scheme: bearer

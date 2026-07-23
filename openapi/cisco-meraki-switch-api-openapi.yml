@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: Cisco Meraki Dashboard Appliance Switch API
+  description: 'RESTful API for managing and monitoring Cisco Meraki cloud networking
+
+    across organizations, networks, devices, SSIDs, switch ports, security
+
+    appliances, cameras, and clients. Authentication uses an API key passed
+
+    via the X-Cisco-Meraki-API-Key header or as a Bearer token.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Cisco Meraki Developer Hub
+    url: https://developer.cisco.com/meraki/api-v1/
+servers:
+- url: https://api.meraki.com/api/v1
+  description: Meraki Dashboard API v1
+security:
+- merakiApiKey: []
+- bearerAuth: []
+tags:
+- name: Switch
+paths:
+  /devices/{serial}/switch/ports:
+    parameters:
+    - in: path
+      name: serial
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Switch
+      summary: List the switch ports for a switch
+      operationId: getDeviceSwitchPorts
+      responses:
+        '200':
+          description: List of switch ports
+  /devices/{serial}/switch/ports/{portId}:
+    parameters:
+    - in: path
+      name: serial
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: portId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Switch
+      summary: Return a switch port
+      operationId: getDeviceSwitchPort
+      responses:
+        '200':
+          description: Switch port
+    put:
+      tags:
+      - Switch
+      summary: Update a switch port
+      operationId: updateDeviceSwitchPort
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated switch port
+components:
+  securitySchemes:
+    merakiApiKey:
+      type: apiKey
+      in: header
+      name: X-Cisco-Meraki-API-Key
+    bearerAuth:
+      type: http
+      scheme: bearer

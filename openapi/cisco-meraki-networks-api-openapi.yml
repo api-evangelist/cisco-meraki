@@ -1,0 +1,169 @@
+openapi: 3.1.0
+info:
+  title: Cisco Meraki Dashboard Appliance Networks API
+  description: 'RESTful API for managing and monitoring Cisco Meraki cloud networking
+
+    across organizations, networks, devices, SSIDs, switch ports, security
+
+    appliances, cameras, and clients. Authentication uses an API key passed
+
+    via the X-Cisco-Meraki-API-Key header or as a Bearer token.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Cisco Meraki Developer Hub
+    url: https://developer.cisco.com/meraki/api-v1/
+servers:
+- url: https://api.meraki.com/api/v1
+  description: Meraki Dashboard API v1
+security:
+- merakiApiKey: []
+- bearerAuth: []
+tags:
+- name: Networks
+paths:
+  /organizations/{organizationId}/networks:
+    parameters:
+    - in: path
+      name: organizationId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Networks
+      summary: List the networks in an organization
+      operationId: getOrganizationNetworks
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+      - in: query
+        name: startingAfter
+        schema:
+          type: string
+      - in: query
+        name: endingBefore
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of networks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Network'
+    post:
+      tags:
+      - Networks
+      summary: Create a network
+      operationId: createOrganizationNetwork
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Network'
+      responses:
+        '201':
+          description: Created network
+  /networks/{networkId}:
+    parameters:
+    - in: path
+      name: networkId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Networks
+      summary: Return a network
+      operationId: getNetwork
+      responses:
+        '200':
+          description: A network
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Network'
+    put:
+      tags:
+      - Networks
+      summary: Update a network
+      operationId: updateNetwork
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Network'
+      responses:
+        '200':
+          description: Updated network
+    delete:
+      tags:
+      - Networks
+      summary: Delete a network
+      operationId: deleteNetwork
+      responses:
+        '204':
+          description: Deleted
+  /networks/{networkId}/clients:
+    parameters:
+    - in: path
+      name: networkId
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Networks
+      summary: List the clients that have used this network in the timespan
+      operationId: getNetworkClients
+      parameters:
+      - in: query
+        name: timespan
+        schema:
+          type: number
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List of clients
+components:
+  schemas:
+    Network:
+      type: object
+      properties:
+        id:
+          type: string
+        organizationId:
+          type: string
+        name:
+          type: string
+        productTypes:
+          type: array
+          items:
+            type: string
+        timeZone:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        url:
+          type: string
+  securitySchemes:
+    merakiApiKey:
+      type: apiKey
+      in: header
+      name: X-Cisco-Meraki-API-Key
+    bearerAuth:
+      type: http
+      scheme: bearer
