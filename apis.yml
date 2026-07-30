@@ -8,7 +8,19 @@ description: >-
   networks at scale, automating organization provisioning, device
   configuration, network operations, and analytics.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cisco-meraki.png
 tags:
   - Networking
   - Wireless
@@ -23,47 +35,164 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: cisco-meraki:dashboard-api
-    name: Meraki Dashboard API v1
-    description: >-
-      RESTful API for managing and monitoring Cisco Meraki networks across
-      organizations, networks, devices, SSIDs, VLANs, switch ports, security
-      appliances, cameras, and clients. Uses Bearer token authentication with
-      an API key or OAuth 2.0 credentials.
-    humanURL: https://developer.cisco.com/meraki/api-v1/
-    baseURL: https://api.meraki.com/api/v1
-    tags:
-      - Dashboard
-      - Networking
-      - Organizations
-      - Networks
-      - Devices
-    properties:
-      - type: Documentation
-        url: https://developer.cisco.com/meraki/api-v1/
-      - type: GettingStarted
-        url: https://developer.cisco.com/meraki/api-v1/getting-started/
-      - type: Authentication
-        url: https://developer.cisco.com/meraki/api-v1/authorization/
-      - type: API Index
-        url: https://developer.cisco.com/meraki/api-v1/api-index/
-      - type: OpenAPI
-        url: https://github.com/meraki/openapi
-  - aid: cisco-meraki:webhooks
-    name: Meraki Webhooks
-    description: >-
-      Webhooks API for receiving real-time alerts and events from Meraki
-      networks, including device, network, and security events delivered to
-      configured HTTPS endpoints.
-    humanURL: https://developer.cisco.com/meraki/webhooks/
-    baseURL: https://developer.cisco.com/meraki/webhooks/
-    tags:
-      - Webhooks
-      - Events
-      - Alerts
-    properties:
-      - type: Documentation
-        url: https://developer.cisco.com/meraki/webhooks/
+- aid: cisco-meraki:webhooks
+  name: Meraki Webhooks
+  description: >-
+    Webhooks API for receiving real-time alerts and events from Meraki networks, including device, network,
+    and security events delivered to configured HTTPS endpoints.
+  humanURL: https://developer.cisco.com/meraki/webhooks/
+  baseURL: https://developer.cisco.com/meraki/webhooks/
+  tags:
+  - Webhooks
+  - Events
+  - Alerts
+  properties:
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/webhooks/
+- aid: cisco-meraki:cisco-meraki-appliance-api
+  name: Cisco Meraki Appliance API
+  description: The Appliance API from Cisco Meraki — 1 operation(s) for appliance.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Appliance
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-appliance-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-camera-api
+  name: Cisco Meraki Camera API
+  description: The Camera API from Cisco Meraki — 1 operation(s) for camera.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Camera
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-camera-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-devices-api
+  name: Cisco Meraki Devices API
+  description: The Devices API from Cisco Meraki — 4 operation(s) for devices.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-devices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-livetools-api
+  name: Cisco Meraki LiveTools API
+  description: The LiveTools API from Cisco Meraki — 1 operation(s) for livetools.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - LiveTools
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-livetools-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-networks-api
+  name: Cisco Meraki Networks API
+  description: The Networks API from Cisco Meraki — 3 operation(s) for networks.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Networks
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-networks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-organizations-api
+  name: Cisco Meraki Organizations API
+  description: The Organizations API from Cisco Meraki — 2 operation(s) for organizations.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-switch-api
+  name: Cisco Meraki Switch API
+  description: The Switch API from Cisco Meraki — 2 operation(s) for switch.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Switch
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-switch-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
+- aid: cisco-meraki:cisco-meraki-wireless-api
+  name: Cisco Meraki Wireless API
+  description: The Wireless API from Cisco Meraki — 2 operation(s) for wireless.
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - Wireless
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-wireless-api-openapi.yml
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+  - type: API Index
+    url: https://developer.cisco.com/meraki/api-v1/api-index/
 common:
   - type: AgenticAccess
     url: agentic-access/cisco-meraki-agentic-access.yml
