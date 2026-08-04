@@ -1,0 +1,227 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Cisco Meraki Dashboard API \u2014 spaces",
+  "description": "The spaces operations of the Cisco Meraki Dashboard API, split by product area from Cisco's published OpenAPI definition.",
+  "version": "1.72.0",
+  "contact": {
+   "name": "Meraki Developer Community",
+   "url": "https://meraki.io/community"
+  },
+  "x-provenance": {
+   "method": "harvested",
+   "authored_by": "Cisco Meraki",
+   "harvested_by": "API Evangelist",
+   "harvested_on": "2026-07-31",
+   "first_party": true,
+   "note": "Split by first tag from Cisco's published spec3.json; operations unmodified.",
+   "provider_published": true
+  },
+  "x-evidence": [
+   {
+    "type": "source",
+    "url": "https://github.com/meraki/openapi/blob/master/openapi/spec3.json"
+   },
+   {
+    "type": "raw",
+    "url": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json"
+   },
+   {
+    "type": "alternate",
+    "url": "https://api.meraki.com/api/v1/openapiSpec"
+   }
+  ]
+ },
+ "servers": [
+  {
+   "url": "https://api.meraki.com/{basePath}",
+   "variables": {
+    "basePath": {
+     "default": "api/v1"
+    }
+   }
+  }
+ ],
+ "security": [
+  {
+   "meraki_api_key": []
+  },
+  {
+   "bearerAuth": []
+  }
+ ],
+ "tags": [
+  {
+   "name": "configure",
+   "description": ""
+  },
+  {
+   "name": "integrate",
+   "description": ""
+  },
+  {
+   "name": "integration",
+   "description": ""
+  },
+  {
+   "name": "spaces",
+   "description": ""
+  },
+  {
+   "name": "status",
+   "description": ""
+  }
+ ],
+ "components": {
+  "securitySchemes": {
+   "meraki_api_key": {
+    "type": "apiKey",
+    "name": "X-Cisco-Meraki-API-Key",
+    "in": "header"
+   },
+   "bearerAuth": {
+    "type": "http",
+    "scheme": "bearer",
+    "bearerFormat": "API Key"
+   }
+  }
+ },
+ "paths": {
+  "/organizations/{organizationId}/spaces/integrate/status": {
+   "get": {
+    "description": "Get the status of the Spaces integration in Meraki",
+    "operationId": "getOrganizationSpacesIntegrateStatus",
+    "parameters": [
+     {
+      "name": "organizationId",
+      "in": "path",
+      "description": "Organization ID",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "status": {
+           "type": "boolean",
+           "description": "The success or failure status of the API"
+          },
+          "states": {
+           "type": "array",
+           "items": {
+            "type": "string"
+           },
+           "description": "The set of different states on the spaces integration process"
+          },
+          "email": {
+           "type": "string",
+           "description": "The meraki user who attempts the spaces integration"
+          },
+          "accountName": {
+           "type": "string",
+           "description": "The spaces dashboard account name created in spaces integration"
+          },
+          "accountType": {
+           "type": "string",
+           "description": "The spaces dashboard account type created in spaces integration"
+          }
+         }
+        },
+        "example": {
+         "status": true,
+         "states": [
+          "Spaces account created",
+          "Meraki Organization Import initiated",
+          "Importing Meraki Organization Administrators",
+          "Invite email sent to meraki-user@cisco.com"
+         ],
+         "email": "meraki-user@cisco.com",
+         "accountName": "My First Meraki Org",
+         "accountType": "Extend"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:general:config:write"
+      ]
+     }
+    ],
+    "summary": "Get the status of the Spaces integration in Meraki",
+    "tags": [
+     "spaces",
+     "configure",
+     "integrate",
+     "status"
+    ]
+   }
+  },
+  "/organizations/{organizationId}/spaces/integration/remove": {
+   "post": {
+    "description": "Remove the Spaces integration from Meraki",
+    "operationId": "removeOrganizationSpacesIntegration",
+    "parameters": [
+     {
+      "name": "organizationId",
+      "in": "path",
+      "description": "Organization ID",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "status": {
+           "type": "boolean",
+           "description": "The success or failure status of the API"
+          },
+          "message": {
+           "type": "string",
+           "description": "The error message of the API"
+          }
+         }
+        },
+        "example": {
+         "status": true,
+         "message": "Succesfully fetched the spaces dashboard access"
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:general:config:write"
+      ]
+     }
+    ],
+    "summary": "Remove the Spaces integration from Meraki",
+    "tags": [
+     "spaces",
+     "configure",
+     "integration"
+    ]
+   }
+  }
+ }
+}

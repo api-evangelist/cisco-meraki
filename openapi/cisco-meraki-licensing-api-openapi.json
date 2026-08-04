@@ -1,0 +1,2094 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Cisco Meraki Dashboard API \u2014 licensing",
+  "description": "The licensing operations of the Cisco Meraki Dashboard API, split by product area from Cisco's published OpenAPI definition.",
+  "version": "1.72.0",
+  "contact": {
+   "name": "Meraki Developer Community",
+   "url": "https://meraki.io/community"
+  },
+  "x-provenance": {
+   "method": "harvested",
+   "authored_by": "Cisco Meraki",
+   "harvested_by": "API Evangelist",
+   "harvested_on": "2026-07-31",
+   "first_party": true,
+   "note": "Split by first tag from Cisco's published spec3.json; operations unmodified.",
+   "provider_published": true
+  },
+  "x-evidence": [
+   {
+    "type": "source",
+    "url": "https://github.com/meraki/openapi/blob/master/openapi/spec3.json"
+   },
+   {
+    "type": "raw",
+    "url": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json"
+   },
+   {
+    "type": "alternate",
+    "url": "https://api.meraki.com/api/v1/openapiSpec"
+   }
+  ]
+ },
+ "servers": [
+  {
+   "url": "https://api.meraki.com/{basePath}",
+   "variables": {
+    "basePath": {
+     "default": "api/v1"
+    }
+   }
+  }
+ ],
+ "security": [
+  {
+   "meraki_api_key": []
+  },
+  {
+   "bearerAuth": []
+  }
+ ],
+ "tags": [
+  {
+   "name": "claimKey",
+   "description": ""
+  },
+  {
+   "name": "compliance",
+   "description": ""
+  },
+  {
+   "name": "configure",
+   "description": ""
+  },
+  {
+   "name": "coterm",
+   "description": ""
+  },
+  {
+   "name": "entitlements",
+   "description": ""
+  },
+  {
+   "name": "licenses",
+   "description": ""
+  },
+  {
+   "name": "licensing",
+   "description": ""
+  },
+  {
+   "name": "statuses",
+   "description": ""
+  },
+  {
+   "name": "subscription",
+   "description": ""
+  },
+  {
+   "name": "subscriptions",
+   "description": ""
+  }
+ ],
+ "components": {
+  "securitySchemes": {
+   "meraki_api_key": {
+    "type": "apiKey",
+    "name": "X-Cisco-Meraki-API-Key",
+    "in": "header"
+   },
+   "bearerAuth": {
+    "type": "http",
+    "scheme": "bearer",
+    "bearerFormat": "API Key"
+   }
+  }
+ },
+ "paths": {
+  "/administered/licensing/subscription/entitlements": {
+   "get": {
+    "description": "Retrieve the list of purchasable entitlements",
+    "operationId": "getAdministeredLicensingSubscriptionEntitlements",
+    "parameters": [
+     {
+      "name": "skus",
+      "in": "query",
+      "description": "Filter to entitlements with the specified SKUs",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "sku": {
+           "type": "string",
+           "description": "The SKU identifier of the entitlement"
+          },
+          "name": {
+           "type": "string",
+           "description": "The user-facing name of the entitlement"
+          },
+          "productType": {
+           "type": "string",
+           "description": "The product type of the entitlement"
+          },
+          "productClass": {
+           "type": "string",
+           "description": "The product class associated with the entitlement"
+          },
+          "featureTier": {
+           "type": "string",
+           "description": "The feature tier associated with the entitlement (null for add-ons)"
+          },
+          "isAddOn": {
+           "type": "boolean",
+           "description": "Whether or not the entitlement is an add-on"
+          },
+          "isFree": {
+           "type": "boolean",
+           "description": "Whether or not the entitlement is granted for free"
+          }
+         }
+        },
+        "example": {
+         "sku": "LIC-MR-A",
+         "name": "MR",
+         "productType": "wireless",
+         "productClass": "MR",
+         "featureTier": "advantage",
+         "isAddOn": false,
+         "isFree": false
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:read"
+      ]
+     }
+    ],
+    "summary": "Retrieve the list of purchasable entitlements",
+    "tags": [
+     "licensing",
+     "configure",
+     "subscription",
+     "entitlements"
+    ]
+   }
+  },
+  "/administered/licensing/subscription/subscriptions": {
+   "get": {
+    "description": "List available subscriptions",
+    "operationId": "getAdministeredLicensingSubscriptionSubscriptions",
+    "parameters": [
+     {
+      "name": "perPage",
+      "in": "query",
+      "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+      "schema": {
+       "type": "integer"
+      }
+     },
+     {
+      "name": "startingAfter",
+      "in": "query",
+      "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "endingBefore",
+      "in": "query",
+      "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "subscriptionIds",
+      "in": "query",
+      "description": "List of subscription ids to fetch",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "organizationIds",
+      "in": "query",
+      "required": true,
+      "description": "Organizations to get associated subscriptions for",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "statuses",
+      "in": "query",
+      "description": "List of statuses that returned subscriptions can have",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "enum": [
+         "active",
+         "canceled",
+         "expired",
+         "inactive",
+         "out_of_compliance"
+        ]
+       }
+      }
+     },
+     {
+      "name": "productTypes",
+      "in": "query",
+      "description": "List of product types that returned subscriptions need to have entitlements for.",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "enum": [
+         "appliance",
+         "camera",
+         "campusGateway",
+         "cellularGateway",
+         "secureConnect",
+         "sensor",
+         "switch",
+         "systemsManager",
+         "wireless",
+         "wirelessController"
+        ]
+       }
+      }
+     },
+     {
+      "name": "skus",
+      "in": "query",
+      "description": "List of SKUs that returned subscriptions need to have entitlements for.",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "name",
+      "in": "query",
+      "description": "Search for subscription name",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "startDate",
+      "in": "query",
+      "description": "Filter subscriptions by start date, ISO 8601 format. To filter with a range of dates, use 'startDate[<option>]=?' in the request. Accepted options include lt, gt, lte, gte.",
+      "schema": {
+       "oneOf": [
+        {
+         "type": "object",
+         "properties": {
+          "lt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values less than the given value"
+          },
+          "gt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values greater than the given value"
+          },
+          "lte": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values less than or equal to the given value"
+          },
+          "gte": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values greater than or equal to the given value"
+          },
+          "neq": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values not equal to the given value"
+          }
+         }
+        },
+        {
+         "type": "string",
+         "format": "date-time"
+        }
+       ]
+      }
+     },
+     {
+      "name": "endDate",
+      "in": "query",
+      "description": "Filter subscriptions by end date, ISO 8601 format. To filter with a range of dates, use 'endDate[<option>]=?' in the request. Accepted options include lt, gt, lte, gte.",
+      "schema": {
+       "oneOf": [
+        {
+         "type": "object",
+         "properties": {
+          "lt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values less than the given value"
+          },
+          "gt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values greater than the given value"
+          },
+          "lte": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values less than or equal to the given value"
+          },
+          "gte": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values greater than or equal to the given value"
+          },
+          "neq": {
+           "type": "string",
+           "format": "date-time",
+           "description": "comparative operator used to filter for all values not equal to the given value"
+          }
+         }
+        },
+        {
+         "type": "string",
+         "format": "date-time"
+        }
+       ]
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "subscriptionId": {
+            "type": "string",
+            "description": "Subscription's ID"
+           },
+           "name": {
+            "type": "string",
+            "description": "Subscription name"
+           },
+           "description": {
+            "type": "string",
+            "description": "Subscription description"
+           },
+           "status": {
+            "type": "string",
+            "enum": [
+             "active",
+             "canceled",
+             "expired",
+             "inactive",
+             "out_of_compliance"
+            ],
+            "description": "Subscription status"
+           },
+           "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Subscription start date"
+           },
+           "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Subscription expiration date"
+           },
+           "lastUpdatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the subscription was last changed"
+           },
+           "webOrderId": {
+            "type": "string",
+            "description": "Web order id"
+           },
+           "type": {
+            "type": "string",
+            "enum": [
+             "enterpriseAgreement",
+             "termed"
+            ],
+            "description": "Subscription type"
+           },
+           "smartAccount": {
+            "type": "object",
+            "properties": {
+             "status": {
+              "type": "string",
+              "description": "Subscription Smart Account status"
+             },
+             "account": {
+              "type": "object",
+              "properties": {
+               "id": {
+                "type": "string",
+                "description": "Smart Account ID"
+               },
+               "name": {
+                "type": "string",
+                "description": "The name of the smart account"
+               },
+               "domain": {
+                "type": "string",
+                "description": "The domain of the Smart Account"
+               }
+              },
+              "description": "Smart Account data"
+             }
+            },
+            "description": "Smart Account linkage information"
+           },
+           "renewalRequested": {
+            "type": "boolean",
+            "description": "Whether a renewal has been requested for the subscription"
+           },
+           "productTypes": {
+            "type": "array",
+            "items": {
+             "type": "string",
+             "enum": [
+              "accessManager",
+              "appliance",
+              "camera",
+              "cellularGateway",
+              "sensor",
+              "switch",
+              "systemsManager",
+              "wireless"
+             ]
+            },
+            "description": "Products the subscription has entitlements for"
+           },
+           "entitlements": {
+            "type": "array",
+            "items": {
+             "type": "object",
+             "properties": {
+              "sku": {
+               "type": "string",
+               "description": "SKU of the required product"
+              },
+              "seats": {
+               "type": "object",
+               "properties": {
+                "assigned": {
+                 "type": "integer",
+                 "description": "Number of seats in use"
+                },
+                "available": {
+                 "type": "integer",
+                 "description": "Number of seats available for use"
+                },
+                "limit": {
+                 "type": "integer",
+                 "description": "Total number of seats provided by this subscription for this sku"
+                }
+               },
+               "description": "Seat distribution"
+              }
+             }
+            },
+            "description": "Entitlement info"
+           },
+           "counts": {
+            "type": "object",
+            "properties": {
+             "seats": {
+              "type": "object",
+              "properties": {
+               "assigned": {
+                "type": "integer",
+                "description": "Number of seats in use"
+               },
+               "available": {
+                "type": "integer",
+                "description": "Number of seats available for use"
+               },
+               "limit": {
+                "type": "integer",
+                "description": "Total number of seats provided by this subscription"
+               }
+              },
+              "description": "Seat distribution"
+             },
+             "networks": {
+              "type": "integer",
+              "description": "Number of networks bound to this subscription"
+             },
+             "organizations": {
+              "type": "integer",
+              "description": "Number of organizations bound to this subscription"
+             }
+            },
+            "description": "Numeric breakdown of network, organizations, entitlement counts"
+           },
+           "enterpriseAgreement": {
+            "type": "object",
+            "properties": {
+             "suites": {
+              "type": "array",
+              "items": {
+               "type": "string"
+              },
+              "description": "List of suites included. Empty for non-EA subscriptions."
+             }
+            },
+            "description": "enterprise agreement details"
+           }
+          }
+         }
+        },
+        "example": [
+         {
+          "subscriptionId": "2345",
+          "name": "Corporate subscription",
+          "description": "A description",
+          "status": "active",
+          "startDate": "2027-06-30T00:00:00Z",
+          "endDate": "2028-06-30T00:00:00Z",
+          "lastUpdatedAt": "2027-09-21T00:00:00Z",
+          "webOrderId": "55598764",
+          "type": "termed",
+          "smartAccount": {
+           "status": "active",
+           "account": {
+            "id": "99995678",
+            "name": "Corporate Smart Account",
+            "domain": "smart_account_domain"
+           }
+          },
+          "renewalRequested": false,
+          "productTypes": [
+           "wireless"
+          ],
+          "entitlements": [
+           {
+            "sku": "LIC-MS-400-L-A",
+            "seats": {
+             "assigned": 10,
+             "available": 15,
+             "limit": 25
+            }
+           }
+          ],
+          "counts": {
+           "seats": {
+            "assigned": 10,
+            "available": 15,
+            "limit": 25
+           },
+           "networks": 1,
+           "organizations": 1
+          },
+          "enterpriseAgreement": {
+           "suites": [
+            "networking"
+           ]
+          }
+         }
+        ]
+       }
+      },
+      "headers": {
+       "Link": {
+        "schema": {
+         "type": "string"
+        },
+        "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:read"
+      ]
+     }
+    ],
+    "summary": "List available subscriptions",
+    "tags": [
+     "licensing",
+     "configure",
+     "subscription",
+     "subscriptions"
+    ]
+   }
+  },
+  "/administered/licensing/subscription/subscriptions/claim": {
+   "post": {
+    "description": "Claim a subscription into an organization.",
+    "operationId": "claimAdministeredLicensingSubscriptionSubscriptions",
+    "parameters": [
+     {
+      "name": "validate",
+      "in": "query",
+      "description": "Check if the provided claim key is valid and can be claimed into the organization.",
+      "schema": {
+       "type": "boolean"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "claimKey": {
+          "type": "string",
+          "description": "The subscription's claim key"
+         },
+         "organizationId": {
+          "type": "string",
+          "description": "The id of the organization claiming the subscription"
+         },
+         "name": {
+          "type": "string",
+          "description": "Friendly name to identify the subscription"
+         },
+         "description": {
+          "type": "string",
+          "description": "Extra details or notes about the subscription"
+         }
+        },
+        "example": {
+         "validate": true,
+         "claimKey": "S2345-6789A-BCDEF-GHJKM",
+         "organizationId": "12345678910",
+         "name": "Corporate subscription",
+         "description": "Subscription for all main offices"
+        },
+        "required": [
+         "claimKey",
+         "organizationId"
+        ]
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "subscriptionId": {
+           "type": "string",
+           "description": "Subscription's ID"
+          },
+          "name": {
+           "type": "string",
+           "description": "Subscription name"
+          },
+          "description": {
+           "type": "string",
+           "description": "Subscription description"
+          },
+          "status": {
+           "type": "string",
+           "enum": [
+            "active",
+            "canceled",
+            "expired",
+            "inactive",
+            "out_of_compliance"
+           ],
+           "description": "Subscription status"
+          },
+          "startDate": {
+           "type": "string",
+           "format": "date-time",
+           "description": "Subscription start date"
+          },
+          "endDate": {
+           "type": "string",
+           "format": "date-time",
+           "description": "Subscription expiration date"
+          },
+          "lastUpdatedAt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "When the subscription was last changed"
+          },
+          "webOrderId": {
+           "type": "string",
+           "description": "Web order id"
+          },
+          "type": {
+           "type": "string",
+           "enum": [
+            "enterpriseAgreement",
+            "termed"
+           ],
+           "description": "Subscription type"
+          },
+          "smartAccount": {
+           "type": "object",
+           "properties": {
+            "status": {
+             "type": "string",
+             "description": "Subscription Smart Account status"
+            },
+            "account": {
+             "type": "object",
+             "properties": {
+              "id": {
+               "type": "string",
+               "description": "Smart Account ID"
+              },
+              "name": {
+               "type": "string",
+               "description": "The name of the smart account"
+              },
+              "domain": {
+               "type": "string",
+               "description": "The domain of the Smart Account"
+              }
+             },
+             "description": "Smart Account data"
+            }
+           },
+           "description": "Smart Account linkage information"
+          },
+          "renewalRequested": {
+           "type": "boolean",
+           "description": "Whether a renewal has been requested for the subscription"
+          },
+          "productTypes": {
+           "type": "array",
+           "items": {
+            "type": "string",
+            "enum": [
+             "accessManager",
+             "appliance",
+             "camera",
+             "cellularGateway",
+             "sensor",
+             "switch",
+             "systemsManager",
+             "wireless"
+            ]
+           },
+           "description": "Products the subscription has entitlements for"
+          },
+          "entitlements": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "properties": {
+             "sku": {
+              "type": "string",
+              "description": "SKU of the required product"
+             },
+             "seats": {
+              "type": "object",
+              "properties": {
+               "assigned": {
+                "type": "integer",
+                "description": "Number of seats in use"
+               },
+               "available": {
+                "type": "integer",
+                "description": "Number of seats available for use"
+               },
+               "limit": {
+                "type": "integer",
+                "description": "Total number of seats provided by this subscription for this sku"
+               }
+              },
+              "description": "Seat distribution"
+             }
+            }
+           },
+           "description": "Entitlement info"
+          },
+          "counts": {
+           "type": "object",
+           "properties": {
+            "seats": {
+             "type": "object",
+             "properties": {
+              "assigned": {
+               "type": "integer",
+               "description": "Number of seats in use"
+              },
+              "available": {
+               "type": "integer",
+               "description": "Number of seats available for use"
+              },
+              "limit": {
+               "type": "integer",
+               "description": "Total number of seats provided by this subscription"
+              }
+             },
+             "description": "Seat distribution"
+            },
+            "networks": {
+             "type": "integer",
+             "description": "Number of networks bound to this subscription"
+            },
+            "organizations": {
+             "type": "integer",
+             "description": "Number of organizations bound to this subscription"
+            }
+           },
+           "description": "Numeric breakdown of network, organizations, entitlement counts"
+          },
+          "enterpriseAgreement": {
+           "type": "object",
+           "properties": {
+            "suites": {
+             "type": "array",
+             "items": {
+              "type": "string"
+             },
+             "description": "List of suites included. Empty for non-EA subscriptions."
+            }
+           },
+           "description": "enterprise agreement details"
+          }
+         }
+        },
+        "example": {
+         "subscriptionId": "2345",
+         "name": "Corporate subscription",
+         "description": "A description",
+         "status": "active",
+         "startDate": "2027-06-30T00:00:00Z",
+         "endDate": "2028-06-30T00:00:00Z",
+         "lastUpdatedAt": "2027-09-21T00:00:00Z",
+         "webOrderId": "55598764",
+         "type": "termed",
+         "smartAccount": {
+          "status": "active",
+          "account": {
+           "id": "99995678",
+           "name": "Corporate Smart Account",
+           "domain": "smart_account_domain"
+          }
+         },
+         "renewalRequested": false,
+         "productTypes": [
+          "wireless"
+         ],
+         "entitlements": [
+          {
+           "sku": "LIC-MS-400-L-A",
+           "seats": {
+            "assigned": 10,
+            "available": 15,
+            "limit": 25
+           }
+          }
+         ],
+         "counts": {
+          "seats": {
+           "assigned": 10,
+           "available": 15,
+           "limit": 25
+          },
+          "networks": 1,
+          "organizations": 1
+         },
+         "enterpriseAgreement": {
+          "suites": [
+           "networking"
+          ]
+         }
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:write"
+      ]
+     }
+    ],
+    "summary": "Claim a subscription into an organization.",
+    "tags": [
+     "licensing",
+     "configure",
+     "subscription",
+     "subscriptions"
+    ]
+   }
+  },
+  "/administered/licensing/subscription/subscriptions/claimKey/validate": {
+   "post": {
+    "description": "Find a subscription by claim key. Returns 400 if the key has already been claimed.",
+    "operationId": "validateAdministeredLicensingSubscriptionSubscriptionsClaimKey",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "claimKey": {
+          "type": "string",
+          "description": "The subscription's claim key"
+         }
+        },
+        "example": {
+         "claimKey": "S2345-6789A-BCDEF-GHJKM"
+        },
+        "required": [
+         "claimKey"
+        ]
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "subscriptionId": {
+           "type": "string",
+           "description": "Subscription's ID"
+          },
+          "name": {
+           "type": "string",
+           "description": "Subscription name"
+          },
+          "description": {
+           "type": "string",
+           "description": "Subscription description"
+          },
+          "status": {
+           "type": "string",
+           "enum": [
+            "active",
+            "canceled",
+            "expired",
+            "inactive",
+            "out_of_compliance"
+           ],
+           "description": "Subscription status"
+          },
+          "startDate": {
+           "type": "string",
+           "format": "date-time",
+           "description": "Subscription start date"
+          },
+          "endDate": {
+           "type": "string",
+           "format": "date-time",
+           "description": "Subscription expiration date"
+          },
+          "lastUpdatedAt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "When the subscription was last changed"
+          },
+          "webOrderId": {
+           "type": "string",
+           "description": "Web order id"
+          },
+          "type": {
+           "type": "string",
+           "enum": [
+            "enterpriseAgreement",
+            "termed"
+           ],
+           "description": "Subscription type"
+          },
+          "smartAccount": {
+           "type": "object",
+           "properties": {
+            "status": {
+             "type": "string",
+             "description": "Subscription Smart Account status"
+            },
+            "account": {
+             "type": "object",
+             "properties": {
+              "id": {
+               "type": "string",
+               "description": "Smart Account ID"
+              },
+              "name": {
+               "type": "string",
+               "description": "The name of the smart account"
+              },
+              "domain": {
+               "type": "string",
+               "description": "The domain of the Smart Account"
+              }
+             },
+             "description": "Smart Account data"
+            }
+           },
+           "description": "Smart Account linkage information"
+          },
+          "renewalRequested": {
+           "type": "boolean",
+           "description": "Whether a renewal has been requested for the subscription"
+          },
+          "productTypes": {
+           "type": "array",
+           "items": {
+            "type": "string",
+            "enum": [
+             "accessManager",
+             "appliance",
+             "camera",
+             "cellularGateway",
+             "sensor",
+             "switch",
+             "systemsManager",
+             "wireless"
+            ]
+           },
+           "description": "Products the subscription has entitlements for"
+          },
+          "entitlements": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "properties": {
+             "sku": {
+              "type": "string",
+              "description": "SKU of the required product"
+             },
+             "seats": {
+              "type": "object",
+              "properties": {
+               "assigned": {
+                "type": "integer",
+                "description": "Number of seats in use"
+               },
+               "available": {
+                "type": "integer",
+                "description": "Number of seats available for use"
+               },
+               "limit": {
+                "type": "integer",
+                "description": "Total number of seats provided by this subscription for this sku"
+               }
+              },
+              "description": "Seat distribution"
+             }
+            }
+           },
+           "description": "Entitlement info"
+          },
+          "counts": {
+           "type": "object",
+           "properties": {
+            "seats": {
+             "type": "object",
+             "properties": {
+              "assigned": {
+               "type": "integer",
+               "description": "Number of seats in use"
+              },
+              "available": {
+               "type": "integer",
+               "description": "Number of seats available for use"
+              },
+              "limit": {
+               "type": "integer",
+               "description": "Total number of seats provided by this subscription"
+              }
+             },
+             "description": "Seat distribution"
+            },
+            "networks": {
+             "type": "integer",
+             "description": "Number of networks bound to this subscription"
+            },
+            "organizations": {
+             "type": "integer",
+             "description": "Number of organizations bound to this subscription"
+            }
+           },
+           "description": "Numeric breakdown of network, organizations, entitlement counts"
+          },
+          "enterpriseAgreement": {
+           "type": "object",
+           "properties": {
+            "suites": {
+             "type": "array",
+             "items": {
+              "type": "string"
+             },
+             "description": "List of suites included. Empty for non-EA subscriptions."
+            }
+           },
+           "description": "enterprise agreement details"
+          }
+         }
+        },
+        "example": {
+         "subscriptionId": "2345",
+         "name": "Corporate subscription",
+         "description": "A description",
+         "status": "active",
+         "startDate": "2027-06-30T00:00:00Z",
+         "endDate": "2028-06-30T00:00:00Z",
+         "lastUpdatedAt": "2027-09-21T00:00:00Z",
+         "webOrderId": "55598764",
+         "type": "termed",
+         "smartAccount": {
+          "status": "active",
+          "account": {
+           "id": "99995678",
+           "name": "Corporate Smart Account",
+           "domain": "smart_account_domain"
+          }
+         },
+         "renewalRequested": false,
+         "productTypes": [
+          "wireless"
+         ],
+         "entitlements": [
+          {
+           "sku": "LIC-MS-400-L-A",
+           "seats": {
+            "assigned": 10,
+            "available": 15,
+            "limit": 25
+           }
+          }
+         ],
+         "counts": {
+          "seats": {
+           "assigned": 10,
+           "available": 15,
+           "limit": 25
+          },
+          "networks": 1,
+          "organizations": 1
+         },
+         "enterpriseAgreement": {
+          "suites": [
+           "networking"
+          ]
+         }
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:write"
+      ]
+     }
+    ],
+    "summary": "Find a subscription by claim key",
+    "tags": [
+     "licensing",
+     "configure",
+     "subscription",
+     "subscriptions",
+     "claimKey"
+    ]
+   }
+  },
+  "/administered/licensing/subscription/subscriptions/compliance/statuses": {
+   "get": {
+    "description": "Get compliance status for requested subscriptions",
+    "operationId": "getAdministeredLicensingSubscriptionSubscriptionsComplianceStatuses",
+    "parameters": [
+     {
+      "name": "organizationIds",
+      "in": "query",
+      "required": true,
+      "description": "Organizations to get subscription compliance information for",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "subscriptionIds",
+      "in": "query",
+      "description": "Subscription ids",
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       }
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "subscription": {
+            "type": "object",
+            "properties": {
+             "id": {
+              "type": "string",
+              "description": "Subscription's ID"
+             },
+             "name": {
+              "type": "string",
+              "description": "Friendly name to identify the subscription"
+             },
+             "status": {
+              "type": "string",
+              "description": "One of the following: \"inactive\" | \"active\" | \"out_of_compliance\" | \"expired\" | \"canceled\""
+             }
+            },
+            "description": "Subscription details"
+           },
+           "violations": {
+            "type": "object",
+            "properties": {
+             "byProductClass": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "properties": {
+                "productClass": {
+                 "type": "string",
+                 "description": "Name of the product class"
+                },
+                "gracePeriodEndsAt": {
+                 "type": "string",
+                 "description": "End date of the grace period in ISO 8601 format"
+                },
+                "missing": {
+                 "type": "object",
+                 "properties": {
+                  "entitlements": {
+                   "type": "array",
+                   "items": {
+                    "type": "object",
+                    "properties": {
+                     "sku": {
+                      "type": "string",
+                      "description": "SKU of the required product"
+                     },
+                     "quantity": {
+                      "type": "integer",
+                      "description": "Number required"
+                     }
+                    }
+                   },
+                   "description": "List of missing entitlements"
+                  }
+                 },
+                 "description": "Missing entitlements details"
+                }
+               }
+              },
+              "description": "List of violations by product class that are not compliance"
+             }
+            },
+            "description": "Violations"
+           }
+          }
+         }
+        },
+        "example": [
+         {
+          "subscription": {
+           "id": "12345",
+           "name": "Corporate Subscription",
+           "status": "active"
+          },
+          "violations": {
+           "byProductClass": [
+            {
+             "productClass": "MS 100 Small",
+             "gracePeriodEndsAt": "2023-12-07T00:00:00Z",
+             "missing": {
+              "entitlements": [
+               {
+                "sku": "LIC-MS-100-S-E",
+                "quantity": 11
+               }
+              ]
+             }
+            }
+           ]
+          }
+         }
+        ]
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:read"
+      ]
+     }
+    ],
+    "summary": "Get compliance status for requested subscriptions",
+    "tags": [
+     "licensing",
+     "configure",
+     "subscription",
+     "subscriptions",
+     "compliance",
+     "statuses"
+    ]
+   }
+  },
+  "/administered/licensing/subscription/subscriptions/{subscriptionId}/bind": {
+   "post": {
+    "description": "Bind networks to a subscription",
+    "operationId": "bindAdministeredLicensingSubscriptionSubscription",
+    "parameters": [
+     {
+      "name": "subscriptionId",
+      "in": "path",
+      "description": "Subscription ID",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     },
+     {
+      "name": "validate",
+      "in": "query",
+      "description": "Check if the provided networks can be bound to the subscription. Returns any licensing problems and does not commit the results.",
+      "schema": {
+       "type": "boolean"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "networkIds": {
+          "type": "array",
+          "items": {
+           "type": "string"
+          },
+          "description": "List of network ids to bind to the subscription"
+         }
+        },
+        "example": {
+         "networkIds": [
+          "L_1234",
+          "N_5678"
+         ],
+         "validate": true
+        }
+       }
+      }
+     },
+     "required": false
+    },
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "subscriptionId": {
+           "type": "string",
+           "description": "Subscription ID"
+          },
+          "networks": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "properties": {
+             "id": {
+              "type": "string",
+              "description": "Network ID"
+             },
+             "name": {
+              "type": "string",
+              "description": "Network name"
+             }
+            }
+           },
+           "description": "Unbound networks"
+          },
+          "errors": {
+           "type": "array",
+           "items": {
+            "type": "string"
+           },
+           "description": "Array of errors if failed"
+          },
+          "insufficientEntitlements": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "properties": {
+             "sku": {
+              "type": "string",
+              "description": "SKU of the required product"
+             },
+             "quantity": {
+              "type": "integer",
+              "description": "Number required"
+             }
+            }
+           },
+           "description": "A list of entitlements required to successfully bind the networks to the subscription"
+          }
+         }
+        },
+        "example": {
+         "subscriptionId": "XY1234567",
+         "networks": [
+          {
+           "id": "L_1234",
+           "name": "Corporate network"
+          }
+         ],
+         "errors": [
+          "Insufficient licenses"
+         ],
+         "insufficientEntitlements": [
+          {
+           "sku": "LIC-MS-400-L-A",
+           "quantity": 5
+          }
+         ]
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:write"
+      ]
+     }
+    ],
+    "summary": "Bind networks to a subscription",
+    "tags": [
+     "licensing",
+     "configure",
+     "subscription",
+     "subscriptions"
+    ]
+   }
+  },
+  "/organizations/{organizationId}/licensing/coterm/licenses": {
+   "get": {
+    "description": "List the licenses in a coterm organization",
+    "operationId": "getOrganizationLicensingCotermLicenses",
+    "parameters": [
+     {
+      "name": "organizationId",
+      "in": "path",
+      "description": "Organization ID",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     },
+     {
+      "name": "perPage",
+      "in": "query",
+      "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+      "schema": {
+       "type": "integer"
+      }
+     },
+     {
+      "name": "startingAfter",
+      "in": "query",
+      "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "endingBefore",
+      "in": "query",
+      "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "invalidated",
+      "in": "query",
+      "description": "Filter for licenses that are invalidated",
+      "schema": {
+       "type": "boolean"
+      }
+     },
+     {
+      "name": "expired",
+      "in": "query",
+      "description": "Filter for licenses that are expired",
+      "schema": {
+       "type": "boolean"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "key": {
+            "type": "string",
+            "description": "The key of the license"
+           },
+           "organizationId": {
+            "type": "string",
+            "description": "The ID of the organization that the license is claimed in"
+           },
+           "duration": {
+            "type": "integer",
+            "description": "The duration (term length) of the license, measured in days"
+           },
+           "mode": {
+            "type": "string",
+            "enum": [
+             "addDevices",
+             "renew"
+            ],
+            "description": "The operation mode of the license when it was claimed"
+           },
+           "startedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the license's term began (approximately the date when the license was created)"
+           },
+           "claimedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the license was claimed into the organization"
+           },
+           "invalidated": {
+            "type": "boolean",
+            "description": "Flag to indicated that the license is invalidated"
+           },
+           "invalidatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the license was invalidated. Will be null for active licenses"
+           },
+           "expired": {
+            "type": "boolean",
+            "description": "Flag to indicate if the license is expired"
+           },
+           "editions": {
+            "type": "array",
+            "items": {
+             "type": "object",
+             "properties": {
+              "edition": {
+               "type": "string",
+               "description": "The name of the license edition"
+              },
+              "productType": {
+               "type": "string",
+               "description": "The product type of the license edition"
+              }
+             }
+            },
+            "description": "The editions of the license for each relevant product type"
+           },
+           "counts": {
+            "type": "array",
+            "items": {
+             "type": "object",
+             "properties": {
+              "model": {
+               "type": "string",
+               "description": "The license model type"
+              },
+              "count": {
+               "type": "integer",
+               "description": "The number of counts the license contains of this model"
+              }
+             }
+            },
+            "description": "The counts of the license by model type"
+           }
+          }
+         }
+        },
+        "example": [
+         {
+          "key": "Z2AA-BBBB-CCCC",
+          "organizationId": "123456",
+          "duration": 365,
+          "mode": "addDevices",
+          "startedAt": "2022-05-02T10:52:00Z",
+          "claimedAt": "2022-07-04T16:23:00Z",
+          "invalidated": true,
+          "invalidatedAt": "2022-07-04T16:23:00Z",
+          "expired": false,
+          "editions": [
+           {
+            "edition": "Enterprise",
+            "productType": "appliance"
+           }
+          ],
+          "counts": [
+           {
+            "model": "MR Enterprise",
+            "count": 2
+           }
+          ]
+         }
+        ]
+       }
+      },
+      "headers": {
+       "Link": {
+        "schema": {
+         "type": "string"
+        },
+        "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:read"
+      ]
+     }
+    ],
+    "summary": "List the licenses in a coterm organization",
+    "tags": [
+     "licensing",
+     "configure",
+     "coterm",
+     "licenses"
+    ]
+   }
+  },
+  "/organizations/{organizationId}/licensing/coterm/licenses/move": {
+   "post": {
+    "description": "Moves a license to a different organization (coterm only)",
+    "operationId": "moveOrganizationLicensingCotermLicenses",
+    "parameters": [
+     {
+      "name": "organizationId",
+      "in": "path",
+      "description": "Organization ID",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "object",
+        "properties": {
+         "destination": {
+          "type": "object",
+          "properties": {
+           "organizationId": {
+            "type": "string",
+            "description": "The organization to move the license to"
+           },
+           "mode": {
+            "type": "string",
+            "enum": [
+             "addDevices",
+             "renew"
+            ],
+            "description": "The claim mode of the moved license"
+           }
+          },
+          "description": "Destination data for the license move"
+         },
+         "licenses": {
+          "type": "array",
+          "items": {
+           "type": "object",
+           "properties": {
+            "key": {
+             "type": "string",
+             "description": "The license key to move counts from"
+            },
+            "counts": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "model": {
+                "type": "string",
+                "description": "The license model type to move counts of"
+               },
+               "count": {
+                "type": "integer",
+                "description": "The number of counts to move"
+               }
+              },
+              "required": [
+               "model",
+               "count"
+              ]
+             },
+             "description": "The counts to move from the license by model type"
+            }
+           },
+           "required": [
+            "key",
+            "counts"
+           ]
+          },
+          "description": "The list of licenses to move"
+         }
+        },
+        "example": {
+         "destination": {
+          "organizationId": "123",
+          "mode": "addDevices"
+         },
+         "licenses": [
+          {
+           "key": "Z2AA-BBBB-CCCC",
+           "counts": [
+            {
+             "model": "MR Enterprise",
+             "count": 5
+            }
+           ]
+          }
+         ]
+        },
+        "required": [
+         "destination",
+         "licenses"
+        ]
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "remainderLicenses": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "properties": {
+             "key": {
+              "type": "string",
+              "description": "The key of the license"
+             },
+             "organizationId": {
+              "type": "string",
+              "description": "The ID of the organization that the license is claimed in"
+             },
+             "duration": {
+              "type": "integer",
+              "description": "The duration (term length) of the license, measured in days"
+             },
+             "mode": {
+              "type": "string",
+              "enum": [
+               "addDevices",
+               "renew"
+              ],
+              "description": "The operation mode of the license when it was claimed"
+             },
+             "startedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the license's term began (approximately the date when the license was created)"
+             },
+             "claimedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the license was claimed into the organization"
+             },
+             "invalidated": {
+              "type": "boolean",
+              "description": "Flag to indicated that the license is invalidated"
+             },
+             "invalidatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the license was invalidated. Will be null for active licenses"
+             },
+             "expired": {
+              "type": "boolean",
+              "description": "Flag to indicate if the license is expired"
+             },
+             "editions": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "properties": {
+                "edition": {
+                 "type": "string",
+                 "description": "The name of the license edition"
+                },
+                "productType": {
+                 "type": "string",
+                 "description": "The product type of the license edition"
+                }
+               }
+              },
+              "description": "The editions of the license for each relevant product type"
+             },
+             "counts": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "properties": {
+                "model": {
+                 "type": "string",
+                 "description": "The license model type"
+                },
+                "count": {
+                 "type": "integer",
+                 "description": "The number of counts the license contains of this model"
+                }
+               }
+              },
+              "description": "The counts of the license by model type"
+             }
+            }
+           },
+           "description": "Remainder licenses created in the source organization as a result of moving a subset of the counts of a license"
+          },
+          "movedLicenses": {
+           "type": "array",
+           "items": {
+            "type": "object",
+            "properties": {
+             "key": {
+              "type": "string",
+              "description": "The key of the license"
+             },
+             "organizationId": {
+              "type": "string",
+              "description": "The ID of the organization that the license is claimed in"
+             },
+             "duration": {
+              "type": "integer",
+              "description": "The duration (term length) of the license, measured in days"
+             },
+             "mode": {
+              "type": "string",
+              "enum": [
+               "addDevices",
+               "renew"
+              ],
+              "description": "The operation mode of the license when it was claimed"
+             },
+             "startedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the license's term began (approximately the date when the license was created)"
+             },
+             "claimedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the license was claimed into the organization"
+             },
+             "invalidated": {
+              "type": "boolean",
+              "description": "Flag to indicated that the license is invalidated"
+             },
+             "invalidatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "When the license was invalidated. Will be null for active licenses"
+             },
+             "expired": {
+              "type": "boolean",
+              "description": "Flag to indicate if the license is expired"
+             },
+             "editions": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "properties": {
+                "edition": {
+                 "type": "string",
+                 "description": "The name of the license edition"
+                },
+                "productType": {
+                 "type": "string",
+                 "description": "The product type of the license edition"
+                }
+               }
+              },
+              "description": "The editions of the license for each relevant product type"
+             },
+             "counts": {
+              "type": "array",
+              "items": {
+               "type": "object",
+               "properties": {
+                "model": {
+                 "type": "string",
+                 "description": "The license model type"
+                },
+                "count": {
+                 "type": "integer",
+                 "description": "The number of counts the license contains of this model"
+                }
+               }
+              },
+              "description": "The counts of the license by model type"
+             }
+            }
+           },
+           "description": "Newly moved licenses created in the destination organization of the license move operation"
+          }
+         }
+        },
+        "example": {
+         "remainderLicenses": [
+          {
+           "key": "Z2AA-BBBB-CCCC",
+           "organizationId": "123456",
+           "duration": 365,
+           "mode": "addDevices",
+           "startedAt": "2022-05-02T10:52:00Z",
+           "claimedAt": "2022-07-04T16:23:00Z",
+           "invalidated": true,
+           "invalidatedAt": "2022-07-04T16:23:00Z",
+           "expired": false,
+           "editions": [
+            {
+             "edition": "Enterprise",
+             "productType": "appliance"
+            }
+           ],
+           "counts": [
+            {
+             "model": "MR Enterprise",
+             "count": 2
+            }
+           ]
+          }
+         ],
+         "movedLicenses": [
+          {
+           "key": "Z2AA-BBBB-CCCC",
+           "organizationId": "123456",
+           "duration": 365,
+           "mode": "addDevices",
+           "startedAt": "2022-05-02T10:52:00Z",
+           "claimedAt": "2022-07-04T16:23:00Z",
+           "invalidated": true,
+           "invalidatedAt": "2022-07-04T16:23:00Z",
+           "expired": false,
+           "editions": [
+            {
+             "edition": "Enterprise",
+             "productType": "appliance"
+            }
+           ],
+           "counts": [
+            {
+             "model": "MR Enterprise",
+             "count": 2
+            }
+           ]
+          }
+         ]
+        }
+       }
+      }
+     }
+    },
+    "security": [
+     {
+      "oauth2": [
+       "dashboard:licensing:config:write"
+      ]
+     }
+    ],
+    "summary": "Moves a license to a different organization (coterm only)",
+    "tags": [
+     "licensing",
+     "configure",
+     "coterm",
+     "licenses"
+    ]
+   }
+  }
+ }
+}

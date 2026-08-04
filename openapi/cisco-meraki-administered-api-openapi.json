@@ -1,0 +1,317 @@
+{
+ "openapi": "3.0.1",
+ "info": {
+  "title": "Cisco Meraki Dashboard API \u2014 administered",
+  "description": "The administered operations of the Cisco Meraki Dashboard API, split by product area from Cisco's published OpenAPI definition.",
+  "version": "1.72.0",
+  "contact": {
+   "name": "Meraki Developer Community",
+   "url": "https://meraki.io/community"
+  },
+  "x-provenance": {
+   "method": "harvested",
+   "authored_by": "Cisco Meraki",
+   "harvested_by": "API Evangelist",
+   "harvested_on": "2026-07-31",
+   "first_party": true,
+   "note": "Split by first tag from Cisco's published spec3.json; operations unmodified.",
+   "provider_published": true
+  },
+  "x-evidence": [
+   {
+    "type": "source",
+    "url": "https://github.com/meraki/openapi/blob/master/openapi/spec3.json"
+   },
+   {
+    "type": "raw",
+    "url": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json"
+   },
+   {
+    "type": "alternate",
+    "url": "https://api.meraki.com/api/v1/openapiSpec"
+   }
+  ]
+ },
+ "servers": [
+  {
+   "url": "https://api.meraki.com/{basePath}",
+   "variables": {
+    "basePath": {
+     "default": "api/v1"
+    }
+   }
+  }
+ ],
+ "security": [
+  {
+   "meraki_api_key": []
+  },
+  {
+   "bearerAuth": []
+  }
+ ],
+ "tags": [
+  {
+   "name": "administered",
+   "description": ""
+  },
+  {
+   "name": "api",
+   "description": ""
+  },
+  {
+   "name": "configure",
+   "description": ""
+  },
+  {
+   "name": "identities",
+   "description": ""
+  },
+  {
+   "name": "keys",
+   "description": ""
+  },
+  {
+   "name": "me",
+   "description": ""
+  },
+  {
+   "name": "monitor",
+   "description": ""
+  }
+ ],
+ "components": {
+  "securitySchemes": {
+   "meraki_api_key": {
+    "type": "apiKey",
+    "name": "X-Cisco-Meraki-API-Key",
+    "in": "header"
+   },
+   "bearerAuth": {
+    "type": "http",
+    "scheme": "bearer",
+    "bearerFormat": "API Key"
+   }
+  }
+ },
+ "paths": {
+  "/administered/identities/me": {
+   "get": {
+    "description": "Returns the identity of the current user.",
+    "operationId": "getAdministeredIdentitiesMe",
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "name": {
+           "type": "string",
+           "description": "Username"
+          },
+          "email": {
+           "type": "string",
+           "description": "User email"
+          },
+          "lastUsedDashboardAt": {
+           "type": "string",
+           "format": "date-time",
+           "description": "Last seen active on Dashboard UI"
+          },
+          "authentication": {
+           "type": "object",
+           "properties": {
+            "mode": {
+             "type": "string",
+             "description": "Authentication mode"
+            },
+            "api": {
+             "type": "object",
+             "properties": {
+              "key": {
+               "type": "object",
+               "properties": {
+                "created": {
+                 "type": "boolean",
+                 "description": "If API key is created for this user"
+                }
+               },
+               "description": "API key"
+              }
+             },
+             "description": "API authentication"
+            },
+            "twoFactor": {
+             "type": "object",
+             "properties": {
+              "enabled": {
+               "type": "boolean",
+               "description": "If twoFactor authentication is enabled for this user"
+              }
+             },
+             "description": "TwoFactor authentication"
+            },
+            "saml": {
+             "type": "object",
+             "properties": {
+              "enabled": {
+               "type": "boolean",
+               "description": "If SAML authentication is enabled for this user"
+              }
+             },
+             "description": "SAML authentication"
+            }
+           },
+           "description": "Authentication info"
+          }
+         }
+        },
+        "example": {
+         "name": "Miles Meraki",
+         "email": "miles@meraki.com",
+         "lastUsedDashboardAt": "2018-02-11T00:00:00.090210Z",
+         "authentication": {
+          "mode": "email",
+          "api": {
+           "key": {
+            "created": true
+           }
+          },
+          "twoFactor": {
+           "enabled": false
+          },
+          "saml": {
+           "enabled": false
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "summary": "Returns the identity of the current user.",
+    "tags": [
+     "administered",
+     "monitor",
+     "identities",
+     "me"
+    ]
+   }
+  },
+  "/administered/identities/me/api/keys": {
+   "get": {
+    "description": "List the non-sensitive metadata associated with the API keys that belong to the user",
+    "operationId": "getAdministeredIdentitiesMeApiKeys",
+    "responses": {
+     "200": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "suffix": {
+            "type": "string",
+            "description": "Last 4 characters of the API key"
+           },
+           "createdAt": {
+            "type": "string",
+            "description": "Date that the API key was created"
+           }
+          }
+         }
+        },
+        "example": [
+         {
+          "suffix": "da4f",
+          "createdAt": "2018-02-11T00:00:00.090210Z"
+         }
+        ]
+       }
+      }
+     }
+    },
+    "summary": "List the non-sensitive metadata associated with the API keys that belong to the user",
+    "tags": [
+     "administered",
+     "configure",
+     "identities",
+     "me",
+     "api",
+     "keys"
+    ]
+   }
+  },
+  "/administered/identities/me/api/keys/generate": {
+   "post": {
+    "description": "Generates an API key for an identity. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed.",
+    "operationId": "generateAdministeredIdentitiesMeApiKeys",
+    "responses": {
+     "202": {
+      "description": "Successful operation",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "key": {
+           "type": "string",
+           "description": "API key in plaintext. This value will not be accessible outside of key generation"
+          }
+         }
+        },
+        "example": {
+         "key": "1284392014819"
+        }
+       }
+      }
+     }
+    },
+    "summary": "Generates an API key for an identity",
+    "tags": [
+     "administered",
+     "configure",
+     "identities",
+     "me",
+     "api",
+     "keys"
+    ]
+   }
+  },
+  "/administered/identities/me/api/keys/{suffix}/revoke": {
+   "post": {
+    "description": "Revokes an identity's API key, using the last four characters of the key. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed.",
+    "operationId": "revokeAdministeredIdentitiesMeApiKeys",
+    "parameters": [
+     {
+      "name": "suffix",
+      "in": "path",
+      "description": "Suffix",
+      "schema": {
+       "type": "string"
+      },
+      "required": true
+     }
+    ],
+    "responses": {
+     "202": {
+      "description": "Successful operation"
+     }
+    },
+    "summary": "Revokes an identity's API key, using the last four characters of the key",
+    "tags": [
+     "administered",
+     "configure",
+     "identities",
+     "me",
+     "api",
+     "keys"
+    ]
+   }
+  }
+ }
+}

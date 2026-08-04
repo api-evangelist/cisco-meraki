@@ -22,17 +22,17 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cisco-meraki.png
 tags:
-  - Networking
-  - Wireless
-  - Switching
-  - Security Appliances
-  - Cloud-Managed Networking
-  - MDM
-  - Cameras
-  - IoT
+- Networking
+- Wireless
+- Switching
+- Security Appliances
+- Cloud-Managed Networking
+- MDM
+- Cameras
+- IoT
 url: https://raw.githubusercontent.com/api-evangelist/cisco-meraki/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-07-31'
 specificationVersion: '0.19'
 apis:
 - aid: cisco-meraki:webhooks
@@ -49,175 +49,451 @@ apis:
   properties:
   - type: Documentation
     url: https://developer.cisco.com/meraki/webhooks/
-- aid: cisco-meraki:cisco-meraki-appliance-api
-  name: Cisco Meraki Appliance API
-  description: The Appliance API from Cisco Meraki — 1 operation(s) for appliance.
+- aid: cisco-meraki:administered
+  name: Cisco Meraki Dashboard API — Administered
+  description: >-
+    The administered product area of the Cisco Meraki Dashboard API — 4 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
   humanURL: https://developer.cisco.com/meraki/api-v1/
   baseURL: https://api.meraki.com/api/v1
   tags:
-  - Appliance
+  - administered
+  - api
+  - configure
+  - identities
+  - keys
+  - me
+  - monitor
   properties:
   - type: OpenAPI
-    url: openapi/cisco-meraki-appliance-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-camera-api
-  name: Cisco Meraki Camera API
-  description: The Camera API from Cisco Meraki — 1 operation(s) for camera.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - Camera
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-camera-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-devices-api
-  name: Cisco Meraki Devices API
-  description: The Devices API from Cisco Meraki — 4 operation(s) for devices.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - Devices
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-devices-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-livetools-api
-  name: Cisco Meraki LiveTools API
-  description: The LiveTools API from Cisco Meraki — 1 operation(s) for livetools.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - LiveTools
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-livetools-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-networks-api
-  name: Cisco Meraki Networks API
-  description: The Networks API from Cisco Meraki — 3 operation(s) for networks.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - Networks
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-networks-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-organizations-api
-  name: Cisco Meraki Organizations API
-  description: The Organizations API from Cisco Meraki — 2 operation(s) for organizations.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - Organizations
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-organizations-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-switch-api
-  name: Cisco Meraki Switch API
-  description: The Switch API from Cisco Meraki — 2 operation(s) for switch.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - Switch
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-switch-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-- aid: cisco-meraki:cisco-meraki-wireless-api
-  name: Cisco Meraki Wireless API
-  description: The Wireless API from Cisco Meraki — 2 operation(s) for wireless.
-  humanURL: https://developer.cisco.com/meraki/api-v1/
-  baseURL: https://api.meraki.com/api/v1
-  tags:
-  - Wireless
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-meraki-wireless-api-openapi.yml
-  - type: Documentation
-    url: https://developer.cisco.com/meraki/api-v1/
-  - type: GettingStarted
-    url: https://developer.cisco.com/meraki/api-v1/getting-started/
-  - type: Authentication
-    url: https://developer.cisco.com/meraki/api-v1/authorization/
-  - type: API Index
-    url: https://developer.cisco.com/meraki/api-v1/api-index/
-common:
-  - type: AgenticAccess
-    url: agentic-access/cisco-meraki-agentic-access.yml
-  - type: DomainSecurity
-    url: security/cisco-meraki-domain-security.yml
-  - type: Authentication
-    url: authentication/cisco-meraki-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/cisco-meraki
-  - type: Website
-    url: https://meraki.cisco.com
-  - type: Developer Hub
-    url: https://developer.cisco.com/meraki/
-  - type: Documentation
-    url: https://documentation.meraki.com
-  - type: GitHubOrganization
-    url: https://github.com/meraki
+    url: openapi/cisco-meraki-administered-api-openapi.json
   - type: OpenAPI Source
     url: https://github.com/meraki/openapi
-  - type: Python SDK
-    url: https://github.com/meraki/dashboard-api-python
-  - type: Community
-    url: https://community.meraki.com
-  - type: Blog
-    url: https://meraki.cisco.com/blog/feed/
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:appliance
+  name: Cisco Meraki Dashboard API — Appliance
+  description: >-
+    The appliance product area of the Cisco Meraki Dashboard API — 157 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - account
+  - appliance
+  - applicationCategories
+  - assignments
+  - authenticationToken
+  - bgp
+  - bulkCreate
+  - bulkDelete
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-appliance-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:camera
+  name: Cisco Meraki Dashboard API — Camera
+  description: >-
+    The camera product area of the Cisco Meraki Dashboard API — 46 operations, from Cisco's published OpenAPI definition (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - analytics
+  - areas
+  - artifacts
+  - boundaries
+  - byBoundary
+  - byDevice
+  - byInterval
+  - camera
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-camera-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:campusgateway
+  name: Cisco Meraki Dashboard API — campusGateway
+  description: >-
+    The campusGateway product area of the Cisco Meraki Dashboard API — 4 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - byDevice
+  - campusGateway
+  - clusters
+  - configure
+  - devices
+  - localOverrides
+  - uplinks
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-campusgateway-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:cellulargateway
+  name: Cisco Meraki Dashboard API — cellularGateway
+  description: >-
+    The cellularGateway product area of the Cisco Meraki Dashboard API — 24 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - accounts
+  - cellularGateway
+  - communicationPlans
+  - configure
+  - connectivityMonitoringDestinations
+  - dhcp
+  - esims
+  - inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-cellulargateway-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:devices
+  name: Cisco Meraki Dashboard API — Devices
+  description: >-
+    The devices product area of the Cisco Meraki Dashboard API — 41 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - arpTable
+  - bands
+  - blink
+  - cableTest
+  - cellular
+  - clients
+  - configure
+  - cycle
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-devices-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:insight
+  name: Cisco Meraki Dashboard API — Insight
+  description: >-
+    The insight product area of the Cisco Meraki Dashboard API — 7 operations, from Cisco's published OpenAPI definition (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - applications
+  - configure
+  - healthByTime
+  - insight
+  - monitor
+  - monitoredMediaServers
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-insight-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:licensing
+  name: Cisco Meraki Dashboard API — Licensing
+  description: >-
+    The licensing product area of the Cisco Meraki Dashboard API — 8 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - claimKey
+  - compliance
+  - configure
+  - coterm
+  - entitlements
+  - licenses
+  - licensing
+  - statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-licensing-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:networks
+  name: Cisco Meraki Dashboard API — Networks
+  description: >-
+    The networks product area of the Cisco Meraki Dashboard API — 115 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - alerts
+  - applicationCategories
+  - applicationUsage
+  - assignments
+  - autoLocate
+  - bandwidthUsageHistory
+  - bluetoothClients
+  - byClient
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-networks-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:organizations
+  name: Cisco Meraki Dashboard API — Organizations
+  description: >-
+    The organizations product area of the Cisco Meraki Dashboard API — 228 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - acls
+  - actionBatches
+  - adaptivePolicy
+  - adaptivePolicyGroups
+  - addresses
+  - admins
+  - alertTypes
+  - alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-organizations-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:sensor
+  name: Cisco Meraki Dashboard API — Sensor
+  description: >-
+    The sensor product area of the Cisco Meraki Dashboard API — 19 operations, from Cisco's published OpenAPI definition (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - alerts
+  - byMetric
+  - commands
+  - configure
+  - connections
+  - current
+  - gateways
+  - history
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-sensor-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:sm
+  name: Cisco Meraki Dashboard API — Sm
+  description: >-
+    The sm product area of the Cisco Meraki Dashboard API — 49 operations, from Cisco's published OpenAPI definition (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - admins
+  - apnsCert
+  - assignments
+  - byNetwork
+  - bypassActivationLockAttempts
+  - cellularUsageHistory
+  - certs
+  - configure
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-sm-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:spaces
+  name: Cisco Meraki Dashboard API — Spaces
+  description: >-
+    The spaces product area of the Cisco Meraki Dashboard API — 2 operations, from Cisco's published OpenAPI definition (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - configure
+  - integrate
+  - integration
+  - spaces
+  - status
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-spaces-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:switch
+  name: Cisco Meraki Dashboard API — Switch
+  description: >-
+    The switch product area of the Cisco Meraki Dashboard API — 102 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - accessControlLists
+  - accessPolicies
+  - alternateManagementInterface
+  - arpInspection
+  - byDevice
+  - byInterval
+  - bySwitch
+  - clients
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-switch-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:wireless
+  name: Cisco Meraki Dashboard API — Wireless
+  description: >-
+    The wireless product area of the Cisco Meraki Dashboard API — 136 operations, from Cisco's published OpenAPI definition
+    (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - airMarshal
+  - allowlist
+  - alternateManagementInterface
+  - assignments
+  - authorities
+  - autoRf
+  - billing
+  - bluetooth
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-wireless-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+- aid: cisco-meraki:wirelesscontroller
+  name: Cisco Meraki Dashboard API — wirelessController
+  description: >-
+    The wirelessController product area of the Cisco Meraki Dashboard API — 15 operations, from Cisco's published OpenAPI
+    definition (v1.72.0).
+  humanURL: https://developer.cisco.com/meraki/api-v1/
+  baseURL: https://api.meraki.com/api/v1
+  tags:
+  - availabilities
+  - byDevice
+  - byInterval
+  - changeHistory
+  - clients
+  - connections
+  - devices
+  - failover
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-meraki-wirelesscontroller-api-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/meraki/openapi
+  - type: Documentation
+    url: https://developer.cisco.com/meraki/api-v1/
+  - type: GettingStarted
+    url: https://developer.cisco.com/meraki/api-v1/getting-started/
+  - type: Authentication
+    url: https://developer.cisco.com/meraki/api-v1/authorization/
+common:
+- type: AgenticAccess
+  url: agentic-access/cisco-meraki-agentic-access.yml
+- type: DomainSecurity
+  url: security/cisco-meraki-domain-security.yml
+- type: Authentication
+  url: authentication/cisco-meraki-authentication.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/cisco-meraki
+- type: Website
+  url: https://meraki.cisco.com
+- type: Developer Hub
+  url: https://developer.cisco.com/meraki/
+- type: Documentation
+  url: https://documentation.meraki.com
+- type: GitHubOrganization
+  url: https://github.com/meraki
+- type: OpenAPI Source
+  url: https://github.com/meraki/openapi
+- type: Python SDK
+  url: https://github.com/meraki/dashboard-api-python
+- type: Community
+  url: https://community.meraki.com
+- type: Blog
+  url: https://meraki.cisco.com/blog/feed/
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

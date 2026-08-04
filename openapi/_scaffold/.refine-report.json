@@ -1,0 +1,28 @@
+{
+  "provider": "cisco-meraki",
+  "sources": [
+    "cisco-meraki-appliance-api-openapi.yml",
+    "cisco-meraki-camera-api-openapi.yml",
+    "cisco-meraki-devices-api-openapi.yml",
+    "cisco-meraki-livetools-api-openapi.yml",
+    "cisco-meraki-networks-api-openapi.yml",
+    "cisco-meraki-organizations-api-openapi.yml",
+    "cisco-meraki-switch-api-openapi.yml",
+    "cisco-meraki-wireless-api-openapi.yml"
+  ],
+  "outputs": [
+    "cisco-meraki-appliance-api-openapi.yml",
+    "cisco-meraki-camera-api-openapi.yml",
+    "cisco-meraki-devices-api-openapi.yml",
+    "cisco-meraki-livetools-api-openapi.yml",
+    "cisco-meraki-networks-api-openapi.yml",
+    "cisco-meraki-organizations-api-openapi.yml",
+    "cisco-meraki-switch-api-openapi.yml",
+    "cisco-meraki-wireless-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

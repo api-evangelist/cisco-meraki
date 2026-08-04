@@ -1,6 +1,6 @@
 generated: '2026-07-11'
 method: derived
-source: openapi/cisco-meraki-openapi.yml
+source: openapi/cisco-meraki-dashboard-api-openapi.json (_original/)
 summary:
   types:
   - apiKey
@@ -13,9 +13,9 @@ schemes:
   in: header
   parameter: X-Cisco-Meraki-API-Key
   sources:
-  - openapi/cisco-meraki-openapi.yml
+  - openapi/cisco-meraki-dashboard-api-openapi.json (_original/)
 - name: bearerAuth
   type: http
   scheme: bearer
   sources:
-  - openapi/cisco-meraki-openapi.yml
+  - openapi/cisco-meraki-dashboard-api-openapi.json (_original/)
