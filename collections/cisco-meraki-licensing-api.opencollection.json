@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — licensing",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "licensing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve the list of purchasable entitlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/administered/licensing/subscription/entitlements",
+            "params": [
+              {
+                "name": "skus",
+                "value": "",
+                "type": "query",
+                "description": "Filter to entitlements with the specified SKUs"
+              }
+            ]
+          },
+          "docs": "Retrieve the list of purchasable entitlements"
+        },
+        {
+          "info": {
+            "name": "List available subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/administered/licensing/subscription/subscriptions",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "subscriptionIds",
+                "value": "",
+                "type": "query",
+                "description": "List of subscription ids to fetch"
+              },
+              {
+                "name": "organizationIds",
+                "value": "",
+                "type": "query",
+                "description": "Organizations to get associated subscriptions for"
+              },
+              {
+                "name": "statuses",
+                "value": "",
+                "type": "query",
+                "description": "List of statuses that returned subscriptions can have"
+              },
+              {
+                "name": "productTypes",
+                "value": "",
+                "type": "query",
+                "description": "List of product types that returned subscriptions need to have entitlements for."
+              },
+              {
+                "name": "skus",
+                "value": "",
+                "type": "query",
+                "description": "List of SKUs that returned subscriptions need to have entitlements for."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Search for subscription name"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter subscriptions by start date, ISO 8601 format. To filter with a range of dates, use 'startDate[<option>]=?' in the request. Accepted options include lt, gt, lte, gte."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter subscriptions by end date, ISO 8601 format. To filter with a range of dates, use 'endDate[<option>]=?' in the request. Accepted options include lt, gt, lte, gte."
+              }
+            ]
+          },
+          "docs": "List available subscriptions"
+        },
+        {
+          "info": {
+            "name": "Claim a subscription into an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/administered/licensing/subscription/subscriptions/claim",
+            "params": [
+              {
+                "name": "validate",
+                "value": "",
+                "type": "query",
+                "description": "Check if the provided claim key is valid and can be claimed into the organization."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Claim a subscription into an organization."
+        },
+        {
+          "info": {
+            "name": "Find a subscription by claim key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/administered/licensing/subscription/subscriptions/claimKey/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Find a subscription by claim key. Returns 400 if the key has already been claimed."
+        },
+        {
+          "info": {
+            "name": "Get compliance status for requested subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/administered/licensing/subscription/subscriptions/compliance/statuses",
+            "params": [
+              {
+                "name": "organizationIds",
+                "value": "",
+                "type": "query",
+                "description": "Organizations to get subscription compliance information for"
+              },
+              {
+                "name": "subscriptionIds",
+                "value": "",
+                "type": "query",
+                "description": "Subscription ids"
+              }
+            ]
+          },
+          "docs": "Get compliance status for requested subscriptions"
+        },
+        {
+          "info": {
+            "name": "Bind networks to a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/administered/licensing/subscription/subscriptions/:subscriptionId/bind",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "Subscription ID"
+              },
+              {
+                "name": "validate",
+                "value": "",
+                "type": "query",
+                "description": "Check if the provided networks can be bound to the subscription. Returns any licensing problems and does not commit the results."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bind networks to a subscription"
+        },
+        {
+          "info": {
+            "name": "List the licenses in a coterm organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/licensing/coterm/licenses",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "invalidated",
+                "value": "",
+                "type": "query",
+                "description": "Filter for licenses that are invalidated"
+              },
+              {
+                "name": "expired",
+                "value": "",
+                "type": "query",
+                "description": "Filter for licenses that are expired"
+              }
+            ]
+          },
+          "docs": "List the licenses in a coterm organization"
+        },
+        {
+          "info": {
+            "name": "Moves a license to a different organization (coterm only)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/licensing/coterm/licenses/move",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Moves a license to a different organization (coterm only)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

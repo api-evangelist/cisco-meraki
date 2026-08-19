@@ -1,0 +1,2623 @@
+{
+  "item": [
+    {
+      "id": "e46b2fe5-cc95-483d-b796-95074f672c48",
+      "name": "byDevice",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88de3fed-d59d-44a0-9a1b-0ed23ded5db6",
+          "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+          "request": {
+            "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+            "description": {
+              "content": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "devices",
+                "uplinks",
+                "localOverrides",
+                "byDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb86732f-5475-4e49-9d74-882b59c4bfda",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "devices",
+                    "uplinks",
+                    "localOverrides",
+                    "byDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"uplink\": {\n        \"interface\": \"man1\",\n        \"vlan\": 5,\n        \"addresses\": [\n          {\n            \"assignmentMode\": \"static\",\n            \"protocol\": \"ipv4\",\n            \"gateway\": \"1.2.3.5\",\n            \"subnetMask\": \"255.255.255.0\",\n            \"address\": \"121.12.12.1\"\n          }\n        ]\n      },\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"sgt\": 300\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 10,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1e7c273a-b192-4f85-a9c4-cd62f495a6ef",
+      "name": "campusGateway",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c04d1a78-5b58-43fa-b841-baa3a82e5522",
+          "name": "Create a cluster and add campus gateways to it",
+          "request": {
+            "name": "Create a cluster and add campus gateways to it",
+            "description": {
+              "content": "Create a cluster and add campus gateways to it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "networks",
+                ":networkId",
+                "campusGateway",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkId",
+                  "description": "(Required) Network ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da045fd9-0c25-40ea-b322-278c9c500e7b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "networks",
+                    ":networkId",
+                    "campusGateway",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkId",
+                      "description": "(Required) Network ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterId\": \"1284392014818\",\n  \"name\": \"North Campus\",\n  \"uplinks\": [\n    {\n      \"interface\": \"man1\",\n      \"vlan\": 5,\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"static\",\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"1.2.3.5\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"man1\"\n      },\n      \"interface\": \"tun1\",\n      \"vlan\": 6,\n      \"addresses\": [\n        {\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"2.3.5.6\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"8.8.8.8\",\n      \"8.8.4.4\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"id\": \"1284392014830\",\n      \"name\": \"Port-channel1\",\n      \"vlan\": 25,\n      \"allowedVlans\": \"10-20\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"memberId\": \"1\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"5.1.2.3\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"tun1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"6.2.6.7\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"This cluster is for New York Office\",\n  \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c070d6c0-cfd5-4284-9e4f-79f2525ec15d",
+          "name": "Update a cluster and add/remove campus gateways to/from it",
+          "request": {
+            "name": "Update a cluster and add/remove campus gateways to/from it",
+            "description": {
+              "content": "Update a cluster and add/remove campus gateways to/from it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "networks",
+                ":networkId",
+                "campusGateway",
+                "clusters",
+                ":clusterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkId",
+                  "description": "(Required) Network ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) Cluster ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e16caa10-51c8-4992-ad90-9f5c5641164d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "networks",
+                    ":networkId",
+                    "campusGateway",
+                    "clusters",
+                    ":clusterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkId",
+                      "description": "(Required) Network ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) Cluster ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterId\": \"1284392014818\",\n  \"name\": \"North Campus\",\n  \"uplinks\": [\n    {\n      \"interface\": \"man1\",\n      \"vlan\": 5,\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"static\",\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"1.2.3.5\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"man1\"\n      },\n      \"interface\": \"tun1\",\n      \"vlan\": 6,\n      \"addresses\": [\n        {\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"2.3.5.6\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"8.8.8.8\",\n      \"8.8.4.4\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"id\": \"1284392014830\",\n      \"name\": \"Port-channel1\",\n      \"vlan\": 25,\n      \"allowedVlans\": \"10-20\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"memberId\": \"1\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"5.1.2.3\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"tun1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"6.2.6.7\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"This cluster is for New York Office\",\n  \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f5ae30d-ad91-4f47-9385-a8d4349c3a72",
+          "name": "Get the details of campus gateway clusters",
+          "request": {
+            "name": "Get the details of campus gateway clusters",
+            "description": {
+              "content": "Get the details of campus gateway clusters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "networkIds",
+                  "value": "<string>",
+                  "description": "Networks for which information should be gathered."
+                },
+                {
+                  "disabled": false,
+                  "key": "networkIds",
+                  "value": "<string>",
+                  "description": "Networks for which information should be gathered."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 100. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5a1e90ec-4bc8-4b7e-8346-337b155f5a51",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "networkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "networkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"network\": {\n        \"id\": \"N_2313\"\n      },\n      \"clusterId\": \"1284392014818\",\n      \"name\": \"North Campus\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"vlan\": 5,\n          \"addresses\": [\n            {\n              \"assignmentMode\": \"static\",\n              \"protocol\": \"ipv4\",\n              \"gateway\": \"1.2.3.5\",\n              \"subnetMask\": \"255.255.255.0\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"uplink\": {\n            \"interface\": \"man1\"\n          },\n          \"interface\": \"tun1\",\n          \"vlan\": 6,\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"gateway\": \"2.3.5.6\",\n              \"subnetMask\": \"255.255.255.0\"\n            }\n          ]\n        }\n      ],\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"portChannels\": [\n        {\n          \"id\": \"1284392014830\",\n          \"name\": \"Port-channel1\",\n          \"vlan\": 25,\n          \"allowedVlans\": \"10-20\"\n        }\n      ],\n      \"devices\": [\n        {\n          \"serial\": \"Q234-ABCD-0001\",\n          \"memberId\": \"1\",\n          \"uplinks\": [\n            {\n              \"interface\": \"man1\",\n              \"addresses\": [\n                {\n                  \"protocol\": \"ipv4\",\n                  \"address\": \"5.1.2.3\"\n                }\n              ]\n            }\n          ],\n          \"tunnels\": [\n            {\n              \"interface\": \"tun1\",\n              \"addresses\": [\n                {\n                  \"protocol\": \"ipv4\",\n                  \"address\": \"6.2.6.7\"\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"notes\": \"This cluster is for New York Office\",\n      \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 2,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "816e9022-672c-43be-80ad-25fa5685c935",
+          "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+          "request": {
+            "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+            "description": {
+              "content": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "devices",
+                "uplinks",
+                "localOverrides",
+                "byDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a0202a4-e0e8-40b8-b930-cfff6f64fe2c",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "devices",
+                    "uplinks",
+                    "localOverrides",
+                    "byDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"uplink\": {\n        \"interface\": \"man1\",\n        \"vlan\": 5,\n        \"addresses\": [\n          {\n            \"assignmentMode\": \"static\",\n            \"protocol\": \"ipv4\",\n            \"gateway\": \"1.2.3.5\",\n            \"subnetMask\": \"255.255.255.0\",\n            \"address\": \"121.12.12.1\"\n          }\n        ]\n      },\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"sgt\": 300\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 10,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "14e4475e-dea3-446d-9d6e-1a525a04af05",
+      "name": "clusters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e304a0dc-d25b-4f7c-9095-cfa3ea501717",
+          "name": "Create a cluster and add campus gateways to it",
+          "request": {
+            "name": "Create a cluster and add campus gateways to it",
+            "description": {
+              "content": "Create a cluster and add campus gateways to it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "networks",
+                ":networkId",
+                "campusGateway",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkId",
+                  "description": "(Required) Network ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b77d4f20-51ea-4b8f-ba31-87559a0ca27f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "networks",
+                    ":networkId",
+                    "campusGateway",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkId",
+                      "description": "(Required) Network ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterId\": \"1284392014818\",\n  \"name\": \"North Campus\",\n  \"uplinks\": [\n    {\n      \"interface\": \"man1\",\n      \"vlan\": 5,\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"static\",\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"1.2.3.5\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"man1\"\n      },\n      \"interface\": \"tun1\",\n      \"vlan\": 6,\n      \"addresses\": [\n        {\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"2.3.5.6\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"8.8.8.8\",\n      \"8.8.4.4\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"id\": \"1284392014830\",\n      \"name\": \"Port-channel1\",\n      \"vlan\": 25,\n      \"allowedVlans\": \"10-20\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"memberId\": \"1\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"5.1.2.3\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"tun1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"6.2.6.7\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"This cluster is for New York Office\",\n  \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "768d7997-37fb-4f7e-9843-ad7b6fd48ef3",
+          "name": "Update a cluster and add/remove campus gateways to/from it",
+          "request": {
+            "name": "Update a cluster and add/remove campus gateways to/from it",
+            "description": {
+              "content": "Update a cluster and add/remove campus gateways to/from it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "networks",
+                ":networkId",
+                "campusGateway",
+                "clusters",
+                ":clusterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkId",
+                  "description": "(Required) Network ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) Cluster ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90304357-6f90-4032-bef4-12e54016e136",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "networks",
+                    ":networkId",
+                    "campusGateway",
+                    "clusters",
+                    ":clusterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkId",
+                      "description": "(Required) Network ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) Cluster ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterId\": \"1284392014818\",\n  \"name\": \"North Campus\",\n  \"uplinks\": [\n    {\n      \"interface\": \"man1\",\n      \"vlan\": 5,\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"static\",\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"1.2.3.5\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"man1\"\n      },\n      \"interface\": \"tun1\",\n      \"vlan\": 6,\n      \"addresses\": [\n        {\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"2.3.5.6\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"8.8.8.8\",\n      \"8.8.4.4\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"id\": \"1284392014830\",\n      \"name\": \"Port-channel1\",\n      \"vlan\": 25,\n      \"allowedVlans\": \"10-20\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"memberId\": \"1\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"5.1.2.3\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"tun1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"6.2.6.7\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"This cluster is for New York Office\",\n  \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e38758a9-0eba-471e-b6a6-28d6d5fc4330",
+          "name": "Get the details of campus gateway clusters",
+          "request": {
+            "name": "Get the details of campus gateway clusters",
+            "description": {
+              "content": "Get the details of campus gateway clusters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "networkIds",
+                  "value": "<string>",
+                  "description": "Networks for which information should be gathered."
+                },
+                {
+                  "disabled": false,
+                  "key": "networkIds",
+                  "value": "<string>",
+                  "description": "Networks for which information should be gathered."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 100. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "7e80a915-4c55-4ff2-9506-bdad07c29921",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "networkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "networkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"network\": {\n        \"id\": \"N_2313\"\n      },\n      \"clusterId\": \"1284392014818\",\n      \"name\": \"North Campus\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"vlan\": 5,\n          \"addresses\": [\n            {\n              \"assignmentMode\": \"static\",\n              \"protocol\": \"ipv4\",\n              \"gateway\": \"1.2.3.5\",\n              \"subnetMask\": \"255.255.255.0\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"uplink\": {\n            \"interface\": \"man1\"\n          },\n          \"interface\": \"tun1\",\n          \"vlan\": 6,\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"gateway\": \"2.3.5.6\",\n              \"subnetMask\": \"255.255.255.0\"\n            }\n          ]\n        }\n      ],\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"portChannels\": [\n        {\n          \"id\": \"1284392014830\",\n          \"name\": \"Port-channel1\",\n          \"vlan\": 25,\n          \"allowedVlans\": \"10-20\"\n        }\n      ],\n      \"devices\": [\n        {\n          \"serial\": \"Q234-ABCD-0001\",\n          \"memberId\": \"1\",\n          \"uplinks\": [\n            {\n              \"interface\": \"man1\",\n              \"addresses\": [\n                {\n                  \"protocol\": \"ipv4\",\n                  \"address\": \"5.1.2.3\"\n                }\n              ]\n            }\n          ],\n          \"tunnels\": [\n            {\n              \"interface\": \"tun1\",\n              \"addresses\": [\n                {\n                  \"protocol\": \"ipv4\",\n                  \"address\": \"6.2.6.7\"\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"notes\": \"This cluster is for New York Office\",\n      \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 2,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6bf2637f-24b1-451f-a80a-47217aefe12f",
+      "name": "configure",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2fbd6d09-64a8-4c4c-a61d-1f69bd1f5525",
+          "name": "Create a cluster and add campus gateways to it",
+          "request": {
+            "name": "Create a cluster and add campus gateways to it",
+            "description": {
+              "content": "Create a cluster and add campus gateways to it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "networks",
+                ":networkId",
+                "campusGateway",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkId",
+                  "description": "(Required) Network ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1214236-b32c-4d8b-a822-61ec46ac8bdf",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "networks",
+                    ":networkId",
+                    "campusGateway",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkId",
+                      "description": "(Required) Network ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            },\n            {\n              \"protocol\": \"<string>\",\n              \"address\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterId\": \"1284392014818\",\n  \"name\": \"North Campus\",\n  \"uplinks\": [\n    {\n      \"interface\": \"man1\",\n      \"vlan\": 5,\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"static\",\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"1.2.3.5\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"man1\"\n      },\n      \"interface\": \"tun1\",\n      \"vlan\": 6,\n      \"addresses\": [\n        {\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"2.3.5.6\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"8.8.8.8\",\n      \"8.8.4.4\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"id\": \"1284392014830\",\n      \"name\": \"Port-channel1\",\n      \"vlan\": 25,\n      \"allowedVlans\": \"10-20\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"memberId\": \"1\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"5.1.2.3\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"tun1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"6.2.6.7\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"This cluster is for New York Office\",\n  \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7f4939e-0589-4035-a9b7-daf899cd94d3",
+          "name": "Update a cluster and add/remove campus gateways to/from it",
+          "request": {
+            "name": "Update a cluster and add/remove campus gateways to/from it",
+            "description": {
+              "content": "Update a cluster and add/remove campus gateways to/from it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "networks",
+                ":networkId",
+                "campusGateway",
+                "clusters",
+                ":clusterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "networkId",
+                  "description": "(Required) Network ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) Cluster ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed7b14b6-d829-4f98-8162-14e5242fc690",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "networks",
+                    ":networkId",
+                    "campusGateway",
+                    "clusters",
+                    ":clusterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "networkId",
+                      "description": "(Required) Network ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) Cluster ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"uplinks\": [\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"assignmentMode\": \"<string>\",\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"uplink\": {\n        \"interface\": \"<string>\"\n      },\n      \"interface\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"addresses\": [\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        },\n        {\n          \"protocol\": \"<string>\",\n          \"gateway\": \"<string>\",\n          \"subnetMask\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"vlan\": \"<integer>\",\n      \"allowedVlans\": \"<string>\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"serial\": \"<string>\",\n      \"uplinks\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"interface\": \"<string>\",\n          \"addresses\": [\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            },\n            {\n              \"address\": \"<string>\",\n              \"protocol\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clusterId\": \"1284392014818\",\n  \"name\": \"North Campus\",\n  \"uplinks\": [\n    {\n      \"interface\": \"man1\",\n      \"vlan\": 5,\n      \"addresses\": [\n        {\n          \"assignmentMode\": \"static\",\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"1.2.3.5\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"tunnels\": [\n    {\n      \"uplink\": {\n        \"interface\": \"man1\"\n      },\n      \"interface\": \"tun1\",\n      \"vlan\": 6,\n      \"addresses\": [\n        {\n          \"protocol\": \"ipv4\",\n          \"gateway\": \"2.3.5.6\",\n          \"subnetMask\": \"255.255.255.0\"\n        }\n      ]\n    }\n  ],\n  \"nameservers\": {\n    \"addresses\": [\n      \"8.8.8.8\",\n      \"8.8.4.4\"\n    ]\n  },\n  \"portChannels\": [\n    {\n      \"id\": \"1284392014830\",\n      \"name\": \"Port-channel1\",\n      \"vlan\": 25,\n      \"allowedVlans\": \"10-20\"\n    }\n  ],\n  \"devices\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"memberId\": \"1\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"5.1.2.3\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"interface\": \"tun1\",\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"address\": \"6.2.6.7\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"notes\": \"This cluster is for New York Office\",\n  \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "350583eb-9cb5-41e1-ac3f-df573f6b45c0",
+          "name": "Get the details of campus gateway clusters",
+          "request": {
+            "name": "Get the details of campus gateway clusters",
+            "description": {
+              "content": "Get the details of campus gateway clusters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "clusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "networkIds",
+                  "value": "<string>",
+                  "description": "Networks for which information should be gathered."
+                },
+                {
+                  "disabled": false,
+                  "key": "networkIds",
+                  "value": "<string>",
+                  "description": "Networks for which information should be gathered."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 100. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f342631d-b62a-4a7c-aa8e-8ce9c2da2dbd",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "clusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "networkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "networkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"network\": {\n        \"id\": \"N_2313\"\n      },\n      \"clusterId\": \"1284392014818\",\n      \"name\": \"North Campus\",\n      \"uplinks\": [\n        {\n          \"interface\": \"man1\",\n          \"vlan\": 5,\n          \"addresses\": [\n            {\n              \"assignmentMode\": \"static\",\n              \"protocol\": \"ipv4\",\n              \"gateway\": \"1.2.3.5\",\n              \"subnetMask\": \"255.255.255.0\"\n            }\n          ]\n        }\n      ],\n      \"tunnels\": [\n        {\n          \"uplink\": {\n            \"interface\": \"man1\"\n          },\n          \"interface\": \"tun1\",\n          \"vlan\": 6,\n          \"addresses\": [\n            {\n              \"protocol\": \"ipv4\",\n              \"gateway\": \"2.3.5.6\",\n              \"subnetMask\": \"255.255.255.0\"\n            }\n          ]\n        }\n      ],\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"portChannels\": [\n        {\n          \"id\": \"1284392014830\",\n          \"name\": \"Port-channel1\",\n          \"vlan\": 25,\n          \"allowedVlans\": \"10-20\"\n        }\n      ],\n      \"devices\": [\n        {\n          \"serial\": \"Q234-ABCD-0001\",\n          \"memberId\": \"1\",\n          \"uplinks\": [\n            {\n              \"interface\": \"man1\",\n              \"addresses\": [\n                {\n                  \"protocol\": \"ipv4\",\n                  \"address\": \"5.1.2.3\"\n                }\n              ]\n            }\n          ],\n          \"tunnels\": [\n            {\n              \"interface\": \"tun1\",\n              \"addresses\": [\n                {\n                  \"protocol\": \"ipv4\",\n                  \"address\": \"6.2.6.7\"\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"notes\": \"This cluster is for New York Office\",\n      \"url\": \"https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters\"\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 2,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69961cd8-a041-44b5-b40a-2f39ae4dad37",
+          "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+          "request": {
+            "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+            "description": {
+              "content": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "devices",
+                "uplinks",
+                "localOverrides",
+                "byDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "155c81d4-6070-4fd3-91cb-ab99be403952",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "devices",
+                    "uplinks",
+                    "localOverrides",
+                    "byDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"uplink\": {\n        \"interface\": \"man1\",\n        \"vlan\": 5,\n        \"addresses\": [\n          {\n            \"assignmentMode\": \"static\",\n            \"protocol\": \"ipv4\",\n            \"gateway\": \"1.2.3.5\",\n            \"subnetMask\": \"255.255.255.0\",\n            \"address\": \"121.12.12.1\"\n          }\n        ]\n      },\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"sgt\": 300\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 10,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a22886e7-fe76-461a-b4ae-cd5583fb4aca",
+      "name": "devices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f4bc766-513d-485c-bc51-dc606e53df3d",
+          "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+          "request": {
+            "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+            "description": {
+              "content": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "devices",
+                "uplinks",
+                "localOverrides",
+                "byDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6147c557-b317-4287-9bab-0d3530d39230",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "devices",
+                    "uplinks",
+                    "localOverrides",
+                    "byDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"uplink\": {\n        \"interface\": \"man1\",\n        \"vlan\": 5,\n        \"addresses\": [\n          {\n            \"assignmentMode\": \"static\",\n            \"protocol\": \"ipv4\",\n            \"gateway\": \"1.2.3.5\",\n            \"subnetMask\": \"255.255.255.0\",\n            \"address\": \"121.12.12.1\"\n          }\n        ]\n      },\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"sgt\": 300\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 10,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "95120298-9037-417e-b103-92c743fde29f",
+      "name": "localOverrides",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d60a6083-cf83-4aab-9a71-b89ca4b96141",
+          "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+          "request": {
+            "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+            "description": {
+              "content": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "devices",
+                "uplinks",
+                "localOverrides",
+                "byDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7402c081-b3ef-4cf7-993b-d0329dd7cc80",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "devices",
+                    "uplinks",
+                    "localOverrides",
+                    "byDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"uplink\": {\n        \"interface\": \"man1\",\n        \"vlan\": 5,\n        \"addresses\": [\n          {\n            \"assignmentMode\": \"static\",\n            \"protocol\": \"ipv4\",\n            \"gateway\": \"1.2.3.5\",\n            \"subnetMask\": \"255.255.255.0\",\n            \"address\": \"121.12.12.1\"\n          }\n        ]\n      },\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"sgt\": 300\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 10,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1e708eff-59ed-49a2-be6d-4045fdb7bbe0",
+      "name": "uplinks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f68bdbf8-8dd8-4cb7-90e7-5f2b8c58d969",
+          "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+          "request": {
+            "name": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+            "description": {
+              "content": "Uplink overrides configured locally on Campus Gateway devices in an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                ":organizationId",
+                "campusGateway",
+                "devices",
+                "uplinks",
+                "localOverrides",
+                "byDevice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "serials",
+                  "value": "<string>",
+                  "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "startingAfter",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                },
+                {
+                  "disabled": false,
+                  "key": "endingBefore",
+                  "value": "<string>",
+                  "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organizationId",
+                  "description": "(Required) Organization ID"
+                },
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "type": "any",
+                  "value": "{{basePath}}",
+                  "key": "basePath"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e097262c-a8e0-49b9-82c6-174c22088649",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organizationId",
+                    "campusGateway",
+                    "devices",
+                    "uplinks",
+                    "localOverrides",
+                    "byDevice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serials",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endingBefore",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organizationId",
+                      "description": "(Required) Organization ID"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "type": "any",
+                      "value": "{{basePath}}",
+                      "key": "basePath"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Cisco-Meraki-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.",
+                  "key": "Link",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"serial\": \"Q234-ABCD-0001\",\n      \"uplink\": {\n        \"interface\": \"man1\",\n        \"vlan\": 5,\n        \"addresses\": [\n          {\n            \"assignmentMode\": \"static\",\n            \"protocol\": \"ipv4\",\n            \"gateway\": \"1.2.3.5\",\n            \"subnetMask\": \"255.255.255.0\",\n            \"address\": \"121.12.12.1\"\n          }\n        ]\n      },\n      \"nameservers\": {\n        \"addresses\": [\n          \"8.8.8.8\",\n          \"8.8.4.4\"\n        ]\n      },\n      \"sgt\": 300\n    }\n  ],\n  \"meta\": {\n    \"counts\": {\n      \"items\": {\n        \"total\": 10,\n        \"remaining\": 0\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "api/v1",
+      "key": "basePath"
+    },
+    {
+      "type": "string",
+      "value": "https://api.meraki.com/{{basePath}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Cisco-Meraki-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52ade28c-aba4-4632-a8cb-2ce01307b0c3",
+    "name": "Cisco Meraki Dashboard API — campusGateway",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The campusGateway operations of the Cisco Meraki Dashboard API, split by product area from Cisco's published OpenAPI definition.\n\nContact Support:\n Name: Meraki Developer Community",
+      "type": "text/plain"
+    }
+  }
+}

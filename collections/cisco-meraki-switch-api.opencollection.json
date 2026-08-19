@@ -1,0 +1,3026 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — switch",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "switch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the switch ports for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/ports",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "List the switch ports for a switch"
+        },
+        {
+          "info": {
+            "name": "Cycle a set of switch ports on non-Catalyst MS devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/ports/cycle",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cycle a set of switch ports on non-Catalyst MS devices. For Catalyst support, use /devices/{serial}/liveTools/ports/cycle, which supports all switch product families."
+        },
+        {
+          "info": {
+            "name": "Return the status for all the ports of a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/ports/statuses",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              }
+            ]
+          },
+          "docs": "Return the status for all the ports of a switch"
+        },
+        {
+          "info": {
+            "name": "Return the packet counters for all the ports of a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/ports/statuses/packets",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The value is used only to determine the elapsed duration between t0 and the time of the request; the API snaps that duration to the nearest preset window (5 minutes, 15 minutes, 1 hour, or 1 day)."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify t0. The value must be in seconds and be less than or equal to 86400 seconds (1 day). The default is 1 day."
+              }
+            ]
+          },
+          "docs": "Return the packet counters for all the ports of a switch"
+        },
+        {
+          "info": {
+            "name": "Return a switch port",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/ports/:portId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Port ID"
+              }
+            ]
+          },
+          "docs": "Return a switch port"
+        },
+        {
+          "info": {
+            "name": "Update a switch port",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/ports/:portId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Port ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a switch port"
+        },
+        {
+          "info": {
+            "name": "List layer 3 interfaces for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter L3 interfaces by mode."
+              },
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter L3 interfaces by protocol."
+              }
+            ]
+          },
+          "docs": "List layer 3 interfaces for a switch. Those for a stack may be found under switch stack routing."
+        },
+        {
+          "info": {
+            "name": "Create a layer 3 interface for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a layer 3 interface for a switch"
+        },
+        {
+          "info": {
+            "name": "Return a layer 3 interface for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces/:interfaceId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Return a layer 3 interface for a switch"
+        },
+        {
+          "info": {
+            "name": "Update a layer 3 interface for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces/:interfaceId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layer 3 interface for a switch"
+        },
+        {
+          "info": {
+            "name": "Delete a layer 3 interface from the switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces/:interfaceId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Delete a layer 3 interface from the switch"
+        },
+        {
+          "info": {
+            "name": "Return a layer 3 interface DHCP configuration for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces/:interfaceId/dhcp",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Return a layer 3 interface DHCP configuration for a switch"
+        },
+        {
+          "info": {
+            "name": "Update a layer 3 interface DHCP configuration for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/interfaces/:interfaceId/dhcp",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layer 3 interface DHCP configuration for a switch"
+        },
+        {
+          "info": {
+            "name": "List layer 3 static routes for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/staticRoutes",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "List layer 3 static routes for a switch"
+        },
+        {
+          "info": {
+            "name": "Create a layer 3 static route for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/staticRoutes",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a layer 3 static route for a switch"
+        },
+        {
+          "info": {
+            "name": "Return a layer 3 static route for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ]
+          },
+          "docs": "Return a layer 3 static route for a switch"
+        },
+        {
+          "info": {
+            "name": "Update a layer 3 static route for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layer 3 static route for a switch"
+        },
+        {
+          "info": {
+            "name": "Delete a layer 3 static route for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/routing/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ]
+          },
+          "docs": "Delete a layer 3 static route for a switch"
+        },
+        {
+          "info": {
+            "name": "Return warm spare configuration for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/warmSpare",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return warm spare configuration for a switch"
+        },
+        {
+          "info": {
+            "name": "Update warm spare configuration for a switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/switch/warmSpare",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update warm spare configuration for a switch. The spare will use the same L3 configuration as the primary. Note that this will irreversibly destroy any existing L3 configuration on the spare."
+        },
+        {
+          "info": {
+            "name": "Return the access control lists for a MS network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessControlLists",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the access control lists for a MS network"
+        },
+        {
+          "info": {
+            "name": "Update the access control lists for a MS network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessControlLists",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the access control lists for a MS network"
+        },
+        {
+          "info": {
+            "name": "List the access policies for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessPolicies",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method"
+        },
+        {
+          "info": {
+            "name": "Create an access policy for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessPolicies",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array."
+        },
+        {
+          "info": {
+            "name": "Return a specific access policy for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "accessPolicyNumber",
+                "value": "",
+                "type": "path",
+                "description": "Access policy number"
+              }
+            ]
+          },
+          "docs": "Return a specific access policy for a switch network"
+        },
+        {
+          "info": {
+            "name": "Update an access policy for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "accessPolicyNumber",
+                "value": "",
+                "type": "path",
+                "description": "Access policy number"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array."
+        },
+        {
+          "info": {
+            "name": "Delete an access policy for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/accessPolicies/:accessPolicyNumber",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "accessPolicyNumber",
+                "value": "",
+                "type": "path",
+                "description": "Access policy number"
+              }
+            ]
+          },
+          "docs": "Delete an access policy for a switch network"
+        },
+        {
+          "info": {
+            "name": "Return the switch alternate management interface for the network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/alternateManagementInterface",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the switch alternate management interface for the network"
+        },
+        {
+          "info": {
+            "name": "Update the switch alternate management interface for the network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/alternateManagementInterface",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the switch alternate management interface for the network"
+        },
+        {
+          "info": {
+            "name": "Return the network's DHCPv4 servers seen within the selected timeframe (default 1 day)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcp/v4/servers/seen",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return the network's DHCPv4 servers seen within the selected timeframe (default 1 day)"
+        },
+        {
+          "info": {
+            "name": "Return the DHCP server settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively"
+        },
+        {
+          "info": {
+            "name": "Update the DHCP server settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively"
+        },
+        {
+          "info": {
+            "name": "Return the list of servers trusted by Dynamic ARP Inspection on this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return the list of servers trusted by Dynamic ARP Inspection on this network. These are also known as allow listed snoop entries"
+        },
+        {
+          "info": {
+            "name": "Add a server to be trusted by Dynamic ARP Inspection on this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a server to be trusted by Dynamic ARP Inspection on this network"
+        },
+        {
+          "info": {
+            "name": "Update a server that is trusted by Dynamic ARP Inspection on this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers/:trustedServerId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "trustedServerId",
+                "value": "",
+                "type": "path",
+                "description": "Trusted server ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a server that is trusted by Dynamic ARP Inspection on this network"
+        },
+        {
+          "info": {
+            "name": "Remove a server from being trusted by Dynamic ARP Inspection on this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/trustedServers/:trustedServerId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "trustedServerId",
+                "value": "",
+                "type": "path",
+                "description": "Trusted server ID"
+              }
+            ]
+          },
+          "docs": "Remove a server from being trusted by Dynamic ARP Inspection on this network"
+        },
+        {
+          "info": {
+            "name": "Return the devices that have a Dynamic ARP Inspection warning and their warnings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dhcpServerPolicy/arpInspection/warnings/byDevice",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return the devices that have a Dynamic ARP Inspection warning and their warnings"
+        },
+        {
+          "info": {
+            "name": "Return the DSCP to CoS mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dscpToCosMappings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the DSCP to CoS mappings"
+        },
+        {
+          "info": {
+            "name": "Update the DSCP to CoS mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/dscpToCosMappings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the DSCP to CoS mappings"
+        },
+        {
+          "info": {
+            "name": "List link aggregation groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/linkAggregations",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List link aggregation groups"
+        },
+        {
+          "info": {
+            "name": "Create a link aggregation group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/linkAggregations",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a link aggregation group"
+        },
+        {
+          "info": {
+            "name": "Update a link aggregation group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/linkAggregations/:linkAggregationId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "linkAggregationId",
+                "value": "",
+                "type": "path",
+                "description": "Link aggregation ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a link aggregation group"
+        },
+        {
+          "info": {
+            "name": "Split a link aggregation group into separate ports",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/linkAggregations/:linkAggregationId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "linkAggregationId",
+                "value": "",
+                "type": "path",
+                "description": "Link aggregation ID"
+              }
+            ]
+          },
+          "docs": "Split a link aggregation group into separate ports"
+        },
+        {
+          "info": {
+            "name": "Return the MTU configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/mtu",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the MTU configuration"
+        },
+        {
+          "info": {
+            "name": "Update the MTU configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/mtu",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the MTU configuration"
+        },
+        {
+          "info": {
+            "name": "List switch port schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/portSchedules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List switch port schedules"
+        },
+        {
+          "info": {
+            "name": "Add a switch port schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/portSchedules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a switch port schedule"
+        },
+        {
+          "info": {
+            "name": "Update a switch port schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/portSchedules/:portScheduleId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "portScheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Port schedule ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a switch port schedule"
+        },
+        {
+          "info": {
+            "name": "Delete a switch port schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/portSchedules/:portScheduleId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "portScheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Port schedule ID"
+              }
+            ]
+          },
+          "docs": "Delete a switch port schedule"
+        },
+        {
+          "info": {
+            "name": "List quality of service rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List quality of service rules"
+        },
+        {
+          "info": {
+            "name": "Add a quality of service rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a quality of service rule"
+        },
+        {
+          "info": {
+            "name": "Return the quality of service rule IDs by order in which they will be processed by the switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules/order",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the quality of service rule IDs by order in which they will be processed by the switch"
+        },
+        {
+          "info": {
+            "name": "Update the order in which the rules should be processed by the switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules/order",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the order in which the rules should be processed by the switch"
+        },
+        {
+          "info": {
+            "name": "Return a quality of service rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules/:qosRuleId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "qosRuleId",
+                "value": "",
+                "type": "path",
+                "description": "Qos rule ID"
+              }
+            ]
+          },
+          "docs": "Return a quality of service rule"
+        },
+        {
+          "info": {
+            "name": "Update a quality of service rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules/:qosRuleId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "qosRuleId",
+                "value": "",
+                "type": "path",
+                "description": "Qos rule ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a quality of service rule"
+        },
+        {
+          "info": {
+            "name": "Delete a quality of service rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/qosRules/:qosRuleId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "qosRuleId",
+                "value": "",
+                "type": "path",
+                "description": "Qos rule ID"
+              }
+            ]
+          },
+          "docs": "Delete a quality of service rule"
+        },
+        {
+          "info": {
+            "name": "Return multicast settings for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return multicast settings for a network"
+        },
+        {
+          "info": {
+            "name": "Update multicast settings for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update multicast settings for a network"
+        },
+        {
+          "info": {
+            "name": "List multicast rendezvous points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast/rendezvousPoints",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List multicast rendezvous points"
+        },
+        {
+          "info": {
+            "name": "Create a multicast rendezvous point",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast/rendezvousPoints",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a multicast rendezvous point"
+        },
+        {
+          "info": {
+            "name": "Return a multicast rendezvous point",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast/rendezvousPoints/:rendezvousPointId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "rendezvousPointId",
+                "value": "",
+                "type": "path",
+                "description": "Rendezvous point ID"
+              }
+            ]
+          },
+          "docs": "Return a multicast rendezvous point"
+        },
+        {
+          "info": {
+            "name": "Update a multicast rendezvous point",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast/rendezvousPoints/:rendezvousPointId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "rendezvousPointId",
+                "value": "",
+                "type": "path",
+                "description": "Rendezvous point ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a multicast rendezvous point"
+        },
+        {
+          "info": {
+            "name": "Delete a multicast rendezvous point",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/multicast/rendezvousPoints/:rendezvousPointId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "rendezvousPointId",
+                "value": "",
+                "type": "path",
+                "description": "Rendezvous point ID"
+              }
+            ]
+          },
+          "docs": "Delete a multicast rendezvous point"
+        },
+        {
+          "info": {
+            "name": "Return layer 3 OSPF routing configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/ospf",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "vrf",
+                "value": "",
+                "type": "query",
+                "description": "The VRF to return the OSPF routing configuration for. When not provided, the default VRF is used. Included on networks with IOS XE 17.18 or higher"
+              }
+            ]
+          },
+          "docs": "Return layer 3 OSPF routing configuration"
+        },
+        {
+          "info": {
+            "name": "Update layer 3 OSPF routing configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/routing/ospf",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "vrf",
+                "value": "",
+                "type": "query",
+                "description": "The VRF to return the OSPF routing configuration for. When not provided, the default VRF is used. Requires IOS XE 17.18 or higher"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update layer 3 OSPF routing configuration"
+        },
+        {
+          "info": {
+            "name": "Returns the switch network settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns the switch network settings"
+        },
+        {
+          "info": {
+            "name": "Update switch network settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update switch network settings"
+        },
+        {
+          "info": {
+            "name": "List the switch stacks in a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the switch stacks in a network"
+        },
+        {
+          "info": {
+            "name": "Create a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a switch stack"
+        },
+        {
+          "info": {
+            "name": "Show a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ]
+          },
+          "docs": "Show a switch stack"
+        },
+        {
+          "info": {
+            "name": "Update a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a switch stack. At least one of 'name' or 'members' must be provided. If 'members' is provided, it replaces the entire stack membership."
+        },
+        {
+          "info": {
+            "name": "Delete a stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ]
+          },
+          "docs": "Delete a stack"
+        },
+        {
+          "info": {
+            "name": "Add a switch to a stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/add",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a switch to a stack"
+        },
+        {
+          "info": {
+            "name": "Remove a switch from a stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/remove",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove a switch from a stack"
+        },
+        {
+          "info": {
+            "name": "List layer 3 interfaces for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter L3 interfaces by mode."
+              },
+              {
+                "name": "protocol",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter L3 interfaces by protocol."
+              }
+            ]
+          },
+          "docs": "List layer 3 interfaces for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Create a layer 3 interface for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a layer 3 interface for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Return a layer 3 interface from a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Return a layer 3 interface from a switch stack"
+        },
+        {
+          "info": {
+            "name": "Update a layer 3 interface for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layer 3 interface for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Delete a layer 3 interface from a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Delete a layer 3 interface from a switch stack"
+        },
+        {
+          "info": {
+            "name": "Return a layer 3 interface DHCP configuration for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId/dhcp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Return a layer 3 interface DHCP configuration for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Update a layer 3 interface DHCP configuration for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/interfaces/:interfaceId/dhcp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layer 3 interface DHCP configuration for a switch stack"
+        },
+        {
+          "info": {
+            "name": "List layer 3 static routes for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/staticRoutes",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ]
+          },
+          "docs": "List layer 3 static routes for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Create a layer 3 static route for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/staticRoutes",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a layer 3 static route for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Return a layer 3 static route for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ]
+          },
+          "docs": "Return a layer 3 static route for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Update a layer 3 static route for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a layer 3 static route for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Delete a layer 3 static route for a switch stack",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stacks/:switchStackId/routing/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "switchStackId",
+                "value": "",
+                "type": "path",
+                "description": "Switch stack ID"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ]
+          },
+          "docs": "Delete a layer 3 static route for a switch stack"
+        },
+        {
+          "info": {
+            "name": "Return the storm control configuration for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stormControl",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the storm control configuration for a switch network"
+        },
+        {
+          "info": {
+            "name": "Update the storm control configuration for a switch network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stormControl",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the storm control configuration for a switch network"
+        },
+        {
+          "info": {
+            "name": "Returns STP settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns STP settings"
+        },
+        {
+          "info": {
+            "name": "Updates STP settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/switch/stp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates STP settings"
+        },
+        {
+          "info": {
+            "name": "List the switch templates for your switch template configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/configTemplates/:configTemplateId/switch/profiles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "configTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "Config template ID"
+              }
+            ]
+          },
+          "docs": "List the switch templates for your switch template configuration"
+        },
+        {
+          "info": {
+            "name": "Return all the ports of a switch template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/configTemplates/:configTemplateId/switch/profiles/:profileId/ports",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "configTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "Config template ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              }
+            ]
+          },
+          "docs": "Return all the ports of a switch template"
+        },
+        {
+          "info": {
+            "name": "Return a switch template port",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/configTemplates/:configTemplateId/switch/profiles/:profileId/ports/:portId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "configTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "Config template ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Port ID"
+              }
+            ]
+          },
+          "docs": "Return a switch template port"
+        },
+        {
+          "info": {
+            "name": "Update a switch template port",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/configTemplates/:configTemplateId/switch/profiles/:profileId/ports/:portId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "configTemplateId",
+                "value": "",
+                "type": "path",
+                "description": "Config template ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Port ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a switch template port"
+        },
+        {
+          "info": {
+            "name": "Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/summary/switch/power/history",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 186 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 186 days. The default is 1 day."
+              }
+            ]
+          },
+          "docs": "Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours). The returned array is a newest-first list of intervals. The time between intervals depends on the requested timespan with 20 minute intervals used for timespans up to 1 day, 4 hour intervals used for timespans up to 2 weeks, and 1 day intervals for timespans larger than 2 weeks."
+        },
+        {
+          "info": {
+            "name": "Clone port-level and some switch-level configuration settings from a source switch to one or more target switches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/devices/clone",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring"
+        },
+        {
+          "info": {
+            "name": "List the switchports in an organization by switch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/ports/bySwitch",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 50. Default is 50."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "configurationUpdatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches where the configuration has been updated after the given timestamp."
+              },
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with MAC addresses that contain the search term or are an exact match."
+              },
+              {
+                "name": "macs",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided MAC addresses."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with names that contain the search term or are an exact match."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches in one of the provided networks."
+              },
+              {
+                "name": "portProfileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that contain switchports belonging to one of the specified port profiles."
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with serial number that contains the search term or are an exact match."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided serials."
+              }
+            ]
+          },
+          "docs": "List the switchports in an organization by switch"
+        },
+        {
+          "info": {
+            "name": "List the number of clients for all switchports with at least one online client in an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/ports/clients/overview/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 20. Default is 20."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "configurationUpdatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches where the configuration has been updated after the given timestamp."
+              },
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with MAC addresses that contain the search term or are an exact match."
+              },
+              {
+                "name": "macs",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided MAC addresses."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with names that contain the search term or are an exact match."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches in one of the provided networks."
+              },
+              {
+                "name": "portProfileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that contain switchports belonging to one of the specified port profiles."
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with serial number that contains the search term or are an exact match."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided serials."
+              }
+            ]
+          },
+          "docs": "List the number of clients for all switchports with at least one online client in an organization."
+        },
+        {
+          "info": {
+            "name": "Returns the counts of all active ports for the requested timespan, grouped by speed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/ports/overview",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 186 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be greater than or equal to 12 hours and be less than or equal to 186 days. The default is 1 day."
+              }
+            ]
+          },
+          "docs": "Returns the counts of all active ports for the requested timespan, grouped by speed. An active port is a port that at any point during the timeframe is observed to be connected to a responsive device and isn't configured to be disabled. For a port that is observed at multiple speeds during the timeframe, it will be counted at the highest speed observed. The number of inactive ports, and the total number of ports are also provided. Only ports on switches online during the timeframe will be repres"
+        },
+        {
+          "info": {
+            "name": "List the switchports in an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/ports/statuses/bySwitch",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 20. Default is 10."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "configurationUpdatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches where the configuration has been updated after the given timestamp."
+              },
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with MAC addresses that contain the search term or are an exact match."
+              },
+              {
+                "name": "macs",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided MAC addresses."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with names that contain the search term or are an exact match."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches in one of the provided networks."
+              },
+              {
+                "name": "portProfileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that contain switchports belonging to one of the specified port profiles."
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with serial number that contains the search term or are an exact match."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided serials."
+              }
+            ]
+          },
+          "docs": "List the switchports in an organization"
+        },
+        {
+          "info": {
+            "name": "List most recently seen LLDP/CDP discovery and topology information per switch port in an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/ports/topology/discovery/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 20. Default is 10."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "configurationUpdatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches where the configuration has been updated after the given timestamp."
+              },
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with MAC addresses that contain the search term or are an exact match."
+              },
+              {
+                "name": "macs",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided MAC addresses."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with names that contain the search term or are an exact match."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches in one of the provided networks."
+              },
+              {
+                "name": "portProfileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that contain switchports belonging to one of the specified port profiles."
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with serial number that contains the search term or are an exact match."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided serials."
+              }
+            ]
+          },
+          "docs": "List most recently seen LLDP/CDP discovery and topology information per switch port in an organization."
+        },
+        {
+          "info": {
+            "name": "List the historical usage and traffic data of switchports in an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/switch/ports/usage/history/byDevice/byInterval",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. If interval is provided, the timespan will be autocalculated."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The time interval in seconds for returned data. The valid intervals are: 300, 1200, 14400, 86400. The default is 1200. Interval is calculated if time params are provided."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 50. Default is 10."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "configurationUpdatedAfter",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches where the configuration has been updated after the given timestamp."
+              },
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with MAC addresses that contain the search term or are an exact match."
+              },
+              {
+                "name": "macs",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided MAC addresses."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with names that contain the search term or are an exact match."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches in one of the provided networks."
+              },
+              {
+                "name": "portProfileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that contain switchports belonging to one of the specified port profiles."
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches with serial number that contains the search term or are an exact match."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter items to switches that have one of the provided serials."
+              }
+            ]
+          },
+          "docs": "List the historical usage and traffic data of switchports in an organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

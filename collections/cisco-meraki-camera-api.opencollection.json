@@ -1,0 +1,1172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — camera",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "camera",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns live state from camera analytics zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/analytics/live",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns live state from camera analytics zones"
+        },
+        {
+          "info": {
+            "name": "Returns an overview of aggregate analytics data for a timespan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/analytics/overview",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 365 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 7 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 7 days. The default is 1 hour."
+              },
+              {
+                "name": "objectType",
+                "value": "",
+                "type": "query",
+                "description": "[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]."
+              }
+            ]
+          },
+          "docs": "Returns an overview of aggregate analytics data for a timespan"
+        },
+        {
+          "info": {
+            "name": "Returns most recent record for analytics zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/analytics/recent",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "objectType",
+                "value": "",
+                "type": "query",
+                "description": "[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]."
+              }
+            ]
+          },
+          "docs": "Returns most recent record for analytics zones"
+        },
+        {
+          "info": {
+            "name": "Returns all configured analytic zones for this camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/analytics/zones",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns all configured analytic zones for this camera"
+        },
+        {
+          "info": {
+            "name": "Return historical records for analytic zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/analytics/zones/:zoneId/history",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "zoneId",
+                "value": "",
+                "type": "path",
+                "description": "Zone ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 365 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 14 hours after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 hours. The default is 1 hour."
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "The time resolution in seconds for returned data. The valid resolutions are: 60. The default is 60."
+              },
+              {
+                "name": "objectType",
+                "value": "",
+                "type": "query",
+                "description": "[optional] The object type for which analytics will be retrieved. The default object type is person. The available types are [person, vehicle]."
+              }
+            ]
+          },
+          "docs": "Return historical records for analytic zones"
+        },
+        {
+          "info": {
+            "name": "Generate a video clip of up to 5 minutes long.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/clip",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "startTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "The start time for the clip. The timestamp is expected to be in ISO 8601 format."
+              },
+              {
+                "name": "endTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "The end time for the clip. The timestamp is expected to be in ISO 8601 format."
+              },
+              {
+                "name": "imagerId",
+                "value": "",
+                "type": "query",
+                "description": "The imager ID to query. Required for multi-imager cameras (must be between 1 and the imager count). For single-imager cameras, must be omitted or set to 0."
+              }
+            ]
+          },
+          "docs": "Generate a video clip of up to 5 minutes long."
+        },
+        {
+          "info": {
+            "name": "Return custom analytics settings for a camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/customAnalytics",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return custom analytics settings for a camera"
+        },
+        {
+          "info": {
+            "name": "Update custom analytics settings for a camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/customAnalytics",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update custom analytics settings for a camera"
+        },
+        {
+          "info": {
+            "name": "Generate a snapshot of what the camera sees at the specified time and return a link to that image.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/generateSnapshot",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a snapshot of what the camera sees at the specified time and return a link to that image."
+        },
+        {
+          "info": {
+            "name": "Returns quality and retention settings for the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/qualityAndRetention",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns quality and retention settings for the given camera"
+        },
+        {
+          "info": {
+            "name": "Update quality and retention settings for the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/qualityAndRetention",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update quality and retention settings for the given camera"
+        },
+        {
+          "info": {
+            "name": "Returns sense settings for a given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/sense",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns sense settings for a given camera"
+        },
+        {
+          "info": {
+            "name": "Update sense settings for the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/sense",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update sense settings for the given camera"
+        },
+        {
+          "info": {
+            "name": "Returns the MV Sense object detection model list for the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/sense/objectDetectionModels",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns the MV Sense object detection model list for the given camera"
+        },
+        {
+          "info": {
+            "name": "Returns video settings for the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/video/settings",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns video settings for the given camera"
+        },
+        {
+          "info": {
+            "name": "Update video settings for the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/video/settings",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update video settings for the given camera"
+        },
+        {
+          "info": {
+            "name": "Returns video link to the specified camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/videoLink",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "query",
+                "description": "[optional] The video link will start at this time. The timestamp should be a string in ISO8601 format. If no timestamp is specified, we will assume current time."
+              }
+            ]
+          },
+          "docs": "Returns video link to the specified camera. If a timestamp is supplied, it links to that timestamp."
+        },
+        {
+          "info": {
+            "name": "Returns wireless profile assigned to the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/wirelessProfiles",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns wireless profile assigned to the given camera"
+        },
+        {
+          "info": {
+            "name": "Assign wireless profiles to the given camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/camera/wirelessProfiles",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign wireless profiles to the given camera. Incremental updates are not supported, all profile assignment need to be supplied at once."
+        },
+        {
+          "info": {
+            "name": "List the quality retention profiles for this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/qualityRetentionProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the quality retention profiles for this network"
+        },
+        {
+          "info": {
+            "name": "Creates new quality retention profile for this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/qualityRetentionProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new quality retention profile for this network."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single quality retention profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/qualityRetentionProfiles/:qualityRetentionProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "qualityRetentionProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Quality retention profile ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single quality retention profile"
+        },
+        {
+          "info": {
+            "name": "Update an existing quality retention profile for this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/qualityRetentionProfiles/:qualityRetentionProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "qualityRetentionProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Quality retention profile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing quality retention profile for this network."
+        },
+        {
+          "info": {
+            "name": "Delete an existing quality retention profile for this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/qualityRetentionProfiles/:qualityRetentionProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "qualityRetentionProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Quality retention profile ID"
+              }
+            ]
+          },
+          "docs": "Delete an existing quality retention profile for this network."
+        },
+        {
+          "info": {
+            "name": "Returns a list of all camera recording schedules.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/schedules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns a list of all camera recording schedules."
+        },
+        {
+          "info": {
+            "name": "List the camera wireless profiles for this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/wirelessProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the camera wireless profiles for this network."
+        },
+        {
+          "info": {
+            "name": "Creates a new camera wireless profile for this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/wirelessProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new camera wireless profile for this network."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single camera wireless profile.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/wirelessProfiles/:wirelessProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "wirelessProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Wireless profile ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single camera wireless profile."
+        },
+        {
+          "info": {
+            "name": "Update an existing camera wireless profile in this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/wirelessProfiles/:wirelessProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "wirelessProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Wireless profile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing camera wireless profile in this network."
+        },
+        {
+          "info": {
+            "name": "Delete an existing camera wireless profile for this network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/camera/wirelessProfiles/:wirelessProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "wirelessProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Wireless profile ID"
+              }
+            ]
+          },
+          "docs": "Delete an existing camera wireless profile for this network."
+        },
+        {
+          "info": {
+            "name": "Returns all configured area boundaries of cameras",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/boundaries/areas/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "A list of serial numbers. The returned cameras will be filtered to only include these serials."
+              }
+            ]
+          },
+          "docs": "Returns all configured area boundaries of cameras"
+        },
+        {
+          "info": {
+            "name": "Returns all configured crossingline boundaries of cameras",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/boundaries/lines/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "A list of serial numbers. The returned cameras will be filtered to only include these serials."
+              }
+            ]
+          },
+          "docs": "Returns all configured crossingline boundaries of cameras"
+        },
+        {
+          "info": {
+            "name": "List Custom Analytics Artifacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/customAnalytics/artifacts",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "List Custom Analytics Artifacts"
+        },
+        {
+          "info": {
+            "name": "Create custom analytics artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/customAnalytics/artifacts",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create custom analytics artifact. Returns an artifact upload URL with expiry time. Upload the artifact file with a put request to the returned upload URL before its expiry."
+        },
+        {
+          "info": {
+            "name": "Get Custom Analytics Artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/customAnalytics/artifacts/:artifactId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "artifactId",
+                "value": "",
+                "type": "path",
+                "description": "Artifact ID"
+              }
+            ]
+          },
+          "docs": "Get Custom Analytics Artifact"
+        },
+        {
+          "info": {
+            "name": "Delete Custom Analytics Artifact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/customAnalytics/artifacts/:artifactId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "artifactId",
+                "value": "",
+                "type": "path",
+                "description": "Artifact ID"
+              }
+            ]
+          },
+          "docs": "Delete Custom Analytics Artifact"
+        },
+        {
+          "info": {
+            "name": "Returns analytics data for timespans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/detections/history/byBoundary/byInterval",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "boundaryIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of boundary ids. The returned cameras will be filtered to only include these ids."
+              },
+              {
+                "name": "ranges",
+                "value": "",
+                "type": "query",
+                "description": "A list of time ranges with intervals"
+              },
+              {
+                "name": "duration",
+                "value": "",
+                "type": "query",
+                "description": "The minimum time, in seconds, that the person or car remains in the area to be counted. Defaults to boundary configuration or 60."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 1 - 1000. Defaults to 1000."
+              },
+              {
+                "name": "boundaryTypes",
+                "value": "",
+                "type": "query",
+                "description": "The detection types. Defaults to 'person'."
+              }
+            ]
+          },
+          "docs": "Returns analytics data for timespans"
+        },
+        {
+          "info": {
+            "name": "Fetch onboarding status of cameras",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/onboarding/statuses",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "A list of serial numbers. The returned cameras will be filtered to only include these serials."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of network IDs. The returned cameras will be filtered to only include these networks."
+              }
+            ]
+          },
+          "docs": "Fetch onboarding status of cameras"
+        },
+        {
+          "info": {
+            "name": "Notify that credential handoff to camera has completed",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/onboarding/statuses",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Notify that credential handoff to camera has completed"
+        },
+        {
+          "info": {
+            "name": "List the permissions scopes for this organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/permissions",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "List the permissions scopes for this organization"
+        },
+        {
+          "info": {
+            "name": "Retrieve a single permission scope",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/permissions/:permissionScopeId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "permissionScopeId",
+                "value": "",
+                "type": "path",
+                "description": "Permission scope ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single permission scope"
+        },
+        {
+          "info": {
+            "name": "List all the roles in this organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/roles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "List all the roles in this organization"
+        },
+        {
+          "info": {
+            "name": "Creates new role for this organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/roles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new role for this organization."
+        },
+        {
+          "info": {
+            "name": "Retrieve a single role.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/roles/:roleId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single role."
+        },
+        {
+          "info": {
+            "name": "Update an existing role in this organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/roles/:roleId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing role in this organization."
+        },
+        {
+          "info": {
+            "name": "Delete an existing role for this organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/camera/roles/:roleId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role ID"
+              }
+            ]
+          },
+          "docs": "Delete an existing role for this organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — administered",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "administered",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the identity of the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/administered/identities/me"
+          },
+          "docs": "Returns the identity of the current user."
+        },
+        {
+          "info": {
+            "name": "List the non-sensitive metadata associated with the API keys that belong to the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/administered/identities/me/api/keys"
+          },
+          "docs": "List the non-sensitive metadata associated with the API keys that belong to the user"
+        },
+        {
+          "info": {
+            "name": "Generates an API key for an identity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/administered/identities/me/api/keys/generate"
+          },
+          "docs": "Generates an API key for an identity. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed."
+        },
+        {
+          "info": {
+            "name": "Revokes an identity's API key, using the last four characters of the key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/administered/identities/me/api/keys/:suffix/revoke",
+            "params": [
+              {
+                "name": "suffix",
+                "value": "",
+                "type": "path",
+                "description": "Suffix"
+              }
+            ]
+          },
+          "docs": "Revokes an identity's API key, using the last four characters of the key. For users who have access to more than one organization, the change will take up to five minutes to propagate. If one of the organizations is currently under maintenance, the change may not propagate fully until after the maintenance has been completed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1435 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — sm",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Bypass activation lock attempt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/bypassActivationLockAttempts",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bypass activation lock attempt"
+        },
+        {
+          "info": {
+            "name": "Bypass activation lock attempt status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/bypassActivationLockAttempts/:attemptId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "attemptId",
+                "value": "",
+                "type": "path",
+                "description": "Attempt ID"
+              }
+            ]
+          },
+          "docs": "Bypass activation lock attempt status"
+        },
+        {
+          "info": {
+            "name": "List the devices enrolled in an SM network with various specified fields and filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Additional fields that will be displayed for each device.\n    The default fields are: id, name, tags, ssid, wifiMac, osName, systemModel, uuid, and serialNumber. The additional fields are: ip,\n    systemType, availableDeviceCapacity, kioskAppName, biosVersion, lastConnected, missingAppsCount, userSuppliedAddress, location, lastUser,\n    ownerEmail, ownerUsername, osBuild, publicIp, phoneNumber, diskInfoJson, deviceCapacity, isManaged, hadMdm, isSupervised, meid, imei, iccid,\n    simCarrierNetwork, cellularDataUsed, isHotspotEnabled, createdAt, batteryEstCharge, quarantined, avName, avRunning, asName, fwName,\n    isRooted, loginRequired, screenLockEnabled, screenLockDelay, autoLoginDisabled, autoTags, hasMdm, hasDesktopAgent, diskEncryptionEnabled,\n    hardwareEncryptionCaps, passCodeLock, usesHardwareKeystore, androidSecurityPatchVersion, cellular, and url."
+              },
+              {
+                "name": "wifiMacs",
+                "value": "",
+                "type": "query",
+                "description": "Filter devices by wifi mac(s)."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Filter devices by serial(s)."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter devices by id(s)."
+              },
+              {
+                "name": "uuids",
+                "value": "",
+                "type": "query",
+                "description": "Filter devices by uuid(s)."
+              },
+              {
+                "name": "systemTypes",
+                "value": "",
+                "type": "query",
+                "description": "Filter devices by system type(s)."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Specify a scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List the devices enrolled in an SM network with various specified fields and filters"
+        },
+        {
+          "info": {
+            "name": "Force check-in a set of devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/checkin",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Force check-in a set of devices"
+        },
+        {
+          "info": {
+            "name": "Modify the fields of a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/fields",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify the fields of a device"
+        },
+        {
+          "info": {
+            "name": "Lock a set of devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/lock",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lock a set of devices"
+        },
+        {
+          "info": {
+            "name": "Add, delete, or update the tags of a set of devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/modifyTags",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add, delete, or update the tags of a set of devices"
+        },
+        {
+          "info": {
+            "name": "Move a set of devices to a new network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/move",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move a set of devices to a new network"
+        },
+        {
+          "info": {
+            "name": "Reboot a set of endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/reboot",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reboot a set of endpoints"
+        },
+        {
+          "info": {
+            "name": "Shutdown a set of endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/shutdown",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Shutdown a set of endpoints"
+        },
+        {
+          "info": {
+            "name": "Wipe a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/wipe",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Wipe a device"
+        },
+        {
+          "info": {
+            "name": "Return the client's daily cellular data usage history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/cellularUsageHistory",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "Return the client's daily cellular data usage history. Usage data is in kilobytes."
+        },
+        {
+          "info": {
+            "name": "List the certs on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/certs",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "List the certs on a device"
+        },
+        {
+          "info": {
+            "name": "Returns historical connectivity data (whether a device is regularly checking in to Dashboard).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/connectivity",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Returns historical connectivity data (whether a device is regularly checking in to Dashboard)."
+        },
+        {
+          "info": {
+            "name": "Return historical records of various Systems Manager network connection details for desktop devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/desktopLogs",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return historical records of various Systems Manager network connection details for desktop devices."
+        },
+        {
+          "info": {
+            "name": "Return historical records of commands sent to Systems Manager devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/deviceCommandLogs",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return historical records of commands sent to Systems Manager devices. Note that this will include the name of the Dashboard user who initiated the command if it was generated by a Dashboard admin rather than the automatic behavior of the system; you may wish to filter this out of any reports."
+        },
+        {
+          "info": {
+            "name": "Get the installed profiles associated with a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/deviceProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "Get the installed profiles associated with a device"
+        },
+        {
+          "info": {
+            "name": "Install applications on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/installApps",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Install applications on a device"
+        },
+        {
+          "info": {
+            "name": "List the network adapters of a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/networkAdapters",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "List the network adapters of a device"
+        },
+        {
+          "info": {
+            "name": "Return historical records of various Systems Manager client metrics for desktop devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/performanceHistory",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return historical records of various Systems Manager client metrics for desktop devices."
+        },
+        {
+          "info": {
+            "name": "Refresh the details of a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/refreshDetails",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "Refresh the details of a device"
+        },
+        {
+          "info": {
+            "name": "List the restrictions on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/restrictions",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "List the restrictions on a device"
+        },
+        {
+          "info": {
+            "name": "List the security centers on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/securityCenters",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "List the security centers on a device"
+        },
+        {
+          "info": {
+            "name": "Get a list of softwares associated with a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/softwares",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "Get a list of softwares associated with a device"
+        },
+        {
+          "info": {
+            "name": "Unenroll a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/unenroll",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "Unenroll a device"
+        },
+        {
+          "info": {
+            "name": "Uninstall applications on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/uninstallApps",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uninstall applications on a device"
+        },
+        {
+          "info": {
+            "name": "List the saved SSID names on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/devices/:deviceId/wlanLists",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Device ID"
+              }
+            ]
+          },
+          "docs": "List the saved SSID names on a device"
+        },
+        {
+          "info": {
+            "name": "List all profiles in a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/profiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "payloadTypes",
+                "value": "",
+                "type": "query",
+                "description": "Filter by payload types"
+              }
+            ]
+          },
+          "docs": "List all profiles in a network"
+        },
+        {
+          "info": {
+            "name": "List the target groups in this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/targetGroups",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "withDetails",
+                "value": "",
+                "type": "query",
+                "description": "Boolean indicating if the the ids of the devices or users scoped by the target group should be included in the response"
+              }
+            ]
+          },
+          "docs": "List the target groups in this network"
+        },
+        {
+          "info": {
+            "name": "Add a target group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/targetGroups",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a target group"
+        },
+        {
+          "info": {
+            "name": "Return a target group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/targetGroups/:targetGroupId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "targetGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Target group ID"
+              },
+              {
+                "name": "withDetails",
+                "value": "",
+                "type": "query",
+                "description": "Boolean indicating if the the ids of the devices or users scoped by the target group should be included in the response"
+              }
+            ]
+          },
+          "docs": "Return a target group"
+        },
+        {
+          "info": {
+            "name": "Update a target group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/targetGroups/:targetGroupId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "targetGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Target group ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a target group"
+        },
+        {
+          "info": {
+            "name": "Delete a target group from a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/targetGroups/:targetGroupId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "targetGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Target group ID"
+              }
+            ]
+          },
+          "docs": "Delete a target group from a network"
+        },
+        {
+          "info": {
+            "name": "List Trusted Access Configs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/trustedAccessConfigs",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List Trusted Access Configs"
+        },
+        {
+          "info": {
+            "name": "List User Access Devices and its Trusted Access Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/userAccessDevices",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List User Access Devices and its Trusted Access Connections"
+        },
+        {
+          "info": {
+            "name": "Delete a User Access Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/userAccessDevices/:userAccessDeviceId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "userAccessDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "User access device ID"
+              }
+            ]
+          },
+          "docs": "Delete a User Access Device"
+        },
+        {
+          "info": {
+            "name": "List the owners in an SM network with various specified fields and filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/users",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter users by id(s)."
+              },
+              {
+                "name": "usernames",
+                "value": "",
+                "type": "query",
+                "description": "Filter users by username(s)."
+              },
+              {
+                "name": "emails",
+                "value": "",
+                "type": "query",
+                "description": "Filter users by email(s)."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags."
+              }
+            ]
+          },
+          "docs": "List the owners in an SM network with various specified fields and filters"
+        },
+        {
+          "info": {
+            "name": "Get the profiles associated with a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/users/:userId/deviceProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ]
+          },
+          "docs": "Get the profiles associated with a user"
+        },
+        {
+          "info": {
+            "name": "Get a list of softwares associated with a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/sm/users/:userId/softwares",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ]
+          },
+          "docs": "Get a list of softwares associated with a user"
+        },
+        {
+          "info": {
+            "name": "List the Limited Access Roles for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/admins/roles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List the Limited Access Roles for an organization"
+        },
+        {
+          "info": {
+            "name": "Create a Limited Access Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/admins/roles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Limited Access Role"
+        },
+        {
+          "info": {
+            "name": "Return a Limited Access Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/admins/roles/:roleId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role ID"
+              }
+            ]
+          },
+          "docs": "Return a Limited Access Role"
+        },
+        {
+          "info": {
+            "name": "Update a Limited Access Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/admins/roles/:roleId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Limited Access Role"
+        },
+        {
+          "info": {
+            "name": "Delete a Limited Access Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/admins/roles/:roleId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path",
+                "description": "Role ID"
+              }
+            ]
+          },
+          "docs": "Delete a Limited Access Role"
+        },
+        {
+          "info": {
+            "name": "Get the organization's APNS certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/apnsCert",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Get the organization's APNS certificate"
+        },
+        {
+          "info": {
+            "name": "Update an Organizations Sentry Policies using the provided list",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/sentry/policies/assignments",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Organizations Sentry Policies using the provided list. Sentry Policies are ordered in descending order of priority (i.e. highest priority at the bottom, this is opposite the Dashboard UI). Policies not present in the request will be deleted."
+        },
+        {
+          "info": {
+            "name": "List the Sentry Policies for an organization ordered in ascending order of priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/sentry/policies/assignments/byNetwork",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter Sentry Policies by Network Id"
+              }
+            ]
+          },
+          "docs": "List the Sentry Policies for an organization ordered in ascending order of priority"
+        },
+        {
+          "info": {
+            "name": "List the VPP accounts in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/vppAccounts",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "List the VPP accounts in the organization"
+        },
+        {
+          "info": {
+            "name": "Get a hash containing the unparsed token of the VPP account with the given ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/sm/vppAccounts/:vppAccountId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "vppAccountId",
+                "value": "",
+                "type": "path",
+                "description": "Vpp account ID"
+              }
+            ]
+          },
+          "docs": "Get a hash containing the unparsed token of the VPP account with the given ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

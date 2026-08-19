@@ -1,0 +1,4115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — appliance",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "appliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return the DHCP subnet information for an appliance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/dhcp/subnets",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return the DHCP subnet information for an appliance"
+        },
+        {
+          "info": {
+            "name": "Update configurations for an appliance's specified port",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/interfaces/ports/update",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update configurations for an appliance's specified port"
+        },
+        {
+          "info": {
+            "name": "Return the performance score for a single Secure Appliance or Secure Router",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/performance",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 30 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 14 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be greater than or equal to 30 minutes and be less than or equal to 14 days. The default is 30 minutes."
+              }
+            ]
+          },
+          "docs": "Return the performance score for a single Secure Appliance or Secure Router. Only primary Secure Appliance devices supported. If no data is available, a 204 error code is returned."
+        },
+        {
+          "info": {
+            "name": "Return current delegated IPv6 prefixes on an appliance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/prefixes/delegated",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return current delegated IPv6 prefixes on an appliance."
+        },
+        {
+          "info": {
+            "name": "Return prefixes assigned to all IPv6 enabled VLANs on an appliance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/prefixes/delegated/vlanAssignments",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return prefixes assigned to all IPv6 enabled VLANs on an appliance."
+        },
+        {
+          "info": {
+            "name": "Return the radio settings of an appliance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/radio/settings",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return the radio settings of an appliance"
+        },
+        {
+          "info": {
+            "name": "Update the radio settings of an appliance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/radio/settings",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the radio settings of an appliance"
+        },
+        {
+          "info": {
+            "name": "Return the uplink settings for a secure router or security appliance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/uplinks/settings",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return the uplink settings for a secure router or security appliance"
+        },
+        {
+          "info": {
+            "name": "Update the uplink settings for a secure router or security appliance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/uplinks/settings",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the uplink settings for a secure router or security appliance"
+        },
+        {
+          "info": {
+            "name": "Generate a new vMX authentication token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/appliance/vmx/authenticationToken",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Generate a new vMX authentication token"
+        },
+        {
+          "info": {
+            "name": "List the security events for a client",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/clients/:clientId/security/events",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "clientId",
+                "value": "",
+                "type": "path",
+                "description": "Client ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. Data is gathered after the specified t0 value. The maximum lookback period is 791 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 791 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 791 days. The default is 31 days."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sorted order of security events based on event detection time. Order options are 'ascending' or 'descending'. Default is ascending order."
+              }
+            ]
+          },
+          "docs": "List the security events for a client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP."
+        },
+        {
+          "info": {
+            "name": "Return the connectivity testing destinations for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/connectivityMonitoringDestinations",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the connectivity testing destinations for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the connectivity testing destinations for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/connectivityMonitoringDestinations",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the connectivity testing destinations for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the content filtering settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/contentFiltering",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the content filtering settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the content filtering settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/contentFiltering",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the content filtering settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "List all available content filtering categories for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/contentFiltering/categories",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List all available content filtering categories for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update MX warm spare settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/devices/redundancy",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update MX warm spare settings"
+        },
+        {
+          "info": {
+            "name": "Swap MX primary and warm spare appliances",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/devices/redundancy/swap",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Swap MX primary and warm spare appliances"
+        },
+        {
+          "info": {
+            "name": "Return the cellular firewall rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/cellularFirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the cellular firewall rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the cellular firewall rules of an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/cellularFirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the cellular firewall rules of an MX network"
+        },
+        {
+          "info": {
+            "name": "List the appliance services and their accessibility rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/firewalledServices",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the appliance services and their accessibility rules"
+        },
+        {
+          "info": {
+            "name": "Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/firewalledServices/:service",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service"
+              }
+            ]
+          },
+          "docs": "Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')"
+        },
+        {
+          "info": {
+            "name": "Updates the accessibility settings for the given service ('ICMP', 'web', or 'SNMP')",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/firewalledServices/:service",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the accessibility settings for the given service ('ICMP', 'web', or 'SNMP')"
+        },
+        {
+          "info": {
+            "name": "Return the inbound cellular firewall rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the inbound cellular firewall rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the inbound cellular firewall rules of an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/inboundCellularFirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the inbound cellular firewall rules of an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the inbound firewall rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/inboundFirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the inbound firewall rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the inbound firewall rules of an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/inboundFirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the inbound firewall rules of an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the L3 firewall rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/l3FirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the L3 firewall rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the L3 firewall rules of an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/l3FirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the L3 firewall rules of an MX network"
+        },
+        {
+          "info": {
+            "name": "List the MX L7 firewall rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/l7FirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the MX L7 firewall rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the MX L7 firewall rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/l7FirewallRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the MX L7 firewall rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the L7 firewall application categories and their associated applications for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/l7FirewallRules/applicationCategories",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the L7 firewall application categories and their associated applications for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update static multicast forward rules for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/multicastForwarding",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update static multicast forward rules for a network"
+        },
+        {
+          "info": {
+            "name": "Return the 1:Many NAT mapping rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/oneToManyNatRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the 1:Many NAT mapping rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Set the 1:Many NAT mapping rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/oneToManyNatRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the 1:Many NAT mapping rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the 1:1 NAT mapping rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/oneToOneNatRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the 1:1 NAT mapping rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Set the 1:1 NAT mapping rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/oneToOneNatRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the 1:1 NAT mapping rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the port forwarding rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/portForwardingRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the port forwarding rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the port forwarding rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/portForwardingRules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the port forwarding rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the firewall settings for this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the firewall settings for this network"
+        },
+        {
+          "info": {
+            "name": "Update the firewall settings for this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/firewall/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the firewall settings for this network"
+        },
+        {
+          "info": {
+            "name": "Create wired L3 interface",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/interfaces/l3",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create wired L3 interface"
+        },
+        {
+          "info": {
+            "name": "Update wired L3 interface",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/interfaces/l3/:interfaceId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update wired L3 interface"
+        },
+        {
+          "info": {
+            "name": "Delete wired L3 interface",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/interfaces/l3/:interfaceId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "interfaceId",
+                "value": "",
+                "type": "path",
+                "description": "Interface ID"
+              }
+            ]
+          },
+          "docs": "Delete wired L3 interface"
+        },
+        {
+          "info": {
+            "name": "List per-port VLAN settings for all ports of a secure router or security appliance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/ports",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List per-port VLAN settings for all ports of a secure router or security appliance."
+        },
+        {
+          "info": {
+            "name": "Return per-port VLAN settings for a single secure router or security appliance port.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/ports/:portId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Port ID"
+              }
+            ]
+          },
+          "docs": "Return per-port VLAN settings for a single secure router or security appliance port."
+        },
+        {
+          "info": {
+            "name": "Update the per-port VLAN settings for a single secure router or security appliance port.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/ports/:portId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Port ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the per-port VLAN settings for a single secure router or security appliance port."
+        },
+        {
+          "info": {
+            "name": "List static delegated prefixes for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/prefixes/delegated/statics",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List static delegated prefixes for a network"
+        },
+        {
+          "info": {
+            "name": "Add a static delegated prefix from a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/prefixes/delegated/statics",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a static delegated prefix from a network"
+        },
+        {
+          "info": {
+            "name": "Return a static delegated prefix from a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "staticDelegatedPrefixId",
+                "value": "",
+                "type": "path",
+                "description": "Static delegated prefix ID"
+              }
+            ]
+          },
+          "docs": "Return a static delegated prefix from a network"
+        },
+        {
+          "info": {
+            "name": "Update a static delegated prefix from a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "staticDelegatedPrefixId",
+                "value": "",
+                "type": "path",
+                "description": "Static delegated prefix ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a static delegated prefix from a network"
+        },
+        {
+          "info": {
+            "name": "Delete a static delegated prefix from a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/prefixes/delegated/statics/:staticDelegatedPrefixId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "staticDelegatedPrefixId",
+                "value": "",
+                "type": "path",
+                "description": "Static delegated prefix ID"
+              }
+            ]
+          },
+          "docs": "Delete a static delegated prefix from a network"
+        },
+        {
+          "info": {
+            "name": "List the RF profiles for this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/rfProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the RF profiles for this network"
+        },
+        {
+          "info": {
+            "name": "Creates new RF profile for this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/rfProfiles",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new RF profile for this network"
+        },
+        {
+          "info": {
+            "name": "Return a RF profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/rfProfiles/:rfProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "rfProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Rf profile ID"
+              }
+            ]
+          },
+          "docs": "Return a RF profile"
+        },
+        {
+          "info": {
+            "name": "Updates specified RF profile for this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/rfProfiles/:rfProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "rfProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Rf profile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates specified RF profile for this network"
+        },
+        {
+          "info": {
+            "name": "Delete a RF Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/rfProfiles/:rfProfileId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "rfProfileId",
+                "value": "",
+                "type": "path",
+                "description": "Rf profile ID"
+              }
+            ]
+          },
+          "docs": "Delete a RF Profile"
+        },
+        {
+          "info": {
+            "name": "Update SDWAN internet traffic preferences for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/sdwan/internetPolicies",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update SDWAN internet traffic preferences for an MX network"
+        },
+        {
+          "info": {
+            "name": "List the security events for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/security/events",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. Data is gathered after the specified t0 value. The maximum lookback period is 365 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 365 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 365 days. The default is 31 days."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sorted order of security events based on event detection time. Order options are 'ascending' or 'descending'. Default is ascending order."
+              }
+            ]
+          },
+          "docs": "List the security events for a network"
+        },
+        {
+          "info": {
+            "name": "Returns all supported intrusion settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/security/intrusion",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns all supported intrusion settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Set the supported intrusion settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/security/intrusion",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the supported intrusion settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Returns all supported malware settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/security/malware",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns all supported malware settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Set the supported malware settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/security/malware",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the supported malware settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return the appliance settings for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the appliance settings for a network"
+        },
+        {
+          "info": {
+            "name": "Update the appliance settings for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the appliance settings for a network"
+        },
+        {
+          "info": {
+            "name": "Return single LAN configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/singleLan",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return single LAN configuration"
+        },
+        {
+          "info": {
+            "name": "Update single LAN configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/singleLan",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update single LAN configuration"
+        },
+        {
+          "info": {
+            "name": "List the MX SSIDs in a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/ssids",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the MX SSIDs in a network"
+        },
+        {
+          "info": {
+            "name": "Return a single MX SSID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/ssids/:number",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Number"
+              }
+            ]
+          },
+          "docs": "Return a single MX SSID"
+        },
+        {
+          "info": {
+            "name": "Update the attributes of an MX SSID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/ssids/:number",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "path",
+                "description": "Number"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the attributes of an MX SSID"
+        },
+        {
+          "info": {
+            "name": "List the static routes for an MX or teleworker network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/staticRoutes",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the static routes for an MX or teleworker network"
+        },
+        {
+          "info": {
+            "name": "Add a static route for an MX or teleworker network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/staticRoutes",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a static route for an MX or teleworker network"
+        },
+        {
+          "info": {
+            "name": "Return a static route for an MX or teleworker network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ]
+          },
+          "docs": "Return a static route for an MX or teleworker network"
+        },
+        {
+          "info": {
+            "name": "Update a static route for an MX or teleworker network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a static route for an MX or teleworker network"
+        },
+        {
+          "info": {
+            "name": "Delete a static route from an MX or teleworker network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/staticRoutes/:staticRouteId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "staticRouteId",
+                "value": "",
+                "type": "path",
+                "description": "Static route ID"
+              }
+            ]
+          },
+          "docs": "Delete a static route from an MX or teleworker network"
+        },
+        {
+          "info": {
+            "name": "Display the traffic shaping settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Display the traffic shaping settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the traffic shaping settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the traffic shaping settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "List all custom performance classes for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List all custom performance classes for an MX network"
+        },
+        {
+          "info": {
+            "name": "Add a custom performance class for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a custom performance class for an MX network"
+        },
+        {
+          "info": {
+            "name": "Return a custom performance class for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses/:customPerformanceClassId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "customPerformanceClassId",
+                "value": "",
+                "type": "path",
+                "description": "Custom performance class ID"
+              }
+            ]
+          },
+          "docs": "Return a custom performance class for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update a custom performance class for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses/:customPerformanceClassId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "customPerformanceClassId",
+                "value": "",
+                "type": "path",
+                "description": "Custom performance class ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a custom performance class for an MX network"
+        },
+        {
+          "info": {
+            "name": "Delete a custom performance class from an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/customPerformanceClasses/:customPerformanceClassId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "customPerformanceClassId",
+                "value": "",
+                "type": "path",
+                "description": "Custom performance class ID"
+              }
+            ]
+          },
+          "docs": "Delete a custom performance class from an MX network"
+        },
+        {
+          "info": {
+            "name": "Display the traffic shaping settings rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/rules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Display the traffic shaping settings rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update the traffic shaping settings rules for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/rules",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the traffic shaping settings rules for an MX network"
+        },
+        {
+          "info": {
+            "name": "Returns the uplink bandwidth limits for your MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/uplinkBandwidth",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns the uplink bandwidth limits for your MX network. This may not reflect the affected device's hardware capabilities.  For more information on your device's hardware capabilities, please consult our MX Family Datasheet - [https://meraki.cisco.com/product-collateral/mx-family-datasheet/?file]"
+        },
+        {
+          "info": {
+            "name": "Updates the uplink bandwidth settings for your MX network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/uplinkBandwidth",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the uplink bandwidth settings for your MX network."
+        },
+        {
+          "info": {
+            "name": "Show uplink selection settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/uplinkSelection",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Show uplink selection settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update uplink selection settings for an MX network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/uplinkSelection",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update uplink selection settings for an MX network"
+        },
+        {
+          "info": {
+            "name": "Update VPN exclusion rules for an MX network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/trafficShaping/vpnExclusions",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update VPN exclusion rules for an MX network."
+        },
+        {
+          "info": {
+            "name": "Connect a Cisco Umbrella account to this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/umbrella/account/connect",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Connect a Cisco Umbrella account to this network"
+        },
+        {
+          "info": {
+            "name": "Disconnect Umbrella account from this network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/umbrella/account/disconnect",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Disconnect Umbrella account from this network"
+        },
+        {
+          "info": {
+            "name": "Specify one or more domain names to be excluded from being routed to Cisco Umbrella.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/umbrella/domains/exclusions",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Specify one or more domain names to be excluded from being routed to Cisco Umbrella."
+        },
+        {
+          "info": {
+            "name": "Add one Cisco Umbrella DNS security policy to an MX network by policy ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/umbrella/policies/add",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add one Cisco Umbrella DNS security policy to an MX network by policy ID. Idempotent — if the policy is already applied, the request succeeds and returns the current policy set unchanged."
+        },
+        {
+          "info": {
+            "name": "Remove one Cisco Umbrella DNS security policy from an MX network by policy ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/umbrella/policies/remove",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove one Cisco Umbrella DNS security policy from an MX network by policy ID. Returns 204 No Content on success. Behavior when the policy is not currently applied depends on the Cisco Umbrella API response."
+        },
+        {
+          "info": {
+            "name": "Enable or disable umbrella protection for an appliance network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/umbrella/protection",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable or disable umbrella protection for an appliance network. When 'enabled' is false, 'umbrella.organization.id' and 'umbrella.origin.id' are null in the response."
+        },
+        {
+          "info": {
+            "name": "Update uplink NAT settings of the specified network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/uplinks/nat",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update uplink NAT settings of the specified network"
+        },
+        {
+          "info": {
+            "name": "Get the sent and received bytes for each uplink of a network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/uplinks/usageHistory",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 30 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 10 minutes."
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "The time resolution in seconds for returned data. The valid resolutions are: 60, 300, 600, 1800, 3600, 86400. The default is 60."
+              }
+            ]
+          },
+          "docs": "Get the sent and received bytes for each uplink of a network."
+        },
+        {
+          "info": {
+            "name": "List the VLANs for a Security Appliance network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List the VLANs for a Security Appliance network"
+        },
+        {
+          "info": {
+            "name": "Add a VLAN",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a VLAN"
+        },
+        {
+          "info": {
+            "name": "Returns the enabled status of VLANs for the network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns the enabled status of VLANs for the network"
+        },
+        {
+          "info": {
+            "name": "Enable/Disable VLANs for the given network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans/settings",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable/Disable VLANs for the given network"
+        },
+        {
+          "info": {
+            "name": "Return a VLAN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans/:vlanId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "vlanId",
+                "value": "",
+                "type": "path",
+                "description": "Vlan ID"
+              }
+            ]
+          },
+          "docs": "Return a VLAN"
+        },
+        {
+          "info": {
+            "name": "Update a VLAN",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans/:vlanId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "vlanId",
+                "value": "",
+                "type": "path",
+                "description": "Vlan ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a VLAN"
+        },
+        {
+          "info": {
+            "name": "Delete a VLAN from a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vlans/:vlanId",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              },
+              {
+                "name": "vlanId",
+                "value": "",
+                "type": "path",
+                "description": "Vlan ID"
+              }
+            ]
+          },
+          "docs": "Delete a VLAN from a network"
+        },
+        {
+          "info": {
+            "name": "Return a Hub BGP Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vpn/bgp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return a Hub BGP Configuration"
+        },
+        {
+          "info": {
+            "name": "Update a Hub BGP Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vpn/bgp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Hub BGP Configuration"
+        },
+        {
+          "info": {
+            "name": "Return the site-to-site VPN settings of a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vpn/siteToSiteVpn",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the site-to-site VPN settings of a network. Only valid for MX networks."
+        },
+        {
+          "info": {
+            "name": "Update the site-to-site VPN settings of a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/vpn/siteToSiteVpn",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the site-to-site VPN settings of a network. Only valid for MX networks in NAT mode."
+        },
+        {
+          "info": {
+            "name": "Return MX warm spare settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/warmSpare",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return MX warm spare settings"
+        },
+        {
+          "info": {
+            "name": "Update MX warm spare settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/warmSpare",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update MX warm spare settings"
+        },
+        {
+          "info": {
+            "name": "Swap MX primary and warm spare appliances",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/appliance/warmSpare/swap",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Swap MX primary and warm spare appliances"
+        },
+        {
+          "info": {
+            "name": "List L3 interfaces across networks for the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/devices/interfaces/l3",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional Network IDs to filter results"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List L3 interfaces across networks for the organization"
+        },
+        {
+          "info": {
+            "name": "Returns port configurations for appliances in a given organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/devices/interfaces/ports/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Parameter to filter the results by device serials"
+              },
+              {
+                "name": "interfaces",
+                "value": "",
+                "type": "query",
+                "description": "Parameter to filter the results by specific interfaces"
+              },
+              {
+                "name": "numbers",
+                "value": "",
+                "type": "query",
+                "description": "Parameter to filter the results by specific ports"
+              }
+            ]
+          },
+          "docs": "Returns port configurations for appliances in a given organization"
+        },
+        {
+          "info": {
+            "name": "Return time-series digital optical monitoring (DOM) readings for ports on each DOM-enabled Catalyst appliance in an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/devices/ports/transceivers/readings/history/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 10. Default is 5."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 30 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 30 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 30 days. The default is 1 day. If interval is provided, the timespan will be autocalculated."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "The time interval in seconds for returned data. The valid intervals are: 300, 1200, 14400, 86400. The default is 1200. Interval is calculated if time params are provided."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Networks for which information should be gathered."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter usage by appliance serial."
+              },
+              {
+                "name": "portIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter usage by port ID."
+              }
+            ]
+          },
+          "docs": "Return time-series digital optical monitoring (DOM) readings for ports on each DOM-enabled Catalyst appliance in an organization."
+        },
+        {
+          "info": {
+            "name": "Return MX warm spare settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/devices/redundancy/byNetwork",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 5 - 1000. Default is 50."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Return MX warm spare settings"
+        },
+        {
+          "info": {
+            "name": "Fetch the local DNS profiles used in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by profile IDs"
+              }
+            ]
+          },
+          "docs": "Fetch the local DNS profiles used in the organization"
+        },
+        {
+          "info": {
+            "name": "Create a new local DNS profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new local DNS profile"
+        },
+        {
+          "info": {
+            "name": "Fetch the local DNS profile assignments in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles/assignments",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by profile IDs"
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by network IDs"
+              }
+            ]
+          },
+          "docs": "Fetch the local DNS profile assignments in the organization"
+        },
+        {
+          "info": {
+            "name": "Assign the local DNS profile to networks in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles/assignments/bulkCreate",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign the local DNS profile to networks in the organization"
+        },
+        {
+          "info": {
+            "name": "Unassign the local DNS profile to networks in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles/assignments/bulkDelete",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unassign the local DNS profile to networks in the organization"
+        },
+        {
+          "info": {
+            "name": "Update a local DNS profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles/:profileId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a local DNS profile"
+        },
+        {
+          "info": {
+            "name": "Deletes a local DNS profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/profiles/:profileId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              }
+            ]
+          },
+          "docs": "Deletes a local DNS profile"
+        },
+        {
+          "info": {
+            "name": "Fetch the DNS records used in local DNS profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/records",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by profile IDs"
+              }
+            ]
+          },
+          "docs": "Fetch the DNS records used in local DNS profiles"
+        },
+        {
+          "info": {
+            "name": "Create a new local DNS record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/records",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new local DNS record"
+        },
+        {
+          "info": {
+            "name": "Updates a local DNS record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/records/:recordId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "path",
+                "description": "Record ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a local DNS record"
+        },
+        {
+          "info": {
+            "name": "Deletes a local DNS record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/local/records/:recordId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "path",
+                "description": "Record ID"
+              }
+            ]
+          },
+          "docs": "Deletes a local DNS record"
+        },
+        {
+          "info": {
+            "name": "Fetch the split DNS profiles used in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by profile IDs"
+              }
+            ]
+          },
+          "docs": "Fetch the split DNS profiles used in the organization"
+        },
+        {
+          "info": {
+            "name": "Create a new split DNS profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new split DNS profile"
+        },
+        {
+          "info": {
+            "name": "Fetch the split DNS profile assignments in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles/assignments",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by profile IDs"
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by network IDs"
+              }
+            ]
+          },
+          "docs": "Fetch the split DNS profile assignments in the organization"
+        },
+        {
+          "info": {
+            "name": "Assign the split DNS profile to networks in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles/assignments/bulkCreate",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign the split DNS profile to networks in the organization"
+        },
+        {
+          "info": {
+            "name": "Unassign the split DNS profile to networks in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles/assignments/bulkDelete",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Unassign the split DNS profile to networks in the organization"
+        },
+        {
+          "info": {
+            "name": "Update a split DNS profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles/:profileId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a split DNS profile"
+        },
+        {
+          "info": {
+            "name": "Deletes a split DNS profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/dns/split/profiles/:profileId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "profileId",
+                "value": "",
+                "type": "path",
+                "description": "Profile ID"
+              }
+            ]
+          },
+          "docs": "Deletes a split DNS profile"
+        },
+        {
+          "info": {
+            "name": "List Static Multicasting forwarding settings for MX networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/firewall/multicastForwarding/byNetwork",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by network IDs"
+              }
+            ]
+          },
+          "docs": "List Static Multicasting forwarding settings for MX networks"
+        },
+        {
+          "info": {
+            "name": "Returns packet counter overviews for all interfaces on Secure Routers in the organization, including totals and average rates by packet type over the requested timespan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/interfaces/packets/overviews/byDevice",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 14 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 14 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 days. The default is 1 day."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 50. Default is 10."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter Secure Routers in the provided networks"
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter Secure Routers by their serial numbers"
+              }
+            ]
+          },
+          "docs": "Returns packet counter overviews for all interfaces on Secure Routers in the organization, including totals and average rates by packet type over the requested timespan."
+        },
+        {
+          "info": {
+            "name": "Return the VRF setting for an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/routing/vrfs/settings",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Return the VRF setting for an organization."
+        },
+        {
+          "info": {
+            "name": "Update the VRF setting for an organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/routing/vrfs/settings",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the VRF setting for an organization."
+        },
+        {
+          "info": {
+            "name": "List the security events for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/security/events",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. Data is gathered after the specified t0 value. The maximum lookback period is 365 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 365 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 365 days. The default is 31 days."
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sorted order of security events based on event detection time. Order options are 'ascending' or 'descending'. Default is ascending order."
+              }
+            ]
+          },
+          "docs": "List the security events for an organization"
+        },
+        {
+          "info": {
+            "name": "Returns all supported intrusion settings for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/security/intrusion",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Returns all supported intrusion settings for an organization"
+        },
+        {
+          "info": {
+            "name": "Sets supported intrusion settings for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/security/intrusion",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sets supported intrusion settings for an organization"
+        },
+        {
+          "info": {
+            "name": "Display VPN exclusion rules for MX networks.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/trafficShaping/vpnExclusions/byNetwork",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by network IDs"
+              }
+            ]
+          },
+          "docs": "Display VPN exclusion rules for MX networks."
+        },
+        {
+          "info": {
+            "name": "List the uplink status of every Meraki MX and Z series appliances in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/uplink/statuses",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of network IDs. The returned devices will be filtered to only include these networks."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+              },
+              {
+                "name": "iccids",
+                "value": "",
+                "type": "query",
+                "description": "A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs."
+              }
+            ]
+          },
+          "docs": "List the uplink status of every Meraki MX and Z series appliances in the organization"
+        },
+        {
+          "info": {
+            "name": "Fetch uplink NAT settings of each network in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/uplinks/nat/byNetwork",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by the included set of network IDs"
+              },
+              {
+                "name": "interfaces",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by the included set of interfaces"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 100000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "Fetch uplink NAT settings of each network in the organization"
+        },
+        {
+          "info": {
+            "name": "Returns an overview of uplink statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/uplinks/statuses/overview",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of network IDs. The returned devices will be filtered to only include these networks."
+              }
+            ]
+          },
+          "docs": "Returns an overview of uplink statuses"
+        },
+        {
+          "info": {
+            "name": "Get the sent and received bytes for each uplink of all MX and Z networks within an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/uplinks/usage/byNetwork",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 30 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 14 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 days. The default is 1 day."
+              }
+            ]
+          },
+          "docs": "Get the sent and received bytes for each uplink of all MX and Z networks within an organization. If more than one device was active during the specified timespan, then the sent and received bytes will be aggregated by interface."
+        },
+        {
+          "info": {
+            "name": "Get the list of available IPsec SLA policies for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/siteToSite/ipsec/peers/slas",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Get the list of available IPsec SLA policies for an organization"
+        },
+        {
+          "info": {
+            "name": "Update the IPsec SLA policies for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/siteToSite/ipsec/peers/slas",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the IPsec SLA policies for an organization"
+        },
+        {
+          "info": {
+            "name": "Show VPN history stat for networks in an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/stats",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 300. Default is 300."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              }
+            ]
+          },
+          "docs": "Show VPN history stat for networks in an organization"
+        },
+        {
+          "info": {
+            "name": "Show VPN status for networks in an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/statuses",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 300. Default is 300."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456"
+              }
+            ]
+          },
+          "docs": "Show VPN status for networks in an organization"
+        },
+        {
+          "info": {
+            "name": "Return the third party VPN peers for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/thirdPartyVPNPeers",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Return the third party VPN peers for an organization"
+        },
+        {
+          "info": {
+            "name": "Update the third party VPN peers for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/thirdPartyVPNPeers",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the third party VPN peers for an organization.\n\nSubnet overlap warning: Unlike the Dashboard UI, updateOrganizationApplianceVpnThirdPartyVPNPeers does not run the org-wide subnet-overlap validation before saving changes. Requests with overlapping VPN subnets will succeed through the API, but the resulting configuration may be blocked from further edits in Dashboard until the overlaps are resolved manually. Use this endpoint only when you've already confirmed the advertised subnets are uni"
+        },
+        {
+          "info": {
+            "name": "Return the firewall rules for an organization's site-to-site VPN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/vpnFirewallRules",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Return the firewall rules for an organization's site-to-site VPN"
+        },
+        {
+          "info": {
+            "name": "Update the firewall rules of an organization's site-to-site VPN",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/appliance/vpn/vpnFirewallRules",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the firewall rules of an organization's site-to-site VPN"
+        },
+        {
+          "info": {
+            "name": "Assign VLANs to a policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/policies/global/group/policies/appliance/vlans/assign",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign VLANs to a policy"
+        },
+        {
+          "info": {
+            "name": "List appliance VLAN policy assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/policies/global/group/policies/appliance/vlans/assignments",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "assignmentIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter assignments by assignment IDs"
+              },
+              {
+                "name": "policyIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter assignments by policy IDs"
+              },
+              {
+                "name": "interfaceIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter assignments by interface IDs"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List appliance VLAN policy assignments"
+        },
+        {
+          "info": {
+            "name": "List policies by appliance VLANs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/policies/global/group/policies/appliance/vlans/assignments/byVlan",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for filtering policies"
+              },
+              {
+                "name": "vlanIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter by VLAN IDs"
+              },
+              {
+                "name": "interfaceIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter by interface IDs"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 100. Default is 100."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              }
+            ]
+          },
+          "docs": "List policies by appliance VLANs"
+        },
+        {
+          "info": {
+            "name": "Remove VLANs from a policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/policies/global/group/policies/appliance/vlans/remove",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove VLANs from a policy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,606 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — cellularGateway",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cellularGateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show the LAN Settings of a MG",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellularGateway/lan",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Show the LAN Settings of a MG"
+        },
+        {
+          "info": {
+            "name": "Update the LAN Settings for a single MG.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellularGateway/lan",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the LAN Settings for a single MG."
+        },
+        {
+          "info": {
+            "name": "Returns the port forwarding rules for a single MG.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellularGateway/portForwardingRules",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Returns the port forwarding rules for a single MG."
+        },
+        {
+          "info": {
+            "name": "Updates the port forwarding rules for a single MG.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellularGateway/portForwardingRules",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the port forwarding rules for a single MG."
+        },
+        {
+          "info": {
+            "name": "Return the connectivity testing destinations for an MG network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/connectivityMonitoringDestinations",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the connectivity testing destinations for an MG network"
+        },
+        {
+          "info": {
+            "name": "Update the connectivity testing destinations for an MG network",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/connectivityMonitoringDestinations",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the connectivity testing destinations for an MG network"
+        },
+        {
+          "info": {
+            "name": "List common DHCP settings of MGs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/dhcp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "List common DHCP settings of MGs"
+        },
+        {
+          "info": {
+            "name": "Update common DHCP settings of MGs",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/dhcp",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update common DHCP settings of MGs"
+        },
+        {
+          "info": {
+            "name": "Return the subnet pool and mask configured for MGs in the network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/subnetPool",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Return the subnet pool and mask configured for MGs in the network."
+        },
+        {
+          "info": {
+            "name": "Update the subnet pool and mask configuration for MGs in the network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/subnetPool",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the subnet pool and mask configuration for MGs in the network."
+        },
+        {
+          "info": {
+            "name": "Returns the uplink settings for your MG network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/uplink",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ]
+          },
+          "docs": "Returns the uplink settings for your MG network."
+        },
+        {
+          "info": {
+            "name": "Updates the uplink settings for your MG network.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/networks/:networkId/cellularGateway/uplink",
+            "params": [
+              {
+                "name": "networkId",
+                "value": "",
+                "type": "path",
+                "description": "Network ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the uplink settings for your MG network."
+        },
+        {
+          "info": {
+            "name": "The eSIM inventory of a given organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/inventory",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "eids",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by EID."
+              }
+            ]
+          },
+          "docs": "The eSIM inventory of a given organization."
+        },
+        {
+          "info": {
+            "name": "Toggle the status of an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/inventory/:id",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Toggle the status of an eSIM"
+        },
+        {
+          "info": {
+            "name": "Service providers customers can add accounts for.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Service providers customers can add accounts for."
+        },
+        {
+          "info": {
+            "name": "Inventory of service provider accounts tied to the organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "accountIds",
+                "value": "",
+                "type": "query",
+                "description": "Optional parameter to filter the results by service provider account IDs."
+              }
+            ]
+          },
+          "docs": "Inventory of service provider accounts tied to the organization."
+        },
+        {
+          "info": {
+            "name": "Add a service provider account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a service provider account."
+        },
+        {
+          "info": {
+            "name": "The communication plans available for a given provider.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/communicationPlans",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "accountIds",
+                "value": "",
+                "type": "query",
+                "description": "Account IDs that communication plans will be fetched for"
+              }
+            ]
+          },
+          "docs": "The communication plans available for a given provider."
+        },
+        {
+          "info": {
+            "name": "The rate plans available for a given provider.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/ratePlans",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "accountIds",
+                "value": "",
+                "type": "query",
+                "description": "Account IDs that rate plans will be fetched for"
+              }
+            ]
+          },
+          "docs": "The rate plans available for a given provider."
+        },
+        {
+          "info": {
+            "name": "Edit service provider account info stored in Meraki's database.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/:accountId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit service provider account info stored in Meraki's database."
+        },
+        {
+          "info": {
+            "name": "Remove a service provider account's integration with the Dashboard.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/serviceProviders/accounts/:accountId",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "accountId",
+                "value": "",
+                "type": "path",
+                "description": "Account ID"
+              }
+            ]
+          },
+          "docs": "Remove a service provider account's integration with the Dashboard."
+        },
+        {
+          "info": {
+            "name": "Swap which profile an eSIM uses.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/swap",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Swap which profile an eSIM uses."
+        },
+        {
+          "info": {
+            "name": "Get the status of a profile swap.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/esims/swap/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "eSIM EID"
+              },
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              }
+            ]
+          },
+          "docs": "Get the status of a profile swap."
+        },
+        {
+          "info": {
+            "name": "List the uplink status of every Meraki MG cellular gateway in the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/organizations/:organizationId/cellularGateway/uplink/statuses",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path",
+                "description": "Organization ID"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+              },
+              {
+                "name": "startingAfter",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "endingBefore",
+                "value": "",
+                "type": "query",
+                "description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+              },
+              {
+                "name": "networkIds",
+                "value": "",
+                "type": "query",
+                "description": "A list of network IDs. The returned devices will be filtered to only include these networks."
+              },
+              {
+                "name": "serials",
+                "value": "",
+                "type": "query",
+                "description": "A list of serial numbers. The returned devices will be filtered to only include these serials."
+              },
+              {
+                "name": "iccids",
+                "value": "",
+                "type": "query",
+                "description": "A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs."
+              }
+            ]
+          },
+          "docs": "List the uplink status of every Meraki MG cellular gateway in the organization"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

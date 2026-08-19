@@ -1,0 +1,1017 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Meraki Dashboard API — devices",
+    "version": "1.72.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Cisco-Meraki-API-Key",
+      "value": "{{X-Cisco-Meraki-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return a single device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return a single device"
+        },
+        {
+          "info": {
+            "name": "Update the attributes of a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the attributes of a device"
+        },
+        {
+          "info": {
+            "name": "Blink the LEDs on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/blinkLeds",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Blink the LEDs on a device.  This endpoint is deprecrated in favor of \"/devices/{serial}/liveTools/leds/blink\"."
+        },
+        {
+          "info": {
+            "name": "Update the enablement of the geolocation feature for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellular/geolocations",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the enablement of the geolocation feature for a device"
+        },
+        {
+          "info": {
+            "name": "Return the SIM and APN configurations for a cellular device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellular/sims",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return the SIM and APN configurations for a cellular device."
+        },
+        {
+          "info": {
+            "name": "Updates the SIM and APN configurations for a cellular device.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellular/sims",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the SIM and APN configurations for a cellular device."
+        },
+        {
+          "info": {
+            "name": "Update the cellular band masks for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/cellular/uplinks/bands/masks/update",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the cellular band masks for a device"
+        },
+        {
+          "info": {
+            "name": "List the clients of a device, up to a maximum of a month ago",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/clients",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 31 days from today."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              }
+            ]
+          },
+          "docs": "List the clients of a device, up to a maximum of a month ago. The usage of each client is returned in kilobytes. If the device is a switch, the switchport is returned; otherwise the switchport field is null."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to perform a ARP table request for the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/arpTable",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to perform a ARP table request for the device. This endpoint currently supports switches, wireless access points, and catalyst routers. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return an ARP table live tool job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/arpTable/:arpTableId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "arpTableId",
+                "value": "",
+                "type": "path",
+                "description": "Arp table ID"
+              }
+            ]
+          },
+          "docs": "Return an ARP table live tool job."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to perform a cable test for the device on the specified ports",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/cableTest",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to perform a cable test for the device on the specified ports. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a cable test live tool job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/cableTest/:id",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "Return a cable test live tool job."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to blink LEDs on a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/leds/blink",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to blink LEDs on a device. This endpoint has a rate limit of one request every 10 seconds."
+        },
+        {
+          "info": {
+            "name": "Return a blink LEDs job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/leds/blink/:ledsBlinkId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "ledsBlinkId",
+                "value": "",
+                "type": "path",
+                "description": "Leds blink ID"
+              }
+            ]
+          },
+          "docs": "Return a blink LEDs job"
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to request the MAC table from the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/macTable",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to request the MAC table from the device. Switches currently support this feature. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a MAC table live tool job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/macTable/:macTableId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "macTableId",
+                "value": "",
+                "type": "path",
+                "description": "Mac table ID"
+              }
+            ]
+          },
+          "docs": "Return a MAC table live tool job."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to perform a Multicast routing request for the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/multicastRouting",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to perform a Multicast routing request for the device. This endpoint currently supports switches. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a Multicast routing live tool job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/multicastRouting/:multicastRoutingId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "multicastRoutingId",
+                "value": "",
+                "type": "path",
+                "description": "Multicast routing ID"
+              }
+            ]
+          },
+          "docs": "Return a Multicast routing live tool job."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to ping a target host from the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/ping",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to ping a target host from the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a ping job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/ping/:id",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "Return a ping job. Latency unit in response is in milliseconds. Size is in bytes."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to check connectivity status to the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/pingDevice",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to check connectivity status to the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a ping device job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/pingDevice/:id",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "Return a ping device job. Latency unit in response is in milliseconds. Size is in bytes."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to perform a cycle port for the device on the specified ports",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/ports/cycle",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to perform a cycle port for the device on the specified ports. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a cycle port live tool job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/ports/cycle/:id",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "Return a cycle port live tool job."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to retrieve port status for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/ports/status",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to retrieve port status for a device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a port status live tool job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/ports/status/:jobId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID"
+              }
+            ]
+          },
+          "docs": "Return a port status live tool job."
+        },
+        {
+          "info": {
+            "name": "Enqueues a live tool job that retrieves details about a device's overall power usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/power/usage",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueues a live tool job that retrieves details about a device's overall power usage. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Retrieve the status and results of a previously created live tool job fetching details about a device's overall power usage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/power/usage/:jobId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "Job ID"
+              }
+            ]
+          },
+          "docs": "Retrieve the status and results of a previously created live tool job fetching details about a device's overall power usage."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to perform a routing table lookup request for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/routingTable/lookups",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to perform a routing table lookup request for a device. The routing table lookup request fetches a specific set of routes based on filters. Any combination of search filters can be applied. Only Cisco Secure Routers are supported."
+        },
+        {
+          "info": {
+            "name": "Return a routing table live tool lookup job for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/routingTable/lookups/:id",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "Return a routing table live tool lookup job for a device. The response contains the details of the job, including the filters used for the routing table lookup request and the results of the request if the job has completed. Only Cisco Secure Routers are supported."
+        },
+        {
+          "info": {
+            "name": "Enqueue a routing table summary job for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/routingTable/summaries",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a routing table summary job for a device. The job fetches summary data such as route counts by VRF and protocol. Only Cisco Secure Routers are supported."
+        },
+        {
+          "info": {
+            "name": "Return the status and result of a routing table summary job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/routingTable/summaries/:id",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID"
+              }
+            ]
+          },
+          "docs": "Return the status and result of a routing table summary job. The result consists of summary data such as route counts by VRF and protocol. Only Cisco Secure Routers are supported."
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to test a device throughput, the test will run for 10 secs to test throughput",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/throughputTest",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to test a device throughput, the test will run for 10 secs to test throughput. This endpoint has a rate limit of one request every five seconds per device."
+        },
+        {
+          "info": {
+            "name": "Return a throughput test job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/throughputTest/:throughputTestId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "throughputTestId",
+                "value": "",
+                "type": "path",
+                "description": "Throughput test ID"
+              }
+            ]
+          },
+          "docs": "Return a throughput test job"
+        },
+        {
+          "info": {
+            "name": "Enqueue a job to send a Wake-on-LAN packet from the device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/wakeOnLan",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enqueue a job to send a Wake-on-LAN packet from the device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests."
+        },
+        {
+          "info": {
+            "name": "Return a Wake-on-LAN job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/liveTools/wakeOnLan/:wakeOnLanId",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "wakeOnLanId",
+                "value": "",
+                "type": "path",
+                "description": "Wake on lan ID"
+              }
+            ]
+          },
+          "docs": "Return a Wake-on-LAN job"
+        },
+        {
+          "info": {
+            "name": "List LLDP and CDP information for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/lldpCdp",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "List LLDP and CDP information for a device"
+        },
+        {
+          "info": {
+            "name": "Get the uplink loss percentage and latency in milliseconds, and goodput in kilobits per second for MX, MG and Z devices.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/lossAndLatencyHistory",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              },
+              {
+                "name": "t0",
+                "value": "",
+                "type": "query",
+                "description": "The beginning of the timespan for the data. The maximum lookback period is 60 days from today."
+              },
+              {
+                "name": "t1",
+                "value": "",
+                "type": "query",
+                "description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0."
+              },
+              {
+                "name": "timespan",
+                "value": "",
+                "type": "query",
+                "description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day."
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "The time resolution in seconds for returned data. The valid resolutions are: 60, 600, 3600, 86400. The default is 60."
+              },
+              {
+                "name": "uplink",
+                "value": "",
+                "type": "query",
+                "description": "The WAN uplink used to obtain the requested stats. Valid uplinks are wan1, wan2, wan3, cellular, wan4. The default is wan1."
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "The destination IP used to obtain the requested stats. This is required."
+              }
+            ]
+          },
+          "docs": "Get the uplink loss percentage and latency in milliseconds, and goodput in kilobits per second for MX, MG and Z devices."
+        },
+        {
+          "info": {
+            "name": "Return the management interface settings for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/managementInterface",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Return the management interface settings for a device"
+        },
+        {
+          "info": {
+            "name": "Update the management interface settings for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/managementInterface",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the management interface settings for a device"
+        },
+        {
+          "info": {
+            "name": "Reboot a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meraki.com/{basePath}/devices/:serial/reboot",
+            "params": [
+              {
+                "name": "serial",
+                "value": "",
+                "type": "path",
+                "description": "Serial"
+              }
+            ]
+          },
+          "docs": "Reboot a device. This endpoint has a sustained rate limit of one request every 60 seconds."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
