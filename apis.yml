@@ -25,6 +25,15 @@ tags:
 - Security Appliances
 - Cloud-Managed Networking
 - MDM
+- Camera
+- IoT
+tags_raw:
+- Networking
+- Wireless
+- Switching
+- Security Appliances
+- Cloud-Managed Networking
+- MDM
 - Cameras
 - IoT
 url: https://raw.githubusercontent.com/api-evangelist/cisco-meraki/refs/heads/main/apis.yml
@@ -39,6 +48,10 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Webhook
+  - Event
+  - Alerts
+  tags_raw:
   - Webhooks
   - Events
   - Alerts
@@ -69,6 +82,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Appliance
+  tags_raw:
   - appliance
   properties:
   - type: OpenAPI
@@ -87,6 +102,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Camera
+  tags_raw:
   - camera
   properties:
   - type: OpenAPI
@@ -104,7 +121,8 @@ apis:
   description: The campusGateway API from Cisco Meraki — 13 operation(s) for campusgateway.
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
-  tags:
+  tags: []
+  tags_raw:
   - campusGateway
   properties:
   - type: OpenAPI
@@ -123,6 +141,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Cellular Gateway
+  tags_raw:
   - cellularGateway
   properties:
   - type: OpenAPI
@@ -141,6 +161,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Devices
+  tags_raw:
   - devices
   properties:
   - type: OpenAPI
@@ -159,6 +181,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Insight
+  tags_raw:
   - insight
   properties:
   - type: OpenAPI
@@ -177,6 +201,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Licensing
+  tags_raw:
   - licensing
   properties:
   - type: OpenAPI
@@ -195,6 +221,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Networks
+  tags_raw:
   - networks
   properties:
   - type: OpenAPI
@@ -213,6 +241,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Organization
+  tags_raw:
   - organizations
   properties:
   - type: OpenAPI
@@ -231,6 +261,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Sensor
+  tags_raw:
   - sensor
   properties:
   - type: OpenAPI
@@ -267,6 +299,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Spaces
+  tags_raw:
   - spaces
   properties:
   - type: OpenAPI
@@ -285,6 +319,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Switch
+  tags_raw:
   - switch
   properties:
   - type: OpenAPI
@@ -303,6 +339,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Wireless
+  tags_raw:
   - wireless
   properties:
   - type: OpenAPI
@@ -320,7 +358,8 @@ apis:
   description: The wirelessController API from Cisco Meraki — 15 operation(s) for wirelesscontroller.
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
-  tags:
+  tags: []
+  tags_raw:
   - wirelessController
   properties:
   - type: OpenAPI
@@ -339,6 +378,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
