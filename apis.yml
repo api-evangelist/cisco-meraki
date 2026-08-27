@@ -43,7 +43,8 @@ specificationVersion: '0.23'
 apis:
 - aid: cisco-meraki:webhooks
   name: Meraki Webhooks
-  description: Webhooks API for receiving real-time alerts and events from Meraki networks, including device, network,
+  description: >-
+    Webhooks API for receiving real-time alerts and events from Meraki networks, including device, network,
     and security events delivered to configured HTTPS endpoints.
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
@@ -372,18 +373,16 @@ apis:
     url: https://developer.cisco.com/meraki/api-v1/getting-started/
   - type: Authentication
     url: https://developer.cisco.com/meraki/api-v1/authorization/
-- aid: cisco-meraki:cisco-meraki-secure-connect-deployments-api
+- aid: cisco-meraki:cisco-meraki-deployments-api
   name: Cisco Meraki Deployments API
   description: The Deployments API from Cisco Meraki — 8 operation(s) for deployments.
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Deployment
-  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
-    url: openapi/cisco-meraki-secure-connect-deployments-api-openapi.yml
+    url: openapi/cisco-meraki-deployments-api-openapi.yml
   - type: OpenAPI Source
     url: https://github.com/meraki/openapi
   - type: Documentation
@@ -392,16 +391,17 @@ apis:
     url: https://developer.cisco.com/meraki/api-v1/getting-started/
   - type: Authentication
     url: https://developer.cisco.com/meraki/api-v1/authorization/
-- aid: cisco-meraki:cisco-meraki-secure-connect-firewallapplications-api
+- aid: cisco-meraki:cisco-meraki-firewall-applications-api
   name: Cisco Meraki Firewall Applications API
-  description: The Firewall Applications API from Cisco Meraki — 1 operation(s) for firewall applications.
+  description: >-
+    The Firewall Applications API from Cisco Meraki — 1 operation(s) for firewall applications.
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
   - Firewall Applications
   properties:
   - type: OpenAPI
-    url: openapi/cisco-meraki-secure-connect-firewallapplications-api-openapi.yml
+    url: openapi/cisco-meraki-firewall-applications-api-openapi.yml
   - type: OpenAPI Source
     url: https://github.com/meraki/openapi
   - type: Documentation
@@ -410,7 +410,7 @@ apis:
     url: https://developer.cisco.com/meraki/api-v1/getting-started/
   - type: Authentication
     url: https://developer.cisco.com/meraki/api-v1/authorization/
-- aid: cisco-meraki:cisco-meraki-secure-connect-policies-api
+- aid: cisco-meraki:cisco-meraki-policies-api
   name: Cisco Meraki Policies API
   description: The Policies API from Cisco Meraki — 4 operation(s) for policies.
   humanURL: https://developer.cisco.com/meraki/webhooks/
@@ -419,7 +419,7 @@ apis:
   - Policies
   properties:
   - type: OpenAPI
-    url: openapi/cisco-meraki-secure-connect-policies-api-openapi.yml
+    url: openapi/cisco-meraki-policies-api-openapi.yml
   - type: OpenAPI Source
     url: https://github.com/meraki/openapi
   - type: Documentation
@@ -428,7 +428,7 @@ apis:
     url: https://developer.cisco.com/meraki/api-v1/getting-started/
   - type: Authentication
     url: https://developer.cisco.com/meraki/api-v1/authorization/
-- aid: cisco-meraki:cisco-meraki-secure-connect-reports-api
+- aid: cisco-meraki:cisco-meraki-reports-api
   name: Cisco Meraki Reports API
   description: The Reports API from Cisco Meraki — 9 operation(s) for reports.
   humanURL: https://developer.cisco.com/meraki/webhooks/
@@ -437,7 +437,7 @@ apis:
   - Reports
   properties:
   - type: OpenAPI
-    url: openapi/cisco-meraki-secure-connect-reports-api-openapi.yml
+    url: openapi/cisco-meraki-reports-api-openapi.yml
   - type: OpenAPI Source
     url: https://github.com/meraki/openapi
   - type: Documentation
