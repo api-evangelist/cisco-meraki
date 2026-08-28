@@ -5,6 +5,17 @@ description: Cisco Meraki is a cloud-managed networking platform that provides w
   API is a RESTful interface for programmatically managing and monitoring Meraki networks at scale, automating organization
   provisioning, device configuration, network operations, and analytics.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
