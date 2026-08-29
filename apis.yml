@@ -458,6 +458,9 @@ apis:
   - type: Authentication
     url: https://developer.cisco.com/meraki/api-v1/authorization/
 common:
+- type: CapabilityMap
+  url: capabilities/cisco-meraki-capability-edges.yml
+  name: Cisco Meraki Business Capability Map
 - type: ParentCompany
   url: https://apis.io/providers/cisco/
   name: Cisco

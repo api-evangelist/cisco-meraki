@@ -1,0 +1,112 @@
+slug: cisco-meraki
+provider: Cisco Meraki
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 9
+edges:
+- tag: switch
+  spec_file: cisco-meraki-switch-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: getDeviceSwitchPorts List the switch ports for a switch; createDeviceSwitchRoutingInterface
+    Create a layer 3 interface for a switch; getDeviceSwitchRoutingInterfaceDhcp Return a layer 3 interface
+    DHCP configuration
+  reason: Configuration and status of switch ports, layer-3 interfaces and DHCP on enterprise switches
+    — network infrastructure configuration and operation, squarely Cross-Industry IT Infrastructure Management
+    rather than carrier network operations.
+- tag: wireless
+  spec_file: cisco-meraki-wireless-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: updateDeviceWirelessRadioSettings Update 2.4 GHz and 5 GHz radio settings (channel, channel
+    width, power) that override RF profiles; getDeviceWirelessConnectionStats Aggregated connectivity
+    info for a given AP
+  reason: Radio, SSID and Bluetooth settings plus connectivity/latency stats for enterprise Wi-Fi access
+    points — configuration and monitoring of wireless network infrastructure under Cross-Industry IT.
+- tag: appliance
+  spec_file: cisco-meraki-appliance-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.78
+  evidence: PUT /devices/{serial}/appliance/uplinks/settings  updateDeviceApplianceUplinksSettings  Update
+    the uplink settings for a secure router or security appliance
+  reason: Large surface configuring MX security appliance ports, VLANs, DHCP subnets, uplinks and radio
+    settings — configuration and operation of enterprise network infrastructure.
+- tag: campusGateway
+  spec_file: cisco-meraki-campusgateway-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: POST /networks/{networkId}/campusGateway/clusters  createNetworkCampusGatewayCluster  Create
+    a cluster and add campus gateways to it
+  reason: Provisioning campus gateway clusters, failover targets and wireless tunneling paths — enterprise
+    campus network infrastructure configuration.
+- tag: cellularGateway
+  spec_file: cisco-meraki-cellulargateway-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: PUT /networks/{networkId}/cellularGateway/uplink  updateNetworkCellularGatewayUplink  Updates
+    the uplink settings for your MG network
+  reason: Configures MG cellular gateway LAN, DHCP, subnet pool, port forwarding and uplink settings —
+    enterprise network device/infrastructure configuration, not carrier mobile network operations.
+- tag: devices
+  spec_file: cisco-meraki-devices-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: PUT /devices/{serial}  updateDevice  Update the attributes of a device; POST /devices/{serial}/liveTools/cableTest  Enqueue
+    a job to perform a cable test
+  reason: Generic managed-device lifecycle and diagnostic tooling (ARP table, cable test, cellular SIM/APN
+    config) across the Meraki estate — management of network infrastructure assets.
+- tag: networks
+  spec_file: cisco-meraki-networks-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: GET /networks/{networkId} getNetwork Return a network; PUT updateNetwork Update a network;
+    getNetworkAlertsSettings Return the alert configuration for this network
+  reason: Operations create/update/delete enterprise LAN/WLAN networks and their client traffic monitoring
+    on a cloud-managed networking platform. This is corporate IT network infrastructure management (Cross-Industry
+    IT), not operator-grade telecom network operations — the vendor sells enterprise networking gear,
+    so the telecom-specific capabilities would be a misread.
+- tag: Deployments
+  spec_file: cisco-meraki-deployments-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: POST /organizations/{organizationId}/networkDevices  createNetworkDevice  Create Network Device;
+    GET /organizations/{organizationId}/tunnels  listTunnels  List Tunnels
+  reason: Operations register network devices, data centers and IPsec tunnels for a cloud-managed secure
+    connectivity deployment — enterprise network infrastructure provisioning, i.e. Cross-Industry IT Infrastructure
+    Management, not carrier network operations.
+- tag: sm
+  spec_file: cisco-meraki-sm-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: getNetworkSmDevices List the devices enrolled in an SM network; lockNetworkSmDevices Lock
+    a set of devices; wipeNetworkSmDevices Wipe a device
+  reason: 'Systems Manager is mobile device / endpoint management: enrolment, lock, wipe, reboot, tagging
+    of managed endpoints. That is IT endpoint infrastructure administration; some overlap with security
+    controls exists, hence not maximal confidence.'
