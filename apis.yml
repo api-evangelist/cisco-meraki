@@ -114,7 +114,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Camera
+  - camera
   tags_raw:
   - camera
   properties:
@@ -152,8 +152,7 @@ apis:
   description: The cellularGateway API from Cisco Meraki — 16 operation(s) for cellulargateway.
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
-  tags:
-  - Cellular Gateway
+  tags: []
   tags_raw:
   - cellularGateway
   properties:
@@ -233,7 +232,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Networks
+  - networks
   tags_raw:
   - networks
   properties:
@@ -273,7 +272,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Sensor
+  - sensor
   tags_raw:
   - sensor
   properties:
@@ -311,7 +310,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Spaces
+  - spaces
   tags_raw:
   - spaces
   properties:
@@ -331,7 +330,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Switch
+  - switch
   tags_raw:
   - switch
   properties:
@@ -351,7 +350,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Wireless
+  - wireless
   tags_raw:
   - wireless
   properties:
@@ -390,6 +389,8 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
