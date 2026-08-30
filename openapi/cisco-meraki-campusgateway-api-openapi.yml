@@ -1,0 +1,3498 @@
+openapi: 3.2.0
+info:
+  title: Meraki Dashboard Campus Gateway API
+  description: 'A RESTful API to programmatically manage and monitor Cisco Meraki networks at scale.
+
+
+    > Date: 05 August, 2026
+
+    >
+
+    > [Recent Updates](https://meraki.io/whats-new/)
+
+
+    ---
+
+
+    [API Documentation](https://meraki.io/api)
+
+
+    [Community Support](https://meraki.io/community)
+
+
+    [Meraki Homepage](https://www.meraki.com)
+
+    '
+  contact:
+    name: Meraki Developer Community
+    url: https://meraki.io/community
+  version: 1.73.0
+  x-provenance:
+    method: harvested
+    authored_by: Cisco Meraki
+    harvested_by: API Evangelist
+    harvested_on: '2026-08-19'
+    first_party: true
+    note: Published by Cisco. Retrieved unmodified except for this x-provenance block.
+    provider_published: true
+    derived_view: Per-first-tag view of the source document, tag 'campusGateway'. Operations and schemas are the provider's, unmodified.
+  x-evidence:
+  - type: source
+    url: https://github.com/meraki/openapi/blob/master/openapi/spec3.json
+  - type: raw
+    url: https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json
+  - type: alternate
+    url: https://api.meraki.com/api/v1/openapiSpec
+servers:
+- url: https://api.meraki.com/{basePath}
+  variables:
+    basePath:
+      default: api/v1
+security:
+- meraki_api_key: []
+- bearerAuth: []
+tags:
+- name: campusGateway
+paths:
+  /networks/{networkId}/campusGateway/clusters:
+    post:
+      description: Create a cluster and add campus gateways to it
+      operationId: createNetworkCampusGatewayCluster
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the new cluster
+                uplinks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      interface:
+                        type: string
+                        description: Interface identifier, should be set to man1
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the interface
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            assignmentMode:
+                              type: string
+                              enum:
+                              - dynamic
+                              - static
+                              description: Assignment mode of the interface
+                            protocol:
+                              type: string
+                              enum:
+                              - ipv4
+                              description: Protocol of the interface when assignment mode is static
+                            gateway:
+                              type: string
+                              description: Gateway of the interface when assignment mode is static
+                            subnetMask:
+                              type: string
+                              description: Subnet mask of the interface when assignment mode is static
+                          required:
+                          - assignmentMode
+                        description: Addresses of the interface
+                    required:
+                    - interface
+                    - vlan
+                    - addresses
+                  description: Uplink interface settings of the cluster
+                tunnels:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      uplink:
+                        type: object
+                        properties:
+                          interface:
+                            type: string
+                            description: Uplink interface identifier
+                        required:
+                        - interface
+                        description: Uplink interface details if uplink is reused as tunnel
+                      interface:
+                        type: string
+                        description: Interface identifier, should be set to tun1. Specify this interface only if uplink isn't reused as tunnel
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the interface
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            protocol:
+                              type: string
+                              enum:
+                              - ipv4
+                              description: Protocol of the interface
+                            gateway:
+                              type: string
+                              description: Gateway of the interface
+                            subnetMask:
+                              type: string
+                              description: Subnet mask of the interface
+                          required:
+                          - protocol
+                          - gateway
+                          - subnetMask
+                        description: Addresses of the interface
+                  description: 'Tunnel interface settings of the cluster: Reuse uplink or specify tunnel interface'
+                nameservers:
+                  type: object
+                  properties:
+                    addresses:
+                      type: array
+                      items:
+                        type: string
+                      description: Addresses of the nameservers
+                  description: Nameservers of the cluster
+                portChannels:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: Name of the port channel
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the port channel
+                      allowedVlans:
+                        type: string
+                        description: Allowed VLANs of the port channel
+                    required:
+                    - name
+                    - vlan
+                    - allowedVlans
+                  description: Port channel settings of the cluster
+                devices:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      serial:
+                        type: string
+                        description: Serial of the device
+                      uplinks:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Uplink interface name
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  protocol:
+                                    type: string
+                                    enum:
+                                    - ipv4
+                                    description: Protocol of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                                required:
+                                - protocol
+                                - address
+                              description: Uplink IP addresses of the device
+                          required:
+                          - interface
+                          - addresses
+                        description: Uplink settings of the device when uplink assignment mode of cluster is static
+                      tunnels:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Tunnel interface name
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  protocol:
+                                    type: string
+                                    enum:
+                                    - ipv4
+                                    description: Protocol of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                                required:
+                                - protocol
+                                - address
+                              description: Tunnel IP addresses of the device
+                          required:
+                          - interface
+                          - addresses
+                        description: Tunnel settings of the device when tunnel interface of cluster is specified
+                    required:
+                    - serial
+                  description: Devices to be added to the cluster
+                notes:
+                  type: string
+                  description: Notes about cluster with max size of 511 characters allowed
+              example:
+                name: North Campus
+                uplinks:
+                - interface: man1
+                  vlan: 5
+                  addresses:
+                  - assignmentMode: static
+                    protocol: ipv4
+                    gateway: 1.2.3.5
+                    subnetMask: 255.255.255.0
+                tunnels:
+                - uplink:
+                    interface: man1
+                  interface: tun1
+                  vlan: 6
+                  addresses:
+                  - protocol: ipv4
+                    gateway: 2.3.5.6
+                    subnetMask: 255.255.255.0
+                nameservers:
+                  addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+                portChannels:
+                - name: Port-channel1
+                  vlan: 25
+                  allowedVlans: 10-20
+                devices:
+                - serial: Q234-ABCD-0001
+                  uplinks:
+                  - interface: man1
+                    addresses:
+                    - protocol: ipv4
+                      address: 5.1.2.3
+                  tunnels:
+                  - interface: tun1
+                    addresses:
+                    - protocol: ipv4
+                      address: 6.2.6.7
+                notes: This cluster is for New York Office
+              required:
+              - name
+              - uplinks
+              - tunnels
+              - nameservers
+              - portChannels
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clusterId:
+                    type: string
+                    description: ID of the cluster
+                  name:
+                    type: string
+                    description: Name of the cluster
+                  uplinks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        interface:
+                          type: string
+                          description: Name of the interface
+                        vlan:
+                          type: integer
+                          description: VLAN of the interface
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              assignmentMode:
+                                type: string
+                                description: Assignment mode of the interface
+                              protocol:
+                                type: string
+                                description: Protocol of the interface
+                              gateway:
+                                type: string
+                                description: Gateway of the interface
+                              subnetMask:
+                                type: string
+                                description: Subnet mask of the interface
+                          description: Addresses of the interface
+                    description: Uplink settings of the cluster
+                  tunnels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uplink:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Uplink interface name
+                          description: Use uplink interface as tunnel interface
+                        interface:
+                          type: string
+                          description: Name of the interface
+                        vlan:
+                          type: integer
+                          description: VLAN ID of the interface
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              protocol:
+                                type: string
+                                description: Protocol of the interface
+                              gateway:
+                                type: string
+                                description: Gateway of the interface
+                              subnetMask:
+                                type: string
+                                description: Subnet mask of the interface
+                          description: Addresses of the interface
+                    description: Tunnel settings of the cluster
+                  nameservers:
+                    type: object
+                    properties:
+                      addresses:
+                        type: array
+                        items:
+                          type: string
+                        description: Addresses of the nameservers
+                    description: Nameservers of the cluster
+                  portChannels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: ID of the port channel
+                        name:
+                          type: string
+                          description: Name of the port channel
+                        vlan:
+                          type: integer
+                          description: VLAN ID of the port channel
+                        allowedVlans:
+                          type: string
+                          description: Allowed VLANs of the port channel
+                    description: Port channel settings of the cluster
+                  devices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Serial of the device
+                        memberId:
+                          type: string
+                          description: Member number assigned to the device within cluster - This is a read only attribute and cannot be altered using post/put operations
+                        uplinks:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Uplink interface name
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    address:
+                                      type: string
+                                      description: IP address of the interface
+                                description: Uplink IP addresses of the device
+                          description: Uplink settings of the device
+                        tunnels:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Tunnel interface name
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    address:
+                                      type: string
+                                      description: IP address of the interface
+                                description: Tunnel IP addresses of the device
+                          description: Tunnel settings of the device
+                    description: Devices in the cluster
+                  notes:
+                    type: string
+                    description: Notes about cluster
+                  url:
+                    type: string
+                    description: URL to display cluster details
+              example:
+                clusterId: '1284392014818'
+                name: North Campus
+                uplinks:
+                - interface: man1
+                  vlan: 5
+                  addresses:
+                  - assignmentMode: static
+                    protocol: ipv4
+                    gateway: 1.2.3.5
+                    subnetMask: 255.255.255.0
+                tunnels:
+                - uplink:
+                    interface: man1
+                  interface: tun1
+                  vlan: 6
+                  addresses:
+                  - protocol: ipv4
+                    gateway: 2.3.5.6
+                    subnetMask: 255.255.255.0
+                nameservers:
+                  addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+                portChannels:
+                - id: '1284392014830'
+                  name: Port-channel1
+                  vlan: 25
+                  allowedVlans: 10-20
+                devices:
+                - serial: Q234-ABCD-0001
+                  memberId: '1'
+                  uplinks:
+                  - interface: man1
+                    addresses:
+                    - protocol: ipv4
+                      address: 5.1.2.3
+                  tunnels:
+                  - interface: tun1
+                    addresses:
+                    - protocol: ipv4
+                      address: 6.2.6.7
+                notes: This cluster is for New York Office
+                url: https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters
+      summary: Create a cluster and add campus gateways to it
+      tags:
+      - campusGateway
+  /networks/{networkId}/campusGateway/clusters/{clusterId}:
+    put:
+      description: Update a cluster and add/remove campus gateways to/from it
+      operationId: updateNetworkCampusGatewayCluster
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: clusterId
+        in: path
+        description: Cluster ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the cluster
+                uplinks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      interface:
+                        type: string
+                        description: Interface identifier, should be set to man1
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the interface
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            assignmentMode:
+                              type: string
+                              enum:
+                              - dynamic
+                              - static
+                              description: Assignment mode of the interface
+                            protocol:
+                              type: string
+                              enum:
+                              - ipv4
+                              description: Protocol of the interface when assignmentMode is static
+                            gateway:
+                              type: string
+                              description: Gateway of the interface when assignmentMode is static
+                            subnetMask:
+                              type: string
+                              description: Subnet mask of the interface when assignmentMode is static
+                        description: Addresses of the interface
+                    required:
+                    - interface
+                  description: Uplink interface settings of the cluster
+                tunnels:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      uplink:
+                        type: object
+                        properties:
+                          interface:
+                            type: string
+                            description: Uplink interface identifier
+                        required:
+                        - interface
+                        description: Uplink interface details if uplink is reused as tunnel
+                      interface:
+                        type: string
+                        description: Interface identifier, should be set to tun1. Specify this interface only if uplink isn't reused as tunnel
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the interface
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            protocol:
+                              type: string
+                              enum:
+                              - ipv4
+                              description: Protocol of the interface
+                            gateway:
+                              type: string
+                              description: Gateway of the interface
+                            subnetMask:
+                              type: string
+                              description: Subnet mask of the interface
+                        description: Addresses of the interface
+                  description: 'Tunnel interface settings of the cluster: Reuse uplink or specify tunnel interface'
+                nameservers:
+                  type: object
+                  properties:
+                    addresses:
+                      type: array
+                      items:
+                        type: string
+                      description: Addresses of the nameservers
+                  description: Nameservers of the cluster
+                portChannels:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: Name of the port channel
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the port channel
+                      allowedVlans:
+                        type: string
+                        description: Allowed VLANs of the port channel
+                    required:
+                    - name
+                  description: Port channel settings of the cluster
+                devices:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      serial:
+                        type: string
+                        description: Serial of the device
+                      uplinks:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Uplink interface name
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  protocol:
+                                    type: string
+                                    enum:
+                                    - ipv4
+                                    description: Protocol of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                                required:
+                                - address
+                              description: Uplink IP addresses of the device
+                          required:
+                          - interface
+                          - addresses
+                        description: Uplink settings of the device when uplink assignment mode of cluster is static
+                      tunnels:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Tunnel interface name
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  protocol:
+                                    type: string
+                                    enum:
+                                    - ipv4
+                                    description: Protocol of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                                required:
+                                - address
+                              description: Tunnel IP addresses of the device
+                          required:
+                          - interface
+                          - addresses
+                        description: Tunnel settings of the device when tunnel interface of cluster is specified
+                    required:
+                    - serial
+                  description: Devices in the cluster
+                notes:
+                  type: string
+                  description: Notes about cluster with max size of 511 characters allowed
+              example:
+                name: North Campus
+                uplinks:
+                - interface: man1
+                  vlan: 5
+                  addresses:
+                  - assignmentMode: static
+                    protocol: ipv4
+                    gateway: 1.2.3.5
+                    subnetMask: 255.255.255.0
+                tunnels:
+                - uplink:
+                    interface: man1
+                  interface: tun1
+                  vlan: 6
+                  addresses:
+                  - protocol: ipv4
+                    gateway: 2.3.5.6
+                    subnetMask: 255.255.255.0
+                nameservers:
+                  addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+                portChannels:
+                - name: Port-channel1
+                  vlan: 25
+                  allowedVlans: 10-20
+                devices:
+                - serial: Q234-ABCD-0001
+                  uplinks:
+                  - interface: man1
+                    addresses:
+                    - protocol: ipv4
+                      address: 5.1.2.3
+                  tunnels:
+                  - interface: tun1
+                    addresses:
+                    - protocol: ipv4
+                      address: 6.2.6.7
+                notes: This cluster is for New York Office
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clusterId:
+                    type: string
+                    description: ID of the cluster
+                  name:
+                    type: string
+                    description: Name of the cluster
+                  uplinks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        interface:
+                          type: string
+                          description: Name of the interface
+                        vlan:
+                          type: integer
+                          description: VLAN of the interface
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              assignmentMode:
+                                type: string
+                                description: Assignment mode of the interface
+                              protocol:
+                                type: string
+                                description: Protocol of the interface
+                              gateway:
+                                type: string
+                                description: Gateway of the interface
+                              subnetMask:
+                                type: string
+                                description: Subnet mask of the interface
+                          description: Addresses of the interface
+                    description: Uplink settings of the cluster
+                  tunnels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uplink:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Uplink interface name
+                          description: Use uplink interface as tunnel interface
+                        interface:
+                          type: string
+                          description: Name of the interface
+                        vlan:
+                          type: integer
+                          description: VLAN ID of the interface
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              protocol:
+                                type: string
+                                description: Protocol of the interface
+                              gateway:
+                                type: string
+                                description: Gateway of the interface
+                              subnetMask:
+                                type: string
+                                description: Subnet mask of the interface
+                          description: Addresses of the interface
+                    description: Tunnel settings of the cluster
+                  nameservers:
+                    type: object
+                    properties:
+                      addresses:
+                        type: array
+                        items:
+                          type: string
+                        description: Addresses of the nameservers
+                    description: Nameservers of the cluster
+                  portChannels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: ID of the port channel
+                        name:
+                          type: string
+                          description: Name of the port channel
+                        vlan:
+                          type: integer
+                          description: VLAN ID of the port channel
+                        allowedVlans:
+                          type: string
+                          description: Allowed VLANs of the port channel
+                    description: Port channel settings of the cluster
+                  devices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Serial of the device
+                        memberId:
+                          type: string
+                          description: Member number assigned to the device within cluster - This is a read only attribute and cannot be altered using post/put operations
+                        uplinks:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Uplink interface name
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    address:
+                                      type: string
+                                      description: IP address of the interface
+                                description: Uplink IP addresses of the device
+                          description: Uplink settings of the device
+                        tunnels:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Tunnel interface name
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    address:
+                                      type: string
+                                      description: IP address of the interface
+                                description: Tunnel IP addresses of the device
+                          description: Tunnel settings of the device
+                    description: Devices in the cluster
+                  notes:
+                    type: string
+                    description: Notes about cluster
+                  url:
+                    type: string
+                    description: URL to display cluster details
+              example:
+                clusterId: '1284392014818'
+                name: North Campus
+                uplinks:
+                - interface: man1
+                  vlan: 5
+                  addresses:
+                  - assignmentMode: static
+                    protocol: ipv4
+                    gateway: 1.2.3.5
+                    subnetMask: 255.255.255.0
+                tunnels:
+                - uplink:
+                    interface: man1
+                  interface: tun1
+                  vlan: 6
+                  addresses:
+                  - protocol: ipv4
+                    gateway: 2.3.5.6
+                    subnetMask: 255.255.255.0
+                nameservers:
+                  addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+                portChannels:
+                - id: '1284392014830'
+                  name: Port-channel1
+                  vlan: 25
+                  allowedVlans: 10-20
+                devices:
+                - serial: Q234-ABCD-0001
+                  memberId: '1'
+                  uplinks:
+                  - interface: man1
+                    addresses:
+                    - protocol: ipv4
+                      address: 5.1.2.3
+                  tunnels:
+                  - interface: tun1
+                    addresses:
+                    - protocol: ipv4
+                      address: 6.2.6.7
+                notes: This cluster is for New York Office
+                url: https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters
+      summary: Update a cluster and add/remove campus gateways to/from it
+      tags:
+      - campusGateway
+    delete:
+      description: Delete a cluster
+      operationId: deleteNetworkCampusGatewayCluster
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: clusterId
+        in: path
+        description: Cluster ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '204':
+          description: Successful operation
+      summary: Delete a cluster
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clients/usage/byNetwork/byCluster:
+    get:
+      description: Returns client usage details for campus gateway clusters within an organization.
+      operationId: getOrganizationCampusGatewayClientsUsageByNetworkByCluster
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 8 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 7 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be greater than or equal to 1 hour and be less than or equal to 7 days. The default is 2 hours.
+        schema:
+          type: number
+          format: float
+          minimum: 3600
+          maximum: 604800
+      - name: networkIds
+        in: query
+        description: Filter results by a list of network IDs.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: networkGroupIds
+        in: query
+        description: Limit the results to clients that belong to one of the provided network groups.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: clusterIds
+        in: query
+        description: Filter results by a list of cluster IDs.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: usageUnits
+        in: query
+        description: Usage units to use in the response.
+        schema:
+          type: string
+          enum:
+          - GB
+          - KB
+          - MB
+          - TB
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The unique identifier of the network
+                            name:
+                              type: string
+                              description: The name of the network
+                          required:
+                          - id
+                          - name
+                          description: Details about the network
+                        cluster:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The unique identifier of the cluster
+                            name:
+                              type: string
+                              description: The name of the cluster
+                          required:
+                          - id
+                          - name
+                          description: Details about the cluster
+                        clients:
+                          type: object
+                          properties:
+                            total:
+                              type: integer
+                              description: The total number of unique clients that have tunneled to the cluster over the given timespan
+                          required:
+                          - total
+                          description: Details about clients tunneled to the cluster
+                        devices:
+                          type: object
+                          properties:
+                            byProductType:
+                              type: object
+                              properties:
+                                campusGateway:
+                                  type: integer
+                                  description: The total number of campus gateways present in the cluster
+                              required:
+                              - campusGateway
+                              description: Details by product type
+                            tunneled:
+                              type: object
+                              properties:
+                                byProductType:
+                                  type: object
+                                  properties:
+                                    wireless:
+                                      type: integer
+                                      description: The total number of wireless devices configured to tunnel an SSID to the cluster
+                                  required:
+                                  - wireless
+                                  description: Details by product type
+                              required:
+                              - byProductType
+                              description: Details about tunneled network devices
+                          required:
+                          - byProductType
+                          - tunneled
+                          description: Details about network devices
+                        usage:
+                          type: object
+                          properties:
+                            total:
+                              type: number
+                              format: float
+                              description: Total client usage
+                            upstream:
+                              type: number
+                              format: float
+                              description: Upstream client usage
+                            downstream:
+                              type: number
+                              format: float
+                              description: Downstream client usage
+                          required:
+                          - total
+                          - upstream
+                          - downstream
+                          description: Details about tunneled client usage for the campus gateway cluster over the given timespan
+                      required:
+                      - network
+                      - cluster
+                      - clients
+                      - devices
+                      - usage
+                    description: List of campus gateway clusters, along with details about client usage
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts related to the paginated items
+                        description: Counts relating to the paginated dataset
+                      units:
+                        type: object
+                        properties:
+                          usage:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the unit
+                              symbol:
+                                type: string
+                                description: The symbol of the unit
+                            description: Units used for usage values
+                        description: Description of units used in the response
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - network:
+                    id: N_123456
+                    name: My Network
+                  cluster:
+                    id: '123456'
+                    name: My Cluster
+                  clients:
+                    total: 100
+                  devices:
+                    byProductType:
+                      campusGateway: 2
+                    tunneled:
+                      byProductType:
+                        wireless: 2
+                  usage:
+                    total: 1000.0
+                    upstream: 500.0
+                    downstream: 500.0
+                meta:
+                  counts:
+                    items:
+                      total: 1
+                      remaining: 0
+                  units:
+                    usage:
+                      name: megabytes
+                      symbol: MB
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:telemetry:read
+      summary: Returns client usage details for campus gateway clusters within an organization.
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters:
+    get:
+      description: Get the details of campus gateway clusters
+      operationId: getOrganizationCampusGatewayClusters
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Networks for which information should be gathered.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 100. Default is 50.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Network ID
+                          description: Network details of the cluster
+                        clusterId:
+                          type: string
+                          description: ID of the cluster
+                        name:
+                          type: string
+                          description: Name of the cluster
+                        uplinks:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Name of the interface
+                              vlan:
+                                type: integer
+                                description: VLAN of the interface
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    assignmentMode:
+                                      type: string
+                                      description: Assignment mode of the interface
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    gateway:
+                                      type: string
+                                      description: Gateway of the interface
+                                    subnetMask:
+                                      type: string
+                                      description: Subnet mask of the interface
+                                description: Addresses of the interface
+                          description: Uplink settings of the cluster
+                        tunnels:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              uplink:
+                                type: object
+                                properties:
+                                  interface:
+                                    type: string
+                                    description: Uplink interface name
+                                description: Use uplink interface as tunnel interface
+                              interface:
+                                type: string
+                                description: Name of the interface
+                              vlan:
+                                type: integer
+                                description: VLAN ID of the interface
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    gateway:
+                                      type: string
+                                      description: Gateway of the interface
+                                    subnetMask:
+                                      type: string
+                                      description: Subnet mask of the interface
+                                description: Addresses of the interface
+                          description: Tunnel settings of the cluster
+                        nameservers:
+                          type: object
+                          properties:
+                            addresses:
+                              type: array
+                              items:
+                                type: string
+                              description: Addresses of the nameservers
+                          description: Nameservers of the cluster
+                        portChannels:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: ID of the port channel
+                              name:
+                                type: string
+                                description: Name of the port channel
+                              vlan:
+                                type: integer
+                                description: VLAN ID of the port channel
+                              allowedVlans:
+                                type: string
+                                description: Allowed VLANs of the port channel
+                          description: Port channel settings of the cluster
+                        devices:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              serial:
+                                type: string
+                                description: Serial of the device
+                              memberId:
+                                type: string
+                                description: Member number assigned to the device within cluster - This is a read only attribute and cannot be altered using post/put operations
+                              uplinks:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    interface:
+                                      type: string
+                                      description: Uplink interface name
+                                    addresses:
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          protocol:
+                                            type: string
+                                            description: Protocol of the interface
+                                          address:
+                                            type: string
+                                            description: IP address of the interface
+                                      description: Uplink IP addresses of the device
+                                description: Uplink settings of the device
+                              tunnels:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    interface:
+                                      type: string
+                                      description: Tunnel interface name
+                                    addresses:
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          protocol:
+                                            type: string
+                                            description: Protocol of the interface
+                                          address:
+                                            type: string
+                                            description: IP address of the interface
+                                      description: Tunnel IP addresses of the device
+                                description: Tunnel settings of the device
+                          description: Devices in the cluster
+                        notes:
+                          type: string
+                          description: Notes about cluster
+                        url:
+                          type: string
+                          description: URL to display cluster details
+                    description: List of clusters
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of serials.
+                              remaining:
+                                type: integer
+                                description: The number of serials remaining based on current pagination location within the dataset.
+                            description: The count metadata.
+                        description: Count metadata related to this result set.
+                    description: Other metadata related to this result set.
+              example:
+                items:
+                - network:
+                    id: N_2313
+                  clusterId: '1284392014818'
+                  name: North Campus
+                  uplinks:
+                  - interface: man1
+                    vlan: 5
+                    addresses:
+                    - assignmentMode: static
+                      protocol: ipv4
+                      gateway: 1.2.3.5
+                      subnetMask: 255.255.255.0
+                  tunnels:
+                  - uplink:
+                      interface: man1
+                    interface: tun1
+                    vlan: 6
+                    addresses:
+                    - protocol: ipv4
+                      gateway: 2.3.5.6
+                      subnetMask: 255.255.255.0
+                  nameservers:
+                    addresses:
+                    - 8.8.8.8
+                    - 8.8.4.4
+                  portChannels:
+                  - id: '1284392014830'
+                    name: Port-channel1
+                    vlan: 25
+                    allowedVlans: 10-20
+                  devices:
+                  - serial: Q234-ABCD-0001
+                    memberId: '1'
+                    uplinks:
+                    - interface: man1
+                      addresses:
+                      - protocol: ipv4
+                        address: 5.1.2.3
+                    tunnels:
+                    - interface: tun1
+                      addresses:
+                      - protocol: ipv4
+                        address: 6.2.6.7
+                  notes: This cluster is for New York Office
+                  url: https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters
+                meta:
+                  counts:
+                    items:
+                      total: 2
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:config:read
+      summary: Get the details of campus gateway clusters
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters/failover/targets:
+    get:
+      description: List the details of a Failover Targets for a Campus Gateway cluster
+      operationId: getOrganizationCampusGatewayClustersFailoverTargets
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter networks. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: clusterIds
+        in: query
+        description: Optional parameter to filter clusters. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 100. Default is 50.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    clusterId:
+                      type: string
+                      description: ID of the primary cluster
+                    network:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: Network ID
+                      description: Network details of the cluster
+                    failover:
+                      type: object
+                      properties:
+                        targets:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              clusterId:
+                                type: string
+                                description: ID of the failover target cluster
+                              name:
+                                type: string
+                                description: Name of the failover target cluster
+                              priority:
+                                type: integer
+                                description: Priority of the failover target cluster
+                              allowedVlans:
+                                type: string
+                                description: Allowed VLANs for the failover target cluster
+                          description: Failover targets of the cluster
+                      description: Failover settings of the cluster
+              example:
+              - clusterId: '1284392014819'
+                network:
+                  id: N_1234
+                failover:
+                  targets:
+                  - clusterId: '1284392014818'
+                    name: Backup Cluster
+                    priority: 1
+                    allowedVlans: 10-20
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List the details of a Failover Targets for a Campus Gateway cluster
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters/failover/targets/byCluster:
+    get:
+      description: Get available backup cluster targets for campus gateway failover configuration
+      operationId: getOrganizationCampusGatewayClustersFailoverTargetsByCluster
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Networks for which backup cluster targets should be gathered.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: clusterIds
+        in: query
+        description: Cluster IDs to filter backup cluster targets.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 100. Default is 50.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        clusterId:
+                          type: string
+                          description: ID of the primary cluster
+                        name:
+                          type: string
+                          description: Name of the primary cluster
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Network ID where the primary cluster belongs
+                          description: Network details of the primary cluster
+                        model:
+                          type: string
+                          description: Device model of the primary cluster
+                        available:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              clusterId:
+                                type: string
+                                description: ID of the backup cluster
+                              name:
+                                type: string
+                                description: Name of the backup cluster
+                              network:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: Network ID where the backup cluster belongs
+                                description: Network details of the backup cluster
+                              model:
+                                type: string
+                                description: Device model of the backup cluster
+                              allowedVlans:
+                                type: string
+                                description: Allowed VLANs configured on the backup cluster port channel
+                          description: Available backup cluster targets for this primary cluster
+                    description: List of clusters with their backup cluster targets
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of clusters
+                              remaining:
+                                type: integer
+                                description: The number of clusters remaining based on current pagination location within the dataset
+                            description: The count metadata
+                        description: Count metadata related to this result set
+                    description: Metadata related to this result set
+              example:
+                items:
+                - clusterId: '1284392014818'
+                  name: Primary Cluster Main
+                  network:
+                    id: N_123456789012345678
+                  model: CW9800H1
+                  available:
+                  - clusterId: '1284392014819'
+                    name: Backup Cluster Alpha
+                    network:
+                      id: N_123456789012345678
+                    model: CW9800H1
+                    allowedVlans: 2,3,5
+                meta:
+                  counts:
+                    items:
+                      total: 2
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: Get available backup cluster targets for campus gateway failover configuration
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters/networks/overviews:
+    get:
+      description: List networks tunneling through Campus Gateway clusters with their AP, ssids and client counts
+      operationId: getOrganizationCampusGatewayClustersNetworksOverviews
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: clusterIds
+        in: query
+        description: Optional parameter to filter by MCG cluster IDs. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: siteIds
+        in: query
+        description: Optional parameter to filter by site IDs. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter networks. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: tunnelingSources
+        in: query
+        description: Optional parameter to filter networks by tunneling source. 'configured' returns networks explicitly set up to tunnel through the campus gateway. 'roaming' returns networks tunneling due to AP roaming or disaster recovery. 'roaming' is only effective when 'clusterIds' is also provided; without 'clusterIds', the filter defaults to configured-only behavior. Defaults to 'configured' if omitted.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - configured
+            - roaming
+      - name: search
+        in: query
+        description: Optional parameter to filter networks by wireless network name. This filter uses case-insensitive substring matching.
+        schema:
+          type: string
+      - name: sortBy
+        in: query
+        description: Optional parameter to sort results. Default is 'name'. Use 'siteName' to sort by site name.
+        schema:
+          type: string
+          enum:
+          - clients
+          - clusterId
+          - connections
+          - name
+          - networkId
+          - siteName
+          - ssids
+      - name: sortOrder
+        in: query
+        description: Optional parameter to specify sort direction. Default is 'asc'.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        networkId:
+                          type: string
+                          description: Network identifier
+                        name:
+                          type: string
+                          description: Network name
+                        tunneling:
+                          type: object
+                          properties:
+                            source:
+                              type: string
+                              enum:
+                              - configured
+                              - roaming
+                              description: How the network is tunneling through the campus gateway cluster. 'configured' if explicitly set up, 'roaming' if tunneling due to AP roaming or disaster recovery.
+                          required:
+                          - source
+                          description: Tunneling relationship details
+                        site:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: site identifier
+                            name:
+                              type: string
+                              description: site name
+                            url:
+                              type: string
+                              description: site management URL
+                          required:
+                          - id
+                          description: site information
+                        url:
+                          type: string
+                          description: Network management URL
+                        counts:
+                          type: object
+                          properties:
+                            connections:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: Total connections
+                              required:
+                              - total
+                              description: Number of connections
+                            clients:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: Total clients
+                              required:
+                              - total
+                              description: Number of connected clients
+                            ssids:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: Total SSIDs
+                              required:
+                              - total
+                              description: Number of SSIDs
+                          required:
+                          - connections
+                          - clients
+                          - ssids
+                          description: Network statistics
+                        cluster:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Campus Gateway cluster ID
+                            name:
+                              type: string
+                              description: Campus Gateway cluster name
+                          required:
+                          - id
+                          - name
+                          description: Associated Campus Gateway cluster
+                      required:
+                      - networkId
+                      - name
+                      - tunneling
+                      - url
+                      - counts
+                      - cluster
+                    description: List of networks tunneling through campus gateway clusters
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: Total
+                              remaining:
+                                type: integer
+                                description: Remaining
+                            required:
+                            - total
+                            - remaining
+                            description: Items
+                        required:
+                        - items
+                        description: Counts
+                    required:
+                    - counts
+                    description: Metadata about the response
+                required:
+                - items
+                - meta
+              example:
+                items:
+                - networkId: '1234'
+                  name: ap network1
+                  tunneling:
+                    source: configured
+                  site:
+                    id: '5'
+                    name: Main campus
+                    url: https://n1.meraki.com/o/abc123/manage/organization/network_groups/5/monitor
+                  url: networklink1
+                  counts:
+                    connections:
+                      total: 123
+                    clients:
+                      total: 345
+                    ssids:
+                      total: 15
+                  cluster:
+                    id: '1'
+                    name: Campus Gateway 1
+                meta:
+                  counts:
+                    items:
+                      total: 2
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List networks tunneling through Campus Gateway clusters with their AP, ssids and client counts
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters/provision:
+    post:
+      description: Provisions a cluster,adds campus gateways to it and associate/dissociate failover targets.
+      operationId: provisionOrganizationCampusGatewayClusters
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                clusterId:
+                  type: string
+                  description: ID of the cluster to be provisioned
+                network:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: ID of the network to be provisioned
+                  description: Network to be provisioned
+                name:
+                  type: string
+                  description: Name of the new cluster
+                uplinks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      interface:
+                        type: string
+                        description: Interface identifier, should be set to man1
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the interface
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            assignmentMode:
+                              type: string
+                              enum:
+                              - dynamic
+                              - static
+                              description: Assignment mode of the interface
+                            protocol:
+                              type: string
+                              enum:
+                              - ipv4
+                              description: Protocol of the interface when assignment mode is static
+                            gateway:
+                              type: string
+                              description: Gateway of the interface when assignment mode is static
+                            subnetMask:
+                              type: string
+                              description: Subnet mask of the interface when assignment mode is static
+                          required:
+                          - assignmentMode
+                        description: Addresses of the interface
+                    required:
+                    - interface
+                    - vlan
+                    - addresses
+                  description: Uplink interface settings of the cluster
+                tunnels:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      uplink:
+                        type: object
+                        properties:
+                          interface:
+                            type: string
+                            description: Uplink interface identifier
+                        required:
+                        - interface
+                        description: Uplink interface details if uplink is reused as tunnel
+                      interface:
+                        type: string
+                        description: Interface identifier, should be set to tun1. Specify this interface only if uplink isn't reused as tunnel
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the interface
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            protocol:
+                              type: string
+                              enum:
+                              - ipv4
+                              description: Protocol of the interface
+                            gateway:
+                              type: string
+                              description: Gateway of the interface
+                            subnetMask:
+                              type: string
+                              description: Subnet mask of the interface
+                          required:
+                          - protocol
+                          - gateway
+                          - subnetMask
+                        description: Addresses of the interface
+                  description: 'Tunnel interface settings of the cluster: Reuse uplink or specify tunnel interface'
+                nameservers:
+                  type: object
+                  properties:
+                    addresses:
+                      type: array
+                      items:
+                        type: string
+                      description: Addresses of the nameservers
+                  description: Nameservers of the cluster
+                portChannels:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ID of the port channel(If not specified, system will create Port Channel)
+                      name:
+                        type: string
+                        description: Name of the port channel
+                      vlan:
+                        type: integer
+                        description: VLAN ID of the port channel
+                      allowedVlans:
+                        type: string
+                        description: Allowed VLANs of the port channel
+                    required:
+                    - name
+                    - vlan
+                    - allowedVlans
+                  description: Port channel settings of the cluster
+                devices:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      serial:
+                        type: string
+                        description: Serial of the device
+                      uplinks:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Uplink interface name
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  protocol:
+                                    type: string
+                                    enum:
+                                    - ipv4
+                                    description: Protocol of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                                required:
+                                - protocol
+                                - address
+                              description: Uplink IP addresses of the device
+                          required:
+                          - interface
+                          - addresses
+                        description: Uplink settings of the device when uplink assignment mode of cluster is static
+                      tunnels:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Tunnel interface name
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  protocol:
+                                    type: string
+                                    enum:
+                                    - ipv4
+                                    description: Protocol of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                                required:
+                                - protocol
+                                - address
+                              description: Tunnel IP addresses of the device
+                          required:
+                          - interface
+                          - addresses
+                        description: Tunnel settings of the device when tunnel interface of cluster is specified
+                    required:
+                    - serial
+                  description: Devices to be added to the cluster
+                failover:
+                  type: object
+                  properties:
+                    targets:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          clusterId:
+                            type: string
+                            description: ID of the failover target cluster
+                          priority:
+                            type: integer
+                            enum:
+                            - 1
+                            description: Priority of the failover target cluster
+                        required:
+                        - clusterId
+                      description: Failover targets for the cluster
+                  description: Failover targets for the cluster
+                notes:
+                  type: string
+                  description: Notes about cluster with max size of 511 characters allowed
+              example:
+                clusterId: '1284392014818'
+                network:
+                  id: N_1234
+                name: North Campus
+                uplinks:
+                - interface: man1
+                  vlan: 5
+                  addresses:
+                  - assignmentMode: static
+                    protocol: ipv4
+                    gateway: 1.2.3.5
+                    subnetMask: 255.255.255.0
+                tunnels:
+                - uplink:
+                    interface: man1
+                  interface: tun1
+                  vlan: 6
+                  addresses:
+                  - protocol: ipv4
+                    gateway: 2.3.5.6
+                    subnetMask: 255.255.255.0
+                nameservers:
+                  addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+                portChannels:
+                - id: '1284392014830'
+                  name: Port-channel1
+                  vlan: 25
+                  allowedVlans: 10-20
+                devices:
+                - serial: Q234-ABCD-0001
+                  uplinks:
+                  - interface: man1
+                    addresses:
+                    - protocol: ipv4
+                      address: 5.1.2.3
+                  tunnels:
+                  - interface: tun1
+                    addresses:
+                    - protocol: ipv4
+                      address: 6.2.6.7
+                failover:
+                  targets:
+                  - clusterId: '1284392014819'
+                    priority: 1
+                notes: This cluster is for New York Office
+              required:
+              - clusterId
+              - network
+              - name
+              - uplinks
+              - tunnels
+              - nameservers
+              - portChannels
+        required: true
+      responses:
+        '202':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clusterId:
+                    type: string
+                    description: ID of the cluster
+                  name:
+                    type: string
+                    description: Name of the cluster
+                  uplinks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        interface:
+                          type: string
+                          description: Name of the interface
+                        vlan:
+                          type: integer
+                          description: VLAN of the interface
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              assignmentMode:
+                                type: string
+                                description: Assignment mode of the interface
+                              protocol:
+                                type: string
+                                description: Protocol of the interface
+                              gateway:
+                                type: string
+                                description: Gateway of the interface
+                              subnetMask:
+                                type: string
+                                description: Subnet mask of the interface
+                          description: Addresses of the interface
+                    description: Uplink settings of the cluster
+                  tunnels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uplink:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Uplink interface name
+                          description: Use uplink interface as tunnel interface
+                        interface:
+                          type: string
+                          description: Name of the interface
+                        vlan:
+                          type: integer
+                          description: VLAN ID of the interface
+                        addresses:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              protocol:
+                                type: string
+                                description: Protocol of the interface
+                              gateway:
+                                type: string
+                                description: Gateway of the interface
+                              subnetMask:
+                                type: string
+                                description: Subnet mask of the interface
+                          description: Addresses of the interface
+                    description: Tunnel settings of the cluster
+                  nameservers:
+                    type: object
+                    properties:
+                      addresses:
+                        type: array
+                        items:
+                          type: string
+                        description: Addresses of the nameservers
+                    description: Nameservers of the cluster
+                  portChannels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: ID of the port channel
+                        name:
+                          type: string
+                          description: Name of the port channel
+                        vlan:
+                          type: integer
+                          description: VLAN ID of the port channel
+                        allowedVlans:
+                          type: string
+                          description: Allowed VLANs of the port channel
+                    description: Port channel settings of the cluster
+                  devices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Serial of the device
+                        memberId:
+                          type: string
+                          description: Member number assigned to the device within cluster - This is a read only attribute and cannot be altered using post/put operations
+                        uplinks:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Uplink interface name
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    address:
+                                      type: string
+                                      description: IP address of the interface
+                                description: Uplink IP addresses of the device
+                          description: Uplink settings of the device
+                        tunnels:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              interface:
+                                type: string
+                                description: Tunnel interface name
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: Protocol of the interface
+                                    address:
+                                      type: string
+                                      description: IP address of the interface
+                                description: Tunnel IP addresses of the device
+                          description: Tunnel settings of the device
+                    description: Devices in the cluster
+                  notes:
+                    type: string
+                    description: Notes about cluster
+                  url:
+                    type: string
+                    description: URL to display cluster details
+                  failover:
+                    type: object
+                    properties:
+                      targets:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            clusterId:
+                              type: string
+                              description: ID of the failover target cluster
+                            name:
+                              type: string
+                              description: Name of the failover target cluster
+                            priority:
+                              type: integer
+                              description: Priority of the failover target cluster
+                            allowedVlans:
+                              type: string
+                              description: Allowed VLANs for the failover target cluster
+                        description: Failover targets of the cluster
+                    description: Failover settings of the cluster
+              example:
+                clusterId: '1284392014818'
+                name: North Campus
+                uplinks:
+                - interface: man1
+                  vlan: 5
+                  addresses:
+                  - assignmentMode: static
+                    protocol: ipv4
+                    gateway: 1.2.3.5
+                    subnetMask: 255.255.255.0
+                tunnels:
+                - uplink:
+                    interface: man1
+                  interface: tun1
+                  vlan: 6
+                  addresses:
+                  - protocol: ipv4
+                    gateway: 2.3.5.6
+                    subnetMask: 255.255.255.0
+                nameservers:
+                  addresses:
+                  - 8.8.8.8
+                  - 8.8.4.4
+                portChannels:
+                - id: '1284392014830'
+                  name: Port-channel1
+                  vlan: 25
+                  allowedVlans: 10-20
+                devices:
+                - serial: Q234-ABCD-0001
+                  memberId: '1'
+                  uplinks:
+                  - interface: man1
+                    addresses:
+                    - protocol: ipv4
+                      address: 5.1.2.3
+                  tunnels:
+                  - interface: tun1
+                    addresses:
+                    - protocol: ipv4
+                      address: 6.2.6.7
+                notes: This cluster is for New York Office
+                url: https://n123.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters
+                failover:
+                  targets:
+                  - clusterId: '1284392014818'
+                    name: Backup Cluster
+                    priority: 1
+                    allowedVlans: 10-20
+      summary: Provisions a cluster,adds campus gateways to it and associate/dissociate failover targets.
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters/ssids:
+    get:
+      description: List SSIDs tunneling through Campus Gateway clusters
+      operationId: getOrganizationCampusGatewayClustersSsids
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: clusterIds
+        in: query
+        description: Optional parameter to filter by MCG cluster IDs. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter networks. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: search
+        in: query
+        description: Optional parameter to filter SSIDs by name. This filter uses case-insensitive starts with string matching.
+        schema:
+          type: string
+      - name: sortBy
+        in: query
+        description: Optional parameter to sort results. Default is 'networkId'.
+        schema:
+          type: string
+          enum:
+          - clusterId
+          - name
+          - networkId
+          - ssidId
+      - name: sortOrder
+        in: query
+        description: Optional parameter to specify sort direction. Default is 'asc'.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        number:
+                          type: integer
+                          description: SSID number
+                        ssidId:
+                          type: string
+                          description: SSID identifier
+                        name:
+                          type: string
+                          description: SSID name
+                        url:
+                          type: string
+                          description: SSID management URL
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Network ID
+                          required:
+                          - id
+                          description: Associated network
+                        cluster:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Campus Gateway cluster ID
+                            name:
+                              type: string
+                              description: Campus Gateway cluster name
+                          required:
+                          - id
+                          - name
+                          description: Associated Campus Gateway cluster
+                      required:
+                      - number
+                      - ssidId
+                      - name
+                      - url
+                      - network
+                      - cluster
+                    description: List of SSIDs tunneling through campus gateway clusters
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: Total
+                              remaining:
+                                type: integer
+                                description: Remaining
+                            required:
+                            - total
+                            - remaining
+                            description: Items
+                        required:
+                        - items
+                        description: Counts
+                    required:
+                    - counts
+                    description: Metadata about the response
+                required:
+                - items
+                - meta
+              example:
+                items:
+                - number: 1
+                  ssidId: '12345678'
+                  name: ssid1
+                  url: ssidlink
+                  network:
+                    id: '4567'
+                  cluster:
+                    id: '1'
+                    name: cluster1
+                meta:
+                  counts:
+                    items:
+                      total: 3
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:config:read
+      summary: List SSIDs tunneling through Campus Gateway clusters
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/clusters/tunnelable:
+    get:
+      description: List available campus gateway clusters that can be used for wireless network tunneling
+      operationId: getOrganizationCampusGatewayClustersTunnelable
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: fromNetworkIds
+        in: query
+        required: true
+        description: Filter results by wireless network IDs.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: excludeSsidNumbers
+        in: query
+        description: Optional SSID numbers (0-15) to exclude from restriction checks, corresponding to each fromNetworkIds entry. Only one SSID per network can be excluded.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 200. Default is 200.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        clusterId:
+                          type: string
+                          description: The unique identifier of the campus gateway cluster
+                        name:
+                          type: string
+                          description: The name of the campus gateway cluster
+                        url:
+                          type: string
+                          description: Dashboard URL for campus gateway cluster settings for this row's campus gateway network
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The unique identifier of network (N_) or combined network (L_)
+                            name:
+                              type: string
+                              description: The name of the network
+                          required:
+                          - id
+                          - name
+                          description: The network containing the cluster (combined network when L_ prefix)
+                        source:
+                          type: object
+                          properties:
+                            network:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  description: The network ID the cluster is tunnelable from
+                              required:
+                              - id
+                              description: The source network details
+                          required:
+                          - network
+                          description: The source network from which the cluster is tunnelable
+                      required:
+                      - clusterId
+                      - name
+                      - url
+                      - network
+                      - source
+                    description: List of campus gateway clusters with their associated network information
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of campus gateway clusters
+                              remaining:
+                                type: integer
+                                description: The number of campus gateway clusters remaining based on current pagination location
+                            description: Count information for campus gateway clusters
+                        description: Count metadata related to this result set
+                    description: Metadata related to this result set
+              example:
+                items:
+                - clusterId: '1284392014818'
+                  name: Campus Gateway Cluster Alpha
+                  url: https://api.meraki.com/networkName/n/abc123/manage/campus_gateways/clusters
+                  network:
+                    id: N_123456789012345678
+                    name: CG Group Alpha
+                  source:
+                    network:
+                      id: N_111222333444555666
+                meta:
+                  counts:
+                    items:
+                      total: 2
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:config:read
+      summary: List available campus gateway clusters that can be used for wireless network tunneling
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/connections:
+    get:
+      description: List the details of APs tunneling through the Campus Gateway clusters
+      operationId: getOrganizationCampusGatewayConnections
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter networks. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serials
+        in: query
+        description: Optional parameter to filter connections(APs) by its own serials. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: campusGatewaySerials
+        in: query
+        description: Optional parameter to filter connections(APs) by MCG serials. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: campusGatewayClusterIds
+        in: query
+        description: Optional parameter to filter connections(APs) by MCG cluster IDs. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: campusGatewayTunnelStatuses
+        in: query
+        description: Optional parameter to filter connections(APs) by tunnel statuses. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: search
+        in: query
+        description: Optional parameter to filter connections(APs) on AP name, serial, MAC address, network name, or interface IP address. This filter uses partial string matching (ILIKE).
+        schema:
+          type: string
+      - name: models
+        in: query
+        description: Optional parameter to filter connections(APs) by device model names. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: dataEncryptionStatuses
+        in: query
+        description: Optional parameter to filter connections(APs) by data encryption status. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - down
+            - up
+      - name: sortBy
+        in: query
+        description: 'Optional parameter to sort results. Available options: name, serial, status, interfaces, clients, dataEncryption, networkName. Default is ''serial''.'
+        schema:
+          type: string
+          enum:
+          - clients
+          - dataEncryption
+          - interfaces
+          - name
+          - networkName
+          - serial
+          - status
+      - name: sortOrder
+        in: query
+        description: Optional parameter to specify sort direction. Default is 'asc'.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: AP name
+                        serial:
+                          type: string
+                          description: AP serial
+                        mac:
+                          type: string
+                          description: Mac address
+                        model:
+                          type: string
+                          description: MR model
+                        uptime:
+                          type: integer
+                          description: Device uptime in seconds
+                        status:
+                          type: string
+                          enum:
+                          - alerting
+                          - dormant
+                          - offline
+                          - online
+                          description: Device status
+                        tunnelStatus:
+                          type: string
+                          enum:
+                          - down
+                          - up
+                          - up/down
+                          description: Cumulative tunnel status across all campus gateways in the cluster
+                        tunnelAdmin:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                              description: Whether tunnelling is administratively enabled for all campus gateway connections of this AP
+                          required:
+                          - enabled
+                          description: Tunnel administrative settings
+                        tunnelSchedule:
+                          type: object
+                          properties:
+                            enabled:
+                              type: boolean
+                              description: Whether a tunnel schedule is enabled for any campus gateway connection of this AP
+                          required:
+                          - enabled
+                          description: Tunnel schedule settings
+                        interfaces:
+                          type: array
+                          items:
+                            type: string
+                          description: Interface IP addresses of the device
+                        url:
+                          type: string
+                          description: Link to AP summary page
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Network ID
+                            name:
+                              type: string
+                              description: Network name
+                            url:
+                              type: string
+                              description: Network URL
+                          required:
+                          - id
+                          - name
+                          - url
+                          description: Network information
+                        counts:
+                          type: object
+                          properties:
+                            clients:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: Total client count
+                              required:
+                              - total
+                              description: Client counts
+                          required:
+                          - clients
+                          description: Count information
+                        campusGateways:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: MCG name
+                              priority:
+                                type: integer
+                                description: CG priority for this AP (0 = primary, 1 = secondary)
+                              serial:
+                                type: string
+                                description: MCG serial
+                              mac:
+                                type: string
+                                description: MCG mac address
+                              tunnel:
+                                type: object
+                                properties:
+                                  status:
+                                    type: string
+                                    description: Tunnel status
+                                  uptime:
+                                    type: integer
+                                    description: Tunnel uptime in seconds
+                                required:
+                                - status
+                                description: Tunnel information
+                              data:
+                                type: object
+                                properties:
+                                  encryption:
+                                    type: object
+                                    properties:
+                                      status:
+                                        type: string
+                                        description: Whether or not tunnel traffic is encrypted
+                                    required:
+                                    - status
+                                    description: Encryption status of the data plane
+                                required:
+                                - encryption
+                                description: Attributes related to the data plane
+                              url:
+                                type: string
+                                description: Link to campus gateway details page
+                              cluster:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                    description: Cluster ID
+                                  name:
+                                    type: string
+                                    description: Cluster name
+                                required:
+                                - id
+                                - name
+                                description: MCG cluster information
+                            required:
+                            - name
+                            - priority
+                            - serial
+                            - mac
+                            - tunnel
+                            - data
+                            - url
+                            - cluster
+                          description: MCG information
+                      required:
+                      - name
+                      - serial
+                      - mac
+                      - model
+                      - uptime
+                      - status
+                      - tunnelStatus
+                      - tunnelAdmin
+                      - tunnelSchedule
+                      - interfaces
+                      - url
+                      - network
+                      - counts
+                      - campusGateways
+                    description: APs tunneling through the MCG clusters
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: Total
+                              remaining:
+                                type: integer
+                                description: Remaining
+                            required:
+                            - total
+                            - remaining
+                            description: Items
+                        required:
+                        - items
+                        description: Counts
+                    required:
+                    - counts
+                    description: Metadata about the response
+                required:
+                - items
+                - meta
+              example:
+                items:
+                - name: Temp-1-AP01
+                  serial: QQQK-KKKK-DDDD
+                  mac: aa:bb:cc:dd:ee:ff
+                  model: MR56
+                  uptime: 86400
+                  status: online
+                  tunnelStatus: up
+                  tunnelAdmin:
+                    enabled: true
+                  tunnelSchedule:
+                    enabled: false
+                  interfaces:
+                  - 192.168.1.5
+                  url: https://n1.meraki.ikarem.io/4th-MR/n/34_vpd/manage/access_points/QQQK-KKKK-DDDD/summary
+                  network:
+                    id: '1234'
+                    name: wireless_network1
+                    url: network_link
+                  counts:
+                    clients:
+                      total: 100
+                  campusGateways:
+                  - name: MCG 1
+                    priority: 0
+                    serial: QQQQ-KKKK-DW9T
+                    mac: ab:15:cd:ef:d5:5d
+                    tunnel:
+                      status: up
+                      uptime: 86400
+                    data:
+                      encryption:
+                        status: up
+                    url: https://n1.meraki.ikarem.io/Mcg-D/n/eVbmxbl/manage/nodes/new_list/180835
+                    cluster:
+                      id: '123'
+                      name: Cluster 1
+                meta:
+                  counts:
+                    items:
+                      total: 1
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:telemetry:read
+      summary: List the details of APs tunneling through the Campus Gateway clusters
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/connections/overview:
+    get:
+      description: List the count of connections(APs) with tunneling status up and down through the Campus Gateway clusters
+      operationId: getOrganizationCampusGatewayConnectionsOverview
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter networks. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serials
+        in: query
+        description: Optional parameter to filter connections(APs) by its own serials. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: campusGatewaySerials
+        in: query
+        description: Optional parameter to filter connections(APs) by Campus Gateway serials. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: campusGatewayClusterIds
+        in: query
+        description: Optional parameter to filter connections(APs) by Campus Gateway cluster IDs. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: campusGatewayTunnelStatuses
+        in: query
+        description: Optional parameter to filter connections(APs) by tunnel statuses. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: search
+        in: query
+        description: Optional setting that lets you filter access points (APs) by name, serial number, MAC address, network name, or interface IP address. The filter matches partial text, not just exact values (uses ILIKE matching).
+        schema:
+          type: string
+      - name: models
+        in: query
+        description: Optional parameter to filter connections(APs) by device model names. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: dataEncryptionStatuses
+        in: query
+        description: Optional parameter to filter connections(APs) by data encryption status. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - down
+            - up
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  counts:
+                    type: object
+                    properties:
+                      byTunnelStatus:
+                        type: object
+                        properties:
+                          up:
+                            type: integer
+                            description: Connections with tunnelling status up
+                          down:
+                            type: integer
+                            description: Connections with tunnelling status down
+                        required:
+                        - up
+                        - down
+                        description: Connections counts by tunnel status
+                      total:
+                        type: integer
+                        description: Total connections
+                    required:
+                    - byTunnelStatus
+                    - total
+                    description: Connections counts
+                required:
+                - counts
+              example:
+                counts:
+                  byTunnelStatus:
+                    up: 10
+                    down: 20
+                  total: 30
+      summary: List the count of connections(APs) with tunneling status up and down through the Campus Gateway clusters
+      tags:
+      - campusGateway
+  /organizations/{organizationId}/campusGateway/devices/uplinks/localOverrides/byDevice:
+    get:
+      description: Uplink overrides configured locally on Campus Gateway devices in an organization.
+      operationId: getOrganizationCampusGatewayDevicesUplinksLocalOverridesByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: A list of serial numbers. The returned devices will be filtered to only include these serials.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Serial number
+                        uplink:
+                          type: object
+                          properties:
+                            interface:
+                              type: string
+                              description: Name of the interface
+                            vlan:
+                              type: integer
+                              description: VLAN of the interface
+                            addresses:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  assignmentMode:
+                                    type: string
+                                    description: Assignment mode of the interface
+                                  protocol:
+                                    type: string
+                                    description: Protocol of the interface
+                                  gateway:
+                                    type: string
+                                    description: Gateway of the interface
+                                  subnetMask:
+                                    type: string
+                                    description: Subnet mask of the interface
+                                  address:
+                                    type: string
+                                    description: IP address of the interface
+                              description: Addresses of the interface
+                          description: Uplink setting of the cluster
+                        nameservers:
+                          type: object
+                          properties:
+                            addresses:
+                              type: array
+                              items:
+                                type: string
+                              description: Addresses of the nameservers
+                          description: Nameservers of the cluster
+                        sgt:
+                          type: integer
+                          description: Infra Security Group Tag(sgt) value for Trustsec
+                    description: List of Consilience entities
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of serials.
+                              remaining:
+                                type: integer
+                                description: The number of serials remaining based on current pagination location within the dataset.
+                            description: The count metadata.
+                        description: Count metadata related to this result set.
+                    description: Other metadata related to this result set.
+              example:
+                items:
+                - serial: Q234-ABCD-0001
+                  uplink:
+                    interface: man1
+                    vlan: 5
+                    addresses:
+                    - assignmentMode: static
+                      protocol: ipv4
+                      gateway: 1.2.3.5
+                      subnetMask: 255.255.255.0
+                      address: 121.12.12.1
+                  nameservers:
+                    addresses:
+                    - 8.8.8.8
+                    - 8.8.4.4
+                  sgt: 300
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: Uplink overrides configured locally on Campus Gateway devices in an organization.
+      tags:
+      - campusGateway

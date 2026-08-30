@@ -1,0 +1,3802 @@
+openapi: 3.2.0
+info:
+  title: Meraki Integrated API for Secure Connect Deployments API
+  description: "The Cisco Meraki Integrated API for Secure Connect is a modern REST API based on the OpenAPI specification.\n  ---\n\n  [API Documentation](https://meraki.io/api)\n\n  [Meraki Homepage](https://www.meraki.com)\n"
+  version: 1.8.0
+  contact:
+    name: Meraki Developer Community
+    url: https://meraki.io/community
+  x-provenance:
+    method: harvested
+    authored_by: Cisco Meraki
+    harvested_by: API Evangelist
+    harvested_on: '2026-08-19'
+    first_party: true
+    note: Published by Cisco. Retrieved unmodified except for this x-provenance block.
+    provider_published: true
+    derived_view: Per-first-tag view of the source document, tag 'Deployments'. Operations and schemas are the provider's, unmodified.
+  x-evidence:
+  - type: source
+    url: https://github.com/meraki/secure-connect-openapi/blob/main/secure_connect_oas_beta.json
+  - type: raw
+    url: https://raw.githubusercontent.com/meraki/secure-connect-openapi/main/secure_connect_oas_beta.json
+servers:
+- url: https://api.meraki.com/{basePath}
+  variables:
+    basePath:
+      default: api/secureConnect/v1
+security:
+- meraki_api_key: []
+- bearerAuth: []
+tags:
+- name: Deployments
+paths:
+  /organizations/{organizationId}/datacenters:
+    get:
+      summary: List Data Centers
+      operationId: getDatacenters
+      security:
+      - meraki_api_key: []
+      description: 'List the information about the IPsec-enabled data centers.
+
+        The data center information includes the IP address and location details.'
+      tags:
+      - Deployments
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the IPsec-enabled data centers.
+                properties:
+                  continents:
+                    type: array
+                    description: The list of continents.
+                    items:
+                      type: object
+                      description: The properties of the continent.
+                      properties:
+                        cities:
+                          type: array
+                          description: The list of cities.
+                          items:
+                            type: object
+                            description: The properties of the city.
+                            properties:
+                              latitude:
+                                type: string
+                                description: The latitude of the city.
+                                example: '52.354662'
+                              longitude:
+                                type: string
+                                description: The longitude of the city.
+                                example: '4.955532'
+                              name:
+                                type: string
+                                description: The name of the city.
+                                example: Amsterdam
+                              dc:
+                                type: string
+                                description: The domain of the data center located in the city.
+                                example: ams1.edc
+                              range:
+                                type: string
+                                description: The IP or CIDR range of the data center that is located in the city.
+                                example: 146.112.98.2/32
+                              fqdn:
+                                type: string
+                                example: eu2-b.vpn.sig.umbrella.com
+                                description: The FQDN associated with the city. Returns the FQDN if available.
+                        name:
+                          type: string
+                          description: The name of the continent.
+                          example: Europe
+              example:
+                continents:
+                - cities:
+                  - latitude: '52.354662'
+                    longitude: '4.955532'
+                    name: Amsterdam
+                    dc: ams1.edc
+                    range: 146.112.98.2/32
+                    fqdn: eu2-b.vpn.sig.umbrella.com
+                  name: Europe
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+  /organizations/{organizationId}/networkDevices:
+    post:
+      tags:
+      - Deployments
+      summary: Create Network Device
+      description: Create a network device.
+      operationId: createNetworkDevice
+      security:
+      - meraki_api_key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              minProperties: 4
+              required:
+              - model
+              - macAddress
+              - name
+              - serialNumber
+              properties:
+                model:
+                  type: string
+                  example: ModelName
+                  maxLength: 128
+                  pattern: '[0-9A-Za-z_.-]{1,128}'
+                  description: The model name of the device. Must be unique to your organization.
+                macAddress:
+                  type: string
+                  example: 0123456789ab
+                  maxLength: 12
+                  minLength: 12
+                  pattern: '[0-9A-Fa-f]{12}'
+                  description: 'The MAC address of the device. The unique MAC address may include
+
+                    up to 12 characters and must not contain hyphens or colons.'
+                name:
+                  type: string
+                  example: label1
+                  maxLength: 50
+                  minLength: 1
+                  description: 'The name of the device. The name is a sequence of characters with a length from 1 through 50.
+
+                    The name must be unique in your organization.'
+                serialNumber:
+                  type: string
+                  example: 12345a
+                  maxLength: 255
+                  description: The serial number of the device.
+                tag:
+                  type: string
+                  description: A text tag that describes the device or this origin, which is assigned to the device. Provide a tag that is unique to your organization.
+                  maxLength: 50
+            example:
+              model: The model name of the device.
+              macAddress: 0123456789ab
+              name: A name for the device.
+              serialNumber: 12345a
+      responses:
+        '201':
+          description: Created
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The network device object.
+                minProperties: 7
+                required:
+                - originId
+                - deviceId
+                - deviceKey
+                - name
+                - serialNumber
+                - createdAt
+                - organizationId
+                properties:
+                  originId:
+                    type: integer
+                    example: 35872943
+                    minimum: 1
+                    description: 'The unique global identifier for this traffic source (origin). Use
+
+                      the origin ID to manage the device. The origin ID is not used by the device.'
+                  deviceId:
+                    type: string
+                    example: 0123456789abcdef
+                    maxLength: 16
+                    minLength: 15
+                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                  deviceKey:
+                    type: string
+                    example: ModelName-0123456789ab
+                    description: 'A descriptive unique identifier for the device. Not used by the
+
+                      device.'
+                  name:
+                    type: string
+                    example: APIDemoDevice
+                    description: The name of the device.
+                    minLength: 1
+                  serialNumber:
+                    type: string
+                    example: 12345a
+                    description: The serial number of the device.
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: '2017-09-22T04:18:51.000Z'
+                    description: The time when the device was created. Specify an ISO 8601-formatted timestamp.
+                  organizationId:
+                    type: integer
+                    description: The ID of the organization.
+                    example: 1234
+                    minimum: 1
+              example:
+                originId: 35872943
+                deviceId: 0123456789abcdef
+                deviceKey: ModelName-0123456789ab
+                name: APIDemoDevice
+                serialNumber: 12345a
+                createdAt: '2021-09-22T04:18:51.000Z'
+                organizationId: 1234
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Unauthorized request
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Forbidden
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+    get:
+      tags:
+      - Deployments
+      summary: List Network Devices
+      description: List the network devices.
+      operationId: getAllNetworkDevices
+      security:
+      - meraki_api_key: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The list of networks devices.
+                items:
+                  type: object
+                  description: The network device object.
+                  minProperties: 7
+                  required:
+                  - originId
+                  - deviceId
+                  - deviceKey
+                  - name
+                  - serialNumber
+                  - createdAt
+                  - organizationId
+                  properties:
+                    originId:
+                      type: integer
+                      example: 35872943
+                      minimum: 1
+                      description: 'The unique global identifier for this traffic source (origin). Use
+
+                        the origin ID to manage the device. The origin ID is not used by the device.'
+                    deviceId:
+                      type: string
+                      example: 0123456789abcdef
+                      maxLength: 16
+                      minLength: 15
+                      description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                    deviceKey:
+                      type: string
+                      example: ModelName-0123456789ab
+                      description: 'A descriptive unique identifier for the device. Not used by the
+
+                        device.'
+                    name:
+                      type: string
+                      example: APIDemoDevice
+                      description: The name of the device.
+                      minLength: 1
+                    serialNumber:
+                      type: string
+                      example: 12345a
+                      description: The serial number of the device.
+                    createdAt:
+                      type: string
+                      format: date-time
+                      example: '2017-09-22T04:18:51.000Z'
+                      description: The time when the device was created. Specify an ISO 8601-formatted timestamp.
+                    organizationId:
+                      type: integer
+                      description: The ID of the organization.
+                      example: 1234
+                      minimum: 1
+              example:
+              - originId: 35872943
+                deviceId: 0123456789abcdef
+                deviceKey: ModelName-0123456789ab
+                name: APIDemoDevice
+                serialNumber: 12345a
+                createdAt: '2021-09-22T04:18:51.000Z'
+                organizationId: 1234
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Unauthorized request
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Forbidden
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+  /organizations/{organizationId}/networkDevices/{originId}:
+    patch:
+      tags:
+      - Deployments
+      summary: Update Network Device
+      description: Update a network device.
+      operationId: updateNetworkDevice
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - name: originId
+        in: path
+        description: The origin ID of the network device.
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              description: Update the network device information.
+              properties:
+                name:
+                  type: string
+                  example: label1
+                  maxLength: 50
+                  minLength: 1
+                  description: 'The name of the device. The name is a sequence of characters with a length from 1 through 50.
+
+                    The name must be unique in your organization.'
+              example:
+                name: MyDeviceName
+            example:
+              name: NetworkDevice01
+        description: Update the properties of the network device.
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The network device object.
+                minProperties: 7
+                required:
+                - originId
+                - deviceId
+                - deviceKey
+                - name
+                - serialNumber
+                - createdAt
+                - organizationId
+                properties:
+                  originId:
+                    type: integer
+                    example: 35872943
+                    minimum: 1
+                    description: 'The unique global identifier for this traffic source (origin). Use
+
+                      the origin ID to manage the device. The origin ID is not used by the device.'
+                  deviceId:
+                    type: string
+                    example: 0123456789abcdef
+                    maxLength: 16
+                    minLength: 15
+                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                  deviceKey:
+                    type: string
+                    example: ModelName-0123456789ab
+                    description: 'A descriptive unique identifier for the device. Not used by the
+
+                      device.'
+                  name:
+                    type: string
+                    example: APIDemoDevice
+                    description: The name of the device.
+                    minLength: 1
+                  serialNumber:
+                    type: string
+                    example: 12345a
+                    description: The serial number of the device.
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: '2017-09-22T04:18:51.000Z'
+                    description: The time when the device was created. Specify an ISO 8601-formatted timestamp.
+                  organizationId:
+                    type: integer
+                    description: The ID of the organization.
+                    example: 1234
+                    minimum: 1
+              example:
+                originId: 35872943
+                deviceId: 0123456789abcdef
+                deviceKey: ModelName-0123456789ab
+                name: APIDemoDevice
+                serialNumber: 12345a
+                createdAt: '2021-09-22T04:18:51.000Z'
+                organizationId: 1234
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Unauthorized request
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Forbidden
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+    get:
+      tags:
+      - Deployments
+      summary: Get Network Device
+      description: Get a network device.
+      operationId: getNetworkDevice
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - name: originId
+        in: path
+        description: The origin ID of the network device.
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          format: int32
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The network device object.
+                minProperties: 7
+                required:
+                - originId
+                - deviceId
+                - deviceKey
+                - name
+                - serialNumber
+                - createdAt
+                - organizationId
+                properties:
+                  originId:
+                    type: integer
+                    example: 35872943
+                    minimum: 1
+                    description: 'The unique global identifier for this traffic source (origin). Use
+
+                      the origin ID to manage the device. The origin ID is not used by the device.'
+                  deviceId:
+                    type: string
+                    example: 0123456789abcdef
+                    maxLength: 16
+                    minLength: 15
+                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                  deviceKey:
+                    type: string
+                    example: ModelName-0123456789ab
+                    description: 'A descriptive unique identifier for the device. Not used by the
+
+                      device.'
+                  name:
+                    type: string
+                    example: APIDemoDevice
+                    description: The name of the device.
+                    minLength: 1
+                  serialNumber:
+                    type: string
+                    example: 12345a
+                    description: The serial number of the device.
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: '2017-09-22T04:18:51.000Z'
+                    description: The time when the device was created. Specify an ISO 8601-formatted timestamp.
+                  organizationId:
+                    type: integer
+                    description: The ID of the organization.
+                    example: 1234
+                    minimum: 1
+              example:
+                originId: 35872943
+                deviceId: 0123456789abcdef
+                deviceKey: ModelName-0123456789ab
+                name: APIDemoDevice
+                serialNumber: 12345a
+                createdAt: '2021-09-22T04:18:51.000Z'
+                organizationId: 1234
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Unauthorized request
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Forbidden
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+    delete:
+      tags:
+      - Deployments
+      summary: Delete Network Device
+      description: Remove a network device.
+      operationId: deleteNetworkDevice
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - name: originId
+        in: path
+        description: The origin ID of the network device.
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          format: int32
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content: {}
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Unauthorized request
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Forbidden
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+  /organizations/{organizationId}/networkDevices/{originId}/policies:
+    get:
+      tags:
+      - Deployments
+      summary: List Policies for Network Device
+      description: 'List the Umbrella policies associated with a network device.
+
+        If no filters are supplied, Umbrella returns the DNS policies.'
+      operationId: listNetworkDevicePolicies
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - name: originId
+        in: path
+        description: The origin ID of the network device.
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          format: int32
+      - name: type
+        in: query
+        description: The type of the policy (`dns` or `web`).
+        required: false
+        schema:
+          default: dns
+          enum:
+          - dns
+          - web
+          type: string
+        example: dns
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The list of policies, which are associated with the network device.
+                items:
+                  type: object
+                  description: The policy that is associated with a network device.
+                  minProperties: 6
+                  required:
+                  - policyId
+                  - name
+                  - priority
+                  - isAppliedDirectly
+                  - isDefault
+                  - createdAt
+                  properties:
+                    policyId:
+                      type: integer
+                      maxLength: 64
+                      description: The unique ID for the policy.
+                      minimum: 0
+                    name:
+                      type: string
+                      description: The name of the policy.
+                      example: ApiDemoPolicy
+                    priority:
+                      type: integer
+                      maxLength: 64
+                      description: The priority of the policy.
+                      minimum: 0
+                    isAppliedDirectly:
+                      type: boolean
+                      example: true
+                      description: Specify whether the policy is directly applied to this network device.
+                    isDefault:
+                      type: boolean
+                      example: true
+                      description: Specify whether the policy is the default policy.
+                    createdAt:
+                      type: string
+                      format: date-time
+                      example: '2021-10-02T20:00:00Z'
+                      description: The time when the policy was created. Specify an ISO 8601-formatted timestamp.
+              example:
+              - policyId: 123
+                name: APIDemo policy
+                priority: 1
+                isAppliedDirectly: true
+                isDefault: true
+                createdAt: '2017-09-22T04:18:51.000Z'
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Unauthorized request
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The information about the error condition.
+                properties:
+                  message:
+                    type: string
+                    description: The message associated with the error condition.
+                  error:
+                    type: string
+                    description: The status code for the error condition.
+              example:
+                message: Forbidden
+        '404':
+          description: Not Found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Error:
+                    type: string
+  /organizations/{organizationId}/policies:
+    get:
+      tags:
+      - Deployments
+      summary: List Policies
+      description: 'List the Umbrella policies. You can filter by policy type.
+
+        If you do not specify a policy type, Umbrella returns the DNS policies.'
+      operationId: listPolicies
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: The number of a page in the collection.
+        required: false
+        schema:
+          default: 1
+          type: integer
+          format: int32
+          minimum: 1
+      - name: limit
+        in: query
+        description: The number of records in the collection to return on the page.
+        required: false
+        schema:
+          default: 100
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+      - name: type
+        in: query
+        description: The type of the policy (`dns` or `web`).
+        required: false
+        schema:
+          default: dns
+          enum:
+          - dns
+          - web
+          type: string
+        example: dns
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  minProperties: 6
+                  required:
+                  - policyId
+                  - organizationId
+                  - name
+                  - priority
+                  - createdAt
+                  - isDefault
+                  properties:
+                    policyId:
+                      type: integer
+                      description: The unique policy ID.
+                      minimum: 1
+                    organizationId:
+                      type: integer
+                      example: 1234
+                      minimum: 1
+                    name:
+                      type: string
+                      description: The label for the policy.
+                      example: ApiDemoPolicy
+                      minLength: 1
+                    priority:
+                      type: integer
+                      description: The priority of the policy.
+                      minimum: 0
+                    createdAt:
+                      type: string
+                      format: date-time
+                      example: '2017-09-22T04:18:51.000Z'
+                      description: The time and date (ISO 8601-formatted timestamp) when the policy was created.
+                    isDefault:
+                      type: boolean
+                      example: true
+                      description: Specified whether the policy is the default.
+              example:
+              - policyId: 1
+                organizationId: 1234
+                name: ApiDemoPolicy
+                priority: 1
+                createdAt: '2017-09-22T04:18:51.000Z'
+                isDefault: false
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Bad Request
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Internal Server Error
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: The server has an internal error and could not process the request.
+                  message:
+                    type: string
+                    description: Detailed error message
+  /organizations/{organizationId}/tunnels:
+    get:
+      summary: List Tunnels
+      operationId: listTunnels
+      description: List the tunnels for an organization.
+      security:
+      - meraki_api_key: []
+      tags:
+      - Deployments
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - in: query
+        name: includeState
+        schema:
+          default: false
+          type: boolean
+        description: Specify whether to include the tunnel state information in the response.
+        required: false
+      - in: query
+        name: limit
+        description: The number of items to return in the collection. If not set, all tunnels are returned.
+        required: false
+        schema:
+          type: integer
+      - in: query
+        name: startKey
+        description: 'Specify where to start reading in the tunnel collection (`startKey` correlates to the first tunnel to return).
+
+          If the `startKey` query parameter is not included in the API request, Umbrella reads the collection from the first available tunnel.
+
+          When the API request includes the `limit` query parameter and you have more tunnels to read,
+
+          Umbrella returns the value of `startKey` for the next tunnel in the hypermedia Link header.'
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: filters
+        description: "Filters the tunnel list by tunnel name, device type, service type, status, data center, or site origin ID.\nFor example:\n```\n{\n  \"name\": \"test\",\n  \"deviceType\": \"ISR\",\n  \"serviceType\": \"SIG\",\n  \"status\": \"UP\",\n  \"dataCenter\": \"pao1.edc\",\n  \"siteOriginId\": 123\n}\n```"
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OKs
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+            Total-Item-Count:
+              schema:
+                type: string
+              description: The total number of active, inactive, and unestablished tunnels in the organization.
+              example: '500'
+            Total-Distinct-DC-Count:
+              schema:
+                type: string
+              description: The number of distinct data centers in the organization.
+              example: '2'
+            Total-Active-Item-Count:
+              schema:
+                type: string
+              description: The total number of active tunnels in the organization.
+              example: '5'
+            Total-Inactive-Item-Count:
+              schema:
+                type: string
+              description: The total number of inactive tunnels in the organization.
+              example: '10'
+            Link:
+              schema:
+                type: string
+              description: 'The hypermedia links are formatted as a string. Use to provide parameters for pagination.
+
+                Only available if request limits the number of tunnels returned.
+
+                The link is a relative path. The `rel` value is always `next` (pagination moves forward).'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  description: 'Get the information about the tunnel in the organization.
+
+                    To include the tunnel state information in the response, set the `includeState` request query parameter to `true`.'
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                      description: The tunnel resource ID. Use this ID as a reference for subsequent requests.
+                      example: 1122321
+                    uri:
+                      type: string
+                      description: Resource URI
+                      readOnly: true
+                      example: /organization/2345432/tunnels/1122321
+                    name:
+                      type: string
+                      description: 'The display name of the tunnel. The tunnel name is required, cannot exceed 50 characters in length,
+
+                        and cannot have any special characters other than spaces and hyphens.'
+                      example: Site01Tunnel
+                    siteOriginId:
+                      type: integer
+                      description: Site Origin ID to associate with the tunnel
+                      example: 123456
+                    client:
+                      type: object
+                      description: The tunnel client's configuration metadata.
+                      properties:
+                        deviceType:
+                          type: string
+                          description: The type of device where the tunnel originates. The default value is `other`.
+                          enum:
+                          - ASA
+                          - FTD
+                          - ISR
+                          - Meraki MX
+                          - Viptela cEdge
+                          - Viptela vEdge
+                          - other
+                        authentication:
+                          type: object
+                          description: The authentication context of the client.
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                              - PSK
+                              example: PSK
+                              readOnly: true
+                            parameters:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  description: The PSK ID. If an IP address is used as the ID, the IP address is the value of this field.
+                                  readOnly: true
+                                  example: admin@2561066-237952254-umbrella.com
+                                modifiedAt:
+                                  type: string
+                                  format: date-time
+                                  description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                                    The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                                  example: '2022-04-12T23:20:50.52Z'
+                    transport:
+                      type: object
+                      properties:
+                        protocol:
+                          description: The tunnel transport protocol. The default is IPSec.
+                          type: string
+                          enum:
+                          - IPSec
+                          readOnly: true
+                          example: IPSec
+                    serviceType:
+                      type: string
+                      description: The type of service to associate with the tunnel. The default value is `SIG`.
+                      enum:
+                      - SIG
+                      - Private Access
+                      example: SIG
+                    networkCIDRs:
+                      type: array
+                      description: 'Enter IPv4 ranges and CIDR addresses.
+
+                        If `serviceType` is SIG, add all public and private address ranges used internally
+
+                        by your organization. Overrides Umbrella''s default behavior,
+
+                        which allows traffic that is destined for RFC-1918 addresses to return through the tunnel.
+
+                        If `serviceType` is Private Access, this field is required.
+
+                        The 0.0.0.0/0 address range is not allowed.'
+                      items:
+                        type: string
+                        description: An IPv4 CIDR range.
+                        example: 111.222.39.1/32
+                      example:
+                      - 123.111.222.25/24
+                      - 111.222.39.1/32
+                    meta:
+                      type: object
+                      description: The metadata for the tunnel object that relates to service internals.
+                      readOnly: true
+                      properties:
+                        state:
+                          title: tunnelState
+                          description: The tunnel state information.
+                          properties:
+                            tunnelId:
+                              type: string
+                              readOnly: true
+                              description: The tunnel ID.
+                              example: '163367136'
+                            status:
+                              type: string
+                              readOnly: true
+                              description: 'The high-level tunnel status:
+
+                                * up - the tunnel is active
+
+                                * down - the tunnel is inactive
+
+                                * failed - the tunnel is in a failed state
+
+                                * unknown - the status is unknown and pending updated information
+
+                                '
+                              enum:
+                              - UP
+                              - DOWN
+                              - FAILED
+                              - UNKNOWN
+                              example: UP
+                            dc:
+                              type: string
+                              readOnly: true
+                              description: The domain name that is associate with the data center.
+                              example: chi1.edc
+                            dcName:
+                              type: string
+                              readOnly: true
+                              description: The name of the data center.
+                              example: Equinix Chicago
+                            dcDesc:
+                              type: string
+                              readOnly: true
+                              description: The city and country or region of the data center.
+                              example: Chicago, Illinois - US
+                            ikeState:
+                              type: string
+                              readOnly: true
+                              description: "IKE SA State:\n  * CREATED\n  * CONNECTING\n  * ESTABLISHED\n  * PASSIVE\n  * REKEYING\n  * REKEYED\n  * DELETING\n  * DESTROYING\n"
+                              enum:
+                              - CREATED
+                              - CONNECTING
+                              - ESTABLISHED
+                              - PASSIVE
+                              - REKEYING
+                              - REKEYED
+                              - DELETING
+                              - DESTROYING
+                              example: ESTABLISHED
+                            ipsecState:
+                              type: string
+                              readOnly: true
+                              description: "IPSec/Child SA State:\n  * CREATED\n  * ROUTED\n  * INSTALLING\n  * INSTALLED\n  * UPDATING\n  * REKEYING\n  * REKEYED\n  * RETRYING\n  * DELETING\n  * DELETED\n  * DESTROYING\n"
+                              enum:
+                              - CREATED
+                              - ROUTED
+                              - INSTALLING
+                              - INSTALLED
+                              - UPDATING
+                              - REKEYING
+                              - REKEYED
+                              - RETRYING
+                              - DELETING
+                              - DELETED
+                              - DESTROYING
+                              example: INSTALLED
+                            peerId:
+                              type: string
+                              readOnly: true
+                              description: The remote peer IKE ID.
+                              example: unique-value@1234567-234567812-umbrella.com
+                            peerIp:
+                              type: string
+                              readOnly: true
+                              description: The remote peer IP.
+                              example: 198.18.195.1
+                            localIp:
+                              type: string
+                              readOnly: true
+                              description: The public IP address, which is assigned to an endpoint device (ISR, Viptela).
+                              example: 198.25.43.19
+                            peerPort:
+                              type: string
+                              readOnly: true
+                              description: The port number of the remote peer.
+                              example: '4500'
+                            ike:
+                              title: tunnelIKEState
+                              description: The tunnel IKE session state.
+                              properties:
+                                age:
+                                  type: string
+                                  readOnly: true
+                                  description: The age of the established state in seconds.
+                                  example: '6194'
+                                dhGroup:
+                                  type: string
+                                  readOnly: true
+                                  description: The IKE Diffie-Hellman group.
+                                  example: MODP_2048
+                                prfAlgo:
+                                  type: string
+                                  readOnly: true
+                                  description: The IKE pseudo random function.
+                                  example: PRF_HMAC_SHA1
+                                encAlgo:
+                                  type: string
+                                  readOnly: true
+                                  description: The IKE encryption algorithm.
+                                  example: AES_CBC
+                                initiatorSpi:
+                                  type: string
+                                  readOnly: true
+                                  description: The hex encoded initiator SPI or cookie.
+                                  example: cf065c564a511834
+                                responderSpi:
+                                  type: string
+                                  readOnly: true
+                                  description: The hex encoded responder SPI or cookie.
+                                  example: a3cd5c8533c80069
+                            ipsec:
+                              title: tunnelIPSecState
+                              description: The tunnel IPsec session state.
+                              properties:
+                                age:
+                                  type: string
+                                  readOnly: true
+                                  description: The age of the installed state in seconds.
+                                  example: '6194'
+                                integrityAlgo:
+                                  type: string
+                                  readOnly: true
+                                  description: The ESP or AH integrity algorithm name.
+                                  example: HMAC_SHA1_96
+                                encAlgo:
+                                  type: string
+                                  readOnly: true
+                                  description: The ESP encryption algorithm name.
+                                  example: 'NULL'
+                                encKeySize:
+                                  type: string
+                                  readOnly: true
+                                  description: The ESP encryption key size (optional field; not available with NULL encryption.
+                                  example: '128'
+                                spiIn:
+                                  type: string
+                                  readOnly: true
+                                  description: The hex encoded inbound SPI.
+                                  example: c6ef7503
+                                spiOut:
+                                  type: string
+                                  readOnly: true
+                                  description: The hex encoded outbound SPI.
+                                  example: '00010102'
+                                peerSelectors:
+                                  type: array
+                                  readOnly: true
+                                  description: The peer traffic selectors.
+                                  items:
+                                    type: string
+                                    description: The selector expression.
+                                    example: 0.0.0.0/0
+                            data:
+                              title: tunnelDataState
+                              description: The state of the tunnel's data plane.
+                              properties:
+                                packetsIn:
+                                  type: string
+                                  readOnly: true
+                                  description: The number of processed input packets (tunnel ingress).
+                                  example: '10'
+                                bytesIn:
+                                  type: string
+                                  readOnly: true
+                                  description: The number of processed input bytes (tunnel ingress).
+                                  example: '1000'
+                                idleTimeIn:
+                                  type: string
+                                  readOnly: true
+                                  description: The idle time (seconds since last inbound packet).
+                                  example: '100'
+                                packetsOut:
+                                  type: string
+                                  readOnly: true
+                                  description: The number of processed output packets (tunnel egress).
+                                  example: '10'
+                                bytesOut:
+                                  type: string
+                                  readOnly: true
+                                  description: The number of processed output bytes (tunnel egress).
+                                  example: '1000'
+                                idleTimeOut:
+                                  type: string
+                                  readOnly: true
+                                  description: The idle time (seconds since last outbound packet).
+                                  example: '100'
+                                initialized:
+                                  type: string
+                                  readOnly: true
+                                  description: The time when packet and byte counters were initialized to 0.
+                                  example: '2023-10-19T22:15:12.765623734Z'
+                            modifiedAt:
+                              type: string
+                              readOnly: true
+                              format: date-time
+                              description: The date and time (UTC time with milliseconds) when the tunnel's state was last updated.
+                              example: '2018-06-13T16:07:07.222Z'
+                    createdAt:
+                      type: string
+                      format: date-time
+                      description: The date and n time (UTC time with milliseconds) when the tunnel was created.
+                      readOnly: true
+                      example: '2018-06-13T16:07:07.222Z'
+                    modifiedAt:
+                      type: string
+                      format: date-time
+                      description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                        The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                      example: '2022-04-12T23:20:50.52Z'
+              example:
+              - id: 1122321
+                uri: /tunnels/1122321
+                name: Site01Tunnel
+                siteOriginId: 123456
+                client:
+                  deviceType: ASA
+                  authentication:
+                    type: PSK
+                    parameters:
+                      id: admin@2561066-237952254-umbrella.com
+                      modifiedAt: '2018-06-13T16:07:07.222Z'
+                transport:
+                  protocol: IPSec
+                serviceType: SIG
+                networkCIDRs:
+                - 123.111.222.25/24
+                - 111.222.39.1/32
+                meta: {}
+                createdAt: '2018-06-13T16:07:07.222Z'
+                modifiedAt: '2018-06-13T16:07:07.222Z'
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+    post:
+      summary: Create Tunnel
+      operationId: addTunnel
+      description: Add a new tunnel to the organization.
+      security:
+      - meraki_api_key: []
+      tags:
+      - Deployments
+      requestBody:
+        description: The tunnel to create.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the tunnel.
+                siteOriginId:
+                  type: integer
+                  description: The site origin ID to associate with the tunnel.
+                  example: 123456
+                deviceType:
+                  type: string
+                  description: The type of device where the tunnel originates. The default value is `other`.
+                  enum:
+                  - ASA
+                  - FTD
+                  - ISR
+                  - Meraki MX
+                  - Viptela cEdge
+                  - Viptela vEdge
+                  - other
+                serviceType:
+                  type: string
+                  description: The type of service to associate with the tunnel. The default value is `SIG`.
+                  enum:
+                  - SIG
+                  - Private Access
+                  example: SIG
+                networkCIDRs:
+                  type: array
+                  description: 'Enter IPv4 ranges and CIDR addresses.
+
+                    If `serviceType` is SIG, add all public and private address ranges used internally
+
+                    by your organization. Overrides Umbrella''s default behavior,
+
+                    which allows traffic that is destined for RFC-1918 addresses to return through the tunnel.
+
+                    If `serviceType` is Private Access, this field is required.
+
+                    The 0.0.0.0/0 address range is not allowed.'
+                  items:
+                    type: string
+                    description: An IPv4 CIDR range.
+                    example: 111.222.39.1/32
+                  example:
+                  - 123.111.222.25/24
+                  - 111.222.39.1/32
+                transport:
+                  type: object
+                  properties:
+                    protocol:
+                      description: The tunnel transport protocol. The default tunnel transport protocol is IPSec.
+                      type: string
+                      enum:
+                      - IPSec
+                      example: IPSec
+                authentication:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: The authentication method. The default is pre-shared key (PSK).
+                      enum:
+                      - PSK
+                    parameters:
+                      type: object
+                      properties:
+                        idPrefix:
+                          type: string
+                          description: 'A human-readable ID for the tunnel, used to generate the ID portion of the Pre-Shared Key.
+
+                            If omitted, the ID is generated and provided in response. Tunnels with a device type of ASA
+
+                            must provide an IP address string for this field. Tunnels with a device type of ''other''
+
+                            may use either an IP address or a human-readable string. PSK IDs are not automatically generated
+
+                            for ASA devices.'
+                        secret:
+                          type: string
+                          description: 'The secret portion of a Pre-Shared Key (PSK).
+
+                            If omitted, a secret is generated and provided in the response.
+
+                            Secrets are a sequence of 16 to 64 characters, and contain at least one upper
+
+                            and lowercase letter, one number, and no special characters.'
+              required:
+              - name
+            example:
+              name: Site01Tunnel
+              siteOriginId: 123456
+              serviceType: SIG
+              deviceType: ASA
+              networkCIDRs:
+              - 123.111.222.25/24
+              - 111.222.39.1/32
+              transport:
+                protocol: IPSec
+              authentication:
+                type: PSK
+                parameters:
+                  idPrefix: prefix-string
+                  secret: This123Secret
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The properties of the tunnel resource object.
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                    description: The tunnel resource ID. Use this ID as a reference for subsequent requests.
+                    example: 1122321
+                  uri:
+                    type: string
+                    description: Resource URI
+                    readOnly: true
+                    example: /tunnels/1122321
+                  name:
+                    type: string
+                    description: 'Display the name of the tunnel. The tunnel name is required, cannot exceed 50 characters in length,
+
+                      and can''t have any special characters other than spaces and hyphens.'
+                    example: Site01Tunnel
+                  siteOriginId:
+                    type: integer
+                    description: The Site origin ID that is associated with the tunnel.
+                    example: 123456
+                  client:
+                    type: object
+                    description: The tunnel client's configuration metadata including the client secret.
+                    properties:
+                      deviceType:
+                        type: string
+                        description: The type of device where the tunnel originates. The default value is `other`.
+                        enum:
+                        - ASA
+                        - FTD
+                        - ISR
+                        - Meraki MX
+                        - Viptela cEdge
+                        - Viptela vEdge
+                        - other
+                      authentication:
+                        type: object
+                        description: The authentication context of the client.
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                            - PSK
+                            example: PSK
+                            readOnly: true
+                          parameters:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: The PSK ID. If an IP address is used as the ID, the IP address is the value of this field.
+                                readOnly: true
+                                example: admin@2561066-237952254-umbrella.com
+                              modifiedAt:
+                                type: string
+                                format: date-time
+                                description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                                  The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                                example: '2022-04-12T23:20:50.52Z'
+                              secret:
+                                type: string
+                                example: 123Secret
+                                description: The secret of the PSK credentials. Ensure that you save the secret. The secret is not provided at any other time.
+                  transport:
+                    type: object
+                    properties:
+                      protocol:
+                        description: The tunnel transport protocol. The default transport protocol is IPSec.
+                        type: string
+                        enum:
+                        - IPSec
+                        readOnly: true
+                        example: IPSec
+                  serviceType:
+                    type: string
+                    description: The type of service to associate with the tunnel. The default value is `SIG`.
+                    enum:
+                    - SIG
+                    - Private Access
+                    example: SIG
+                  networkCIDRs:
+                    type: array
+                    description: 'Enter IPv4 ranges and CIDR addresses.
+
+                      If `serviceType` is SIG, add all public and private address ranges used internally
+
+                      by your organization. Overrides Umbrella''s default behavior,
+
+                      which allows traffic that is destined for RFC-1918 addresses to return through the tunnel.
+
+                      If `serviceType` is Private Access, this field is required.
+
+                      The 0.0.0.0/0 address range is not allowed.'
+                    items:
+                      type: string
+                      description: An IPv4 CIDR range.
+                      example: 111.222.39.1/32
+                    example:
+                    - 123.111.222.25/24
+                    - 111.222.39.1/32
+                  meta:
+                    type: object
+                    description: The metadata for the tunnel object, related to service internals.
+                    readOnly: true
+                  createdAt:
+                    type: string
+                    description: The date and time (timestamp) when the tunnel was created.
+                    format: date-time
+                    readOnly: true
+                    example: '2018-06-13T16:07:07.222Z'
+                  modifiedAt:
+                    type: string
+                    format: date-time
+                    description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                      The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                    example: '2022-04-12T23:20:50.52Z'
+                example:
+                  id: 1122321
+                  uri: /tunnels/1122321
+                  name: Site01Tunnel
+                  siteOriginId: 123456
+                  client:
+                    deviceType: ASA
+                    authentication:
+                      type: PSK
+                      parameters:
+                        id: admin@2561066-237952254-umbrella.com
+                        modifiedAt: '2018-06-13T16:07:07.222Z'
+                        secret: secretkey123
+                  transport:
+                    protocol: IPSec
+                  serviceType: SIG
+                  networkCIDRs:
+                  - 123.111.222.25/24
+                  - 111.222.39.1/32
+                  meta: {}
+                  createdAt: '2018-06-13T16:07:07.222Z'
+                  modifiedAt: '2018-06-13T16:07:07.222Z'
+              example:
+                id: 1122321
+                uri: /tunnels/1122321
+                name: Site01Tunnel
+                siteOriginId: 123456
+                client:
+                  deviceType: ASA
+                  authentication:
+                    type: PSK
+                    parameters:
+                      id: admin@2561066-237952254-umbrella.com
+                      modifiedAt: '2018-06-13T16:07:07.222Z'
+                      secret: This123Secret
+                transport:
+                  protocol: IPSec
+                serviceType: SIG
+                networkCIDRs:
+                - 123.111.222.25/24
+                - 111.222.39.1/32
+                meta: {}
+                createdAt: '2018-06-13T16:07:07.222Z'
+                modifiedAt: '2018-06-13T16:07:07.222Z'
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+  /organizations/{organizationId}/tunnels/{id}:
+    get:
+      summary: Get Tunnel
+      operationId: getTunnel
+      description: Get a specific tunnel.
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: id
+        description: The ID of the tunnel.
+        required: true
+        schema:
+          type: integer
+      tags:
+      - Deployments
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The tunnel resource object.
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                    description: The tunnel resource ID, use this ID as reference for subsequent requests.
+                    example: 1122321
+                  uri:
+                    type: string
+                    description: Resource URI
+                    readOnly: true
+                    example: /tunnels/1122321
+                  name:
+                    type: string
+                    description: 'The display name of the tunnel. The tunnel name is required, cannot exceed 50 characters in length,
+
+                      and can''t have any special characters other than spaces and hyphens.'
+                    example: Site01Tunnel
+                  siteOriginId:
+                    type: integer
+                    description: The site origin ID, which is associated with the tunnel.
+                    example: 123456
+                  client:
+                    type: object
+                    description: The tunnel client's configuration metadata.
+                    properties:
+                      deviceType:
+                        type: string
+                        description: The type of device where the tunnel originates. The default value is `other`.
+                        enum:
+                        - ASA
+                        - FTD
+                        - ISR
+                        - Meraki MX
+                        - Viptela cEdge
+                        - Viptela vEdge
+                        - other
+                      authentication:
+                        type: object
+                        description: The authentication context of the client.
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                            - PSK
+                            example: PSK
+                            readOnly: true
+                          parameters:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: The PSK ID. If an IP address is used as the ID, the IP address is the value of this field.
+                                readOnly: true
+                                example: admin@2561066-237952254-umbrella.com
+                              modifiedAt:
+                                type: string
+                                format: date-time
+                                description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                                  The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                                example: '2022-04-12T23:20:50.52Z'
+                  transport:
+                    type: object
+                    properties:
+                      protocol:
+                        description: The tunnel transport protocol. The default is IPSec.
+                        type: string
+                        enum:
+                        - IPSec
+                        readOnly: true
+                        example: IPSec
+                  serviceType:
+                    type: string
+                    description: The type of service to associate with the tunnel. The default value is `SIG`.
+                    enum:
+                    - SIG
+                    - Private Access
+                    example: SIG
+                  networkCIDRs:
+                    type: array
+                    description: 'Enter IPv4 ranges and CIDR addresses.
+
+                      If `serviceType` is SIG, add all public and private address ranges used internally
+
+                      by your organization. Overrides Umbrella''s default behavior,
+
+                      which allows traffic that is destined for RFC-1918 addresses to return through the tunnel.
+
+                      If `serviceType` is Private Access, this field is required.
+
+                      The 0.0.0.0/0 address range is not allowed.'
+                    items:
+                      type: string
+                      description: An IPv4 CIDR range.
+                      example: 111.222.39.1/32
+                    example:
+                    - 123.111.222.25/24
+                    - 111.222.39.1/32
+                  meta:
+                    type: object
+                    description: Metadata for the tunnel object, relating to service internals.
+                    readOnly: true
+                  createdAt:
+                    type: string
+                    description: The time when the tunnel was created.
+                    format: date-time
+                    readOnly: true
+                    example: '2018-06-13T16:07:07.222Z'
+                  modifiedAt:
+                    type: string
+                    format: date-time
+                    description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                      The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                    example: '2022-04-12T23:20:50.52Z'
+                example:
+                  id: 1122321
+                  uri: /tunnels/1122321
+                  name: Site01Tunnel
+                  siteOriginId: 123456
+                  client:
+                    deviceType: ASA
+                    authentication:
+                      type: PSK
+                      parameters:
+                        id: admin@2561066-237952254-umbrella.com
+                        modifiedAt: '2018-06-13T16:07:07.222Z'
+                  transport:
+                    protocol: IPSec
+                  serviceType: SIG
+                  networkCIDRs:
+                  - 123.111.222.25/24
+                  - 111.222.39.1/32
+                  meta: {}
+                  createdAt: '2018-06-13T16:07:07.222Z'
+                  modifiedAt: '2018-06-13T16:07:07.222Z'
+              example:
+                id: 1122321
+                uri: /tunnels/1122321
+                name: Site01Tunnel
+                siteOriginId: 123456
+                client:
+                  deviceType: ASA
+                  authentication:
+                    type: PSK
+                    parameters:
+                      id: admin@2561066-237952254-umbrella.com
+                      modifiedAt: '2018-06-13T16:07:07.222Z'
+                transport:
+                  protocol: IPSec
+                serviceType: SIG
+                networkCIDRs:
+                - 123.111.222.25/24
+                - 111.222.39.1/32
+                meta: {}
+                createdAt: '2018-06-13T16:07:07.222Z'
+                modifiedAt: '2018-06-13T16:07:07.222Z'
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+    delete:
+      summary: Delete Tunnel
+      operationId: deleteTunnel
+      description: Delete a tunnel in the organization.
+      security:
+      - meraki_api_key: []
+      tags:
+      - Deployments
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: id
+        description: The ID of the tunnel.
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        description: Provide the tunnel to delete.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                detachPolicies:
+                  type: boolean
+                  default: true
+                  description: Specifies whether to detach associated policies from the tunnel.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Tunnel deleted successfully
+              example:
+                message: Tunnel deleted successfully
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '409':
+          description: Conflict
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                description: 'Conflict - Unable to delete requested tunnel as it is attached
+
+                  to a policy and detachPolicies was not specified in the request.
+
+                  Check the response body for policies which this tunnel is attached to.'
+                properties:
+                  error:
+                    type: string
+                    example: 'Umbrella cannot delete this tunnel as it is currently in use.
+
+                      To delete this tunnel, remove it from all policies and deployments.'
+                  firewallRules:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                          example: 123
+                        name:
+                          type: string
+                          example: Example policy name
+                  dnsPolicies:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                          example: 456
+                        name:
+                          type: string
+                          example: Another example policy name
+                  internalNetworks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                          example: 789
+                        label:
+                          type: string
+                          example: Yet another example policy name
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+  /organizations/{organizationId}/tunnels/{id}/policies:
+    get:
+      summary: List Policies for Tunnel
+      operationId: getTunnelPolicies
+      security:
+      - meraki_api_key: []
+      description: List the policies that include the network tunnel.
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: id
+        description: The ID of the tunnel.
+        required: true
+        schema:
+          type: integer
+      - in: query
+        schema:
+          type: string
+          enum:
+          - firewallrule
+          - web
+        name: type
+        description: Filter the list of policies to only include the specified type.
+        required: false
+      - in: query
+        schema:
+          type: integer
+        name: limit
+        description: The number of items to return in the collection.
+        required: false
+      - in: query
+        schema:
+          type: integer
+        name: page
+        description: The number of a page in the collection. Use with the limit parameter to implement pagination.
+        required: false
+      tags:
+      - Deployments
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Policies associated with a tunnel.
+                readOnly: true
+                items:
+                  type: object
+                  readOnly: true
+                  properties:
+                    id:
+                      type: integer
+                      description: The resource ID. Use the ID as reference for subsequent requests.
+                      example: 1122321
+                    type:
+                      type: string
+                      description: The type of policy.
+                      enum:
+                      - firewallrule
+                      - web
+                    name:
+                      type: string
+                      description: The name of the policy.
+                      example: Test Firewall Rule (Block Application)
+                    organizationId:
+                      type: integer
+                      description: The organization ID.
+                      example: 33451234
+                    priority:
+                      type: integer
+                      description: An integer that represents the position of the policy in the policy list.
+                      example: 4
+                    isDefault:
+                      type: boolean
+                      description: Indicates whether the policy is the default policy.
+                    isAppliedDirectly:
+                      type: boolean
+                      description: 'True if the tunnel is applied directly to this policy, false if the policy
+
+                        is configured to use all tunnels.'
+                    createdAt:
+                      type: string
+                      description: The date and time (timestamp) when the tunnel was created.
+                      format: date-time
+                      example: '2018-06-13T16:07:07.222Z'
+                    modifiedAt:
+                      type: string
+                      format: date-time
+                      description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+
+                        The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
+                      example: '2022-04-12T23:20:50.52Z'
+                    uri:
+                      type: string
+                      description: Resource URI
+                      example: /v2/tunnels/8765432/policies
+              example:
+              - id: 1122321
+                type: web
+                name: Test Firewall Rule (Block Application)
+                organizationId: 33451234
+                priority: 4
+                isDefault: true
+                isAppliedDirectly: true
+                createdAt: '2018-06-13T16:07:07.222Z'
+                modifiedAt: '2018-06-13T16:07:07.222Z'
+                uri: /v2/tunnels/8765432/policies
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: object
+                minProperties: 3
+                required:
+                - statusCode
+                - error
+                - txId
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: a brief description of the error
+                  txId:
+                    type: string
+                    example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
+                    description: a unique hex number that can be used for debugging

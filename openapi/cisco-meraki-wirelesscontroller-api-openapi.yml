@@ -1,0 +1,2303 @@
+openapi: 3.2.0
+info:
+  title: Meraki Dashboard Wireless Controller API
+  description: 'A RESTful API to programmatically manage and monitor Cisco Meraki networks at scale.
+
+
+    > Date: 05 August, 2026
+
+    >
+
+    > [Recent Updates](https://meraki.io/whats-new/)
+
+
+    ---
+
+
+    [API Documentation](https://meraki.io/api)
+
+
+    [Community Support](https://meraki.io/community)
+
+
+    [Meraki Homepage](https://www.meraki.com)
+
+    '
+  contact:
+    name: Meraki Developer Community
+    url: https://meraki.io/community
+  version: 1.73.0
+  x-provenance:
+    method: harvested
+    authored_by: Cisco Meraki
+    harvested_by: API Evangelist
+    harvested_on: '2026-08-19'
+    first_party: true
+    note: Published by Cisco. Retrieved unmodified except for this x-provenance block.
+    provider_published: true
+    derived_view: Per-first-tag view of the source document, tag 'wirelessController'. Operations and schemas are the provider's, unmodified.
+  x-evidence:
+  - type: source
+    url: https://github.com/meraki/openapi/blob/master/openapi/spec3.json
+  - type: raw
+    url: https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json
+  - type: alternate
+    url: https://api.meraki.com/api/v1/openapiSpec
+servers:
+- url: https://api.meraki.com/{basePath}
+  variables:
+    basePath:
+      default: api/v1
+security:
+- meraki_api_key: []
+- bearerAuth: []
+tags:
+- name: wirelessController
+paths:
+  /organizations/{organizationId}/wirelessController/availabilities/changeHistory:
+    get:
+      description: List connectivity data of wireless LAN controllers in an organization. If it is HA setup, then only returns active WLC data start from switchover
+      operationId: getOrganizationWirelessControllerAvailabilitiesChangeHistory
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Wireless LAN controller cloud ID
+                        changes:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startTs:
+                                type: string
+                                format: date-time
+                                description: The start time(UTC seconds) of the wireless LAN controller connectivity status change
+                              endTs:
+                                type: string
+                                description: The end time(UTC seconds) of the wireless LAN controller connectivity status change. This attribute is set to be null by default if there's no need to assign.
+                              status:
+                                type: string
+                                description: The wireless LAN controller connectivity status
+                          description: Connectivity information of a wireless LAN controller
+                    description: Wireless LAN controller connectivity information
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  changes:
+                  - startTs: '2020-01-01T00:00:00Z'
+                    endTs: 'null'
+                    status: online
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:telemetry:read
+      summary: List connectivity data of wireless LAN controllers in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/clients/overview/history/byDevice/byInterval:
+    get:
+      description: List wireless client counts of wireless LAN controllers over time in an organization
+      operationId: getOrganizationWirelessControllerClientsOverviewHistoryByDeviceByInterval
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter wireless LAN controllers by network ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: resolution
+        in: query
+        description: 'The time resolution in seconds for returned data. The valid resolutions are: 300, 600, 1200, 3600, 14400, 86400. The default is 86400.'
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Wireless LAN controller cloud ID
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Wireless LAN controller network ID
+                          description: Wireless LAN controller network
+                        readings:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startTs:
+                                type: string
+                                format: date-time
+                                description: The start time of the query range
+                              endTs:
+                                type: string
+                                format: date-time
+                                description: The end time of the query range
+                              counts:
+                                type: object
+                                properties:
+                                  byStatus:
+                                    type: object
+                                    properties:
+                                      online:
+                                        type: integer
+                                        description: Number of connected clients
+                                    description: Client counts by its status
+                                description: Client counts
+                          description: Overview history of a wireless LAN controller
+                    description: Overview history of wireless LAN controllers
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  network:
+                    id: N_24329156
+                  readings:
+                  - startTs: '2020-01-01T00:00:00Z'
+                    endTs: '2020-01-01T01:00:00Z'
+                    counts:
+                      byStatus:
+                        online: 1
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless client counts of wireless LAN controllers over time in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/connections:
+    get:
+      description: List all access points associated with wireless LAN controllers in an organization
+      operationId: getOrganizationWirelessControllerConnections
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter access points by network ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: controllerSerials
+        in: query
+        description: Optional parameter to filter access points by its controller cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Access points cloud ID
+                        controller:
+                          type: object
+                          properties:
+                            serial:
+                              type: string
+                              description: Associated wireless LAN controller cloud ID
+                          description: Associated wireless LAN controller
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Access points network ID
+                            url:
+                              type: string
+                              description: Access points network URL
+                            name:
+                              type: string
+                              description: Access points network name
+                          description: Access points network
+                    description: Access points associated with Wireless LAN controllers
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  controller:
+                    serial: Q234-ABCD-5678
+                  network:
+                    id: N_24329156
+                    url: https://network/url
+                    name: Network1
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List all access points associated with wireless LAN controllers in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/l2/byDevice:
+    get:
+      description: List wireless LAN controller layer 2 interfaces in an organization
+      operationId: getOrganizationWirelessControllerDevicesInterfacesL2ByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        interfaces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              description:
+                                type: string
+                                description: The description of the wireless LAN controller interface
+                              enabled:
+                                type: boolean
+                                description: The status of the wireless LAN controller interface
+                              mac:
+                                type: string
+                                description: The MAC address of the wireless LAN controller interface
+                              status:
+                                type: string
+                                description: The status of the wireless LAN controller interface
+                              speed:
+                                type: string
+                                description: The current data transfer rate which the interface is operating at. enum = [1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps, 20 Gbps, 40 Gbps, 100 Gbps]
+                              isUplink:
+                                type: boolean
+                                description: Indicate whether the interface is uplink
+                              vlan:
+                                type: integer
+                                description: The VLAN of the switch port. For a trunk port, this is the native VLAN. A null value will clear the value set for trunk ports.
+                              isRedundancyPort:
+                                type: boolean
+                                description: Indicate whether the interface is a redundancy port used to perform HA role negotiation
+                              linkNegotiation:
+                                type: string
+                                description: The interface negotiation mode
+                              channelGroup:
+                                type: object
+                                properties:
+                                  number:
+                                    type: integer
+                                    description: The interface channel group number
+                                description: The channel group of this wireless LAN controller interface
+                              module:
+                                type: object
+                                properties:
+                                  model:
+                                    type: string
+                                    description: The module type of this wireless LAN controller interface
+                                description: The module of this wireless LAN controller interface
+                          description: Layer 2 interfaces belongs to the wireless LAN controller
+                    description: Wireless LAN controller L2 interfaces
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  interfaces:
+                  - name: TenGigabitEthernet0/0/5
+                    description: Uplink
+                    enabled: true
+                    mac: b0:c5:3c:0d:c5:0b
+                    status: disabled
+                    speed: 1 Gbps
+                    isUplink: true
+                    vlan: 10
+                    isRedundancyPort: true
+                    linkNegotiation: auto
+                    channelGroup:
+                      number: 5
+                    module:
+                      model: C9800-2X40GE
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless LAN controller layer 2 interfaces in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/l2/statuses/changeHistory/byDevice:
+    get:
+      description: List wireless LAN controller layer 2 interfaces history status in an organization
+      operationId: getOrganizationWirelessControllerDevicesInterfacesL2StatusesChangeHistoryByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: includeInterfacesWithoutChanges
+        in: query
+        description: 'By default, interfaces without changes are omitted from the response for brevity. If you want to include the interfaces even if they have no changes, set to true. (default: false)'
+        schema:
+          type: boolean
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        interfaces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              mac:
+                                type: string
+                                description: The MAC address of the wireless LAN controller interface
+                              changes:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    ts:
+                                      type: string
+                                      format: date-time
+                                      description: The timestamp of current status of the interface
+                                    status:
+                                      type: string
+                                      description: The status of the interface
+                                    warnings:
+                                      type: array
+                                      items:
+                                        type: string
+                                      description: All warnings present on the port
+                                    errors:
+                                      type: array
+                                      items:
+                                        type: string
+                                      description: All errors present on the port
+                                description: The statuses of layer 2 interfaces of the wireless LAN controller
+                          description: layer 2 interfaces belongs to the wireless LAN controller
+                    description: Wireless LAN controller layer 2 interfaces historical status
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  interfaces:
+                  - name: TenGigabitEthernet0/0/5
+                    mac: b0:c5:3c:0d:c5:0b
+                    changes:
+                    - ts: '2020-01-01T00:00:00Z'
+                      status: disabled
+                      warnings:
+                      - CRC warnings
+                      errors:
+                      - CRC errors
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless LAN controller layer 2 interfaces history status in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/l2/usage/history/byInterval:
+    get:
+      description: List wireless LAN controller layer 2 interfaces history usage in an organization
+      operationId: getOrganizationWirelessControllerDevicesInterfacesL2UsageHistoryByInterval
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        readings:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              mac:
+                                type: string
+                                description: The MAC address of the wireless controller interface
+                              recv:
+                                type: integer
+                                description: The volume of data, in bytes/sec, received by wireless controller interface
+                              send:
+                                type: integer
+                                description: The volume of data, in bytes/sec, transmitted by wireless controller interface
+                          description: The usages of layer 2 interfaces of the wireless LAN controller. Usage is in bytes
+                    description: Wireless LAN controller layer 2 interfaces usage
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  readings:
+                  - name: TenGigabitEthernet0/0/5
+                    mac: b0:c5:3c:0d:c5:0b
+                    recv: 0
+                    send: 0
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless LAN controller layer 2 interfaces history usage in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/l3/byDevice:
+    get:
+      description: List wireless LAN controller layer 3 interfaces in an organization
+      operationId: getOrganizationWirelessControllerDevicesInterfacesL3ByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        interfaces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              description:
+                                type: string
+                                description: The description of the wireless LAN controller interface
+                              mac:
+                                type: string
+                                description: The MAC address of the wireless LAN controller interface
+                              status:
+                                type: string
+                                description: The status of the wireless LAN controller interface
+                              speed:
+                                type: string
+                                description: The current data transfer rate which the interface is operating at. enum = [1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps, 20 Gbps, 40 Gbps, 100 Gbps]
+                              addresses:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    protocol:
+                                      type: string
+                                      description: 'Type of address for the device uplink. Available options are: ipv4, ipv6. enum = [ipv4, ipv6]'
+                                    address:
+                                      type: string
+                                      description: The address of the wireless LAN controller interface
+                                    subnet:
+                                      type: string
+                                      description: The address of the wireless LAN controller interface
+                                description: Available addresses for the interface.
+                              vrf:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    description: The virtual routing and forwarding (VRF) name
+                                description: The virtual routing and forwarding (VRF) for the wireless LAN controller interface
+                              isUplink:
+                                type: boolean
+                                description: Indicate whether the interface is uplink
+                              vlan:
+                                type: integer
+                                description: The VLAN of the switch port. For a trunk port, this is the native VLAN. A null value will clear the value set for trunk ports.
+                              linkNegotiation:
+                                type: string
+                                description: The interface negotiation mode
+                              channelGroup:
+                                type: object
+                                properties:
+                                  number:
+                                    type: integer
+                                    description: The interface channel group number
+                                description: The channel group of this wireless LAN controller interface
+                              module:
+                                type: object
+                                properties:
+                                  model:
+                                    type: string
+                                    description: The module type of this wireless LAN controller interface
+                                description: The module of this wireless LAN controller interface
+                          description: Layer 3 interfaces belongs to the wireless LAN controller
+                    description: Wireless LAN controller L3 interfaces
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  interfaces:
+                  - name: vlan123
+                    description: Wireless Mgmt
+                    mac: 1c:e8:5d:00:00:0c
+                    status: disabled
+                    speed: 1 Gbps
+                    addresses:
+                    - protocol: ipv4
+                      address: 192.168.123.1
+                      subnet: 192.168.123.0/24
+                    vrf:
+                      name: Global
+                    isUplink: true
+                    vlan: 10
+                    linkNegotiation: auto
+                    channelGroup:
+                      number: 5
+                    module:
+                      model: C9800-2X40GE
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless LAN controller layer 3 interfaces in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/l3/statuses/changeHistory/byDevice:
+    get:
+      description: List wireless LAN controller layer 3 interfaces history status in an organization
+      operationId: getOrganizationWirelessControllerDevicesInterfacesL3StatusesChangeHistoryByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: includeInterfacesWithoutChanges
+        in: query
+        description: 'By default, interfaces without changes are omitted from the response for brevity. If you want to include the interfaces even if they have no changes, set to true. (default: false)'
+        schema:
+          type: boolean
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        interfaces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              mac:
+                                type: string
+                                description: The MAC address of the wireless LAN controller interface
+                              changes:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    ts:
+                                      type: string
+                                      format: date-time
+                                      description: The timestamp of current status of the interface
+                                    status:
+                                      type: string
+                                      description: The status of the interface
+                                    warnings:
+                                      type: array
+                                      items:
+                                        type: string
+                                      description: All warnings present on the port
+                                    errors:
+                                      type: array
+                                      items:
+                                        type: string
+                                      description: All errors present on the port
+                                description: The statuses of layer 3 interfaces of the wireless LAN controller
+                          description: layer 3 interfaces belongs to the wireless LAN controller
+                    description: Wireless LAN controller layer 3 interfaces historical status
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  interfaces:
+                  - name: TenGigabitEthernet0/0/5
+                    mac: b0:c5:3c:0d:c5:0b
+                    changes:
+                    - ts: '2020-01-01T00:00:00Z'
+                      status: disabled
+                      warnings:
+                      - CRC warnings
+                      errors:
+                      - CRC errors
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless LAN controller layer 3 interfaces history status in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/l3/usage/history/byInterval:
+    get:
+      description: List wireless LAN controller layer 3 interfaces history usage in an organization
+      operationId: getOrganizationWirelessControllerDevicesInterfacesL3UsageHistoryByInterval
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        readings:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              mac:
+                                type: string
+                                description: The MAC address of the wireless controller interface
+                              recv:
+                                type: integer
+                                description: The volume of data, in bytes/sec, received by wireless controller interface
+                              send:
+                                type: integer
+                                description: The volume of data, in bytes/sec, transmitted by wireless controller interface
+                          description: The usages of layer 3 interfaces of the wireless LAN controller. Usage is in bytes
+                    description: Wireless LAN controller layer 3 interfaces usage
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  readings:
+                  - name: TenGigabitEthernet0/0/5
+                    mac: b0:c5:3c:0d:c5:0b
+                    recv: 0
+                    send: 0
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List wireless LAN controller layer 3 interfaces history usage in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/packets/overview/byDevice:
+    get:
+      description: Retrieve the packet counters for the interfaces of a Wireless LAN controller
+      operationId: getOrganizationWirelessControllerDevicesInterfacesPacketsOverviewByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: names
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its interface name. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 1 day from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 1 day after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 1 day. The default is 1 hour.
+        schema:
+          type: number
+          format: float
+          maximum: 86400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        interfaces:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: The name of the wireless LAN controller interface
+                              readings:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                      description: The type of packets being counted
+                                    total:
+                                      type: integer
+                                      description: The total count of sent and received packets during the timespan
+                                    recv:
+                                      type: integer
+                                      description: The total count of packets received by the interface during the timespan
+                                    send:
+                                      type: integer
+                                      description: The total count of packets sent by the interface during the timespan
+                                    rate:
+                                      type: object
+                                      properties:
+                                        total:
+                                          type: integer
+                                          description: The rate of all packets sent and received during the timespan
+                                        recv:
+                                          type: integer
+                                          description: The rate of packets received during the timespan
+                                        send:
+                                          type: integer
+                                          description: The rate of packets sent during the timespan
+                                      description: The interface packet rates measured in packets per second
+                                description: The status of packets counter on the interfaces of the wireless LAN controller
+                          description: Interfaces belongs to the wireless LAN controller
+                    description: Wireless LAN controller interfaces packets statuses
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  interfaces:
+                  - name: TenGigabitEthernet0/0/0
+                    readings:
+                    - name: Total
+                      total: 2001
+                      recv: 1000
+                      send: 1001
+                      rate:
+                        total: 12
+                        recv: 3
+                        send: 8
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:telemetry:read
+      summary: Retrieve the packet counters for the interfaces of a Wireless LAN controller
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/interfaces/usage/history/byInterval:
+    get:
+      description: Retrieve the traffic for the interfaces of a Wireless LAN controller
+      operationId: getOrganizationWirelessControllerDevicesInterfacesUsageHistoryByInterval
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: names
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its interface name. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        intervals:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startTs:
+                                type: string
+                                description: The start time interval snapshots of the query range with iso8601 format
+                              endTs:
+                                type: string
+                                description: The end time interval snapshots of the query range with iso8601 format
+                              overall:
+                                type: object
+                                properties:
+                                  total:
+                                    type: integer
+                                    description: The total usage of all queried interfaces during the interval, unit is bit/sec
+                                  recv:
+                                    type: integer
+                                    description: The received usage of all queried interfaces during the interval, unit is bit/sec
+                                  send:
+                                    type: integer
+                                    description: The sent usage of all queried interfaces during the interval, unit is bit/sec
+                                description: The overall usage of all queried interfaces of the wireless LAN controller
+                              byInterface:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                      description: The name of the wireless LAN controller interface
+                                    usage:
+                                      type: object
+                                      properties:
+                                        total:
+                                          type: integer
+                                          description: The total usage on the interface during the interval, unit is bit/sec
+                                        recv:
+                                          type: integer
+                                          description: The received usage on the interface during the interval, unit is bit/sec
+                                        send:
+                                          type: integer
+                                          description: The sent usage on the interface during the interval, unit is bit/sec
+                                      description: The usage on the interfaces of the wireless LAN controller
+                                description: The usage data on the interfaces of the wireless LAN controller
+                          description: Time interval snapshots of interfaces usage data of the wireless LAN controller
+                    description: Wireless LAN controller interfaces usage data
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  intervals:
+                  - startTs: '2024-07-25T03:20:55Z'
+                    endTs: '2024-07-25T03:25:55Z'
+                    overall:
+                      total: 12300
+                      recv: 2300
+                      send: 10000
+                    byInterface:
+                    - name: TenGigabitEthernet0/0/1
+                      usage:
+                        total: 12300
+                        recv: 2300
+                        send: 10000
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - wireless:telemetry:read
+      summary: Retrieve the traffic for the interfaces of a Wireless LAN controller
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/redundancy/failover/history:
+    get:
+      description: List the failover events of wireless LAN controllers in an organization
+      operationId: getOrganizationWirelessControllerDevicesRedundancyFailoverHistory
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    items:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          serial:
+                            type: string
+                            description: Wireless LAN controller cloud ID
+                          ts:
+                            type: string
+                            format: date-time
+                            description: Failover time
+                          reason:
+                            type: string
+                            description: Failover reason
+                          failed:
+                            type: object
+                            properties:
+                              chassis:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    description: The name of the failed chassis unit
+                                description: Details about the failed unit chassis
+                            description: Details about the failed unit
+                          active:
+                            type: object
+                            properties:
+                              chassis:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    description: The name of the active chassis unit
+                                description: Details about the active unit chassis
+                            description: Details about the active unit
+                      description: Wireless LAN controller HA failover events
+                    meta:
+                      type: object
+                      properties:
+                        counts:
+                          type: object
+                          properties:
+                            items:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: The total number of items in the dataset
+                                remaining:
+                                  type: integer
+                                  description: The number of items in the dataset that are available on subsequent pages
+                              description: Counts relating to the paginated items
+                          description: Counts relating to the paginated dataset
+                      description: Metadata relevant to the paginated dataset
+              example:
+              - items:
+                - serial: Q234-ABCD-5678
+                  ts: '2020-01-01T00:00:00Z'
+                  reason: Active Unit Failed
+                  failed:
+                    chassis:
+                      name: Chassis 2
+                  active:
+                    chassis:
+                      name: Chassis 1
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List the failover events of wireless LAN controllers in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/redundancy/statuses:
+    get:
+      description: List redundancy details of wireless LAN controllers in an organization. The failover count refers to the total failovers system happens from the moment of this device onboarding to Dashboard
+      operationId: getOrganizationWirelessControllerDevicesRedundancyStatuses
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud IDs. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Wireless LAN controller cloud ID
+                        mode:
+                          type: string
+                          description: Wireless LAN controller redundancy SSO (stateful switchover)
+                        enabled:
+                          type: boolean
+                          description: Wireless LAN controller redundancy enablement
+                        failover:
+                          type: object
+                          properties:
+                            last:
+                              type: object
+                              properties:
+                                ts:
+                                  type: string
+                                  format: date-time
+                                  description: Wireless LAN controller last redundancy switchover time
+                                reason:
+                                  type: string
+                                  description: Wireless LAN controller last redundancy switchover reason
+                              description: Wireless LAN controller last failover information
+                            counts:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: Total number of failovers
+                              description: Wireless LAN controller switchover counts
+                          description: Wireless LAN controller failover information
+                        mobilityMac:
+                          type: string
+                          description: 'Wireless LAN controller redundancy mobility mac '
+                    description: Wireless LAN controller redundancy statuses
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  mode: SSO
+                  enabled: true
+                  failover:
+                    last:
+                      ts: '2020-01-01T00:00:00Z'
+                      reason: Active Unit Failed
+                    counts:
+                      total: 2
+                  mobilityMac: b0:c5:3c:0d:c5:0b
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List redundancy details of wireless LAN controllers in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/devices/system/utilization/history/byInterval:
+    get:
+      description: List cpu utilization data of wireless LAN controllers in an organization
+      operationId: getOrganizationWirelessControllerDevicesSystemUtilizationHistoryByInterval
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: t0
+        in: query
+        description: The beginning of the timespan for the data. The maximum lookback period is 31 days from today.
+        schema:
+          type: string
+      - name: t1
+        in: query
+        description: The end of the timespan for the data. t1 can be a maximum of 31 days after t0.
+        schema:
+          type: string
+      - name: timespan
+        in: query
+        description: The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 7 days.
+        schema:
+          type: number
+          format: float
+          maximum: 2678400
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: The cloud ID of the wireless LAN controller
+                        intervals:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startTs:
+                                type: string
+                                description: The start time of the query range with iso8601 format
+                              endTs:
+                                type: string
+                                description: The end time of the query range  with iso8601 format
+                              overall:
+                                type: object
+                                properties:
+                                  usage:
+                                    type: object
+                                    properties:
+                                      average:
+                                        type: object
+                                        properties:
+                                          percentage:
+                                            type: number
+                                            format: float
+                                            description: The CPU usage percentage of the wireless LAN controller
+                                        description: The average CPU usage of the wireless LAN controller
+                                    description: The CPU usage of the wireless LAN controller
+                                description: The overall CPU usage of the wireless LAN controller
+                              byCore:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    name:
+                                      type: string
+                                      description: The CPU core name
+                                    usage:
+                                      type: object
+                                      properties:
+                                        average:
+                                          type: object
+                                          properties:
+                                            percentage:
+                                              type: number
+                                              format: float
+                                              description: The specific core CPU usage percentage of the wireless LAN controller
+                                          description: The specific core average CPU usage of the wireless LAN controller
+                                      description: The specific core CPU usage of the wireless LAN controller
+                                description: The CPU usage per core of the wireless LAN controller
+                          description: Time interval snapshots of CPU usage data of the wireless LAN controller
+                    description: Wireless LAN controller CPU usage data
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  intervals:
+                  - startTs: '2024-03-04T05:25:03Z'
+                    endTs: '2024-03-04T05:30:19Z'
+                    overall:
+                      usage:
+                        average:
+                          percentage: 10.59
+                    byCore:
+                    - name: '0'
+                      usage:
+                        average:
+                          percentage: 2.74
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List cpu utilization data of wireless LAN controllers in an organization
+      tags:
+      - wirelessController
+  /organizations/{organizationId}/wirelessController/overview/byDevice:
+    get:
+      description: List the overview information of wireless LAN controllers in an organization and it is updated every minute.
+      operationId: getOrganizationWirelessControllerOverviewByDevice
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter wireless LAN controllers by network ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serials
+        in: query
+        description: Optional parameter to filter wireless LAN controller by its cloud ID. This filter uses multiple exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serial:
+                          type: string
+                          description: Wireless LAN controller cloud ID
+                        network:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: Wireless LAN controller network ID
+                          description: Wireless LAN controller network
+                        counts:
+                          type: object
+                          properties:
+                            clients:
+                              type: object
+                              properties:
+                                byStatus:
+                                  type: object
+                                  properties:
+                                    online:
+                                      type: integer
+                                      description: Wireless LAN controller active client count
+                                  description: Client counts by their status
+                              description: Wireless LAN controller client counts
+                            connections:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: Wireless LAN controller associated total access point count
+                                byStatus:
+                                  type: object
+                                  properties:
+                                    online:
+                                      type: integer
+                                      description: Wireless LAN controller associated online access point count
+                                    offline:
+                                      type: integer
+                                      description: Wireless LAN controller associated offline access point count
+                                  description: Access point counts by their status
+                              description: Wireless LAN controller associated access point counts
+                          description: Wireless LAN controller client and access point counts
+                        redundancy:
+                          type: object
+                          properties:
+                            role:
+                              type: string
+                              description: Wireless LAN controller role(Active, Active recovery, Standby hot, Standby recovery and Offline)
+                            id:
+                              type: string
+                              description: Wireless LAN controller redundancy ID
+                            chassisName:
+                              type: string
+                              description: Wireless LAN controller chassis name
+                            redundantSerial:
+                              type: string
+                              description: Wireless LAN controller redundant device serial
+                            management:
+                              type: object
+                              properties:
+                                addresses:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      address:
+                                        type: string
+                                        description: Wireless LAN controller redundancy management interface ip address
+                                  description: Wireless LAN controller redundancy management interface addresses
+                              description: Wireless LAN controller redundancy management interface information
+                          description: Wireless LAN controller redundancy information
+                        firmware:
+                          type: object
+                          properties:
+                            version:
+                              type: object
+                              properties:
+                                shortName:
+                                  type: string
+                                  description: Wireless LAN controller firmware version short name
+                              description: Wireless LAN controller firmware version
+                          description: Wireless LAN controller device firmware information
+                    description: Wireless LAN controller overview
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - serial: Q234-ABCD-5678
+                  network:
+                    id: N_24329156
+                  counts:
+                    clients:
+                      byStatus:
+                        online: 300
+                    connections:
+                      total: 200
+                      byStatus:
+                        online: 180
+                        offline: 20
+                  redundancy:
+                    role: Active
+                    id: '123456'
+                    chassisName: Chassis 1
+                    redundantSerial: Q234-ABCD-5679
+                    management:
+                      addresses:
+                      - address: 10.14.140.5
+                  firmware:
+                    version:
+                      shortName: ios-xe
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List the overview information of wireless LAN controllers in an organization and it is updated every minute.
+      tags:
+      - wirelessController

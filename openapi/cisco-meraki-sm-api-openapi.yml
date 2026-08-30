@@ -1,0 +1,3769 @@
+openapi: 3.2.0
+info:
+  title: Meraki Dashboard Sm API
+  description: 'A RESTful API to programmatically manage and monitor Cisco Meraki networks at scale.
+
+
+    > Date: 05 August, 2026
+
+    >
+
+    > [Recent Updates](https://meraki.io/whats-new/)
+
+
+    ---
+
+
+    [API Documentation](https://meraki.io/api)
+
+
+    [Community Support](https://meraki.io/community)
+
+
+    [Meraki Homepage](https://www.meraki.com)
+
+    '
+  contact:
+    name: Meraki Developer Community
+    url: https://meraki.io/community
+  version: 1.73.0
+  x-provenance:
+    method: harvested
+    authored_by: Cisco Meraki
+    harvested_by: API Evangelist
+    harvested_on: '2026-08-19'
+    first_party: true
+    note: Published by Cisco. Retrieved unmodified except for this x-provenance block.
+    provider_published: true
+    derived_view: Per-first-tag view of the source document, tag 'sm'. Operations and schemas are the provider's, unmodified.
+  x-evidence:
+  - type: source
+    url: https://github.com/meraki/openapi/blob/master/openapi/spec3.json
+  - type: raw
+    url: https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json
+  - type: alternate
+    url: https://api.meraki.com/api/v1/openapiSpec
+servers:
+- url: https://api.meraki.com/{basePath}
+  variables:
+    basePath:
+      default: api/v1
+security:
+- meraki_api_key: []
+- bearerAuth: []
+tags:
+- name: sm
+paths:
+  /networks/{networkId}/sm/bypassActivationLockAttempts:
+    post:
+      description: Bypass activation lock attempt
+      operationId: createNetworkSmBypassActivationLockAttempt
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the devices to attempt activation lock bypass.
+              example:
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+              required:
+              - ids
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: '1234'
+                status: pending
+                data: {}
+      summary: Bypass activation lock attempt
+      tags:
+      - sm
+  /networks/{networkId}/sm/bypassActivationLockAttempts/{attemptId}:
+    get:
+      description: Bypass activation lock attempt status
+      operationId: getNetworkSmBypassActivationLockAttempt
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: attemptId
+        in: path
+        description: Attempt ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: '1234'
+                status: complete
+                data:
+                  '38290139892':
+                    success: true
+                  '2090938209':
+                    success: false
+                    errors:
+                    - Activation lock bypass code not known for this device
+      summary: Bypass activation lock attempt status
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices:
+    get:
+      description: List the devices enrolled in an SM network with various specified fields and filters
+      operationId: getNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: fields
+        in: query
+        description: "Additional fields that will be displayed for each device.\n    The default fields are: id, name, tags, ssid, wifiMac, osName, systemModel, uuid, and serialNumber. The additional fields are: ip,\n    systemType, availableDeviceCapacity, kioskAppName, biosVersion, lastConnected, missingAppsCount, userSuppliedAddress, location, lastUser,\n    ownerEmail, ownerUsername, osBuild, publicIp, phoneNumber, diskInfoJson, deviceCapacity, isManaged, hadMdm, isSupervised, meid, imei, iccid,\n    simCarrierNetwork, cellularDataUsed, isHotspotEnabled, createdAt, batteryEstCharge, quarantined, avName, avRunning, asName, fwName,\n    isRooted, loginRequired, screenLockEnabled, screenLockDelay, autoLoginDisabled, autoTags, hasMdm, hasDesktopAgent, diskEncryptionEnabled,\n    hardwareEncryptionCaps, passCodeLock, usesHardwareKeystore, androidSecurityPatchVersion, cellular, and url."
+        schema:
+          type: array
+          items:
+            type: string
+      - name: wifiMacs
+        in: query
+        description: Filter devices by wifi mac(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serials
+        in: query
+        description: Filter devices by serial(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: ids
+        in: query
+        description: Filter devices by id(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: uuids
+        in: query
+        description: Filter devices by uuid(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: systemTypes
+        in: query
+        description: Filter devices by system type(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: scope
+        in: query
+        description: Specify a scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The Meraki Id of the device record.
+                    name:
+                      type: string
+                      description: The name of the device.
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                      description: An array of tags associated with the device.
+                    ssid:
+                      type: string
+                      description: The name of the SSID the device was last connected to.
+                    wifiMac:
+                      type: string
+                      description: The MAC of the device.
+                    osName:
+                      type: string
+                      description: The name of the device OS.
+                    systemModel:
+                      type: string
+                      description: The device model.
+                    uuid:
+                      type: string
+                      description: The UUID of the device.
+                    serialNumber:
+                      type: string
+                      description: The device serial number.
+                    serial:
+                      type: string
+                      description: The device serial.
+                    ip:
+                      type: string
+                      description: The IP address of the device.
+                    notes:
+                      type: string
+                      description: Notes associated with the device.
+              example:
+              - id: '1284392014819'
+                name: Miles's phone
+                tags:
+                - tag1
+                - tag2
+                ssid: My SSID
+                wifiMac: 00:11:22:33:44:55
+                osName: iOS 9.3.5
+                systemModel: iPhone
+                uuid: 3d990628ede4c628d52
+                serialNumber: F5XKHEBX
+                serial: F5XKHEBX
+                ip: 1.2.3.4
+                notes: Here's some info about my device
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the devices enrolled in an SM network with various specified fields and filters
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/checkin:
+    post:
+      description: Force check-in a set of devices
+      operationId: checkinNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMacs:
+                  type: array
+                  items:
+                    type: string
+                  description: The wifiMacs of the devices to be checked-in.
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the devices to be checked-in.
+                serials:
+                  type: array
+                  items:
+                    type: string
+                  description: The serials of the devices to be checked-in.
+                scope:
+                  type: array
+                  items:
+                    type: string
+                  description: The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be checked-in.
+              example:
+                wifiMacs:
+                - 00:11:22:33:44:55
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                serials:
+                - XY0XX0Y0X0
+                - A01B01CD00E
+                - X02YZ1ZYZX
+                scope:
+                - withAny
+                - tag1
+                - tag2
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                    description: The Meraki Ids of the set of devices.
+              example:
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Force check-in a set of devices
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/fields:
+    put:
+      description: Modify the fields of a device
+      operationId: updateNetworkSmDevicesFields
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMac:
+                  type: string
+                  description: The wifiMac of the device to be modified.
+                id:
+                  type: string
+                  description: The id of the device to be modified.
+                serial:
+                  type: string
+                  description: The serial of the device to be modified.
+                deviceFields:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: New name for the device
+                    notes:
+                      type: string
+                      description: New notes for the device
+                  description: The new fields of the device. Each field of this object is optional.
+              example:
+                wifiMac: 00:11:22:33:44:55
+                id: '1284392014819'
+                serial: XY0XX0Y0X0
+                deviceFields:
+                  name: Miles's phone
+                  notes: Here's some info about my device
+              required:
+              - deviceFields
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The Meraki Id of the device record.
+                    name:
+                      type: string
+                      description: The name of the device.
+                    wifiMac:
+                      type: string
+                      description: The MAC of the device.
+                    serial:
+                      type: string
+                      description: The device serial.
+                    notes:
+                      type: string
+                      description: Notes associated with the device.
+              example:
+              - id: '1284392014819'
+                name: Miles's phone
+                wifiMac: 00:11:22:33:44:55
+                serial: F5XKHEBX
+                notes: Here's some info about my device
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Modify the fields of a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/lock:
+    post:
+      description: Lock a set of devices
+      operationId: lockNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMacs:
+                  type: array
+                  items:
+                    type: string
+                  description: The wifiMacs of the devices to be locked.
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the devices to be locked.
+                serials:
+                  type: array
+                  items:
+                    type: string
+                  description: The serials of the devices to be locked.
+                scope:
+                  type: array
+                  items:
+                    type: string
+                  description: The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be locked.
+                pin:
+                  type: integer
+                  description: The pin number for locking macOS devices (a six digit number). Required only for macOS devices.
+              example:
+                wifiMacs:
+                - 00:11:22:33:44:55
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                serials:
+                - XY0XX0Y0X0
+                - A01B01CD00E
+                - X02YZ1ZYZX
+                scope:
+                - withAny
+                - tag1
+                - tag2
+                pin: 123456
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                    description: The Meraki Ids of the set of devices.
+              example:
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Lock a set of devices
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/modifyTags:
+    post:
+      description: Add, delete, or update the tags of a set of devices
+      operationId: modifyNetworkSmDevicesTags
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMacs:
+                  type: array
+                  items:
+                    type: string
+                  description: The wifiMacs of the devices to be modified.
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the devices to be modified.
+                serials:
+                  type: array
+                  items:
+                    type: string
+                  description: The serials of the devices to be modified.
+                scope:
+                  type: array
+                  items:
+                    type: string
+                  description: The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be modified.
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  description: The tags to be added, deleted, or updated.
+                updateAction:
+                  type: string
+                  description: One of add, delete, or update. Only devices that have been modified will be returned.
+              example:
+                wifiMacs:
+                - 00:11:22:33:44:55
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                serials:
+                - XY0XX0Y0X0
+                - A01B01CD00E
+                - X02YZ1ZYZX
+                scope:
+                - withAny, old_tag
+                tags:
+                - tag1
+                - tag2
+                updateAction: add
+              required:
+              - tags
+              - updateAction
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The Meraki Id of the device record.
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                      description: An array of tags associated with the device.
+                    wifiMac:
+                      type: string
+                      description: The MAC of the device.
+                    serial:
+                      type: string
+                      description: The device serial.
+              example:
+              - id: '1284392014819'
+                tags:
+                - tag1
+                - tag2
+                wifiMac: 00:11:22:33:44:55
+                serial: F5XKHEBX
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Add, delete, or update the tags of a set of devices
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/move:
+    post:
+      description: Move a set of devices to a new network
+      operationId: moveNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMacs:
+                  type: array
+                  items:
+                    type: string
+                  description: The wifiMacs of the devices to be moved.
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the devices to be moved.
+                serials:
+                  type: array
+                  items:
+                    type: string
+                  description: The serials of the devices to be moved.
+                scope:
+                  type: array
+                  items:
+                    type: string
+                  description: The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the devices to be moved.
+                newNetwork:
+                  type: string
+                  description: The new network to which the devices will be moved.
+              example:
+                wifiMacs:
+                - 00:11:22:33:44:55
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                serials:
+                - XY0XX0Y0X0
+                - A01B01CD00E
+                - X02YZ1ZYZX
+                scope:
+                - withAny
+                - tag1
+                - tag2
+                newNetwork: '1284392014819'
+              required:
+              - newNetwork
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                    description: The Meraki Ids of the set of devices.
+                  newNetwork:
+                    type: string
+                    description: The network to which the devices was moved.
+              example:
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                newNetwork: '1284392014819'
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Move a set of devices to a new network
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/reboot:
+    post:
+      description: Reboot a set of endpoints
+      operationId: rebootNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMacs:
+                  type: array
+                  items:
+                    type: string
+                  description: The wifiMacs of the endpoints to be rebooted.
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the endpoints to be rebooted.
+                serials:
+                  type: array
+                  items:
+                    type: string
+                  description: The serials of the endpoints to be rebooted.
+                scope:
+                  type: array
+                  items:
+                    type: string
+                  description: The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the endpoints to be rebooted.
+                kextPaths:
+                  type: array
+                  items:
+                    type: string
+                  description: The KextPaths of the endpoints to be rebooted. Available for macOS 11+
+                notifyUser:
+                  type: boolean
+                  description: Whether or not to notify the user before rebooting the endpoint. Available for macOS 11.3+
+                rebuildKernelCache:
+                  type: boolean
+                  description: Whether or not to rebuild the kernel cache when rebooting the endpoint. Available for macOS 11+
+                requestRequiresNetworkTether:
+                  type: boolean
+                  description: Whether or not the request requires network tethering. Available for macOS and supervised iOS or tvOS
+              example:
+                wifiMacs:
+                - 00:11:22:33:44:55
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                serials:
+                - XY0XX0Y0X0
+                - A01B01CD00E
+                - X02YZ1ZYZX
+                scope:
+                - withAny
+                - tag1
+                - tag2
+                kextPaths:
+                - test
+                notifyUser: true
+                rebuildKernelCache: true
+                requestRequiresNetworkTether: true
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                    description: The Meraki Ids of the set of endpoints.
+              example:
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+      summary: Reboot a set of endpoints
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/shutdown:
+    post:
+      description: Shutdown a set of endpoints
+      operationId: shutdownNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMacs:
+                  type: array
+                  items:
+                    type: string
+                  description: The wifiMacs of the endpoints to be shutdown.
+                ids:
+                  type: array
+                  items:
+                    type: string
+                  description: The ids of the endpoints to be shutdown.
+                serials:
+                  type: array
+                  items:
+                    type: string
+                  description: The serials of the endpoints to be shutdown.
+                scope:
+                  type: array
+                  items:
+                    type: string
+                  description: The scope (one of all, none, withAny, withAll, withoutAny, or withoutAll) and a set of tags of the endpoints to be shutdown.
+              example:
+                wifiMacs:
+                - 00:11:22:33:44:55
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+                serials:
+                - XY0XX0Y0X0
+                - A01B01CD00E
+                - X02YZ1ZYZX
+                scope:
+                - withAny
+                - tag1
+                - tag2
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ids:
+                    type: array
+                    items:
+                      type: string
+                    description: The Meraki Ids of the set of endpoints.
+              example:
+                ids:
+                - '1284392014819'
+                - '2983092129865'
+      summary: Shutdown a set of endpoints
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/wipe:
+    post:
+      description: Wipe a device
+      operationId: wipeNetworkSmDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wifiMac:
+                  type: string
+                  description: The wifiMac of the device to be wiped.
+                id:
+                  type: string
+                  description: The id of the device to be wiped.
+                serial:
+                  type: string
+                  description: The serial of the device to be wiped.
+                pin:
+                  type: integer
+                  description: The pin number (a six digit value) for wiping a macOS device. Required only for macOS devices.
+              example:
+                wifiMac: 00:11:22:33:44:55
+                id: '1284392014819'
+                serial: XY0XX0Y0X0
+                pin: 123456
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The Meraki Id of the devices.
+              example:
+                id: '1284392014819'
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Wipe a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/cellularUsageHistory:
+    get:
+      description: Return the client's daily cellular data usage history. Usage data is in kilobytes.
+      operationId: getNetworkSmDeviceCellularUsageHistory
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    received:
+                      type: number
+                      format: float
+                      description: The amount of cellular data received by the device.
+                    sent:
+                      type: number
+                      format: float
+                      description: The amount of cellular sent received by the device.
+                    ts:
+                      type: string
+                      description: When the cellular usage data was collected.
+              example:
+              - received: 61.0
+                sent: 138.0
+                ts: '2018-05-12T00:00:00Z'
+      security:
+      - oauth2:
+        - sm:telemetry:read
+      summary: Return the client's daily cellular data usage history
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/certs:
+    get:
+      description: List the certs on a device
+      operationId: getNetworkSmDeviceCerts
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the certificate.
+                    notValidAfter:
+                      type: string
+                      description: The date after which the certificate is no longer valid.
+                    notValidBefore:
+                      type: string
+                      description: The date before which the certificate is not valid.
+                    certPem:
+                      type: string
+                      description: The PEM of the certificate.
+                    deviceId:
+                      type: string
+                      description: The Meraki managed device Id.
+                    issuer:
+                      type: string
+                      description: The certificate issuer.
+                    subject:
+                      type: string
+                      description: The subject of the certificate.
+                    id:
+                      type: string
+                      description: The Meraki Id of the certificate record.
+              example:
+              - name: My Cert
+                notValidAfter: '2018-05-12T00:00:00Z'
+                notValidBefore: '2018-02-11T00:00:00Z'
+                certPem: '-----BEGIN CERTIFICATE-----
+
+                  -----END CERTIFICATE-----
+
+                  '
+                deviceId: '1234'
+                issuer: ''
+                subject: ''
+                id: '15'
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the certs on a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/connectivity:
+    get:
+      description: Returns historical connectivity data (whether a device is regularly checking in to Dashboard).
+      operationId: getNetworkSmDeviceConnectivity
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstSeenAt:
+                      type: string
+                      description: When the device was first seen as connected to the internet in each connection.
+                    lastSeenAt:
+                      type: string
+                      description: When the device was last seen as connected to the internet in each connection.
+              example:
+              - firstSeenAt: '2018-02-11T00:00:00Z'
+                lastSeenAt: '2018-05-12T00:00:00Z'
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:telemetry:read
+      summary: Returns historical connectivity data (whether a device is regularly checking in to Dashboard).
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/desktopLogs:
+    get:
+      description: Return historical records of various Systems Manager network connection details for desktop devices.
+      operationId: getNetworkSmDeviceDesktopLogs
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    measuredAt:
+                      type: string
+                      description: The time the data was measured at.
+                    user:
+                      type: string
+                      description: The user during connection.
+                    networkDevice:
+                      type: string
+                      description: The network device for the device used for connection.
+                    networkDriver:
+                      type: string
+                      description: The network driver for the device.
+                    wifiChannel:
+                      type: string
+                      description: Channel through which the connection is routing.
+                    wifiAuth:
+                      type: string
+                      description: The type of authentication used by the SSID.
+                    wifiBssid:
+                      type: string
+                      description: The MAC of the access point the device is connected to.
+                    wifiSsid:
+                      type: string
+                      description: The name of the network the device is connected to.
+                    wifiRssi:
+                      type: string
+                      description: The Received Signal Strength Indicator for the device.
+                    wifiNoise:
+                      type: string
+                      description: The wireless signal power level received by the device.
+                    dhcpServer:
+                      type: string
+                      description: The IP address of the DCHP Server.
+                    ip:
+                      type: string
+                      description: The IP of the device during connection.
+                    networkMTU:
+                      type: string
+                      description: The network max transmission unit.
+                    subnet:
+                      type: string
+                      description: The subnet of the device connection.
+                    gateway:
+                      type: string
+                      description: The gateway IP the device was connected to.
+                    publicIP:
+                      type: string
+                      description: The public IP address of the device.
+                    dnsServer:
+                      type: string
+                      description: The DNS Server during the connection.
+                    ts:
+                      type: string
+                      description: The time the connection was logged.
+              example:
+              - measuredAt: '2018-05-12T00:00:00Z'
+                user: milesmeraki
+                networkDevice: NIC
+                networkDriver: Driver
+                wifiChannel: '11'
+                wifiAuth: wpa-psk
+                wifiBssid: 00:11:22:33:44:55
+                wifiSsid: ssid
+                wifiRssi: '-11'
+                wifiNoise: '-99'
+                dhcpServer: 1.2.3.4
+                ip: 1.2.3.4
+                networkMTU: '1500'
+                subnet: 192.168.1.0/24
+                gateway: 1.2.3.5
+                publicIP: 123.123.123.1
+                dnsServer: '8'
+                ts: '2018-05-12T00:00:00Z'
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:telemetry:read
+      summary: Return historical records of various Systems Manager network connection details for desktop devices.
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/deviceCommandLogs:
+    get:
+      description: Return historical records of commands sent to Systems Manager devices. Note that this will include the name of the Dashboard user who initiated the command if it was generated by a Dashboard admin rather than the automatic behavior of the system; you may wish to filter this out of any reports.
+      operationId: getNetworkSmDeviceDeviceCommandLogs
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                      description: The type of command sent to the device.
+                    name:
+                      type: string
+                      description: The name of the device to which the command is sent.
+                    details:
+                      type: string
+                      description: A JSON string object containing command details.
+                    dashboardUser:
+                      type: string
+                      description: The Meraki dashboard user who initiated the command.
+                    ts:
+                      type: string
+                      description: The time the command was sent to the device.
+              example:
+              - action: UpdateProfile
+                name: My profile
+                details: '{}'
+                dashboardUser: Miles Meraki
+                ts: '2018-05-12T00:00:00Z'
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:telemetry:read
+      summary: Return historical records of commands sent to Systems Manager devices
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/deviceProfiles:
+    get:
+      description: Get the installed profiles associated with a device
+      operationId: getNetworkSmDeviceDeviceProfiles
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    deviceId:
+                      type: string
+                      description: The Meraki managed device Id.
+                    id:
+                      type: string
+                      description: The numerical Meraki Id of the profile.
+                    isEncrypted:
+                      type: boolean
+                      description: A boolean indicating if the profile is encrypted.
+                    isManaged:
+                      type: boolean
+                      description: Whether or not the profile is managed by Meraki.
+                    profileData:
+                      type: string
+                      description: A string containing a JSON object with the profile data.
+                    profileIdentifier:
+                      type: string
+                      description: The identifier of the profile.
+                    name:
+                      type: string
+                      description: The name of the profile.
+                    version:
+                      type: string
+                      description: The verison of the profile.
+              example:
+              - deviceId: '1234'
+                id: '1284392014819'
+                isEncrypted: true
+                isManaged: true
+                profileData: '{}'
+                profileIdentifier: com.test.app
+                name: My profile
+                version: 0.0.1
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Get the installed profiles associated with a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/installApps:
+    post:
+      description: Install applications on a device
+      operationId: installNetworkSmDeviceApps
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appIds:
+                  type: array
+                  items:
+                    type: string
+                  description: ids of applications to be installed
+                force:
+                  type: boolean
+                  description: By default, installation of an app which is believed to already be present on the device will be skipped. If you'd like to force the installation of the app, set this parameter to true.
+              example:
+                appIds:
+                - '1284392014819'
+                - '2983092129865'
+                force: false
+              required:
+              - appIds
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+      summary: Install applications on a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/networkAdapters:
+    get:
+      description: List the network adapters of a device
+      operationId: getNetworkSmDeviceNetworkAdapters
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dhcpServer:
+                      type: string
+                      description: The IP address of the DCHP Server.
+                    dnsServer:
+                      type: string
+                      description: The IP address of the DNS Server.
+                    gateway:
+                      type: string
+                      description: The IP address of the Gateway.
+                    id:
+                      type: string
+                      description: The Meraki Id of the network adapter record.
+                    ip:
+                      type: string
+                      description: The IP address of the network adapter.
+                    mac:
+                      type: string
+                      description: The MAC associated with the network adapter.
+                    name:
+                      type: string
+                      description: The name of the newtwork adapter.
+                    subnet:
+                      type: string
+                      description: The subnet for the network adapter.
+              example:
+              - dhcpServer: 123.123.123.1
+                dnsServer: 8.8.8.8, 8.8.4.4
+                gateway: 1.2.3.5
+                id: '1284392014819'
+                ip: 1.2.3.4
+                mac: 00:11:22:33:44:55
+                name: en0
+                subnet: 255.255.255.0
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the network adapters of a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/performanceHistory:
+    get:
+      description: Return historical records of various Systems Manager client metrics for desktop devices.
+      operationId: getNetworkSmDevicePerformanceHistory
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cpuPercentUsed:
+                      type: number
+                      format: float
+                      description: The percentage of CPU used as a decimal format.
+                    memFree:
+                      type: integer
+                      description: Memory that is not yet in use by the system.
+                    memWired:
+                      type: integer
+                      description: Memory used for core OS functions on the device.
+                    memActive:
+                      type: integer
+                      description: The active RAM on the device.
+                    memInactive:
+                      type: integer
+                      description: The inactive RAM on the device.
+                    networkSent:
+                      type: integer
+                      description: Network bandwith transmitted.
+                    networkReceived:
+                      type: integer
+                      description: Network bandwith received.
+                    swapUsed:
+                      type: integer
+                      description: The amount of space being used on the startup disk to swap unused files to and from RAM.
+                    diskUsage:
+                      type: object
+                      properties:
+                        c:
+                          type: object
+                          properties:
+                            used:
+                              type: integer
+                              description: The used disk space.
+                            space:
+                              type: integer
+                              description: The available disk space.
+                          description: An object containing current disk usage details.
+                      description: An object containing disk usage details.
+                    ts:
+                      type: string
+                      description: The time at which the performance was measured.
+              example:
+              - cpuPercentUsed: 0.95
+                memFree: 1024
+                memWired: 4096
+                memActive: 1024
+                memInactive: 2048
+                networkSent: 512
+                networkReceived: 512
+                swapUsed: 768
+                diskUsage:
+                  c:
+                    used: 2048
+                    space: 9096
+                ts: '2018-05-12T00:00:00Z'
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:telemetry:read
+      summary: Return historical records of various Systems Manager client metrics for desktop devices.
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/refreshDetails:
+    post:
+      description: Refresh the details of a device
+      operationId: refreshNetworkSmDeviceDetails
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Refresh the details of a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/restrictions:
+    get:
+      description: List the restrictions on a device
+      operationId: getNetworkSmDeviceRestrictions
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  restrictions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        profile:
+                          type: string
+                          description: The profile identifier.
+                        restrictions:
+                          type: object
+                          additionalProperties: true
+                          description: The restrictions for the profile.
+                    description: The list of restrictions for the device
+              example:
+                restrictions:
+                - profile: com.test.app
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the restrictions on a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/securityCenters:
+    get:
+      description: List the security centers on a device
+      operationId: getNetworkSmDeviceSecurityCenters
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    isRooted:
+                      type: boolean
+                      description: Boolean indicating if the device is rooted.
+                    hasAntiVirus:
+                      type: boolean
+                      description: Boolean indicating if the device has Antivirus.
+                    antiVirusName:
+                      type: string
+                      description: The name of the Antivirus.
+                    isFireWallEnabled:
+                      type: boolean
+                      description: Boolean indicating if the device has a Firewall enabled.
+                    hasFireWallInstalled:
+                      type: boolean
+                      description: Boolean indicating if the device has a Firewall installed.
+                    fireWallName:
+                      type: string
+                      description: The name of the Firewall.
+                    isDiskEncrypted:
+                      type: boolean
+                      description: Boolean indicating if the device has disk encryption.
+                    isAutoLoginDisabled:
+                      type: boolean
+                      description: Boolean indicating if the device has auto login disabled.
+                    id:
+                      type: string
+                      description: The Meraki identifier for the security center record.
+                    runningProcs:
+                      type: string
+                      description: A comma seperated list of procs running on the device.
+              example:
+              - isRooted: true
+                hasAntiVirus: true
+                antiVirusName: meraki_av
+                isFireWallEnabled: true
+                hasFireWallInstalled: true
+                fireWallName: meraki_fw
+                isDiskEncrypted: true
+                isAutoLoginDisabled: true
+                id: '1284392014819'
+                runningProcs: /software,/software_2
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the security centers on a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/softwares:
+    get:
+      description: Get a list of softwares associated with a device
+      operationId: getNetworkSmDeviceSoftwares
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    appId:
+                      type: string
+                      description: The Meraki managed application Id for this record on a particular device.
+                    bundleSize:
+                      type: integer
+                      description: The size of the software bundle.
+                    createdAt:
+                      type: string
+                      description: When the Meraki record for the software was created.
+                    deviceId:
+                      type: string
+                      description: The Meraki managed device Id.
+                    dynamicSize:
+                      type: integer
+                      description: The size of the data stored in the application.
+                    id:
+                      type: string
+                      description: The Meraki software Id.
+                    identifier:
+                      type: string
+                      description: Software bundle identifier.
+                    installedAt:
+                      type: string
+                      description: When the Software was installed on the device.
+                    toInstall:
+                      type: boolean
+                      description: A boolean indicating this software record should be installed on the associated device.
+                    iosRedemptionCode:
+                      type: boolean
+                      description: A boolean indicating whether or not an iOS redemption code was used.
+                    isManaged:
+                      type: boolean
+                      description: A boolean indicating whether or not the software is managed by Meraki.
+                    itunesId:
+                      type: string
+                      description: The itunes numerical identifier.
+                    licenseKey:
+                      type: string
+                      description: The license key associated with this software installation.
+                    name:
+                      type: string
+                      description: The name of the software.
+                    path:
+                      type: string
+                      description: The path on the device where the software record is located.
+                    redemptionCode:
+                      type: integer
+                      description: The redemption code used for this software.
+                    shortVersion:
+                      type: string
+                      description: Short version notation for the software.
+                    status:
+                      type: string
+                      description: The management status of the software.
+                    toUninstall:
+                      type: boolean
+                      description: A boolean indicating this software record should be uninstalled on the associated device.
+                    uninstalledAt:
+                      type: string
+                      description: When the record was uninstalled from the device.
+                    updatedAt:
+                      type: string
+                      description: When the record was last updated by Meraki.
+                    vendor:
+                      type: string
+                      description: The vendor of the software.
+                    version:
+                      type: string
+                      description: Full version notation for the software.
+              example:
+              - appId: '1234'
+                bundleSize: 1024
+                createdAt: '2018-02-11T00:00:00Z'
+                deviceId: '1234'
+                dynamicSize: 2048
+                id: '1284392014819'
+                identifier: com.test.app
+                installedAt: '2018-05-12T00:00:00Z'
+                toInstall: true
+                iosRedemptionCode: false
+                isManaged: true
+                itunesId: '1234'
+                licenseKey: Z21234567890
+                name: My app
+                path: /Path/to/app.app
+                redemptionCode: 1234
+                shortVersion: '1.1'
+                status: Managed
+                toUninstall: false
+                uninstalledAt: '2018-02-11T00:00:00Z'
+                updatedAt: '2018-05-12T00:00:00Z'
+                vendor: Apple
+                version: '0.1'
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Get a list of softwares associated with a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/unenroll:
+    post:
+      description: Unenroll a device
+      operationId: unenrollNetworkSmDevice
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Boolean indicating whether the operation was completed successfully.
+              example:
+                success: true
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Unenroll a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/uninstallApps:
+    post:
+      description: Uninstall applications on a device
+      operationId: uninstallNetworkSmDeviceApps
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appIds:
+                  type: array
+                  items:
+                    type: string
+                  description: ids of applications to be uninstalled
+              example:
+                appIds:
+                - '1284392014819'
+                - '2983092129865'
+              required:
+              - appIds
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+              example: {}
+      summary: Uninstall applications on a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/devices/{deviceId}/wlanLists:
+    get:
+      description: List the saved SSID names on a device
+      operationId: getNetworkSmDeviceWlanLists
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: deviceId
+        in: path
+        description: Device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    createdAt:
+                      type: string
+                      description: When the Meraki record for the wlanList was created.
+                    id:
+                      type: string
+                      description: The Meraki managed Id of the wlanList record.
+                    xml:
+                      type: string
+                      description: An XML string containing the WLAN List for the device.
+              example:
+              - createdAt: '2018-02-11T00:00:00Z'
+                id: '1284392014819'
+                xml: 'Preferred networks on en0:'
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the saved SSID names on a device
+      tags:
+      - sm
+  /networks/{networkId}/sm/profiles:
+    get:
+      description: List profiles in a network
+      operationId: getNetworkSmProfiles
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 50. Default is 50.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: payloadTypes
+        in: query
+        description: Filter by payload types
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: ID of a profile.
+                    name:
+                      type: string
+                      description: Name of a profile.
+                    description:
+                      type: string
+                      description: Description of a profile.
+                    scope:
+                      type: string
+                      description: Scope of a profile.
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                      description: Tags of a profile.
+                    payloadTypes:
+                      type: array
+                      items:
+                        type: string
+                      description: Payloads in the profile.
+              example:
+              - id: '1284392014819'
+                name: My profile
+                description: Some profile description
+                scope: withAny
+                tags:
+                - tag1
+                - tag2
+                payloadTypes:
+                - Vpn
+                - ManagedSettings
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List profiles in a network
+      tags:
+      - sm
+  /networks/{networkId}/sm/targetGroups:
+    get:
+      description: List the target groups in this network
+      operationId: getNetworkSmTargetGroups
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: withDetails
+        in: query
+        description: Boolean indicating if the the ids of the devices or users scoped by the target group should be included in the response
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The ID of this target group.
+                    name:
+                      type: string
+                      description: The name of this target group.
+                    scope:
+                      type: string
+                      description: The scope of the target group.
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                      description: The tags of the target group.
+              example:
+              - id: '1284392014819'
+                name: Target group name
+                scope: withAny
+                tags:
+                - tag1
+                - tag2
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the target groups in this network
+      tags:
+      - sm
+    post:
+      description: Add a target group
+      operationId: createNetworkSmTargetGroup
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of this target group
+                scope:
+                  type: string
+                  description: The scope and tag options of the target group. Comma separated values beginning with one of withAny, withAll, withoutAny, withoutAll, all, none, followed by tags. Default to none if empty.
+              example:
+                name: Target group name
+                scope: withAny, tag1, tag2
+        required: false
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The ID of this target group.
+                  name:
+                    type: string
+                    description: The name of this target group.
+                  scope:
+                    type: string
+                    description: The scope of the target group.
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                    description: The tags of the target group.
+              example:
+                id: '1284392014819'
+                name: Target group name
+                scope: withAny
+                tags:
+                - tag1
+                - tag2
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Add a target group
+      tags:
+      - sm
+  /networks/{networkId}/sm/targetGroups/{targetGroupId}:
+    get:
+      description: Return a target group
+      operationId: getNetworkSmTargetGroup
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: targetGroupId
+        in: path
+        description: Target group ID
+        schema:
+          type: string
+        required: true
+      - name: withDetails
+        in: query
+        description: Boolean indicating if the the ids of the devices or users scoped by the target group should be included in the response
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The ID of this target group.
+                  name:
+                    type: string
+                    description: The name of this target group.
+                  scope:
+                    type: string
+                    description: The scope of the target group.
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                    description: The tags of the target group.
+              example:
+                id: '1284392014819'
+                name: Target group name
+                scope: withAny
+                tags:
+                - tag1
+                - tag2
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Return a target group
+      tags:
+      - sm
+    put:
+      description: Update a target group
+      operationId: updateNetworkSmTargetGroup
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: targetGroupId
+        in: path
+        description: Target group ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of this target group
+                scope:
+                  type: string
+                  description: The scope and tag options of the target group. Comma separated values beginning with one of withAny, withAll, withoutAny, withoutAll, all, none, followed by tags. Default to none if empty.
+              example:
+                name: Target group name
+                scope: withAny, tag1, tag2
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The ID of this target group.
+                  name:
+                    type: string
+                    description: The name of this target group.
+                  scope:
+                    type: string
+                    description: The scope of the target group.
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                    description: The tags of the target group.
+              example:
+                id: '1284392014819'
+                name: Target group name
+                scope: withAny
+                tags:
+                - tag1
+                - tag2
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Update a target group
+      tags:
+      - sm
+    delete:
+      description: Delete a target group from a network
+      operationId: deleteNetworkSmTargetGroup
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: targetGroupId
+        in: path
+        description: Target group ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '204':
+          description: Successful operation
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Delete a target group from a network
+      tags:
+      - sm
+  /networks/{networkId}/sm/trustedAccessConfigs:
+    get:
+      description: List Trusted Access Configs
+      operationId: getNetworkSmTrustedAccessConfigs
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: device ID
+                    ssidName:
+                      type: string
+                      description: SSID name
+                    name:
+                      type: string
+                      description: device name
+                    scope:
+                      type: string
+                      description: scope
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                      description: device tags
+                    timeboundType:
+                      type: string
+                      enum:
+                      - dynamic
+                      - static
+                      description: type of access period, either a static range or a dynamic period
+                    sendExpirationEmails:
+                      type: boolean
+                      description: Send Email Notifications
+                    notifyTimeBeforeAccessEnds:
+                      type: integer
+                      description: Time before access expiration reminder email sends
+                    additionalEmailText:
+                      type: string
+                      description: Optional email text
+                    accessStartAt:
+                      type: string
+                      format: date-time
+                      description: time that access starts
+                    accessEndAt:
+                      type: string
+                      format: date-time
+                      description: time that access ends
+              example:
+              - id: '1284392014819'
+                ssidName: My SSID
+                name: Cisco Meraki valued client
+                scope: withAny
+                tags:
+                - tag1
+                - tag2
+                timeboundType: static
+                sendExpirationEmails: true
+                notifyTimeBeforeAccessEnds: 50000
+                additionalEmailText: test
+                accessStartAt: '2018-02-11T00:00:00Z'
+                accessEndAt: '2018-05-12T00:00:00Z'
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List Trusted Access Configs
+      tags:
+      - sm
+  /networks/{networkId}/sm/userAccessDevices:
+    get:
+      description: List User Access Devices and its Trusted Access Connections
+      operationId: getNetworkSmUserAccessDevices
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 100.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: device ID
+                    name:
+                      type: string
+                      description: device name
+                    systemType:
+                      type: string
+                      description: system type
+                    mac:
+                      type: string
+                      description: mac address
+                    username:
+                      type: string
+                      description: username
+                    email:
+                      type: string
+                      description: user email
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                      description: device tags
+                    trustedAccessConnections:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          trustedAccessConfigId:
+                            type: string
+                            description: config id
+                          downloadedAt:
+                            type: string
+                            description: time that config was downloaded
+                          scepCompletedAt:
+                            type: string
+                            format: date-time
+                            description: time that SCEP completed
+                          lastConnectedAt:
+                            type: string
+                            format: date-time
+                            description: time of last connection
+                      description: Array of trusted access configs
+              example:
+              - id: '1284392014819'
+                name: Cisco Meraki valued client
+                systemType: ios
+                mac: 00:11:22:33:44:55
+                username: milesmeraki
+                email: miles@meraki.com
+                tags:
+                - tag1
+                - tag2
+                trustedAccessConnections:
+                - trustedAccessConfigId: '1234'
+                  downloadedAt: '2018-02-11T00:00:00Z'
+                  scepCompletedAt: '2018-05-12T00:00:00Z'
+                  lastConnectedAt: '2018-05-12T00:00:00Z'
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List User Access Devices and its Trusted Access Connections
+      tags:
+      - sm
+  /networks/{networkId}/sm/userAccessDevices/{userAccessDeviceId}:
+    delete:
+      description: Delete a User Access Device
+      operationId: deleteNetworkSmUserAccessDevice
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: userAccessDeviceId
+        in: path
+        description: User access device ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '204':
+          description: Successful operation
+      security:
+      - oauth2:
+        - sm:config:write
+      summary: Delete a User Access Device
+      tags:
+      - sm
+  /networks/{networkId}/sm/users:
+    get:
+      description: List the owners in an SM network with various specified fields and filters
+      operationId: getNetworkSmUsers
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: ids
+        in: query
+        description: Filter users by id(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: usernames
+        in: query
+        description: Filter users by username(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: emails
+        in: query
+        description: Filter users by email(s).
+        schema:
+          type: array
+          items:
+            type: string
+      - name: scope
+        in: query
+        description: Specifiy a scope (one of all, none, withAny, withAll, withoutAny, withoutAll) and a set of tags.
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: The Meraki managed Id of the user record.
+                    email:
+                      type: string
+                      description: User email.
+                    fullName:
+                      type: string
+                      description: User full name.
+                    username:
+                      type: string
+                      description: The users username.
+                    hasPassword:
+                      type: boolean
+                      description: A boolean denoting if the user has a password associated with the record.
+                    tags:
+                      type: string
+                      description: The set of tags the user is scoped to.
+                    adGroups:
+                      type: array
+                      items:
+                        type: string
+                      description: Active Directory Groups the user belongs to.
+                    azureAdGroups:
+                      type: array
+                      items:
+                        type: string
+                      description: Azure Active Directory Groups the user belongs to.
+                    samlGroups:
+                      type: array
+                      items:
+                        type: string
+                      description: SAML Groups the user belongs to.
+                    asmGroups:
+                      type: array
+                      items:
+                        type: string
+                      description: Apple School Manager Groups the user belongs to.
+                    isExternal:
+                      type: boolean
+                      description: Whether the user was created using an external integration, or via the Meraki Dashboard.
+                    displayName:
+                      type: string
+                      description: The user display name.
+                    hasIdentityCertificate:
+                      type: boolean
+                      description: A boolean indicating if the user has an associated identity certificate..
+                    userThumbnail:
+                      type: string
+                      description: The url where the users thumbnail is hosted.
+              example:
+              - id: '1234'
+                email: miles@meraki.com
+                fullName: Miles Meraki
+                username: ''
+                hasPassword: false
+                tags: ' tag1 tag2 '
+                adGroups: []
+                azureAdGroups: []
+                samlGroups: []
+                asmGroups: []
+                isExternal: false
+                displayName: Miles Meraki <miles@meraki.com>
+                hasIdentityCertificate: false
+                userThumbnail: https://s3.amazonaws.com/image.extension
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the owners in an SM network with various specified fields and filters
+      tags:
+      - sm
+  /networks/{networkId}/sm/users/{userId}/deviceProfiles:
+    get:
+      description: Get the profiles associated with a user
+      operationId: getNetworkSmUserDeviceProfiles
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: userId
+        in: path
+        description: User ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    deviceId:
+                      type: string
+                      description: The Meraki managed device Id.
+                    id:
+                      type: string
+                      description: The numerical Meraki Id of the profile.
+                    isEncrypted:
+                      type: boolean
+                      description: A boolean indicating if the profile is encrypted.
+                    isManaged:
+                      type: boolean
+                      description: Whether or not the profile is managed by Meraki.
+                    profileData:
+                      type: string
+                      description: A string containing a JSON object with the profile data.
+                    profileIdentifier:
+                      type: string
+                      description: The identifier of the profile.
+                    name:
+                      type: string
+                      description: The name of the profile.
+                    version:
+                      type: string
+                      description: The verison of the profile.
+              example:
+              - deviceId: '1234'
+                id: '1284392014819'
+                isEncrypted: true
+                isManaged: true
+                profileData: '{}'
+                profileIdentifier: com.test.app
+                name: My profile
+                version: 0.0.1
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Get the profiles associated with a user
+      tags:
+      - sm
+  /networks/{networkId}/sm/users/{userId}/softwares:
+    get:
+      description: Get a list of softwares associated with a user
+      operationId: getNetworkSmUserSoftwares
+      parameters:
+      - name: networkId
+        in: path
+        description: Network ID
+        schema:
+          type: string
+        required: true
+      - name: userId
+        in: path
+        description: User ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    appId:
+                      type: string
+                      description: The Meraki managed application Id for this record on a particular device.
+                    bundleSize:
+                      type: integer
+                      description: The size of the software bundle.
+                    createdAt:
+                      type: string
+                      description: When the Meraki record for the software was created.
+                    deviceId:
+                      type: string
+                      description: The Meraki managed device Id.
+                    dynamicSize:
+                      type: integer
+                      description: The size of the data stored in the application.
+                    id:
+                      type: string
+                      description: The Meraki software Id.
+                    identifier:
+                      type: string
+                      description: Software bundle identifier.
+                    installedAt:
+                      type: string
+                      description: When the Software was installed on the device.
+                    toInstall:
+                      type: boolean
+                      description: A boolean indicating this software record should be installed on the associated device.
+                    iosRedemptionCode:
+                      type: boolean
+                      description: A boolean indicating whether or not an iOS redemption code was used.
+                    isManaged:
+                      type: boolean
+                      description: A boolean indicating whether or not the software is managed by Meraki.
+                    itunesId:
+                      type: string
+                      description: The itunes numerical identifier.
+                    licenseKey:
+                      type: string
+                      description: The license key associated with this software installation.
+                    name:
+                      type: string
+                      description: The name of the software.
+                    path:
+                      type: string
+                      description: The path on the device where the software record is located.
+                    redemptionCode:
+                      type: integer
+                      description: The redemption code used for this software.
+                    shortVersion:
+                      type: string
+                      description: Short version notation for the software.
+                    status:
+                      type: string
+                      description: The management status of the software.
+                    toUninstall:
+                      type: boolean
+                      description: A boolean indicating this software record should be uninstalled on the associated device.
+                    uninstalledAt:
+                      type: string
+                      description: When the record was uninstalled from the device.
+                    updatedAt:
+                      type: string
+                      description: When the record was last updated by Meraki.
+                    vendor:
+                      type: string
+                      description: The vendor of the software.
+                    version:
+                      type: string
+                      description: Full version notation for the software.
+              example:
+              - appId: '1234'
+                bundleSize: 1024
+                createdAt: '2018-02-11T00:00:00Z'
+                deviceId: '1234'
+                dynamicSize: 2048
+                id: '1284392014819'
+                identifier: com.test.app
+                installedAt: '2018-05-12T00:00:00Z'
+                toInstall: true
+                iosRedemptionCode: false
+                isManaged: true
+                itunesId: '1234'
+                licenseKey: Z21234567890
+                name: My app
+                path: /Path/to/app.app
+                redemptionCode: 1234
+                shortVersion: '1.1'
+                status: Managed
+                toUninstall: false
+                uninstalledAt: '2018-02-11T00:00:00Z'
+                updatedAt: '2018-05-12T00:00:00Z'
+                vendor: Apple
+                version: '0.1'
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Get a list of softwares associated with a user
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/admins/roles:
+    get:
+      description: List the Limited Access Roles for an organization
+      operationId: getOrganizationSmAdminsRoles
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        roleId:
+                          type: string
+                          description: The Id of the limited access role
+                        name:
+                          type: string
+                          description: The name of the limited access role
+                        scope:
+                          type: string
+                          enum:
+                          - all_tags
+                          - some
+                          - without_all_tags
+                          - without_some
+                          description: The scope of the limited access role
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                          description: The tags of the limited access role
+                    description: Array of Limited Access Roles
+                  meta:
+                    type: object
+                    properties:
+                      counts:
+                        type: object
+                        properties:
+                          items:
+                            type: object
+                            properties:
+                              total:
+                                type: integer
+                                description: The total number of items in the dataset
+                              remaining:
+                                type: integer
+                                description: The number of items in the dataset that are available on subsequent pages
+                            description: Counts relating to the paginated items
+                        description: Counts relating to the paginated dataset
+                    description: Metadata relevant to the paginated dataset
+              example:
+                items:
+                - roleId: '1284392014819'
+                  name: sample name
+                  scope: all_tags
+                  tags:
+                  - tag
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List the Limited Access Roles for an organization
+      tags:
+      - sm
+    post:
+      description: Create a Limited Access Role
+      operationId: createOrganizationSmAdminsRole
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the Limited Access Role
+                scope:
+                  type: string
+                  enum:
+                  - all_tags
+                  - some
+                  - without_all_tags
+                  - without_some
+                  description: The scope of the Limited Access Role
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  description: The tags of the Limited Access Role
+              example:
+                name: sample name
+                scope: all_tags
+                tags:
+                - tag
+              required:
+              - name
+        required: true
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  roleId:
+                    type: string
+                    description: The Id of the limited access role
+                  name:
+                    type: string
+                    description: The name of the limited access role
+                  scope:
+                    type: string
+                    enum:
+                    - all_tags
+                    - some
+                    - without_all_tags
+                    - without_some
+                    description: The scope of the limited access role
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                    description: The tags of the limited access role
+              example:
+                roleId: '1284392014819'
+                name: sample name
+                scope: all_tags
+                tags:
+                - tag
+      summary: Create a Limited Access Role
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/admins/roles/{roleId}:
+    get:
+      description: Return a Limited Access Role
+      operationId: getOrganizationSmAdminsRole
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: roleId
+        in: path
+        description: Role ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  roleId:
+                    type: string
+                    description: The Id of the limited access role
+                  name:
+                    type: string
+                    description: The name of the limited access role
+                  scope:
+                    type: string
+                    enum:
+                    - all_tags
+                    - some
+                    - without_all_tags
+                    - without_some
+                    description: The scope of the limited access role
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                    description: The tags of the limited access role
+              example:
+                roleId: '1284392014819'
+                name: sample name
+                scope: all_tags
+                tags:
+                - tag
+      summary: Return a Limited Access Role
+      tags:
+      - sm
+    put:
+      description: Update a Limited Access Role
+      operationId: updateOrganizationSmAdminsRole
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: roleId
+        in: path
+        description: Role ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the Limited Access Role
+                scope:
+                  type: string
+                  enum:
+                  - all_tags
+                  - some
+                  - without_all_tags
+                  - without_some
+                  description: The scope of the Limited Access Role
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  description: The tags of the Limited Access Role
+              example:
+                name: sample name
+                scope: all_tags
+                tags:
+                - tag
+        required: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  roleId:
+                    type: string
+                    description: The Id of the limited access role
+                  name:
+                    type: string
+                    description: The name of the limited access role
+                  scope:
+                    type: string
+                    enum:
+                    - all_tags
+                    - some
+                    - without_all_tags
+                    - without_some
+                    description: The scope of the limited access role
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                    description: The tags of the limited access role
+              example:
+                roleId: '1284392014819'
+                name: sample name
+                scope: all_tags
+                tags:
+                - tag
+      summary: Update a Limited Access Role
+      tags:
+      - sm
+    delete:
+      description: Delete a Limited Access Role
+      operationId: deleteOrganizationSmAdminsRole
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: roleId
+        in: path
+        description: Role ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '204':
+          description: Successful operation
+      summary: Delete a Limited Access Role
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/apnsCert:
+    get:
+      description: Get the organization's APNS certificate
+      operationId: getOrganizationSmApnsCert
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  certificate:
+                    type: string
+                    description: Organization APNS Certificate used by devices to communication with Apple
+              example:
+                certificate: "          -----BEGIN CERTIFICATE-----\n          MIIFdjCCBF6gAwIBAgIIM/hhf5ww8MwwDQYJKoZIhvcNAQELBQAwgYwxQDA+BgNV\n          BAMMN0FwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIDIgQ2VydGlmaWNhdGlv\n          biBBdXRob3JpdHkxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9y\n          aXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0yMDAyMjYx\n          ODIzNDJaFw0yMTAyMjUxODIzNDJaMIGPMUwwSgYKCZImiZPyLGQBAQw8Y29tLmFw\n          cGxlLm1nbXQuRXh0ZXJuYWwuOTA3NDJhYmYtZDhhZC00MTc2LTllZmQtMGNiMzg1\n          MTM1MGM0MTIwMAYDVQQDDClBUFNQOjkwNzQyYWJmLWQ4YWQtNDE3Ni05ZWZkLTBj\n          YjM4NTEzNTBjNDELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw\n          ggEKAoIBAQDANdpo62hfxkP1IpMPXuO1+xKekUkY+iYae6cRaP886bodUaH1OwCj\n          Qd011u9Vng6m8I9rcLdIOS+IkFGKcTAHRYY3noqfEQUPyi5TN6yM1/mVYVoWZUnY\n          TrNWqDN/HfRagdYfZyQ7kAtOY2K8TF78HLLqQm7ez2+r4qibumoSli9+qCzKwDW/\n          hbx7JTeMlbYkhLTFgBkRxlp+usKymsLKm8D7kdbxtct4mx6p9z1FiNu4U1Hi/PgK\n          I/V3zHD4Ww7SzTICiLdCPeAmt042JvXAMQi0qhzrEdDiapmWwUC9xiiORN0BTIRA\n          T+DddTx8Xcly4wj9vQFdGUGLrJnzB3xZAgMBAAGjggHVMIIB0TAJBgNVHRMEAjAA\n          MB8GA1UdIwQYMBaAFPe+fCFgkds9G3vYOjKBad+ebH+bMIIBHAYDVR0gBIIBEzCC\n          AQ8wggELBgkqhkiG92NkBQEwgf0wgcMGCCsGAQUFBwICMIG2DIGzUmVsaWFuY2Ug\n          b24gdGhpcyBjZXJ0aWZpY2F0ZSBieSBhbnkgcGFydHkgYXNzdW1lcyBhY2NlcHRh\n          bmNlIG9mIHRoZSB0aGVuIGFwcGxpY2FibGUgc3RhbmRhcmQgdGVybXMgYW5kIGNv\n          bmRpdGlvbnMgb2YgdXNlLCBjZXJ0aWZpY2F0ZSBwb2xpY3kgYW5kIGNlcnRpZmlj\n          YXRpb24gcHJhY3RpY2Ugc3RhdGVtZW50cy4wNQYIKwYBBQUHAgEWKWh0dHA6Ly93\n          d3cuYXBwbGUuY29tL2NlcnRpZmljYXRlYXV0aG9yaXR5MBMGA1UdJQQMMAoGCCsG\n          AQUFBwMCMDAGA1UdHwQpMCcwJaAjoCGGH2h0dHA6Ly9jcmwuYXBwbGUuY29tL2Fh\n          aTJjYS5jcmwwHQYDVR0OBBYEFDj4Jizt9bQX7dn3ypIanvaNIy8fMAsGA1UdDwQE\n          AwIHgDAQBgoqhkiG92NkBgMCBAIFADANBgkqhkiG9w0BAQsFAAOCAQEARmLmy4Mh\n          80hTBHMj2whrC2LR0dIe2ngAUwYGSocyPZOzlGZYntUvpsNGwflbWSPNxFpVF15z\n          exEcLPKM4f9KGdM27s/m/x1Es2us9Vve+wS+N0C84zMC++FJBIxj3yAINXqSpYJv\n          bA5wccHlzP9F9Ks7sVNQB8y0mibYahtxVV959gC4522t5SRaEEsd82oTCtXE2Ljg\n          fQ1IAmWi4MuMSPwp26oDSwun8Wxyx+sfi/it9YWxD36Ga9mrfIjK1WIHyhge0HHr\n          olnvMfxgwI9E5gGV/4bQzPlmsHdz+/pLupWMkALaAxI9D7ajUG7iyyjJBCOpsr1s\n          FjDvo6WUkaqMHA==\n          -----END CERTIFICATE-----\n"
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Get the organization's APNS certificate
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/sentry/policies/assignments:
+    put:
+      description: Update an Organizations Sentry Policies using the provided list. Sentry Policies are ordered in descending order of priority (i.e. highest priority at the bottom, this is opposite the Dashboard UI). Policies not present in the request will be deleted.
+      operationId: updateOrganizationSmSentryPoliciesAssignments
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      networkId:
+                        type: string
+                        description: The Id of the Network
+                      policies:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            policyId:
+                              type: string
+                              description: The Sentry Policy Id, if updating an existing Sentry Policy
+                            smNetworkId:
+                              type: string
+                              description: The Id of the Systems Manager Network
+                            scope:
+                              type: string
+                              enum:
+                              - all
+                              - none
+                              - withAll
+                              - withAny
+                              - withoutAll
+                              - withoutAny
+                              description: The scope of the Sentry Policy
+                            tags:
+                              type: array
+                              items:
+                                type: string
+                              description: The tags for the Sentry Policy
+                            groupPolicyId:
+                              type: string
+                              description: The Group Policy Id
+                          required:
+                          - smNetworkId
+                          - scope
+                          - tags
+                          - groupPolicyId
+                        description: Array of Sentry Group Policies for the Network
+                    required:
+                    - networkId
+                  description: Sentry Group Policies for the Organization keyed by Network Id
+              example:
+                items:
+                - networkId: N_24329156
+                  policies:
+                  - policyId: '1284392014819'
+                    smNetworkId: N_24329156
+                    scope: withAny
+                    tags:
+                    - tag1
+                    - tag2
+                    groupPolicyId: '1284392014819'
+              required:
+              - items
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        networkId:
+                          type: string
+                          description: The Id of the Network
+                        policies:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              policyId:
+                                type: string
+                                description: The Id of the Sentry Policy
+                              networkId:
+                                type: string
+                                description: The Id of the Network the Sentry Policy is associated with. In a locale, this should be the Wireless Group if present, otherwise the Wired Group.
+                              smNetworkId:
+                                type: string
+                                description: The Id of the Systems Manager Network the Sentry Policy is assigned to
+                              tags:
+                                type: array
+                                items:
+                                  type: string
+                                description: The tags of the Sentry Policy
+                              scope:
+                                type: string
+                                enum:
+                                - all
+                                - none
+                                - withAll
+                                - withAny
+                                - withoutAll
+                                - withoutAny
+                                description: The scope of the Sentry Policy
+                              groupNumber:
+                                type: string
+                                description: The number of the Group Policy
+                              groupPolicyId:
+                                type: string
+                                description: The Id of the Group Policy. This is associated with the network specified by the networkId.
+                              priority:
+                                type: string
+                                description: The priority of the Sentry Policy
+                              createdAt:
+                                type: string
+                                description: The creation time of the Sentry Policy
+                              lastUpdatedAt:
+                                type: string
+                                description: The last update time of the Sentry Policy
+                          description: Array of Sentry Group Policies for the Network
+                    description: Sentry Group Policies for the Organization keyed by Network Id
+              example:
+                items:
+                - networkId: N_24329156
+                  policies:
+                  - policyId: '1284392014819'
+                    networkId: N_24329156
+                    smNetworkId: N_24329156
+                    tags:
+                    - tag1
+                    - tag2
+                    scope: withAny
+                    groupNumber: '1234'
+                    groupPolicyId: '1284392014819'
+                    priority: '1'
+                    createdAt: '2018-05-12T00:00:00Z'
+                    lastUpdatedAt: '2018-05-12T00:00:00Z'
+      summary: Update an Organizations Sentry Policies using the provided list
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/sentry/policies/assignments/byNetwork:
+    get:
+      description: List the Sentry Policies for an organization ordered in ascending order of priority
+      operationId: getOrganizationSmSentryPoliciesAssignmentsByNetwork
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: perPage
+        in: query
+        description: The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.
+        schema:
+          type: integer
+      - name: startingAfter
+        in: query
+        description: A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: endingBefore
+        in: query
+        description: A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.
+        schema:
+          type: string
+      - name: networkIds
+        in: query
+        description: Optional parameter to filter Sentry Policies by Network Id
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    items:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          networkId:
+                            type: string
+                            description: The Id of the Network
+                          policies:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                policyId:
+                                  type: string
+                                  description: The Id of the Sentry Policy
+                                networkId:
+                                  type: string
+                                  description: The Id of the Network the Sentry Policy is associated with. In a locale, this should be the Wireless Group if present, otherwise the Wired Group.
+                                smNetworkId:
+                                  type: string
+                                  description: The Id of the Systems Manager Network the Sentry Policy is assigned to
+                                tags:
+                                  type: array
+                                  items:
+                                    type: string
+                                  description: The tags of the Sentry Policy
+                                scope:
+                                  type: string
+                                  enum:
+                                  - all
+                                  - none
+                                  - withAll
+                                  - withAny
+                                  - withoutAll
+                                  - withoutAny
+                                  description: The scope of the Sentry Policy
+                                groupNumber:
+                                  type: string
+                                  description: The number of the Group Policy
+                                groupPolicyId:
+                                  type: string
+                                  description: The Id of the Group Policy. This is associated with the network specified by the networkId.
+                                priority:
+                                  type: string
+                                  description: The priority of the Sentry Policy
+                                createdAt:
+                                  type: string
+                                  description: The creation time of the Sentry Policy
+                                lastUpdatedAt:
+                                  type: string
+                                  description: The last update time of the Sentry Policy
+                            description: Array of Sentry Group Policies for the Network
+                      description: Sentry Group Policies for the Organization keyed by the Network or Locale Id the Policy belongs to
+                    meta:
+                      type: object
+                      properties:
+                        counts:
+                          type: object
+                          properties:
+                            items:
+                              type: object
+                              properties:
+                                total:
+                                  type: integer
+                                  description: The total number of items in the dataset
+                                remaining:
+                                  type: integer
+                                  description: The number of items in the dataset that are available on subsequent pages
+                              description: Counts relating to the paginated items
+                          description: Counts relating to the paginated dataset
+                      description: Metadata relevant to the paginated dataset
+              example:
+              - items:
+                - networkId: N_24329156
+                  policies:
+                  - policyId: '1284392014819'
+                    networkId: N_24329156
+                    smNetworkId: N_24329156
+                    tags:
+                    - tag1
+                    - tag2
+                    scope: withAny
+                    groupNumber: '1234'
+                    groupPolicyId: '1284392014819'
+                    priority: '1'
+                    createdAt: '2018-05-12T00:00:00Z'
+                    lastUpdatedAt: '2018-05-12T00:00:00Z'
+                meta:
+                  counts:
+                    items:
+                      total: 10
+                      remaining: 0
+          headers:
+            Link:
+              schema:
+                type: string
+              description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
+      summary: List the Sentry Policies for an organization ordered in ascending order of priority
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/vppAccounts:
+    get:
+      description: List the VPP accounts in the organization
+      operationId: getOrganizationSmVppAccounts
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    vppAccountId:
+                      type: string
+                      description: The id of the VPP Account
+                    contentToken:
+                      type: string
+                      description: The VPP service token
+                    email:
+                      type: string
+                      description: The email address associated with the VPP account
+                    name:
+                      type: string
+                      description: The name of the VPP account
+                    allowedAdmins:
+                      type: string
+                      description: The allowed admins for the VPP account
+                    networkIdAdmins:
+                      type: string
+                      description: The network IDs of the admins for the VPP account
+                    assignableNetworks:
+                      type: string
+                      description: The assignable networks for the VPP account
+                    assignableNetworkIds:
+                      type: array
+                      items:
+                        type: string
+                      description: The network IDs of the assignable networks for the VPP account
+                    vppLocationId:
+                      type: string
+                      description: The VPP location ID
+                    vppLocationName:
+                      type: string
+                      description: The VPP location name
+                    lastSyncedAt:
+                      type: string
+                      description: The last time the VPP account was synced
+                    lastForceSyncedAt:
+                      type: string
+                      description: The last time the VPP account was force synced
+                    parsedToken:
+                      type: object
+                      properties:
+                        orgName:
+                          type: string
+                          description: The organization name
+                        hashedToken:
+                          type: string
+                          description: The hashed token
+                        expiresAt:
+                          type: string
+                          description: The expiration time of the token
+                      description: The parsed VPP service token
+                    id:
+                      type: string
+                      description: The id of the VPP Account
+                    vppServiceToken:
+                      type: string
+                      description: The VPP Account's Service Token
+              example:
+              - vppAccountId: '1284392014819'
+                contentToken: eyJleHBEYXRlIjoiMzAyMy0xMC0yMVQxMjowOTo0NSswMDAwIiwidG9rZW4iOiIvVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlQiLCJvcmdOYW1lIjoiTWVyYWtpICsgREVWRUxPUEVSIn0=
+                email: email@example.com
+                name: VPP Account name
+                allowedAdmins: Network
+                networkIdAdmins: N_24329156
+                assignableNetworks: Some
+                assignableNetworkIds:
+                - N_24329156
+                vppLocationId: '22222222222'
+                vppLocationName: LocationName
+                lastSyncedAt: '2021-02-25T16:59:23Z'
+                lastForceSyncedAt: '2021-02-25T16:59:23Z'
+                parsedToken:
+                  orgName: My organization
+                  hashedToken: f572d396fae9206628714fb2ce00f72e94f2258f
+                  expiresAt: '2023-10-21T12:09:45Z'
+                id: '1284392014819'
+                vppServiceToken: eyJleHBEYXRlIjoiMzAyMy0xMC0yMVQxMjowOTo0NSswMDAwIiwidG9rZW4iOiIvVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlQiLCJvcmdOYW1lIjoiTWVyYWtpICsgREVWRUxPUEVSIn0=
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: List the VPP accounts in the organization
+      tags:
+      - sm
+  /organizations/{organizationId}/sm/vppAccounts/{vppAccountId}:
+    get:
+      description: Get a hash containing the unparsed token of the VPP account with the given ID
+      operationId: getOrganizationSmVppAccount
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID
+        schema:
+          type: string
+        required: true
+      - name: vppAccountId
+        in: path
+        description: Vpp account ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vppAccountId:
+                    type: string
+                    description: The id of the VPP Account
+                  contentToken:
+                    type: string
+                    description: The VPP service token
+                  email:
+                    type: string
+                    description: The email address associated with the VPP account
+                  name:
+                    type: string
+                    description: The name of the VPP account
+                  allowedAdmins:
+                    type: string
+                    description: The allowed admins for the VPP account
+                  networkIdAdmins:
+                    type: string
+                    description: The network IDs of the admins for the VPP account
+                  assignableNetworks:
+                    type: string
+                    description: The assignable networks for the VPP account
+                  assignableNetworkIds:
+                    type: array
+                    items:
+                      type: string
+                    description: The network IDs of the assignable networks for the VPP account
+                  vppLocationId:
+                    type: string
+                    description: The VPP location ID
+                  vppLocationName:
+                    type: string
+                    description: The VPP location name
+                  lastSyncedAt:
+                    type: string
+                    description: The last time the VPP account was synced
+                  lastForceSyncedAt:
+                    type: string
+                    description: The last time the VPP account was force synced
+                  parsedToken:
+                    type: object
+                    properties:
+                      orgName:
+                        type: string
+                        description: The organization name
+                      hashedToken:
+                        type: string
+                        description: The hashed token
+                      expiresAt:
+                        type: string
+                        description: The expiration time of the token
+                    description: The parsed VPP service token
+                  id:
+                    type: string
+                    description: The id of the VPP Account
+                  vppServiceToken:
+                    type: string
+                    description: The VPP Account's Service Token
+              example:
+                vppAccountId: '1284392014819'
+                contentToken: eyJleHBEYXRlIjoiMzAyMy0xMC0yMVQxMjowOTo0NSswMDAwIiwidG9rZW4iOiIvVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlQiLCJvcmdOYW1lIjoiTWVyYWtpICsgREVWRUxPUEVSIn0=
+                email: email@example.com
+                name: VPP Account name
+                allowedAdmins: Network
+                networkIdAdmins: N_24329156
+                assignableNetworks: Some
+                assignableNetworkIds:
+                - N_24329156
+                vppLocationId: '22222222222'
+                vppLocationName: LocationName
+                lastSyncedAt: '2021-02-25T16:59:23Z'
+                lastForceSyncedAt: '2021-02-25T16:59:23Z'
+                parsedToken:
+                  orgName: My organization
+                  hashedToken: f572d396fae9206628714fb2ce00f72e94f2258f
+                  expiresAt: '2023-10-21T12:09:45Z'
+                id: '1284392014819'
+                vppServiceToken: eyJleHBEYXRlIjoiMzAyMy0xMC0yMVQxMjowOTo0NSswMDAwIiwidG9rZW4iOiIvVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlRPS0VOVE9LRU5UT0tFTlQiLCJvcmdOYW1lIjoiTWVyYWtpICsgREVWRUxPUEVSIn0=
+      security:
+      - oauth2:
+        - sm:config:read
+      summary: Get a hash containing the unparsed token of the VPP account with the given ID
+      tags:
+      - sm
