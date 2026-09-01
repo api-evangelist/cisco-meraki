@@ -114,7 +114,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - camera
+  - Camera
   tags_raw:
   - camera
   properties:
@@ -232,7 +232,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - networks
+  - Networks
   tags_raw:
   - networks
   properties:
@@ -272,7 +272,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - sensor
+  - Sensor
   tags_raw:
   - sensor
   properties:
@@ -310,7 +310,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - spaces
+  - Spaces
   tags_raw:
   - spaces
   properties:
@@ -330,7 +330,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - switch
+  - Switch
   tags_raw:
   - switch
   properties:
@@ -350,7 +350,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - wireless
+  - Wireless
   tags_raw:
   - wireless
   properties:
