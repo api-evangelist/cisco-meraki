@@ -95,7 +95,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Appliance
+  - Appliances
   tags_raw:
   - appliance
   properties:
@@ -311,7 +311,7 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
-  - Spaces
+  - Space
   tags_raw:
   - spaces
   properties:
