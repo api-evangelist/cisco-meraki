@@ -8,21 +8,19 @@ info:
 
     >
 
-    > [Recent Updates](https://meraki.io/whats-new/)
+    > Recent Updates
 
 
     ---
 
 
-    [API Documentation](https://meraki.io/api)
+    API Documentation
 
 
-    [Community Support](https://meraki.io/community)
+    Community Support
 
 
-    [Meraki Homepage](https://www.meraki.com)
-
-    '
+    Meraki Homepage'
   contact:
     name: Meraki Developer Community
     url: https://meraki.io/community
@@ -35,7 +33,6 @@ info:
     first_party: true
     note: Published by Cisco. Retrieved unmodified except for this x-provenance block.
     provider_published: true
-    derived_view: Per-first-tag view of the source document, tag 'organizations'. Operations and schemas are the provider's, unmodified.
   x-evidence:
   - type: source
     url: https://github.com/meraki/openapi/blob/master/openapi/spec3.json
@@ -52,11 +49,10 @@ security:
 - meraki_api_key: []
 - bearerAuth: []
 tags:
-- name: organizations
+- name: Organizations
 paths:
   /organizations:
     get:
-      description: List the organizations that the user has privileges on
       operationId: getOrganizations
       parameters:
       - name: perPage
@@ -172,9 +168,8 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List the organizations that the user has privileges on
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a new organization
       operationId: createOrganization
       requestBody:
         content:
@@ -301,10 +296,9 @@ paths:
                     value: '123456'
       summary: Create a new organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}:
     get:
-      description: Return an organization
       operationId: getOrganization
       parameters:
       - name: organizationId
@@ -407,9 +401,8 @@ paths:
         - dashboard:general:config:read
       summary: Return an organization
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update an organization
       operationId: updateOrganization
       parameters:
       - name: organizationId
@@ -556,9 +549,8 @@ paths:
         - dashboard:general:config:write
       summary: Update an organization
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an organization
       operationId: deleteOrganization
       parameters:
       - name: organizationId
@@ -572,7 +564,7 @@ paths:
           description: Successful operation
       summary: Delete an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/actionBatches:
     post:
       callbacks:
@@ -673,7 +665,6 @@ paths:
               responses:
                 2XX:
                   description: Your server return this code if it accepts the callback
-      description: Create an action batch
       operationId: createOrganizationActionBatch
       parameters:
       - name: organizationId
@@ -859,9 +850,8 @@ paths:
                   status: new
       summary: Create an action batch
       tags:
-      - organizations
+      - Organizations
     get:
-      description: Return the list of action batches in the organization
       operationId: getOrganizationActionBatches
       parameters:
       - name: organizationId
@@ -968,10 +958,9 @@ paths:
                   operation: update
       summary: Return the list of action batches in the organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/actionBatches/{actionBatchId}:
     get:
-      description: Return an action batch
       operationId: getOrganizationActionBatch
       parameters:
       - name: organizationId
@@ -1091,9 +1080,8 @@ paths:
                   status: new
       summary: Return an action batch
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an action batch
       operationId: deleteOrganizationActionBatch
       parameters:
       - name: organizationId
@@ -1113,9 +1101,8 @@ paths:
           description: Successful operation
       summary: Delete an action batch
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update an action batch
       operationId: updateOrganizationActionBatch
       parameters:
       - name: organizationId
@@ -1233,10 +1220,9 @@ paths:
                   operation: update
       summary: Update an action batch
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/acls:
     get:
-      description: List adaptive policy ACLs in a organization
       operationId: getOrganizationAdaptivePolicyAcls
       parameters:
       - name: organizationId
@@ -1322,9 +1308,8 @@ paths:
         - dashboard:general:config:read
       summary: List adaptive policy ACLs in a organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Creates new adaptive policy ACL
       operationId: createOrganizationAdaptivePolicyAcl
       parameters:
       - name: organizationId
@@ -1485,10 +1470,9 @@ paths:
         - dashboard:general:config:write
       summary: Creates new adaptive policy ACL
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/acls/{aclId}:
     get:
-      description: Returns the adaptive policy ACL information
       operationId: getOrganizationAdaptivePolicyAcl
       parameters:
       - name: organizationId
@@ -1578,9 +1562,8 @@ paths:
         - dashboard:general:config:read
       summary: Returns the adaptive policy ACL information
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Updates an adaptive policy ACL
       operationId: updateOrganizationAdaptivePolicyAcl
       parameters:
       - name: organizationId
@@ -1742,7 +1725,7 @@ paths:
         - dashboard:general:config:write
       summary: Updates an adaptive policy ACL
       tags:
-      - organizations
+      - Organizations
     delete:
       description: Deletes the specified adaptive policy ACL. Note this adaptive policy ACL will also be removed from policies using it.
       operationId: deleteOrganizationAdaptivePolicyAcl
@@ -1767,10 +1750,9 @@ paths:
         - dashboard:general:config:write
       summary: Deletes the specified adaptive policy ACL
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/groups:
     get:
-      description: List adaptive policy groups in a organization
       operationId: getOrganizationAdaptivePolicyGroups
       parameters:
       - name: organizationId
@@ -1844,9 +1826,8 @@ paths:
         - dashboard:general:config:read
       summary: List adaptive policy groups in a organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Creates a new adaptive policy group
       operationId: createOrganizationAdaptivePolicyGroup
       parameters:
       - name: organizationId
@@ -1956,10 +1937,9 @@ paths:
         - dashboard:general:config:write
       summary: Creates a new adaptive policy group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/groups/{id}:
     get:
-      description: Returns an adaptive policy group
       operationId: getOrganizationAdaptivePolicyGroup
       parameters:
       - name: organizationId
@@ -2037,7 +2017,7 @@ paths:
         - dashboard:general:config:read
       summary: Returns an adaptive policy group
       tags:
-      - organizations
+      - Organizations
     put:
       description: Updates an adaptive policy group. If updating "Infrastructure", only the SGT is allowed. Cannot update "Unknown".
       operationId: updateOrganizationAdaptivePolicyGroup
@@ -2152,7 +2132,7 @@ paths:
         - dashboard:general:config:write
       summary: Updates an adaptive policy group
       tags:
-      - organizations
+      - Organizations
     delete:
       description: Deletes the specified adaptive policy group and any associated policies and references
       operationId: deleteOrganizationAdaptivePolicyGroup
@@ -2175,12 +2155,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Deletes the specified adaptive policy group and any associated policies and references
+      summary: Deletes the specified adaptive policy group and any associated policies and…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/overview:
     get:
-      description: Returns adaptive policy aggregate statistics for an organization
       operationId: getOrganizationAdaptivePolicyOverview
       parameters:
       - name: organizationId
@@ -2257,10 +2236,9 @@ paths:
         - dashboard:general:config:read
       summary: Returns adaptive policy aggregate statistics for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/policies:
     get:
-      description: List adaptive policies in an organization
       operationId: getOrganizationAdaptivePolicyPolicies
       parameters:
       - name: organizationId
@@ -2354,9 +2332,8 @@ paths:
         - dashboard:general:config:read
       summary: List adaptive policies in an organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Add an Adaptive Policy
       operationId: createOrganizationAdaptivePolicyPolicy
       parameters:
       - name: organizationId
@@ -2516,10 +2493,9 @@ paths:
         - dashboard:general:config:write
       summary: Add an Adaptive Policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/policies/{id}:
     get:
-      description: Return an adaptive policy
       operationId: getOrganizationAdaptivePolicyPolicy
       parameters:
       - name: organizationId
@@ -2617,9 +2593,8 @@ paths:
         - dashboard:general:config:read
       summary: Return an adaptive policy
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update an Adaptive Policy
       operationId: updateOrganizationAdaptivePolicyPolicy
       parameters:
       - name: organizationId
@@ -2782,9 +2757,8 @@ paths:
         - dashboard:general:config:write
       summary: Update an Adaptive Policy
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an Adaptive Policy
       operationId: deleteOrganizationAdaptivePolicyPolicy
       parameters:
       - name: organizationId
@@ -2807,10 +2781,9 @@ paths:
         - dashboard:general:config:write
       summary: Delete an Adaptive Policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/adaptivePolicy/settings:
     get:
-      description: Returns global adaptive policy settings in an organization
       operationId: getOrganizationAdaptivePolicySettings
       parameters:
       - name: organizationId
@@ -2843,9 +2816,8 @@ paths:
         - dashboard:general:config:read
       summary: Returns global adaptive policy settings in an organization
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update global adaptive policy settings
       operationId: updateOrganizationAdaptivePolicySettings
       parameters:
       - name: organizationId
@@ -2896,10 +2868,9 @@ paths:
         - dashboard:general:config:write
       summary: Update global adaptive policy settings
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/admins:
     get:
-      description: List the dashboard administrators in this organization
       operationId: getOrganizationAdmins
       parameters:
       - name: organizationId
@@ -3012,9 +2983,8 @@ paths:
         - dashboard:iam:config:read
       summary: List the dashboard administrators in this organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a new dashboard administrator
       operationId: createOrganizationAdmin
       parameters:
       - name: organizationId
@@ -3194,10 +3164,9 @@ paths:
         - dashboard:iam:config:write
       summary: Create a new dashboard administrator
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/admins/{adminId}:
     put:
-      description: Update an administrator
       operationId: updateOrganizationAdmin
       parameters:
       - name: organizationId
@@ -3369,9 +3338,8 @@ paths:
         - dashboard:iam:config:write
       summary: Update an administrator
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Revoke all access for a dashboard administrator within this organization
       operationId: deleteOrganizationAdmin
       parameters:
       - name: organizationId
@@ -3394,10 +3362,9 @@ paths:
         - dashboard:iam:config:write
       summary: Revoke all access for a dashboard administrator within this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/alerts/profiles:
     get:
-      description: List all organization-wide alert configurations
       operationId: getOrganizationAlertsProfiles
       parameters:
       - name: organizationId
@@ -3486,9 +3453,8 @@ paths:
         - sdwan:telemetry:read
       summary: List all organization-wide alert configurations
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create an organization-wide alert configuration
       operationId: createOrganizationAlertsProfile
       parameters:
       - name: organizationId
@@ -3677,10 +3643,9 @@ paths:
         - sdwan:telemetry:write
       summary: Create an organization-wide alert configuration
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/alerts/profiles/{alertConfigId}:
     put:
-      description: Update an organization-wide alert config
       operationId: updateOrganizationAlertsProfile
       parameters:
       - name: organizationId
@@ -3874,9 +3839,8 @@ paths:
         - sdwan:telemetry:write
       summary: Update an organization-wide alert config
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Removes an organization-wide alert config
       operationId: deleteOrganizationAlertsProfile
       parameters:
       - name: organizationId
@@ -3899,10 +3863,9 @@ paths:
         - sdwan:telemetry:write
       summary: Removes an organization-wide alert config
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/api/rest/provisioning/pipelines/jobs:
     get:
-      description: List pipeline jobs, with optional status filtering
       operationId: getOrganizationApiRestProvisioningPipelinesJobs
       parameters:
       - name: organizationId
@@ -4052,10 +4015,9 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List pipeline jobs, with optional status filtering
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/api/rest/provisioning/pipelines/jobs/overviews/byPipeline:
     get:
-      description: Retrieves pipeline overviews with aggregated job status counts
       operationId: getOrganizationApiRestProvisioningPipelinesJobsOverviewsByPipeline
       parameters:
       - name: organizationId
@@ -4220,10 +4182,9 @@ paths:
                       remaining: 10
       summary: Retrieves pipeline overviews with aggregated job status counts
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/apiRequests:
     get:
-      description: List the API requests made by an organization
       operationId: getOrganizationApiRequests
       parameters:
       - name: organizationId
@@ -4401,10 +4362,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: List the API requests made by an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/apiRequests/overview:
     get:
-      description: Return an aggregated overview of API requests data
       operationId: getOrganizationApiRequestsOverview
       parameters:
       - name: organizationId
@@ -4641,10 +4601,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return an aggregated overview of API requests data
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/apiRequests/overview/responseCodes/byInterval:
     get:
-      description: Tracks organizations' API requests by response code across a given time period
       operationId: getOrganizationApiRequestsOverviewResponseCodesByInterval
       parameters:
       - name: organizationId
@@ -4750,10 +4709,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Tracks organizations' API requests by response code across a given time period
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts:
     get:
-      description: Return all health alerts for an organization
       operationId: getOrganizationAssuranceAlerts
       parameters:
       - name: organizationId
@@ -5275,10 +5233,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return all health alerts for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/dismiss:
     post:
-      description: Dismiss health alerts
       operationId: dismissOrganizationAssuranceAlerts
       parameters:
       - name: organizationId
@@ -5310,10 +5267,9 @@ paths:
           description: Successful operation
       summary: Dismiss health alerts
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/overview:
     get:
-      description: Return overview of active health alerts for an organization
       operationId: getOrganizationAssuranceAlertsOverview
       parameters:
       - name: organizationId
@@ -5686,10 +5642,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return overview of active health alerts for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/overview/byNetwork:
     get:
-      description: Return a Summary of Alerts grouped by network and severity
       operationId: getOrganizationAssuranceAlertsOverviewByNetwork
       parameters:
       - name: organizationId
@@ -6123,10 +6078,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return a Summary of Alerts grouped by network and severity
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/overview/byType:
     get:
-      description: Return a Summary of Alerts grouped by type and severity
       operationId: getOrganizationAssuranceAlertsOverviewByType
       parameters:
       - name: organizationId
@@ -6613,10 +6567,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return a Summary of Alerts grouped by type and severity
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/overview/historical:
     get:
-      description: Returns historical health alert overviews
       operationId: getOrganizationAssuranceAlertsOverviewHistorical
       parameters:
       - name: organizationId
@@ -7007,10 +6960,9 @@ paths:
                     items: 4
       summary: Returns historical health alert overviews
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/profiles:
     get:
-      description: List the alert profiles for this organization
       operationId: getOrganizationAssuranceAlertsProfiles
       parameters:
       - name: organizationId
@@ -7195,9 +7147,8 @@ paths:
         - dashboard:general:config:read
       summary: List the alert profiles for this organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create an alert profile
       operationId: createOrganizationAssuranceAlertsProfile
       parameters:
       - name: organizationId
@@ -7466,10 +7417,9 @@ paths:
         - dashboard:general:config:write
       summary: Create an alert profile
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/profiles/{profileId}:
     put:
-      description: Update an alert profile
       operationId: updateOrganizationAssuranceAlertsProfile
       parameters:
       - name: organizationId
@@ -7744,9 +7694,8 @@ paths:
         - dashboard:general:config:write
       summary: Update an alert profile
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an alert profile for this organization
       operationId: deleteOrganizationAssuranceAlertsProfile
       parameters:
       - name: organizationId
@@ -7769,10 +7718,9 @@ paths:
         - dashboard:general:config:write
       summary: Delete an alert profile for this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/restore:
     post:
-      description: Restore health alerts from dismissed
       operationId: restoreOrganizationAssuranceAlerts
       parameters:
       - name: organizationId
@@ -7804,10 +7752,9 @@ paths:
           description: Successful operation
       summary: Restore health alerts from dismissed
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/taxonomy/categories:
     get:
-      description: Return a list of Category Types
       operationId: getOrganizationAssuranceAlertsTaxonomyCategories
       parameters:
       - name: organizationId
@@ -7840,10 +7787,9 @@ paths:
                 title: Connectivity
       summary: Return a list of Category Types
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/taxonomy/types:
     get:
-      description: Return a list of alert types
       operationId: getOrganizationAssuranceAlertsTaxonomyTypes
       parameters:
       - name: organizationId
@@ -7917,10 +7863,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return a list of alert types
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/assurance/alerts/{id}:
     get:
-      description: Return a singular Health Alert by its id
       operationId: getOrganizationAssuranceAlert
       parameters:
       - name: organizationId
@@ -8090,10 +8035,9 @@ paths:
                       port: '33'
       summary: Return a singular Health Alert by its id
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/brandingPolicies:
     get:
-      description: List the branding policies of an organization
       operationId: getOrganizationBrandingPolicies
       parameters:
       - name: organizationId
@@ -8303,9 +8247,8 @@ paths:
         - dashboard:iam:config:read
       summary: List the branding policies of an organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Add a new branding policy to an organization
       operationId: createOrganizationBrandingPolicy
       parameters:
       - name: organizationId
@@ -8707,7 +8650,7 @@ paths:
         - dashboard:iam:config:write
       summary: Add a new branding policy to an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/brandingPolicies/priorities:
     get:
       description: Return the branding policy IDs of an organization in priority order. IDs are ordered in ascending order of priority (IDs later in the array have higher priority).
@@ -8744,7 +8687,7 @@ paths:
         - dashboard:iam:config:read
       summary: Return the branding policy IDs of an organization in priority order
       tags:
-      - organizations
+      - Organizations
     put:
       description: Update the priority ordering of an organization's branding policies.
       operationId: updateOrganizationBrandingPoliciesPriorities
@@ -8797,12 +8740,11 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:write
-      summary: Update the priority ordering of an organization's branding policies.
+      summary: Update the priority ordering of an organization's branding policies
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/brandingPolicies/{brandingPolicyId}:
     get:
-      description: Return a branding policy
       operationId: getOrganizationBrandingPolicy
       parameters:
       - name: organizationId
@@ -9016,9 +8958,8 @@ paths:
         - dashboard:iam:config:read
       summary: Return a branding policy
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update a branding policy
       operationId: updateOrganizationBrandingPolicy
       parameters:
       - name: organizationId
@@ -9426,9 +9367,8 @@ paths:
         - dashboard:iam:config:write
       summary: Update a branding policy
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete a branding policy
       operationId: deleteOrganizationBrandingPolicy
       parameters:
       - name: organizationId
@@ -9451,7 +9391,7 @@ paths:
         - dashboard:iam:config:write
       summary: Delete a branding policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/claim:
     post:
       deprecated: true
@@ -9549,7 +9489,7 @@ paths:
         - dashboard:licensing:config:write
       summary: Claim a list of devices, licenses, and/or orders into an organization inventory
       tags:
-      - organizations
+      - Organizations
       x-deprecation-notice: 'Deprecated: This operation has been marked as deprecated. For more information, visit the <a href=''https://developer.cisco.com/meraki/api-v1/deprecated-operations/''>deprecated operations page</a>'
   /organizations/{organizationId}/clients/bandwidthUsageHistory:
     get:
@@ -9630,9 +9570,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return data usage (in megabits per second) over time for all clients in the given organization within a given time range.
+      summary: Return data usage (in megabits per second) over time for all clients in the…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/clients/overview:
     get:
       description: Return summary information around client data usage (in kb) across the given organization.
@@ -9712,12 +9652,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return summary information around client data usage (in kb) across the given organization.
+      summary: Return summary information around client data usage (in kb) across the given…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/clients/search:
     get:
-      description: Return the client details in an organization
       operationId: getOrganizationClientsSearch
       parameters:
       - name: organizationId
@@ -9957,10 +9896,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the client details in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/clone:
     post:
-      description: Create a new organization by cloning the addressed organization
       operationId: cloneOrganization
       parameters:
       - name: organizationId
@@ -10074,10 +10012,9 @@ paths:
                     value: '123456'
       summary: Create a new organization by cloning the addressed organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/configTemplates:
     get:
-      description: List the configuration templates for this organization
       operationId: getOrganizationConfigTemplates
       parameters:
       - name: organizationId
@@ -10123,9 +10060,8 @@ paths:
         - dashboard:general:config:read
       summary: List the configuration templates for this organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a new configuration template
       operationId: createOrganizationConfigTemplate
       parameters:
       - name: organizationId
@@ -10191,10 +10127,9 @@ paths:
         - dashboard:general:config:write
       summary: Create a new configuration template
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/configTemplates/{configTemplateId}:
     get:
-      description: Return a single configuration template
       operationId: getOrganizationConfigTemplate
       parameters:
       - name: organizationId
@@ -10244,9 +10179,8 @@ paths:
         - dashboard:general:config:read
       summary: Return a single configuration template
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update a configuration template
       operationId: updateOrganizationConfigTemplate
       parameters:
       - name: organizationId
@@ -10312,9 +10246,8 @@ paths:
         - dashboard:general:config:write
       summary: Update a configuration template
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Remove a configuration template
       operationId: deleteOrganizationConfigTemplate
       parameters:
       - name: organizationId
@@ -10337,10 +10270,9 @@ paths:
         - dashboard:general:config:write
       summary: Remove a configuration template
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/configurationChanges:
     get:
-      description: View the Change Log for your organization
       operationId: getOrganizationConfigurationChanges
       parameters:
       - name: organizationId
@@ -10480,7 +10412,7 @@ paths:
         - dashboard:general:config:read
       summary: View the Change Log for your organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices:
     get:
       description: List the devices in an organization that have been assigned to a network.
@@ -10723,9 +10655,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: List the devices in an organization that have been assigned to a network.
+      summary: List the devices in an organization that have been assigned to a network
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/availabilities:
     get:
       description: List the availability information for devices in an organization. The data returned by this endpoint is updated every 5 minutes.
@@ -10874,7 +10806,7 @@ paths:
         - dashboard:general:telemetry:read
       summary: List the availability information for devices in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/availabilities/changeHistory:
     get:
       description: List the availability history information for devices in an organization.
@@ -11067,9 +10999,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: List the availability history information for devices in an organization.
+      summary: List the availability history information for devices in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/devices:
     get:
       description: List devices eligible for Cellular Data Management profile assignment in this organization. Returns paginated device assignment candidates with current profile, software version, modem, and SIM details. Supports filtering by device serials, profile IDs, device types, and supported SIM slots.
@@ -11304,9 +11236,9 @@ paths:
               schema:
                 type: string
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
-      summary: List devices eligible for Cellular Data Management profile assignment in this organization
+      summary: List devices eligible for Cellular Data Management profile assignment in this…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/profiles:
     get:
       description: List cellular data management profiles in this organization. Returns each configured cellular data management profile in this organization, including its rules and assigned-device summary counts. Supports filtering by `profileIds` and `serials` and uses cursor pagination.
@@ -11529,7 +11461,7 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List cellular data management profiles in this organization
       tags:
-      - organizations
+      - Organizations
     post:
       description: Add a cellular data management profile to this organization. Creates a cellular data management profile in this organization and returns the created profile, including its rules and actions.
       operationId: createOrganizationDevicesCellularDataProfile
@@ -11814,7 +11746,7 @@ paths:
                   - type: failover
       summary: Add a cellular data management profile to this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/profiles/assignments:
     get:
       description: List Cellular Data Management Profile assignments in this organization. Returns paginated device-to-profile assignments and supports filtering by profile IDs and device serials.
@@ -11926,7 +11858,7 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List Cellular Data Management Profile assignments in this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/profiles/assignments/batchCreate:
     post:
       description: Assign devices to a Cellular Data Management Profile in batch. Creates up to 100 device-to-profile assignments and returns the created assignment IDs.
@@ -12021,7 +11953,7 @@ paths:
                     serial: Q234-ABCD-5678
       summary: Assign devices to a Cellular Data Management Profile in batch
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/profiles/assignments/bulkDelete:
     post:
       description: Unassign devices from a Cellular Data Management Profile in batch. Removes up to 100 device-to-profile assignments and returns no response body on success.
@@ -12081,7 +12013,7 @@ paths:
           description: Successful operation
       summary: Unassign devices from a Cellular Data Management Profile in batch
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/profiles/{profileId}:
     put:
       description: Update a Cellular Data Management Profile. Note that changes made to this endpoint will overwrite existing settings for the profile so the entire profile, rules and actions should be sent when making an update.
@@ -12371,7 +12303,7 @@ paths:
                   - type: failover
       summary: Update a Cellular Data Management Profile
       tags:
-      - organizations
+      - Organizations
     delete:
       description: Delete a cellular data management profile from this organization. Removes the profile, including its associated rules and node assignments, and notifies affected devices of the resulting configuration change.
       operationId: deleteOrganizationDevicesCellularDataProfile
@@ -12393,7 +12325,7 @@ paths:
           description: Successful operation
       summary: Delete a cellular data management profile from this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/usage/byDevice:
     get:
       description: List current cellular data usage for devices in this organization. Returns a paginated per-device view of current SIM usage in each device's current usage period (as set by the device's configuration). Supports filtering by device serials.
@@ -12519,7 +12451,7 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List current cellular data usage for devices in this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/data/usage/history/byDevice/byInterval:
     get:
       description: List historical cellular data usage grouped by device and interval in this organization. Returns a paginated per-device time series with per-SIM totals and supports the standard t0, t1, timespan, and interval query parameters.
@@ -12671,9 +12603,9 @@ paths:
               schema:
                 type: string
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
-      summary: List historical cellular data usage grouped by device and interval in this organization
+      summary: List historical cellular data usage grouped by device and interval in this…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/geolocations:
     get:
       description: List the latest cellular geolocation telemetry for devices in an organization. Data is refreshed at most once every 90 minutes.
@@ -12787,7 +12719,7 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List the latest cellular geolocation telemetry for devices in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/uplinks/bands/byDevice:
     get:
       description: List the latest cellular uplink signal information for devices in an organization. Data is refreshed at most once every 90 minutes.
@@ -12927,9 +12859,9 @@ paths:
               schema:
                 type: string
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
-      summary: List the latest cellular uplink signal information for devices in an organization
+      summary: List the latest cellular uplink signal information for devices in an…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/cellular/uplinks/towers/byDevice:
     get:
       description: List the latest cellular tower information for devices in an organization. Data is refreshed at most once every 90 minutes.
@@ -13035,10 +12967,9 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List the latest cellular tower information for devices in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/controller/migrations:
     post:
-      description: Migrate devices to another controller or management mode
       operationId: createOrganizationDevicesControllerMigration
       parameters:
       - name: organizationId
@@ -13106,9 +13037,8 @@ paths:
                 migratedAt: '2020-10-21T03:00:00Z'
       summary: Migrate devices to another controller or management mode
       tags:
-      - organizations
+      - Organizations
     get:
-      description: Retrieve device migration statuses in an organization
       operationId: getOrganizationDevicesControllerMigrations
       parameters:
       - name: organizationId
@@ -13221,10 +13151,9 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: Retrieve device migration statuses in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/details/bulkUpdate:
     post:
-      description: Updating device details (currently only used for Catalyst devices)
       operationId: bulkUpdateOrganizationDevicesDetails
       parameters:
       - name: organizationId
@@ -13296,10 +13225,9 @@ paths:
                 - Q234-ABCD-0003
       summary: Updating device details (currently only used for Catalyst devices)
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/overview/byModel:
     get:
-      description: Lists the count for each device model
       operationId: getOrganizationDevicesOverviewByModel
       parameters:
       - name: organizationId
@@ -13366,7 +13294,7 @@ paths:
                   total: 1
       summary: Lists the count for each device model
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/captures:
     get:
       description: List Packet Captures. The current license level allows storage of up to 10 capture files in the cloud. When this limit is reached and a new capture is taken, the oldest capture will be automatically deleted to ensure sufficient space. Additional storage for switches will be available with an advantage license at a future date. These future capabilities will be consistent with what is available today via advantage licensing for access points.
@@ -13688,7 +13616,7 @@ paths:
         - dashboard:general:telemetry:read
       summary: List Packet Captures
       tags:
-      - organizations
+      - Organizations
     post:
       description: Perform a packet capture on a device and store in Meraki Cloud. Only a single switch may be chosen per request, while multiple access points are allowed at once.
       operationId: createOrganizationDevicesPacketCaptureCapture
@@ -13965,7 +13893,7 @@ paths:
         - dashboard:general:telemetry:write
       summary: Perform a packet capture on a device and store in Meraki Cloud
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/captures/bulkCreate:
     post:
       description: Perform a packet capture on multiple devices and store in Meraki Cloud.
@@ -14240,12 +14168,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:write
-      summary: Perform a packet capture on multiple devices and store in Meraki Cloud.
+      summary: Perform a packet capture on multiple devices and store in Meraki Cloud
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/captures/bulkDelete:
     post:
-      description: BulkDelete packet captures from cloud
       operationId: bulkOrganizationDevicesPacketCaptureCapturesDelete
       parameters:
       - name: organizationId
@@ -14280,10 +14207,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: BulkDelete packet captures from cloud
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/captures/{captureId}:
     delete:
-      description: Delete a single packet capture from cloud using captureId
       operationId: deleteOrganizationDevicesPacketCaptureCapture
       parameters:
       - name: organizationId
@@ -14306,10 +14232,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: Delete a single packet capture from cloud using captureId
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/captures/{captureId}/downloadUrl/generate:
     post:
-      description: Get presigned download URL for given packet capture id
       operationId: generateOrganizationDevicesPacketCaptureCaptureDownloadUrl
       parameters:
       - name: organizationId
@@ -14350,10 +14275,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: Get presigned download URL for given packet capture id
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/captures/{captureId}/stop:
     post:
-      description: Stop a specific packet capture (not supported for Catalyst devices)
       operationId: stopOrganizationDevicesPacketCaptureCapture
       parameters:
       - name: organizationId
@@ -14556,10 +14480,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: Stop a specific packet capture (not supported for Catalyst devices)
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/schedules:
     get:
-      description: List the Packet Capture Schedules
       operationId: getOrganizationDevicesPacketCaptureSchedules
       parameters:
       - name: organizationId
@@ -14760,9 +14683,8 @@ paths:
         - dashboard:general:telemetry:read
       summary: List the Packet Capture Schedules
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a schedule for packet capture
       operationId: createOrganizationDevicesPacketCaptureSchedule
       parameters:
       - name: organizationId
@@ -14999,10 +14921,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: Create a schedule for packet capture
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/schedules/reorder:
     post:
-      description: Bulk update priorities of pcap schedules
       operationId: reorderOrganizationDevicesPacketCaptureSchedules
       parameters:
       - name: organizationId
@@ -15065,10 +14986,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: Bulk update priorities of pcap schedules
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/packetCapture/schedules/{scheduleId}:
     put:
-      description: Update a schedule for packet capture
       operationId: updateOrganizationDevicesPacketCaptureSchedule
       parameters:
       - name: organizationId
@@ -15311,9 +15231,8 @@ paths:
         - dashboard:general:telemetry:write
       summary: Update a schedule for packet capture
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete schedule from cloud
       operationId: deleteOrganizationDevicesPacketCaptureSchedule
       parameters:
       - name: organizationId
@@ -15350,7 +15269,7 @@ paths:
         - dashboard:general:telemetry:write
       summary: Delete schedule from cloud
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/powerModules/statuses/byDevice:
     get:
       description: List the most recent status information for power modules in rackmount MX and MS devices that support them. The data returned by this endpoint is updated every 5 minutes.
@@ -15507,9 +15426,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: List the most recent status information for power modules in rackmount MX and MS devices that support them
+      summary: List the most recent status information for power modules in rackmount MX and…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/provisioning/statuses:
     get:
       description: List the provisioning statuses information for devices in an organization.
@@ -15652,13 +15571,12 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: List the provisioning statuses information for devices in an organization.
+      summary: List the provisioning statuses information for devices in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/statuses:
     get:
       deprecated: true
-      description: List the status of every Meraki device in the organization
       operationId: getOrganizationDevicesStatuses
       parameters:
       - name: organizationId
@@ -15881,11 +15799,10 @@ paths:
         - dashboard:general:telemetry:read
       summary: List the status of every Meraki device in the organization
       tags:
-      - organizations
+      - Organizations
       x-deprecation-notice: 'Deprecated: This operation has been marked as deprecated. For more information, visit the <a href=''https://developer.cisco.com/meraki/api-v1/deprecated-operations/''>deprecated operations page</a>'
   /organizations/{organizationId}/devices/statuses/overview:
     get:
-      description: Return an overview of current device statuses
       operationId: getOrganizationDevicesStatusesOverview
       parameters:
       - name: organizationId
@@ -15959,7 +15876,7 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return an overview of current device statuses
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/syslog/servers/byNetwork:
     get:
       description: Returns syslog servers configured for the networks within an organization.
@@ -16102,9 +16019,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Returns syslog servers configured for the networks within an organization.
+      summary: Returns syslog servers configured for the networks within an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/syslog/servers/roles/byNetwork:
     get:
       description: Returns roles that can be assigned to a syslog server for a given network.
@@ -16217,9 +16134,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Returns roles that can be assigned to a syslog server for a given network.
+      summary: Returns roles that can be assigned to a syslog server for a given network
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/system/memory/usage/history/byInterval:
     get:
       description: Return the memory utilization history in kB for devices in the organization.
@@ -16479,9 +16396,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return the memory utilization history in kB for devices in the organization.
+      summary: Return the memory utilization history in kB for devices in the organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/uplinks/addresses/byDevice:
     get:
       description: List the current uplink addresses for devices in an organization.
@@ -16683,9 +16600,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: List the current uplink addresses for devices in an organization.
+      summary: List the current uplink addresses for devices in an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/devices/uplinksLossAndLatency:
     get:
       description: Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago
@@ -16781,12 +16698,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return the uplink loss and latency for every MX in the organization from at latest 2 minutes ago
+      summary: Return the uplink loss and latency for every MX in the organization from at…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/earlyAccess/features:
     get:
-      description: List the available early access features for organization
       operationId: getOrganizationEarlyAccessFeatures
       parameters:
       - name: organizationId
@@ -16860,10 +16776,9 @@ paths:
         - dashboard:iam:config:read
       summary: List the available early access features for organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/earlyAccess/features/optIns:
     get:
-      description: List the early access feature opt-ins for an organization
       operationId: getOrganizationEarlyAccessFeaturesOptIns
       parameters:
       - name: organizationId
@@ -16940,9 +16855,8 @@ paths:
         - dashboard:iam:config:read
       summary: List the early access feature opt-ins for an organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a new early access feature opt-in for an organization
       operationId: createOrganizationEarlyAccessFeaturesOptIn
       parameters:
       - name: organizationId
@@ -17040,10 +16954,9 @@ paths:
         - dashboard:iam:config:write
       summary: Create a new early access feature opt-in for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/earlyAccess/features/optIns/{optInId}:
     get:
-      description: Show an early access feature opt-in for an organization
       operationId: getOrganizationEarlyAccessFeaturesOptIn
       parameters:
       - name: organizationId
@@ -17126,9 +17039,8 @@ paths:
         - dashboard:iam:config:read
       summary: Show an early access feature opt-in for an organization
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update an early access feature opt-in for an organization
       operationId: updateOrganizationEarlyAccessFeaturesOptIn
       parameters:
       - name: organizationId
@@ -17226,9 +17138,8 @@ paths:
         - dashboard:iam:config:write
       summary: Update an early access feature opt-in for an organization
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an early access feature opt-in
       operationId: deleteOrganizationEarlyAccessFeaturesOptIn
       parameters:
       - name: organizationId
@@ -17251,10 +17162,9 @@ paths:
         - dashboard:iam:config:write
       summary: Delete an early access feature opt-in
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/firmware/upgrades:
     get:
-      description: Get firmware upgrade information for an organization
       operationId: getOrganizationFirmwareUpgrades
       parameters:
       - name: organizationId
@@ -17403,7 +17313,7 @@ paths:
         - dashboard:general:config:read
       summary: Get firmware upgrade information for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/firmware/upgrades/byDevice:
     get:
       description: Get firmware upgrade status for the filtered devices. This endpoint currently only supports Meraki switches and access points.
@@ -17664,10 +17574,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Get firmware upgrade status for the filtered devices
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/floorPlans/autoLocate/devices:
     get:
-      description: List auto locate details for each device in your organization
       operationId: getOrganizationFloorPlansAutoLocateDevices
       parameters:
       - name: organizationId
@@ -17839,10 +17748,9 @@ paths:
         - wireless:config:read
       summary: List auto locate details for each device in your organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/floorPlans/autoLocate/statuses:
     get:
-      description: List the status of auto locate for each floorplan in your organization
       operationId: getOrganizationFloorPlansAutoLocateStatuses
       parameters:
       - name: organizationId
@@ -18042,7 +17950,7 @@ paths:
         - wireless:config:read
       summary: List the status of auto locate for each floorplan in your organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/integrations/deployable:
     get:
       description: Provides a list of integrations that can be enabled for an Organization.
@@ -18155,9 +18063,9 @@ paths:
                     items:
                       total: 100
                       remaining: 10
-      summary: Provides a list of integrations that can be enabled for an Organization.
+      summary: Provides a list of integrations that can be enabled for an Organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/integrations/deployed:
     get:
       description: Provides a list of integrations enabled for an Organization.
@@ -18247,12 +18155,11 @@ paths:
                     items:
                       total: 100
                       remaining: 10
-      summary: Provides a list of integrations enabled for an Organization.
+      summary: Provides a list of integrations enabled for an Organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/integrations/xdr/networks:
     get:
-      description: Returns the networks in the organization that have XDR enabled
       operationId: getOrganizationIntegrationsXdrNetworks
       parameters:
       - name: organizationId
@@ -18355,10 +18262,9 @@ paths:
         - dashboard:general:config:read
       summary: Returns the networks in the organization that have XDR enabled
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/integrations/xdr/networks/disable:
     post:
-      description: Disable XDR on networks
       operationId: disableOrganizationIntegrationsXdrNetworks
       parameters:
       - name: organizationId
@@ -18444,10 +18350,9 @@ paths:
         - dashboard:general:config:write
       summary: Disable XDR on networks
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/integrations/xdr/networks/enable:
     post:
-      description: Enable XDR on networks
       operationId: enableOrganizationIntegrationsXdrNetworks
       parameters:
       - name: organizationId
@@ -18533,7 +18438,7 @@ paths:
         - dashboard:general:config:write
       summary: Enable XDR on networks
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/claim:
     post:
       description: Claim a list of devices, licenses, and/or orders into an organization inventory. When claiming by order, all devices and licenses in the order will be claimed; licenses will be added to the organization and devices will be placed in the organization's inventory. This operation can be used up to ten times within a single five minute window.
@@ -18630,10 +18535,9 @@ paths:
         - dashboard:licensing:config:write
       summary: Claim a list of devices, licenses, and/or orders into an organization inventory
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/devices:
     get:
-      description: Return the device inventory for an organization
       operationId: getOrganizationInventoryDevices
       parameters:
       - name: organizationId
@@ -18865,7 +18769,7 @@ paths:
         - dashboard:general:config:read
       summary: Return the device inventory for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/devices/eox/overview:
     get:
       description: Fetch the EOX summary for an organization, including counts of devices that are end-of-sale, end-of-support, and end-of-support-soon.
@@ -18926,9 +18830,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Fetch the EOX summary for an organization, including counts of devices that are end-of-sale, end-of-support, and end-of-support-soon.
+      summary: Fetch the EOX summary for an organization, including counts of devices that are…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/devices/swaps/bulk:
     post:
       description: Swap the devices identified by devices.old with a devices.new, then perform the :afterAction on the devices.old.
@@ -19103,9 +19007,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Swap the devices identified by devices.old with a devices.new, then perform the :afterAction on the devices.old.
+      summary: Swap the devices identified by devices.old with a devices.new, then perform the…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/devices/swaps/bulk/{id}:
     get:
       description: List of device swaps for a given request ID ({id}).
@@ -19243,12 +19147,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: List of device swaps for a given request ID ({id}).
+      summary: List of device swaps for a given request ID ({id})
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/devices/{serial}:
     get:
-      description: Return a single device from the inventory of an organization
       operationId: getOrganizationInventoryDevice
       parameters:
       - name: organizationId
@@ -19371,10 +19274,9 @@ paths:
         - dashboard:general:config:read
       summary: Return a single device from the inventory of an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/orders/claim:
     post:
-      description: Claim an order by the secure unique order claim number, the order claim id
       operationId: claimOrganizationInventoryOrders
       parameters:
       - name: organizationId
@@ -19491,10 +19393,9 @@ paths:
                       limit: 1
       summary: Claim an order by the secure unique order claim number, the order claim id
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/orders/preview:
     post:
-      description: Preview the results and status of an order claim by the secure order id
       operationId: previewOrganizationInventoryOrders
       parameters:
       - name: organizationId
@@ -19664,7 +19565,7 @@ paths:
                       limit: 1
       summary: Preview the results and status of an order claim by the secure order id
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/inventory/release:
     post:
       description: Release a list of claimed devices from an organization.
@@ -19710,12 +19611,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Release a list of claimed devices from an organization.
+      summary: Release a list of claimed devices from an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses:
     get:
-      description: List the licenses for an organization
       operationId: getOrganizationLicenses
       parameters:
       - name: organizationId
@@ -19872,7 +19772,7 @@ paths:
         - dashboard:licensing:config:read
       summary: List the licenses for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses/assignSeats:
     post:
       description: Assign SM seats to a network. This will increase the managed SM device limit of the network
@@ -20019,7 +19919,7 @@ paths:
         - dashboard:licensing:config:write
       summary: Assign SM seats to a network
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses/move:
     post:
       description: Move licenses to another organization. This will also move any devices that the licenses are assigned to
@@ -20080,10 +19980,9 @@ paths:
         - dashboard:licensing:config:write
       summary: Move licenses to another organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses/moveSeats:
     post:
-      description: Move SM seats to another organization
       operationId: moveOrganizationLicensesSeats
       parameters:
       - name: organizationId
@@ -20142,10 +20041,9 @@ paths:
         - dashboard:licensing:config:write
       summary: Move SM seats to another organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses/overview:
     get:
-      description: Return an overview of the license state for an organization
       operationId: getOrganizationLicensesOverview
       parameters:
       - name: organizationId
@@ -20345,7 +20243,7 @@ paths:
         - dashboard:licensing:config:read
       summary: Return an overview of the license state for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses/renewSeats:
     post:
       description: Renew SM seats of a license. This will extend the license expiration date of managed SM devices covered by this license
@@ -20487,10 +20385,9 @@ paths:
         - dashboard:licensing:config:write
       summary: Renew SM seats of a license
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/licenses/{licenseId}:
     get:
-      description: Display a license
       operationId: getOrganizationLicense
       parameters:
       - name: organizationId
@@ -20609,9 +20506,8 @@ paths:
         - dashboard:licensing:config:read
       summary: Display a license
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update a license
       operationId: updateOrganizationLicense
       parameters:
       - name: organizationId
@@ -20744,7 +20640,7 @@ paths:
         - dashboard:licensing:config:write
       summary: Update a license
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/loginSecurity:
     get:
       description: Returns the login security settings for an organization.
@@ -20850,11 +20746,10 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:read
-      summary: Returns the login security settings for an organization.
+      summary: Returns the login security settings for an organization
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update the login security settings for an organization
       operationId: updateOrganizationLoginSecurity
       parameters:
       - name: organizationId
@@ -21051,10 +20946,9 @@ paths:
         - dashboard:iam:config:write
       summary: Update the login security settings for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks:
     get:
-      description: List the networks that the user has privileges on in an organization
       operationId: getOrganizationNetworks
       parameters:
       - name: organizationId
@@ -21191,9 +21085,8 @@ paths:
         - dashboard:general:config:read
       summary: List the networks that the user has privileges on in an organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a network
       operationId: createOrganizationNetwork
       parameters:
       - name: organizationId
@@ -21322,10 +21215,9 @@ paths:
         - dashboard:general:config:write
       summary: Create a network
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/combine:
     post:
-      description: Combine multiple networks into a single network
       operationId: combineOrganizationNetworks
       parameters:
       - name: organizationId
@@ -21429,10 +21321,9 @@ paths:
         - dashboard:general:config:write
       summary: Combine multiple networks into a single network
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/groups:
     get:
-      description: List the network groups in an organization
       operationId: getOrganizationNetworksGroups
       parameters:
       - name: organizationId
@@ -21524,9 +21415,8 @@ paths:
         - dashboard:general:config:read
       summary: List the network groups in an organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a network group
       operationId: createOrganizationNetworksGroup
       parameters:
       - name: organizationId
@@ -21575,7 +21465,7 @@ paths:
         - dashboard:general:config:write
       summary: Create a network group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/groups/overview/byGroup:
     get:
       description: List the client and status overview information for the network groups in an organization. Usage is measured in kilobytes and from the last seven days.
@@ -21743,12 +21633,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: List the client and status overview information for the network groups in an organization
+      summary: List the client and status overview information for the network groups in an…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/groups/{groupId}:
     put:
-      description: Update a network group
       operationId: updateOrganizationNetworksGroup
       parameters:
       - name: organizationId
@@ -21803,9 +21692,8 @@ paths:
         - dashboard:general:config:write
       summary: Update a network group
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete a network group
       operationId: deleteOrganizationNetworksGroup
       parameters:
       - name: organizationId
@@ -21828,10 +21716,9 @@ paths:
         - dashboard:general:config:write
       summary: Delete a network group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/groups/{groupId}/bulkAssign:
     post:
-      description: Add networks to a network group
       operationId: bulkOrganizationNetworksGroupAssign
       parameters:
       - name: organizationId
@@ -21886,10 +21773,9 @@ paths:
         - dashboard:general:config:write
       summary: Add networks to a network group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/groups/{groupId}/bulkUnassign:
     post:
-      description: Remove networks from a network group
       operationId: bulkOrganizationNetworksGroupUnassign
       parameters:
       - name: organizationId
@@ -21930,7 +21816,7 @@ paths:
         - dashboard:general:config:write
       summary: Remove networks from a network group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/networks/moves:
     post:
       description: Move networks from one organization to another. For more information and caveats around network move limitations see the Network Portability documentation.
@@ -22069,9 +21955,8 @@ paths:
         - dashboard:general:config:write
       summary: Move networks from one organization to another
       tags:
-      - organizations
+      - Organizations
     get:
-      description: Return a list of network move operations in the organization
       operationId: getNetworkMoves
       parameters:
       - name: organizationId
@@ -22224,10 +22109,9 @@ paths:
         - dashboard:general:config:read
       summary: Return a list of network move operations in the organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/openapiSpec:
     get:
-      description: Return the OpenAPI Specification of the organization's API documentation in JSON
       operationId: getOrganizationOpenapiSpec
       parameters:
       - name: organizationId
@@ -22274,10 +22158,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the OpenAPI Specification of the organization's API documentation in JSON
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/assignments/byClient:
     get:
-      description: Get policies for all clients with policies
       operationId: getOrganizationPoliciesAssignmentsByClient
       parameters:
       - name: organizationId
@@ -22408,10 +22291,9 @@ paths:
         - dashboard:general:config:read
       summary: Get policies for all clients with policies
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/firewall/applicationCategories:
     get:
-      description: List application categories with their associated applications
       operationId: getOrganizationPoliciesGlobalFirewallApplicationCategories
       parameters:
       - name: organizationId
@@ -22472,10 +22354,9 @@ paths:
                     - id: 1658
       summary: List application categories with their associated applications
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/firewall/rulesets:
     get:
-      description: List Organization-Wide Policy Firewall Rulesets
       operationId: getOrganizationPoliciesGlobalFirewallRulesets
       parameters:
       - name: organizationId
@@ -22582,9 +22463,8 @@ paths:
         - dashboard:general:config:read
       summary: List Organization-Wide Policy Firewall Rulesets
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create an Organization-Wide Policy Firewall Ruleset
       operationId: createOrganizationPoliciesGlobalFirewallRuleset
       parameters:
       - name: organizationId
@@ -22647,10 +22527,9 @@ paths:
         - dashboard:general:config:write
       summary: Create an Organization-Wide Policy Firewall Ruleset
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/firewall/rulesets/rules:
     post:
-      description: Create an Organization-Wide Policy Firewall Rule
       operationId: createOrganizationPoliciesGlobalFirewallRulesetsRule
       parameters:
       - name: organizationId
@@ -23513,9 +23392,8 @@ paths:
         - dashboard:general:config:write
       summary: Create an Organization-Wide Policy Firewall Rule
       tags:
-      - organizations
+      - Organizations
     get:
-      description: List Organization-Wide Policy Firewall Rules
       operationId: getOrganizationPoliciesGlobalFirewallRulesetsRules
       parameters:
       - name: organizationId
@@ -24153,10 +24031,9 @@ paths:
         - dashboard:general:config:read
       summary: List Organization-Wide Policy Firewall Rules
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/firewall/rulesets/rules/{ruleId}:
     delete:
-      description: Delete an Organization-Wide Policy Firewall Rule
       operationId: deleteOrganizationPoliciesGlobalFirewallRulesetsRule
       parameters:
       - name: organizationId
@@ -24179,9 +24056,8 @@ paths:
         - dashboard:general:config:write
       summary: Delete an Organization-Wide Policy Firewall Rule
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update an Organization-Wide Policy Firewall Rule
       operationId: updateOrganizationPoliciesGlobalFirewallRulesetsRule
       parameters:
       - name: organizationId
@@ -25044,10 +24920,9 @@ paths:
         - dashboard:general:config:write
       summary: Update an Organization-Wide Policy Firewall Rule
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/firewall/rulesets/{rulesetId}:
     put:
-      description: Update an Organization-Wide Policy Firewall Ruleset
       operationId: updateOrganizationPoliciesGlobalFirewallRuleset
       parameters:
       - name: organizationId
@@ -25114,9 +24989,8 @@ paths:
         - dashboard:general:config:write
       summary: Update an Organization-Wide Policy Firewall Ruleset
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an Organization-Wide Policy Firewall Ruleset
       operationId: deleteOrganizationPoliciesGlobalFirewallRuleset
       parameters:
       - name: organizationId
@@ -25139,10 +25013,9 @@ paths:
         - dashboard:general:config:write
       summary: Delete an Organization-Wide Policy Firewall Ruleset
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies:
     get:
-      description: List Organization-Wide Policies
       operationId: getOrganizationPoliciesGlobalGroupPolicies
       parameters:
       - name: organizationId
@@ -25258,9 +25131,8 @@ paths:
         - dashboard:general:config:read
       summary: List Organization-Wide Policies
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create an Organization-Wide Policy
       operationId: createOrganizationPoliciesGlobalGroupPolicy
       parameters:
       - name: organizationId
@@ -25332,10 +25204,9 @@ paths:
         - dashboard:general:config:write
       summary: Create an Organization-Wide Policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies/adaptivePolicyGroups/assign:
     post:
-      description: Assign adaptive policy groups to a policy
       operationId: assignOrganizationPoliciesGlobalGroupPoliciesAdaptivePolicyGroups
       parameters:
       - name: organizationId
@@ -25395,10 +25266,9 @@ paths:
         - dashboard:general:config:write
       summary: Assign adaptive policy groups to a policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies/adaptivePolicyGroups/assignments:
     get:
-      description: List adaptive policy group assignments
       operationId: getOrganizationPoliciesGlobalGroupPoliciesAdaptivePolicyGroupsAssignments
       parameters:
       - name: organizationId
@@ -25504,10 +25374,9 @@ paths:
         - dashboard:general:config:read
       summary: List adaptive policy group assignments
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies/adaptivePolicyGroups/remove:
     post:
-      description: Remove adaptive policy groups from a policy
       operationId: removeOrganizationPoliciesGlobalGroupPoliciesAdaptivePolicyGroups
       parameters:
       - name: organizationId
@@ -25567,10 +25436,9 @@ paths:
         - dashboard:general:config:write
       summary: Remove adaptive policy groups from a policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies/firewall/rulesets/assignments:
     get:
-      description: List Organization-Wide Policy Ruleset Assignments
       operationId: getOrganizationPoliciesGlobalGroupPoliciesFirewallRulesetsAssignments
       parameters:
       - name: organizationId
@@ -25690,9 +25558,8 @@ paths:
         - dashboard:general:config:read
       summary: List Organization-Wide Policy Ruleset Assignments
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create an Organization-Wide Policy Ruleset Assignment
       operationId: createOrganizationPoliciesGlobalGroupPoliciesFirewallRulesetsAssignment
       parameters:
       - name: organizationId
@@ -25765,10 +25632,9 @@ paths:
         - dashboard:general:config:write
       summary: Create an Organization-Wide Policy Ruleset Assignment
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies/firewall/rulesets/assignments/{assignmentId}:
     put:
-      description: Update an Organization-Wide Policy Ruleset Assignment
       operationId: updateOrganizationPoliciesGlobalGroupPoliciesFirewallRulesetsAssignment
       parameters:
       - name: organizationId
@@ -25843,9 +25709,8 @@ paths:
         - dashboard:general:config:write
       summary: Update an Organization-Wide Policy Ruleset Assignment
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an Organization-Wide Policy Ruleset Assignment
       operationId: deleteOrganizationPoliciesGlobalGroupPoliciesFirewallRulesetsAssignment
       parameters:
       - name: organizationId
@@ -25868,10 +25733,9 @@ paths:
         - dashboard:general:config:write
       summary: Delete an Organization-Wide Policy Ruleset Assignment
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policies/global/group/policies/{policyId}:
     put:
-      description: Update an Organization-Wide Policy
       operationId: updateOrganizationPoliciesGlobalGroupPolicy
       parameters:
       - name: organizationId
@@ -25947,9 +25811,8 @@ paths:
         - dashboard:general:config:write
       summary: Update an Organization-Wide Policy
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete an Organization-Wide Policy
       operationId: deleteOrganizationPoliciesGlobalGroupPolicy
       parameters:
       - name: organizationId
@@ -25972,7 +25835,7 @@ paths:
         - dashboard:general:config:write
       summary: Delete an Organization-Wide Policy
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policyObjects:
     get:
       description: Lists Policy Objects belonging to the organization.
@@ -26067,9 +25930,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Lists Policy Objects belonging to the organization.
+      summary: Lists Policy Objects belonging to the organization
       tags:
-      - organizations
+      - Organizations
     post:
       description: 'Creates a new Policy Object. Note: type `ipAndMask` is deprecated; use `cidr`.'
       operationId: createOrganizationPolicyObject
@@ -26194,7 +26057,7 @@ paths:
         - dashboard:general:config:write
       summary: Creates a new Policy Object
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policyObjects/groups:
     get:
       description: Lists Policy Object Groups belonging to the organization.
@@ -26277,9 +26140,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Lists Policy Object Groups belonging to the organization.
+      summary: Lists Policy Object Groups belonging to the organization
       tags:
-      - organizations
+      - Organizations
     post:
       description: Creates a new Policy Object Group.
       operationId: createOrganizationPolicyObjectsGroup
@@ -26364,9 +26227,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Creates a new Policy Object Group.
+      summary: Creates a new Policy Object Group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}:
     get:
       description: Shows details of a Policy Object Group.
@@ -26433,9 +26296,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Shows details of a Policy Object Group.
+      summary: Shows details of a Policy Object Group
       tags:
-      - organizations
+      - Organizations
     put:
       description: Updates a Policy Object Group.
       operationId: updateOrganizationPolicyObjectsGroup
@@ -26520,9 +26383,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Updates a Policy Object Group.
+      summary: Updates a Policy Object Group
       tags:
-      - organizations
+      - Organizations
     delete:
       description: Deletes a Policy Object Group.
       operationId: deleteOrganizationPolicyObjectsGroup
@@ -26545,9 +26408,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Deletes a Policy Object Group.
+      summary: Deletes a Policy Object Group
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/policyObjects/{policyObjectId}:
     get:
       description: Shows details of a Policy Object.
@@ -26626,9 +26489,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:read
-      summary: Shows details of a Policy Object.
+      summary: Shows details of a Policy Object
       tags:
-      - organizations
+      - Organizations
     put:
       description: 'Updates a Policy Object. Note: type `ipAndMask` is deprecated; use `cidr`.'
       operationId: updateOrganizationPolicyObject
@@ -26743,7 +26606,7 @@ paths:
         - dashboard:general:config:write
       summary: Updates a Policy Object
       tags:
-      - organizations
+      - Organizations
     delete:
       description: Deletes a Policy Object.
       operationId: deleteOrganizationPolicyObject
@@ -26766,9 +26629,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:config:write
-      summary: Deletes a Policy Object.
+      summary: Deletes a Policy Object
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/saml:
     get:
       description: Returns the SAML SSO enabled settings for an organization.
@@ -26809,9 +26672,9 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:read
-      summary: Returns the SAML SSO enabled settings for an organization.
+      summary: Returns the SAML SSO enabled settings for an organization
       tags:
-      - organizations
+      - Organizations
     put:
       description: Updates the SAML SSO enabled settings for an organization.
       operationId: updateOrganizationSaml
@@ -26876,9 +26739,9 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:write
-      summary: Updates the SAML SSO enabled settings for an organization.
+      summary: Updates the SAML SSO enabled settings for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/saml/idps:
     get:
       description: List the SAML IdPs in your organization.
@@ -26928,9 +26791,9 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:read
-      summary: List the SAML IdPs in your organization.
+      summary: List the SAML IdPs in your organization
       tags:
-      - organizations
+      - Organizations
     post:
       description: Create a SAML IdP for your organization.
       operationId: createOrganizationSamlIdp
@@ -27001,12 +26864,11 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:write
-      summary: Create a SAML IdP for your organization.
+      summary: Create a SAML IdP for your organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/saml/idps/{idpId}:
     put:
-      description: Update a SAML IdP in your organization
       operationId: updateOrganizationSamlIdp
       parameters:
       - name: organizationId
@@ -27081,7 +26943,7 @@ paths:
         - dashboard:iam:config:write
       summary: Update a SAML IdP in your organization
       tags:
-      - organizations
+      - Organizations
     get:
       description: Get a SAML IdP from your organization.
       operationId: getOrganizationSamlIdp
@@ -27134,9 +26996,9 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:read
-      summary: Get a SAML IdP from your organization.
+      summary: Get a SAML IdP from your organization
       tags:
-      - organizations
+      - Organizations
     delete:
       description: Remove a SAML IdP in your organization.
       operationId: deleteOrganizationSamlIdp
@@ -27159,12 +27021,11 @@ paths:
       security:
       - oauth2:
         - dashboard:iam:config:write
-      summary: Remove a SAML IdP in your organization.
+      summary: Remove a SAML IdP in your organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/samlRoles:
     get:
-      description: List the SAML roles for this organization
       operationId: getOrganizationSamlRoles
       parameters:
       - name: organizationId
@@ -27246,9 +27107,8 @@ paths:
         - dashboard:iam:config:read
       summary: List the SAML roles for this organization
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a SAML role
       operationId: createOrganizationSamlRole
       parameters:
       - name: organizationId
@@ -27383,10 +27243,9 @@ paths:
         - dashboard:iam:config:write
       summary: Create a SAML role
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/samlRoles/{samlRoleId}:
     get:
-      description: Return a SAML role
       operationId: getOrganizationSamlRole
       parameters:
       - name: organizationId
@@ -27472,9 +27331,8 @@ paths:
         - dashboard:iam:config:read
       summary: Return a SAML role
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update a SAML role
       operationId: updateOrganizationSamlRole
       parameters:
       - name: organizationId
@@ -27612,9 +27470,8 @@ paths:
         - dashboard:iam:config:write
       summary: Update a SAML role
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Remove a SAML role
       operationId: deleteOrganizationSamlRole
       parameters:
       - name: organizationId
@@ -27637,10 +27494,9 @@ paths:
         - dashboard:iam:config:write
       summary: Remove a SAML role
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/connectors:
     get:
-      description: List SSE Connectors for an organization
       operationId: getOrganizationSaseConnectors
       parameters:
       - name: organizationId
@@ -27712,10 +27568,9 @@ paths:
                       total: 5
       summary: List SSE Connectors for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/connectors/batchDelete:
     post:
-      description: Delete SSE Connectors by ID
       operationId: batchOrganizationSaseConnectorsDelete
       parameters:
       - name: organizationId
@@ -27846,10 +27701,9 @@ paths:
                       pending: 1
       summary: Delete SSE Connectors by ID
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/integrations:
     post:
-      description: Create a new Secure Access integration
       operationId: createOrganizationSaseIntegration
       parameters:
       - name: organizationId
@@ -27945,10 +27799,9 @@ paths:
                 status: active
       summary: Create a new Secure Access integration
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/integrations/{integrationId}:
     get:
-      description: Get details of a Secure Access integration
       operationId: getOrganizationSaseIntegration
       parameters:
       - name: organizationId
@@ -28027,9 +27880,8 @@ paths:
                 status: active
       summary: Get details of a Secure Access integration
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Remove a Secure Access integration
       operationId: deleteOrganizationSaseIntegration
       parameters:
       - name: organizationId
@@ -28049,10 +27901,9 @@ paths:
           description: Successful operation
       summary: Remove a Secure Access integration
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/networks/eligible:
     get:
-      description: List of MX networks or templates that can be enrolled into Secure Access
       operationId: getOrganizationSaseNetworksEligible
       parameters:
       - name: organizationId
@@ -28202,10 +28053,9 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List of MX networks or templates that can be enrolled into Secure Access
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/regions:
     get:
-      description: List regions
       operationId: getOrganizationSaseRegions
       parameters:
       - name: organizationId
@@ -28278,10 +28128,9 @@ paths:
                       remaining: 0
       summary: List regions
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/sites:
     get:
-      description: List of enrolled SASE sites in this organization
       operationId: getOrganizationSaseSites
       parameters:
       - name: organizationId
@@ -28494,7 +28343,7 @@ paths:
               description: A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests.
       summary: List of enrolled SASE sites in this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/sites/attach:
     post:
       description: Attach sites in this organization to Secure Access. For an organization, a maximum of 2500 sites can be attached if they are in spoke mode or a maximum of 10 sites can be attached in hub mode.
@@ -28652,10 +28501,9 @@ paths:
                       pending: 1
       summary: Attach sites in this organization to Secure Access
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/sites/connectivity/history/bySite:
     get:
-      description: Get the connectivity history of SASE sites in this organization
       operationId: getOrganizationSaseSitesConnectivityHistoryBySite
       parameters:
       - name: organizationId
@@ -28797,10 +28645,9 @@ paths:
                         timestamp: '2022-11-08T00:15:00Z'
       summary: Get the connectivity history of SASE sites in this organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/sites/connectivity/overview:
     get:
-      description: List high-level SASE site statuses (healthy, degraded, offline)
       operationId: getOrganizationSaseSitesConnectivityOverview
       parameters:
       - name: organizationId
@@ -28861,7 +28708,7 @@ paths:
                   total: 9
       summary: List high-level SASE site statuses (healthy, degraded, offline)
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/sites/detach:
     post:
       description: Detach sites in this organization from Secure Access. This will remove the sites from Secure Access.
@@ -28998,7 +28845,7 @@ paths:
                       pending: 1
       summary: Detach sites in this organization from Secure Access
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/sase/sites/{siteId}:
     put:
       description: Update the configuration for a site. Currently, only supports updating default route enablement.
@@ -29129,10 +28976,9 @@ paths:
                     enabled: true
       summary: Update the configuration for a site
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/snmp:
     get:
-      description: Return the SNMP settings for an organization
       operationId: getOrganizationSnmp
       parameters:
       - name: organizationId
@@ -29200,9 +29046,8 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the SNMP settings for an organization
       tags:
-      - organizations
+      - Organizations
     put:
-      description: Update the SNMP settings for an organization
       operationId: updateOrganizationSnmp
       parameters:
       - name: organizationId
@@ -29315,10 +29160,9 @@ paths:
         - dashboard:general:telemetry:write
       summary: Update the SNMP settings for an organization
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/splash/assets/{id}:
     get:
-      description: Get a Splash Theme Asset
       operationId: getOrganizationSplashAsset
       parameters:
       - name: organizationId
@@ -29358,9 +29202,8 @@ paths:
                   '
       summary: Get a Splash Theme Asset
       tags:
-      - organizations
+      - Organizations
     delete:
-      description: Delete a Splash Theme Asset
       operationId: deleteOrganizationSplashAsset
       parameters:
       - name: organizationId
@@ -29380,10 +29223,9 @@ paths:
           description: Successful operation
       summary: Delete a Splash Theme Asset
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/splash/themes:
     get:
-      description: List Splash Themes
       operationId: getOrganizationSplashThemes
       parameters:
       - name: organizationId
@@ -29432,9 +29274,8 @@ paths:
                   name: continue.html
       summary: List Splash Themes
       tags:
-      - organizations
+      - Organizations
     post:
-      description: Create a Splash Theme
       operationId: createOrganizationSplashTheme
       parameters:
       - name: organizationId
@@ -29495,10 +29336,9 @@ paths:
                   name: continue.html
       summary: Create a Splash Theme
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/splash/themes/{id}:
     delete:
-      description: Delete a Splash Theme
       operationId: deleteOrganizationSplashTheme
       parameters:
       - name: organizationId
@@ -29518,10 +29358,9 @@ paths:
           description: Successful operation
       summary: Delete a Splash Theme
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/splash/themes/{themeIdentifier}/assets:
     post:
-      description: Create a Splash Theme Asset
       operationId: createOrganizationSplashThemeAsset
       parameters:
       - name: organizationId
@@ -29576,7 +29415,7 @@ paths:
                   '
       summary: Create a Splash Theme Asset
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/appliances/byUtilization:
     get:
       description: Return the top 10 appliances sorted by utilization over given time range.
@@ -29689,9 +29528,9 @@ paths:
       security:
       - oauth2:
         - sdwan:telemetry:read
-      summary: Return the top 10 appliances sorted by utilization over given time range.
+      summary: Return the top 10 appliances sorted by utilization over given time range
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/applications/byUsage:
     get:
       description: Return the top applications sorted by data usage over given time range. Default unit is megabytes.
@@ -29791,7 +29630,7 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the top applications sorted by data usage over given time range
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/applications/categories/byUsage:
     get:
       description: Return the top application categories sorted by data usage over given time range. Default unit is megabytes.
@@ -29891,7 +29730,7 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the top application categories sorted by data usage over given time range
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/clients/byUsage:
     get:
       description: Return metrics for organization's top 10 clients by data usage (in mb) over given time range.
@@ -30010,9 +29849,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return metrics for organization's top 10 clients by data usage (in mb) over given time range.
+      summary: Return metrics for organization's top 10 clients by data usage (in mb) over…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/clients/manufacturers/byUsage:
     get:
       description: Return metrics for organization's top clients by data usage (in mb) over given time range, grouped by manufacturer.
@@ -30118,9 +29957,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return metrics for organization's top clients by data usage (in mb) over given time range, grouped by manufacturer.
+      summary: Return metrics for organization's top clients by data usage (in mb) over given…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/devices/byUsage:
     get:
       description: Return metrics for organization's top 10 devices sorted by data usage over given time range. Default unit is megabytes.
@@ -30251,9 +30090,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return metrics for organization's top 10 devices sorted by data usage over given time range
+      summary: Return metrics for organization's top 10 devices sorted by data usage over…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/devices/models/byUsage:
     get:
       description: Return metrics for organization's top 10 device models sorted by data usage over given time range. Default unit is megabytes.
@@ -30345,9 +30184,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return metrics for organization's top 10 device models sorted by data usage over given time range
+      summary: Return metrics for organization's top 10 device models sorted by data usage…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/networks/byStatus:
     get:
       description: List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.
@@ -30560,9 +30399,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: List the client and status overview information for the networks in an organization
+      summary: List the client and status overview information for the networks in an…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/ssids/byUsage:
     get:
       description: Return metrics for organization's top 10 ssids by data usage over given time range. Default unit is megabytes.
@@ -30674,9 +30513,9 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: Return metrics for organization's top 10 ssids by data usage over given time range
+      summary: Return metrics for organization's top 10 ssids by data usage over given time…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/summary/top/switches/byEnergyUsage:
     get:
       description: Return metrics for organization's top 10 switches by energy usage over given time range. Default unit is joules.
@@ -30780,9 +30619,9 @@ paths:
       security:
       - oauth2:
         - switch:telemetry:read
-      summary: Return metrics for organization's top 10 switches by energy usage over given time range
+      summary: Return metrics for organization's top 10 switches by energy usage over given…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/uplinks/statuses:
     get:
       description: List the uplink status of every Meraki MX, MG and Z series devices in the organization
@@ -31003,12 +30842,11 @@ paths:
       security:
       - oauth2:
         - dashboard:general:telemetry:read
-      summary: List the uplink status of every Meraki MX, MG and Z series devices in the organization
+      summary: List the uplink status of every Meraki MX, MG and Z series devices in the…
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/webhooks/alertTypes:
     get:
-      description: Return a list of alert types to be used with managing webhook alerts
       operationId: getOrganizationWebhooksAlertTypes
       parameters:
       - name: organizationId
@@ -31192,10 +31030,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return a list of alert types to be used with managing webhook alerts
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/webhooks/callbacks/statuses/{callbackId}:
     get:
-      description: Return the status of an API callback
       operationId: getOrganizationWebhooksCallbacksStatus
       parameters:
       - name: organizationId
@@ -31284,10 +31121,9 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the status of an API callback
       tags:
-      - organizations
+      - Organizations
   /organizations/{organizationId}/webhooks/logs:
     get:
-      description: Return the log of webhook POSTs sent
       operationId: getOrganizationWebhooksLogs
       parameters:
       - name: organizationId
@@ -31388,4 +31224,1356 @@ paths:
         - dashboard:general:telemetry:read
       summary: Return the log of webhook POSTs sent
       tags:
-      - organizations
+      - Organizations
+components:
+  securitySchemes:
+    meraki_api_key:
+      type: apiKey
+      name: X-Cisco-Meraki-API-Key
+      in: header
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+x-batchable-actions:
+- group: ''
+  summary: Update multicast settings for a network
+  resource: /networks/{networkId}/switch/routing/multicast
+  operation: ms/multicast/actions/update
+- group: ''
+  summary: Migrate devices to another controller or management mode
+  resource: /organizations/{organizationId}/devices/controller/migrations
+  operation: mr/actions/migrate
+- group: Adaptive policy assignment
+  summary: Assign adaptive policy groups to a policy
+  resource: /organizations/{organizationId}/policies/global/group/policies/adaptivePolicyGroups
+  operation: assign
+- group: Adaptive policy assignment
+  summary: Remove adaptive policy groups from a policy
+  resource: /organizations/{organizationId}/policies/global/group/policies/adaptivePolicyGroups
+  operation: remove
+- group: Adaptive policy group
+  summary: Creates a new adaptive policy group
+  resource: /organizations/{organizationId}/adaptivePolicy/groups
+  operation: create
+- group: Adaptive policy group
+  summary: Deletes the specified adaptive policy group and any associated policies and references
+  resource: /organizations/{organizationId}/adaptivePolicy/groups/{id}
+  operation: destroy
+- group: Adaptive policy group
+  summary: Updates an adaptive policy group. If updating "Infrastructure", only the SGT is allowed. Cannot update "Unknown".
+  resource: /organizations/{organizationId}/adaptivePolicy/groups/{id}
+  operation: update
+- group: Api features/actions/config template
+  summary: Create a new configuration template
+  resource: /organizations/{organizationId}/configTemplates
+  operation: create
+- group: Api features/actions/device
+  summary: Update the attributes of a device
+  resource: /devices/{serial}
+  operation: update
+- group: Api features/actions/device
+  summary: Remove a single device
+  resource: /networks/{networkId}/devices
+  operation: remove
+- group: Api features/actions/network settings
+  summary: Update the settings for a network
+  resource: /networks/{networkId}/settings
+  operation: update
+- group: Api platform/actions/webhook payload
+  summary: Create a webhook payload template for a network
+  resource: /networks/{networkId}/webhooks/payloadTemplates
+  operation: create
+- group: Api platform/actions/webhook payload
+  summary: Destroy a webhook payload template for a network. Does not work for included templates ('wpt_00001', 'wpt_00002', 'wpt_00003', 'wpt_00004', 'wpt_00005', 'wpt_00006', 'wpt_00007' or 'wpt_00008')
+  resource: /networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}
+  operation: destroy
+- group: Api platform/actions/webhook payload
+  summary: Update a webhook payload template for a network
+  resource: /networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}
+  operation: update
+- group: Api/actions/organization
+  summary: Update an organization
+  resource: /organizations/{organizationId}
+  operation: update
+- group: Appliance VLAN assignment
+  summary: Assign VLANs to a policy
+  resource: /organizations/{organizationId}/policies/global/group/policies/appliance/vlans
+  operation: assign
+- group: Appliance VLAN assignment
+  summary: Remove VLANs from a policy
+  resource: /organizations/{organizationId}/policies/global/group/policies/appliance/vlans
+  operation: remove
+- group: Appliance radio settings
+  summary: Update the radio settings of an appliance
+  resource: /devices/{serial}/appliance/radio/settings
+  operation: update
+- group: Appliance ssid
+  summary: Update the attributes of an MX SSID
+  resource: /networks/{networkId}/appliance/ssids/{number}
+  operation: update
+- group: Assurance/actions/alerts/profile
+  summary: Create an alert profile
+  resource: /organizations/{organizationId}/assurance/alerts/profiles
+  operation: create
+- group: Assurance/actions/alerts/profile
+  summary: Delete an alert profile for this organization
+  resource: /organizations/{organizationId}/assurance/alerts/profiles/{profileId}
+  operation: destroy
+- group: Assurance/actions/alerts/profile
+  summary: Update an alert profile
+  resource: /organizations/{organizationId}/assurance/alerts/profiles/{profileId}
+  operation: update
+- group: Billing
+  summary: Update the billing settings
+  resource: /networks/{networkId}/wireless/billing
+  operation: update
+- group: Camera custom analytics settings
+  summary: Update custom analytics settings for a camera
+  resource: /devices/{serial}/camera/customAnalytics
+  operation: update
+- group: Camera video settings
+  summary: Update video settings for the given camera
+  resource: /devices/{serial}/camera/video/settings
+  operation: update
+- group: Camera wireless profile settings
+  summary: Assign wireless profiles to the given camera. Incremental updates are not supported, all profile assignment need to be supplied at once.
+  resource: /devices/{serial}/camera/wirelessProfiles
+  operation: update
+- group: Config template
+  summary: Update a configuration template
+  resource: /organizations/{organizationId}/configTemplates/{configTemplateId}
+  operation: update
+- group: Core product/syslog/update network
+  summary: Updates the syslog servers configuration for a network.
+  resource: /networks/{networkId}/devices/syslog/servers
+  operation: servers
+- group: Custom performance class
+  summary: Add a custom performance class for an MX network
+  resource: /networks/{networkId}/appliance/trafficShaping/customPerformanceClasses
+  operation: create
+- group: Custom performance class
+  summary: Delete a custom performance class from an MX network
+  resource: /networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}
+  operation: destroy
+- group: Custom performance class
+  summary: Update a custom performance class for an MX network
+  resource: /networks/{networkId}/appliance/trafficShaping/customPerformanceClasses/{customPerformanceClassId}
+  operation: update
+- group: Dai trusted server
+  summary: Add a server to be trusted by Dynamic ARP Inspection on this network
+  resource: /networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers
+  operation: create
+- group: Dai trusted server
+  summary: Remove a server from being trusted by Dynamic ARP Inspection on this network
+  resource: /networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}
+  operation: destroy
+- group: Dai trusted server
+  summary: Update a server that is trusted by Dynamic ARP Inspection on this network
+  resource: /networks/{networkId}/switch/dhcpServerPolicy/arpInspection/trustedServers/{trustedServerId}
+  operation: update
+- group: Dash xl/actions/firmware upgrade rollback
+  summary: Rollback a Firmware Upgrade For A Network
+  resource: /networks/{networkId}/firmwareUpgrades/rollbacks
+  operation: create
+- group: Dash xl/dashboard branding policy
+  summary: Add a new branding policy to an organization
+  resource: /organizations/{organizationId}/brandingPolicies
+  operation: create
+- group: Dash xl/dashboard branding policy
+  summary: Delete a branding policy
+  resource: /organizations/{organizationId}/brandingPolicies/{brandingPolicyId}
+  operation: destroy
+- group: Dash xl/dashboard branding policy
+  summary: Update a branding policy
+  resource: /organizations/{organizationId}/brandingPolicies/{brandingPolicyId}
+  operation: update
+- group: Dash xl/dashboard branding policy priorities
+  summary: Update the priority ordering of an organization's branding policies.
+  resource: /organizations/{organizationId}/brandingPolicies/priorities
+  operation: update
+- group: Dashboard features/actions/client
+  summary: Provisions a client with a name and policy. Clients can be provisioned before they associate to the network.
+  resource: /networks/{networkId}/clients
+  operation: provision
+- group: Dashboard features/actions/early access/feature opt in
+  summary: Update an early access feature opt-in for an organization
+  resource: /organizations/{organizationId}/earlyAccess/features/optIns/{optInId}
+  operation: update
+- group: Dhcp server policy
+  summary: Update the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively
+  resource: /networks/{networkId}/switch/dhcpServerPolicy
+  operation: update
+- group: Dscp cos mapping
+  summary: Update the DSCP to CoS mappings
+  resource: /networks/{networkId}/switch/dscpToCosMappings
+  operation: update
+- group: End users/actions/meraki auth user
+  summary: Authorize a user configured with Meraki Authentication for a network (currently supports 802.1X, splash guest, and client VPN users, and currently, organizations have a 50,000 user cap)
+  resource: /networks/{networkId}/merakiAuthUsers
+  operation: create
+- group: End users/actions/meraki auth user
+  summary: Delete an 802.1X RADIUS user, or deauthorize and optionally delete a splash guest or client VPN user.
+  resource: /networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}
+  operation: destroy
+- group: End users/actions/meraki auth user
+  summary: Update a user configured with Meraki Authentication (currently, 802.1X RADIUS, splash guest, and client VPN users can be updated)
+  resource: /networks/{networkId}/merakiAuthUsers/{merakiAuthUserId}
+  operation: update
+- group: Firmware upgrades update
+  summary: Update firmware upgrade information for a network
+  resource: /networks/{networkId}/firmwareUpgrades
+  operation: update
+- group: Floor plan
+  summary: Destroy a floor plan
+  resource: /networks/{networkId}/floorPlans/{floorPlanId}
+  operation: destroy
+- group: Floor plan
+  summary: Update a floor plan's geolocation and other meta data
+  resource: /networks/{networkId}/floorPlans/{floorPlanId}
+  operation: update
+- group: Frontizo/actions/owp release/firewall rule
+  summary: Create an Organization-Wide Policy Firewall Rule
+  resource: /organizations/{organizationId}/policies/global/firewall/rulesets/rules
+  operation: create
+- group: Frontizo/actions/owp release/firewall rule
+  summary: Delete an Organization-Wide Policy Firewall Rule
+  resource: /organizations/{organizationId}/policies/global/firewall/rulesets/rules/{ruleId}
+  operation: destroy
+- group: Frontizo/actions/owp release/firewall rule
+  summary: Update an Organization-Wide Policy Firewall Rule
+  resource: /organizations/{organizationId}/policies/global/firewall/rulesets/rules/{ruleId}
+  operation: update
+- group: Frontizo/actions/owp release/policy
+  summary: Create an Organization-Wide Policy
+  resource: /organizations/{organizationId}/policies/global/group/policies
+  operation: create
+- group: Frontizo/actions/owp release/policy
+  summary: Delete an Organization-Wide Policy
+  resource: /organizations/{organizationId}/policies/global/group/policies/{policyId}
+  operation: destroy
+- group: Frontizo/actions/owp release/policy
+  summary: Update an Organization-Wide Policy
+  resource: /organizations/{organizationId}/policies/global/group/policies/{policyId}
+  operation: update
+- group: Frontizo/actions/owp release/ruleset
+  summary: Create an Organization-Wide Policy Firewall Ruleset
+  resource: /organizations/{organizationId}/policies/global/firewall/rulesets
+  operation: create
+- group: Frontizo/actions/owp release/ruleset
+  summary: Delete an Organization-Wide Policy Firewall Ruleset
+  resource: /organizations/{organizationId}/policies/global/firewall/rulesets/{rulesetId}
+  operation: destroy
+- group: Frontizo/actions/owp release/ruleset
+  summary: Update an Organization-Wide Policy Firewall Ruleset
+  resource: /organizations/{organizationId}/policies/global/firewall/rulesets/{rulesetId}
+  operation: update
+- group: Frontizo/actions/owp release/ruleset assignment
+  summary: Create an Organization-Wide Policy Ruleset Assignment
+  resource: /organizations/{organizationId}/policies/global/group/policies/firewall/rulesets/assignments
+  operation: create
+- group: Frontizo/actions/owp release/ruleset assignment
+  summary: Delete an Organization-Wide Policy Ruleset Assignment
+  resource: /organizations/{organizationId}/policies/global/group/policies/firewall/rulesets/assignments/{assignmentId}
+  operation: destroy
+- group: Frontizo/actions/owp release/ruleset assignment
+  summary: Update an Organization-Wide Policy Ruleset Assignment
+  resource: /organizations/{organizationId}/policies/global/group/policies/firewall/rulesets/assignments/{assignmentId}
+  operation: update
+- group: Frontizo/actions/sase/integration
+  summary: Create a new Secure Access integration
+  resource: /organizations/{organizationId}/sase/integrations
+  operation: create
+- group: Frontizo/actions/sase/integration
+  summary: Remove a Secure Access integration
+  resource: /organizations/{organizationId}/sase/integrations/{integrationId}
+  operation: destroy
+- group: Frontizo/actions/site
+  summary: Attach sites in this organization to Secure Access. For an organization, a maximum of 2500 sites can be attached if they are in spoke mode or a maximum of 10 sites can be attached in hub mode.
+  resource: /organizations/{organizationId}/sase/sites
+  operation: create
+- group: Frontizo/actions/umbrella integration/account
+  summary: Connect a Cisco Umbrella account to this network
+  resource: /networks/{networkId}/appliance/umbrella/account
+  operation: action
+- group: Frontizo/actions/umbrella integration/account
+  summary: Disconnect Umbrella account from this network
+  resource: /networks/{networkId}/appliance/umbrella/account
+  operation: disconnect
+- group: Frontizo/actions/umbrella integration/domains
+  summary: Specify one or more domain names to be excluded from being routed to Cisco Umbrella.
+  resource: /networks/{networkId}/appliance/umbrella/domains
+  operation: action
+- group: Frontizo/actions/umbrella integration/policies
+  summary: Add one Cisco Umbrella DNS security policy to an MX network by policy ID. Idempotent — if the policy is already applied, the request succeeds and returns the current policy set unchanged.
+  resource: /networks/{networkId}/appliance/umbrella/policies
+  operation: policies_add
+- group: Frontizo/actions/umbrella integration/policies
+  summary: Remove one Cisco Umbrella DNS security policy from an MX network by policy ID. Returns 204 No Content on success. Behavior when the policy is not currently applied depends on the Cisco Umbrella API response.
+  resource: /networks/{networkId}/appliance/umbrella/policies
+  operation: policies_remove
+- group: Frontizo/actions/umbrella integration/protection
+  summary: Enable or disable umbrella protection for an appliance network. When 'enabled' is false, 'umbrella.organization.id' and 'umbrella.origin.id' are null in the response.
+  resource: /networks/{networkId}/appliance/umbrella
+  operation: action
+- group: Frontizo/sse sites/actions/connectors batch
+  summary: Delete SSE Connectors by ID
+  resource: /organizations/{organizationId}/sase/connectors
+  operation: teardown
+- group: Frontizo/sse sites/actions/sites
+  summary: Detach sites in this organization from Secure Access. This will remove the sites from Secure Access.
+  resource: /organizations/{organizationId}/sase/sites
+  operation: detach
+- group: Frontizo/sse sites/actions/sites
+  summary: Update the configuration for a site. Currently, only supports updating default route enablement.
+  resource: /organizations/{organizationId}/sase/sites/{siteId}
+  operation: update
+- group: Group policy
+  summary: Create a group policy
+  resource: /networks/{networkId}/groupPolicies
+  operation: create
+- group: Group policy
+  summary: Delete a group policy
+  resource: /networks/{networkId}/groupPolicies/{groupPolicyId}
+  operation: destroy
+- group: Group policy
+  summary: Update a group policy
+  resource: /networks/{networkId}/groupPolicies/{groupPolicyId}
+  operation: update
+- group: Hotspot20
+  summary: Update the Hotspot 2.0 settings of an SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/hotspot20
+  operation: update
+- group: Insight/actions/org wide alerts/alert config
+  summary: Create an organization-wide alert configuration
+  resource: /organizations/{organizationId}/alerts/profiles
+  operation: create
+- group: Insight/actions/org wide alerts/alert config
+  summary: Removes an organization-wide alert config
+  resource: /organizations/{organizationId}/alerts/profiles/{alertConfigId}
+  operation: destroy
+- group: Insight/actions/org wide alerts/alert config
+  summary: Update an organization-wide alert config
+  resource: /organizations/{organizationId}/alerts/profiles/{alertConfigId}
+  operation: update
+- group: Inventory/actions/device
+  summary: 'Claim devices into a network. (Note: for recently claimed devices, it may take a few minutes for API requests against that device to succeed). This operation can be used up to ten times within a single five minute window.'
+  resource: /networks/{networkId}/devices/claim
+  operation: claim
+- group: Inventory/actions/unified orders/unified order
+  summary: Claim an order by the secure unique order claim number, the order claim id
+  resource: /organizations/{organizationId}/inventory/orders
+  operation: claim
+- group: L3 firewall
+  summary: Update the L3 firewall rules of an SSID on an MR network
+  resource: /networks/{networkId}/wireless/ssids/{number}/firewall/l3FirewallRules
+  operation: update
+- group: License
+  summary: Assign SM seats to a network. This will increase the managed SM device limit of the network
+  resource: /organizations/{organizationId}/licenses
+  operation: assignSeats
+- group: License
+  summary: Move licenses to another organization. This will also move any devices that the licenses are assigned to
+  resource: /organizations/{organizationId}/licenses
+  operation: move
+- group: License
+  summary: Move SM seats to another organization
+  resource: /organizations/{organizationId}/licenses
+  operation: moveSeats
+- group: License
+  summary: Renew SM seats of a license. This will extend the license expiration date of managed SM devices covered by this license
+  resource: /organizations/{organizationId}/licenses
+  operation: renewSeats
+- group: License
+  summary: Update a license
+  resource: /organizations/{organizationId}/licenses/{licenseId}
+  operation: update
+- group: MTU configuration
+  summary: Update the MTU configuration
+  resource: /networks/{networkId}/switch/mtu
+  operation: update
+- group: MX connectivity monitoring destination
+  summary: Update the connectivity testing destinations for an MX network
+  resource: /networks/{networkId}/appliance/connectivityMonitoringDestinations
+  operation: update
+- group: MX l3 configuration
+  summary: Create wired L3 interface
+  resource: /networks/{networkId}/appliance/interfaces/l3
+  operation: create
+- group: MX l3 configuration
+  summary: Delete wired L3 interface
+  resource: /networks/{networkId}/appliance/interfaces/l3/{interfaceId}
+  operation: destroy
+- group: MX l3 configuration
+  summary: Update wired L3 interface
+  resource: /networks/{networkId}/appliance/interfaces/l3/{interfaceId}
+  operation: update
+- group: MX uplink setting
+  summary: Updates the uplink bandwidth settings for your MX network.
+  resource: /networks/{networkId}/appliance/trafficShaping/uplinkBandwidth
+  operation: update
+- group: Mars/actions/device
+  summary: Updating device details (currently only used for Catalyst devices)
+  resource: /organizations/{organizationId}/devices/details/bulkUpdate
+  operation: details/update
+- group: Mcg/actions/cluster
+  summary: Create a cluster and add campus gateways to it
+  resource: /networks/{networkId}/campusGateway/clusters
+  operation: create
+- group: Mcg/actions/cluster
+  summary: Delete a cluster
+  resource: /networks/{networkId}/campusGateway/clusters/{clusterId}
+  operation: destroy
+- group: Mcg/actions/cluster
+  summary: Update a cluster and add/remove campus gateways to/from it
+  resource: /networks/{networkId}/campusGateway/clusters/{clusterId}
+  operation: update
+- group: Mcg/actions/cluster
+  summary: Provisions a cluster,adds campus gateways to it and associate/dissociate failover targets.
+  resource: /organizations/{organizationId}/campusGateway/clusters
+  operation: provision
+- group: Monitored media server
+  summary: Add a media server to be monitored for this organization. Only valid for organizations with Meraki Insight.
+  resource: /organizations/{organizationId}/insight/monitoredMediaServers
+  operation: create
+- group: Monitored media server
+  summary: Delete a monitored media server from this organization. Only valid for organizations with Meraki Insight.
+  resource: /organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}
+  operation: destroy
+- group: Monitored media server
+  summary: Update a monitored media server for this organization. Only valid for organizations with Meraki Insight.
+  resource: /organizations/{organizationId}/insight/monitoredMediaServers/{monitoredMediaServerId}
+  operation: update
+- group: Mr/actions/air marshal rule
+  summary: Creates a new rule
+  resource: /networks/{networkId}/wireless/airMarshal/rules
+  operation: create
+- group: Mr/actions/air marshal rule
+  summary: Delete an Air Marshal rule.
+  resource: /networks/{networkId}/wireless/airMarshal/rules/{ruleId}
+  operation: destroy
+- group: Mr/actions/air marshal rule
+  summary: Update a rule
+  resource: /networks/{networkId}/wireless/airMarshal/rules/{ruleId}
+  operation: update
+- group: Mr/actions/air marshal setting
+  summary: Updates Air Marshal settings.
+  resource: /networks/{networkId}/wireless/airMarshal/settings
+  operation: update
+- group: Mr/actions/ap port profile
+  summary: Create an AP port profile
+  resource: /networks/{networkId}/wireless/ethernet/ports/profiles
+  operation: create
+- group: Mr/actions/ap port profile
+  summary: Delete an AP port profile
+  resource: /networks/{networkId}/wireless/ethernet/ports/profiles/{profileId}
+  operation: destroy
+- group: Mr/actions/ap port profile
+  summary: Update the AP port profile by ID for this network
+  resource: /networks/{networkId}/wireless/ethernet/ports/profiles/{profileId}
+  operation: update
+- group: Mr/actions/ap port profile assign
+  summary: Assign AP port profile to list of APs
+  resource: /networks/{networkId}/wireless/ethernet/ports/profiles
+  operation: aps
+- group: Mr/actions/ap port profile set
+  summary: Set the AP port profile to be default for this network
+  resource: /networks/{networkId}/wireless/ethernet/ports/profiles
+  operation: default
+- group: Mr/actions/autolocation job
+  summary: Cancel a scheduled or running auto locate job
+  resource: /networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}
+  operation: cancel
+- group: Mr/actions/autolocation job
+  summary: Update the status of a finished auto locate job to be published, and update device locations
+  resource: /networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}
+  operation: publish
+- group: Mr/actions/autolocation job
+  summary: Trigger auto locate recalculation for a job, and optionally set anchors
+  resource: /networks/{networkId}/floorPlans/autoLocate/jobs/{jobId}
+  operation: recalculate
+- group: Mr/actions/autolocation jobs bulk
+  summary: Schedule auto locate jobs for one or more floor plans in a network
+  resource: /networks/{networkId}/floorPlans/autoLocate/jobs
+  operation: batch_create
+- group: Mr/actions/device floorplan assignments batch
+  summary: Update floorplan assignments for a batch of devices
+  resource: /networks/{networkId}/floorPlans/devices
+  operation: batch_update
+- group: Mr/actions/eap override
+  summary: Update the EAP overridden parameters for an SSID.
+  resource: /networks/{networkId}/wireless/ssids/{number}/eapOverride
+  operation: update
+- group: Mr/actions/iot/bluetooth device setting
+  summary: Update the bluetooth settings for a wireless device
+  resource: /devices/{serial}/wireless/bluetooth/settings
+  operation: update
+- group: Mr/actions/iot/esl network settings
+  summary: Update the ESL settings of a wireless network
+  resource: /networks/{networkId}/wireless/electronicShelfLabel
+  operation: update
+- group: Mr/actions/iot/esl node settings
+  summary: Update the ESL settings of a device
+  resource: /devices/{serial}/wireless/electronicShelfLabel
+  operation: update
+- group: Mr/actions/rf auto channel
+  summary: 'Recalculates automatically assigned channels for every AP within specified the specified network(s). Note: This could cause a brief loss in connectivity for wireless clients.'
+  resource: /organizations/{organizationId}/wireless/radio/autoRf/channels
+  operation: update
+- group: Mr/actions/rf profile
+  summary: Creates new RF profile for this network
+  resource: /networks/{networkId}/wireless/rfProfiles
+  operation: create
+- group: Mr/actions/rf profile
+  summary: 'Updates specified RF profile for this network. Note: built-in RF profiles can only be assigned as a default, and its attributes are immutable'
+  resource: /networks/{networkId}/wireless/rfProfiles/{rfProfileId}
+  operation: update
+- group: Mr/actions/ssid
+  summary: Update the attributes of an MR SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}
+  operation: update
+- group: Mr/actions/ssid bonjour forwarding
+  summary: Update the bonjour forwarding setting and rules for the SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/bonjourForwarding
+  operation: update
+- group: Mr/actions/ssid openroaming
+  summary: Update the OpenRoaming setting for the SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/openRoaming
+  operation: update
+- group: Mr/actions/ssid outage schedule
+  summary: Update the outage schedule for the SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/schedules
+  operation: update
+- group: Mr/actions/ssid profile
+  summary: Create a new SSID profile in an organization
+  resource: /organizations/{organizationId}/wireless/ssids/profiles
+  operation: create
+- group: Mr/actions/ssid profile
+  summary: Delete an SSID profile
+  resource: /organizations/{organizationId}/wireless/ssids/profiles/{id}
+  operation: destroy
+- group: Mr/actions/ssid profile
+  summary: Update this SSID profile
+  resource: /organizations/{organizationId}/wireless/ssids/profiles/{id}
+  operation: update
+- group: Mr/actions/wireless alternate management interface v6
+  summary: Update alternate management interface IPv6 address
+  resource: /devices/{serial}/wireless/alternateManagementInterface/ipv6
+  operation: update
+- group: Mr/actions/wireless settings
+  summary: Update the wireless settings for a network
+  resource: /networks/{networkId}/wireless/settings
+  operation: update
+- group: Mr/actions/zigbee config
+  summary: Update Zigbee Configs for specified network
+  resource: /networks/{networkId}/wireless/zigbee
+  operation: update
+- group: Mr/actions/zigbee doorlock
+  summary: Endpoint to batch update door locks params
+  resource: /organizations/{organizationId}/wireless/zigbee/doorLocks/{doorLockId}
+  operation: create
+- group: Mr/actions/zigbee nodes
+  summary: Endpoint to update zigbee gateways
+  resource: /organizations/{organizationId}/wireless/zigbee/devices/{id}
+  operation: create
+- group: Mr/firewall/actions/l2 isolation allowlist
+  summary: Create isolation allow list MAC entry for this organization
+  resource: /organizations/{organizationId}/wireless/ssids/firewall/isolation/allowlist/entries
+  operation: create
+- group: Mr/firewall/actions/l2 isolation allowlist
+  summary: Destroy isolation allow list MAC entry for this organization
+  resource: /organizations/{organizationId}/wireless/ssids/firewall/isolation/allowlist/entries/{entryId}
+  operation: destroy
+- group: Mr/firewall/actions/l2 isolation allowlist
+  summary: Update isolation allow list MAC entry info
+  resource: /organizations/{organizationId}/wireless/ssids/firewall/isolation/allowlist/entries/{entryId}
+  operation: update
+- group: Mr/speedy/actions/auto RF
+  summary: Update the AutoRF settings for a wireless network
+  resource: /networks/{networkId}/wireless/radio/rrm
+  operation: update
+- group: Mr/zero touch/actions/deployment
+  summary: Create a zero touch deployment for a wireless access point
+  resource: /organizations/{organizationId}/wireless/devices/provisioning/deployments
+  operation: create
+- group: Mr/zero touch/actions/deployment
+  summary: Update a zero touch deployment
+  resource: /organizations/{organizationId}/wireless/devices/provisioning/deployments
+  operation: update
+- group: Mr/zero touch/actions/deployment
+  summary: Delete a zero touch deployment
+  resource: /organizations/{organizationId}/wireless/devices/provisioning/deployments/{deploymentId}
+  operation: destroy
+- group: Ms/access
+  summary: Create an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array.
+  resource: /networks/{networkId}/switch/accessPolicies
+  operation: create
+- group: Ms/access
+  summary: Delete an access policy for a switch network
+  resource: /networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}
+  operation: destroy
+- group: Ms/access
+  summary: Update an access policy for a switch network. If you would like to enable Meraki Authentication, set radiusServers to empty array.
+  resource: /networks/{networkId}/switch/accessPolicies/{accessPolicyNumber}
+  operation: update
+- group: Ms/actions/adaptive
+  summary: Add an Adaptive Policy
+  resource: /organizations/{organizationId}/adaptivePolicy/policies
+  operation: create
+- group: Ms/actions/adaptive
+  summary: Delete an Adaptive Policy
+  resource: /organizations/{organizationId}/adaptivePolicy/policies/{id}
+  operation: destroy
+- group: Ms/actions/adaptive
+  summary: Update an Adaptive Policy
+  resource: /organizations/{organizationId}/adaptivePolicy/policies/{id}
+  operation: update
+- group: Ms/actions/adaptive policy settings
+  summary: Update global adaptive policy settings
+  resource: /organizations/{organizationId}/adaptivePolicy/settings
+  operation: update
+- group: Ms/actions/l3 interface
+  summary: Create a layer 3 interface for a switch
+  resource: /devices/{serial}/switch/routing/interfaces
+  operation: create
+- group: Ms/actions/l3 interface
+  summary: Delete a layer 3 interface from the switch
+  resource: /devices/{serial}/switch/routing/interfaces/{interfaceId}
+  operation: destroy
+- group: Ms/actions/l3 interface
+  summary: Update a layer 3 interface for a switch
+  resource: /devices/{serial}/switch/routing/interfaces/{interfaceId}
+  operation: update
+- group: Ms/actions/l3 interface dhcp
+  summary: Update a layer 3 interface DHCP configuration for a switch
+  resource: /devices/{serial}/switch/routing/interfaces/{interfaceId}/dhcp
+  operation: update
+- group: Ms/actions/l3 static route
+  summary: Create a layer 3 static route for a switch
+  resource: /devices/{serial}/switch/routing/staticRoutes
+  operation: create
+- group: Ms/actions/l3 static route
+  summary: Delete a layer 3 static route for a switch
+  resource: /devices/{serial}/switch/routing/staticRoutes/{staticRouteId}
+  operation: destroy
+- group: Ms/actions/l3 static route
+  summary: Update a layer 3 static route for a switch
+  resource: /devices/{serial}/switch/routing/staticRoutes/{staticRouteId}
+  operation: update
+- group: Ms/actions/link aggregation
+  summary: Create a link aggregation group
+  resource: /networks/{networkId}/switch/linkAggregations
+  operation: create
+- group: Ms/actions/link aggregation
+  summary: Split a link aggregation group into separate ports
+  resource: /networks/{networkId}/switch/linkAggregations/{linkAggregationId}
+  operation: destroy
+- group: Ms/actions/link aggregation
+  summary: Update a link aggregation group
+  resource: /networks/{networkId}/switch/linkAggregations/{linkAggregationId}
+  operation: update
+- group: Ms/actions/management interface settings
+  summary: Update the management interface settings for a device
+  resource: /devices/{serial}/managementInterface
+  operation: update
+- group: Ms/actions/storm control
+  summary: Update the storm control configuration for a switch network
+  resource: /networks/{networkId}/switch/stormControl
+  operation: update
+- group: Ms/actions/switch alternate management interface
+  summary: Update the switch alternate management interface for the network
+  resource: /networks/{networkId}/switch/alternateManagementInterface
+  operation: update
+- group: Ms/actions/switch port
+  summary: Cycle a set of switch ports on non-Catalyst MS devices. For Catalyst support, use /devices/{serial}/liveTools/ports/cycle, which supports all switch product families.
+  resource: /devices/{serial}/switch/ports
+  operation: cycle
+- group: Ms/actions/switch port
+  summary: Update a switch port
+  resource: /devices/{serial}/switch/ports/{portId}
+  operation: update
+- group: Ms/actions/switch profile port
+  summary: Update a switch template port
+  resource: /organizations/{organizationId}/configTemplates/{configTemplateId}/switch/profiles/{profileId}/ports/{portId}
+  operation: update
+- group: Ms/actions/switch stacks l3 interface
+  summary: Create a layer 3 interface for a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces
+  operation: create
+- group: Ms/actions/switch stacks l3 interface
+  summary: Delete a layer 3 interface from a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}
+  operation: destroy
+- group: Ms/actions/switch stacks l3 interface
+  summary: Update a layer 3 interface for a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}
+  operation: update
+- group: Ms/actions/switch stacks l3 interface dhcp
+  summary: Update a layer 3 interface DHCP configuration for a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/interfaces/{interfaceId}/dhcp
+  operation: update
+- group: Ms/actions/switch stacks l3 static route
+  summary: Create a layer 3 static route for a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes
+  operation: create
+- group: Ms/actions/switch stacks l3 static route
+  summary: Delete a layer 3 static route for a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}
+  operation: destroy
+- group: Ms/actions/switch stacks l3 static route
+  summary: Update a layer 3 static route for a switch stack
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}/routing/staticRoutes/{staticRouteId}
+  operation: update
+- group: Ms/live tools/actions/perform leds
+  summary: Enqueue a job to blink LEDs on a device. This endpoint has a rate limit of one request every 10 seconds.
+  resource: /devices/{serial}/liveTools/leds/blink
+  operation: blink
+- group: Ms/live tools/actions/perform throughput
+  summary: Enqueue a job to test a device throughput, the test will run for 10 secs to test throughput. This endpoint has a rate limit of one request every five seconds per device.
+  resource: /devices/{serial}/liveTools/throughputTest
+  operation: test
+- group: Ms/routing/actions/ospf routing
+  summary: Update layer 3 OSPF routing configuration
+  resource: /networks/{networkId}/switch/routing/ospf
+  operation: update
+- group: Ms/switch
+  summary: Update switch network settings
+  resource: /networks/{networkId}/switch/settings
+  operation: settings/actions/update
+- group: Ms/switch
+  summary: Update a switch stack. At least one of 'name' or 'members' must be provided. If 'members' is provided, it replaces the entire stack membership.
+  resource: /networks/{networkId}/switch/stacks/{switchStackId}
+  operation: stacks/actions/update
+- group: Ms/switch
+  summary: 'Clone port-level and some switch-level configuration settings from a source switch to one or more target switches. Cloned settings include: Aggregation Groups, Power Settings, Multicast Settings, MTU Configuration, STP Bridge priority, Port Mirroring'
+  resource: /organizations/{organizationId}/switch/devices
+  operation: settings/actions/clone
+- group: Mt/api/actions/alert profiles
+  summary: Creates a sensor alert profile for a network.
+  resource: /networks/{networkId}/sensor/alerts/profiles
+  operation: create
+- group: Mt/api/actions/alert profiles
+  summary: Deletes a sensor alert profile from a network.
+  resource: /networks/{networkId}/sensor/alerts/profiles/{id}
+  operation: destroy
+- group: Mt/api/actions/alert profiles
+  summary: Updates a sensor alert profile for a network.
+  resource: /networks/{networkId}/sensor/alerts/profiles/{id}
+  operation: update
+- group: Mt/api/actions/commands
+  summary: Sends a command to a sensor
+  resource: /devices/{serial}/sensor/commands
+  operation: create
+- group: Mt/api/actions/sensor gateway role
+  summary: Assign one or more sensor roles to a given sensor or camera device.
+  resource: /devices/{serial}/sensor/relationships
+  operation: update
+- group: Mt/api/actions/sensor mqtt broker
+  summary: Update the sensor settings of an MQTT broker. To update the broker itself, use /networks/{networkId}/mqttBrokers/{mqttBrokerId}.
+  resource: /networks/{networkId}/sensor/mqttBrokers/{mqttBrokerId}
+  operation: update
+- group: Mv/actions/mqtt broker
+  summary: Add an MQTT broker
+  resource: /networks/{networkId}/mqttBrokers
+  operation: create
+- group: Mv/actions/mqtt broker
+  summary: Delete an MQTT broker
+  resource: /networks/{networkId}/mqttBrokers/{mqttBrokerId}
+  operation: destroy
+- group: Mv/actions/mqtt broker
+  summary: Update an MQTT broker
+  resource: /networks/{networkId}/mqttBrokers/{mqttBrokerId}
+  operation: update
+- group: Mv/actions/quality and retention setting
+  summary: Update quality and retention settings for the given camera
+  resource: /devices/{serial}/camera/qualityAndRetention
+  operation: update
+- group: Mv/actions/sense setting
+  summary: Update sense settings for the given camera
+  resource: /devices/{serial}/camera/sense
+  operation: update
+- group: Mx port
+  summary: Update configurations for an appliance's specified port
+  resource: /devices/{serial}/appliance/interfaces/ports/update
+  operation: update
+- group: Network
+  summary: Bind a network to a template.
+  resource: /networks/{networkId}
+  operation: bind
+- group: Network
+  summary: Delete a network
+  resource: /networks/{networkId}
+  operation: destroy
+- group: Network
+  summary: Split a combined network into individual networks for each type of device
+  resource: /networks/{networkId}
+  operation: split
+- group: Network
+  summary: Unbind a network from a template.
+  resource: /networks/{networkId}
+  operation: unbind
+- group: Network
+  summary: Update a network
+  resource: /networks/{networkId}
+  operation: update
+- group: Network
+  summary: Combine multiple networks into a single network
+  resource: /organizations/{organizationId}/networks
+  operation: combine
+- group: Network
+  summary: Create a network
+  resource: /organizations/{organizationId}/networks
+  operation: create
+- group: Network access/ssids/actions/ssid splash settings
+  summary: Modify the splash page settings for the given SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/splash/settings
+  operation: update
+- group: Network groups
+  summary: Create a network group
+  resource: /organizations/{organizationId}/networks/groups
+  operation: create
+- group: Network groups
+  summary: Add networks to a network group
+  resource: /organizations/{organizationId}/networks/groups/{groupId}
+  operation: bulk_assign
+- group: Network groups
+  summary: Remove networks from a network group
+  resource: /organizations/{organizationId}/networks/groups/{groupId}
+  operation: bulk_unassign
+- group: Network groups
+  summary: Delete a network group
+  resource: /organizations/{organizationId}/networks/groups/{groupId}
+  operation: destroy
+- group: Network groups
+  summary: Update a network group
+  resource: /organizations/{organizationId}/networks/groups/{groupId}
+  operation: update
+- group: Organization SAML IdP
+  summary: Create a SAML IdP for your organization.
+  resource: /organizations/{organizationId}/saml/idps
+  operation: create
+- group: Organization SAML IdP
+  summary: Remove a SAML IdP in your organization.
+  resource: /organizations/{organizationId}/saml/idps/{idpId}
+  operation: destroy
+- group: Organization SAML IdP
+  summary: Update a SAML IdP in your organization
+  resource: /organizations/{organizationId}/saml/idps/{idpId}
+  operation: update
+- group: Organization login security settings
+  summary: Update the login security settings for an organization
+  resource: /organizations/{organizationId}/loginSecurity
+  operation: update
+- group: Organization snmp
+  summary: Update the SNMP settings for an organization
+  resource: /organizations/{organizationId}/snmp
+  operation: update
+- group: Pcap logs
+  summary: BulkDelete packet captures from cloud
+  resource: /organizations/{organizationId}/devices/packetCapture/captures
+  operation: destroy
+- group: Pcap logs
+  summary: Delete a single packet capture from cloud using captureId
+  resource: /organizations/{organizationId}/devices/packetCapture/captures/{captureId}
+  operation: destroy
+- group: Pcap schedule configurations
+  summary: Create a schedule for packet capture
+  resource: /organizations/{organizationId}/devices/packetCapture/schedules
+  operation: create
+- group: Pcap schedule configurations
+  summary: Bulk update priorities of pcap schedules
+  resource: /organizations/{organizationId}/devices/packetCapture/schedules
+  operation: reorder
+- group: Pcap schedule configurations
+  summary: Delete schedule from cloud
+  resource: /organizations/{organizationId}/devices/packetCapture/schedules/{scheduleId}
+  operation: destroy
+- group: Pcap schedule configurations
+  summary: Update a schedule for packet capture
+  resource: /organizations/{organizationId}/devices/packetCapture/schedules/{scheduleId}
+  operation: update
+- group: Policy object
+  summary: 'Creates a new Policy Object. Note: type `ipAndMask` is deprecated; use `cidr`.'
+  resource: /organizations/{organizationId}/policyObjects
+  operation: create
+- group: Policy object
+  summary: Deletes a Policy Object.
+  resource: /organizations/{organizationId}/policyObjects/{policyObjectId}
+  operation: destroy
+- group: Policy object
+  summary: 'Updates a Policy Object. Note: type `ipAndMask` is deprecated; use `cidr`.'
+  resource: /organizations/{organizationId}/policyObjects/{policyObjectId}
+  operation: update
+- group: Policy object group
+  summary: Creates a new Policy Object Group.
+  resource: /organizations/{organizationId}/policyObjects/groups
+  operation: create
+- group: Policy object group
+  summary: Deletes a Policy Object Group.
+  resource: /organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}
+  operation: destroy
+- group: Psk group
+  summary: Create an Identity PSK
+  resource: /networks/{networkId}/wireless/ssids/{number}/identityPsks
+  operation: create
+- group: Psk group
+  summary: Delete an Identity PSK
+  resource: /networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}
+  operation: destroy
+- group: Psk group
+  summary: Update an Identity PSK
+  resource: /networks/{networkId}/wireless/ssids/{number}/identityPsks/{identityPskId}
+  operation: update
+- group: Qos rule
+  summary: Add a quality of service rule
+  resource: /networks/{networkId}/switch/qosRules
+  operation: create
+- group: Qos rule
+  summary: Update the order in which the rules should be processed by the switch
+  resource: /networks/{networkId}/switch/qosRules/order
+  operation: update_order
+- group: Qos rule
+  summary: Delete a quality of service rule
+  resource: /networks/{networkId}/switch/qosRules/{qosRuleId}
+  operation: destroy
+- group: Qos rule
+  summary: Update a quality of service rule
+  resource: /networks/{networkId}/switch/qosRules/{qosRuleId}
+  operation: update
+- group: RF profile
+  summary: Delete a RF Profile
+  resource: /networks/{networkId}/wireless/rfProfiles/{rfProfileId}
+  operation: destroy
+- group: Radio settings
+  summary: Update 2.4 GHz and 5 GHz radio settings (channel, channel width, power) that override RF profiles. For 6 GHz support or radio enable/disable, use updateDeviceWirelessRadioOverrides instead.
+  resource: /devices/{serial}/wireless/radio/settings
+  operation: update
+- group: Rendezvous point
+  summary: Create a multicast rendezvous point
+  resource: /networks/{networkId}/switch/routing/multicast/rendezvousPoints
+  operation: create
+- group: Rendezvous point
+  summary: Delete a multicast rendezvous point
+  resource: /networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}
+  operation: destroy
+- group: Rendezvous point
+  summary: Update a multicast rendezvous point
+  resource: /networks/{networkId}/switch/routing/multicast/rendezvousPoints/{rendezvousPointId}
+  operation: update
+- group: STP configuration
+  summary: Updates STP settings
+  resource: /networks/{networkId}/switch/stp
+  operation: update
+- group: Sm/actions/admins/role
+  summary: Create a Limited Access Role
+  resource: /organizations/{organizationId}/sm/admins/roles
+  operation: create
+- group: Sm/actions/admins/role
+  summary: Delete a Limited Access Role
+  resource: /organizations/{organizationId}/sm/admins/roles/{roleId}
+  operation: destroy
+- group: Sm/actions/admins/role
+  summary: Update a Limited Access Role
+  resource: /organizations/{organizationId}/sm/admins/roles/{roleId}
+  operation: update
+- group: Sm/actions/sentry/policies/assignments
+  summary: Update an Organizations Sentry Policies using the provided list. Sentry Policies are ordered in descending order of priority (i.e. highest priority at the bottom, this is opposite the Dashboard UI). Policies not present in the request will be deleted.
+  resource: /organizations/{organizationId}/sm/sentry/policies/assignments
+  operation: update
+- group: Spaces/actions/remove
+  summary: Remove the Spaces integration from Meraki
+  resource: /organizations/{organizationId}/spaces/integration
+  operation: integration
+- group: Splash theme
+  summary: Create a Splash Theme
+  resource: /organizations/{organizationId}/splash/themes
+  operation: create
+- group: Splash theme asset
+  summary: Delete a Splash Theme Asset
+  resource: /organizations/{organizationId}/splash/assets/{id}
+  operation: destroy
+- group: Splash theme asset
+  summary: Create a Splash Theme Asset
+  resource: /organizations/{organizationId}/splash/themes/{themeIdentifier}/assets
+  operation: create
+- group: Splash2 theme
+  summary: Delete a Splash Theme
+  resource: /organizations/{organizationId}/splash/themes/{id}
+  operation: destroy
+- group: Ssid device type group policies
+  summary: Update the device type group policies for the SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/deviceTypeGroupPolicies
+  operation: update
+- group: Ssid profile assignment
+  summary: Assigns an SSID profile to an SSID in the organization
+  resource: /organizations/{organizationId}/wireless/ssids/profiles/assignments
+  operation: create
+- group: Ssid profile assignment
+  summary: Unassigns the SSID profile assigned to an SSID
+  resource: /organizations/{organizationId}/wireless/ssids/profiles/assignments
+  operation: destroy
+- group: Ssid vpn
+  summary: Update the VPN settings for the SSID
+  resource: /networks/{networkId}/wireless/ssids/{number}/vpn
+  operation: update
+- group: Staged upgrade/group
+  summary: Create a Staged Upgrade Group for a network
+  resource: /networks/{networkId}/firmwareUpgrades/staged/groups
+  operation: create
+- group: Staged upgrade/group
+  summary: Delete a Staged Upgrade Group
+  resource: /networks/{networkId}/firmwareUpgrades/staged/groups/{groupId}
+  operation: destroy
+- group: Switch port schedule
+  summary: Update a switch port schedule
+  resource: /networks/{networkId}/switch/portSchedules/{portScheduleId}
+  operation: update
+- group: Switch warm spare settings
+  summary: Update warm spare configuration for a switch. The spare will use the same L3 configuration as the primary. Note that this will irreversibly destroy any existing L3 configuration on the spare.
+  resource: /devices/{serial}/switch/warmSpare
+  operation: update
+- group: Traffic shaping settings
+  summary: Update the traffic shaping settings rules for an MX network
+  resource: /networks/{networkId}/appliance/trafficShaping/rules
+  operation: update
+- group: Traffic shaping settings
+  summary: Update the traffic shaping rules for an SSID on an MR network.
+  resource: /networks/{networkId}/wireless/ssids/{number}/trafficShaping/rules
+  operation: update
+- group: User access device
+  summary: Delete a User Access Device
+  resource: /networks/{networkId}/sm/userAccessDevices/{userAccessDeviceId}
+  operation: destroy
+- group: V1/adaptive policy acl
+  summary: Creates new adaptive policy ACL
+  resource: /organizations/{organizationId}/adaptivePolicy/acls
+  operation: create
+- group: V1/adaptive policy acl
+  summary: Deletes the specified adaptive policy ACL. Note this adaptive policy ACL will also be removed from policies using it.
+  resource: /organizations/{organizationId}/adaptivePolicy/acls/{aclId}
+  operation: destroy
+- group: V1/adaptive policy acl
+  summary: Updates an adaptive policy ACL
+  resource: /organizations/{organizationId}/adaptivePolicy/acls/{aclId}
+  operation: update
+- group: VLAN profile
+  summary: Create a VLAN profile for a network
+  resource: /networks/{networkId}/vlanProfiles
+  operation: create
+- group: VLAN profile
+  summary: Delete a VLAN profile of a network
+  resource: /networks/{networkId}/vlanProfiles/{iname}
+  operation: destroy
+- group: Vmx
+  summary: Claim a vMX into a network
+  resource: /networks/{networkId}/devices/claim/vmx
+  operation: claim
+- group: Vmx token
+  summary: Generate a new vMX authentication token
+  resource: /devices/{serial}/appliance/vmx/authenticationToken
+  operation: create
+- group: Warm spare
+  summary: Update MX warm spare settings
+  resource: /networks/{networkId}/appliance/devices/redundancy
+  operation: update
+- group: Warm spare
+  summary: Swap MX primary and warm spare appliances
+  resource: /networks/{networkId}/appliance/warmSpare
+  operation: swap
+- group: Warm spare
+  summary: Update MX warm spare settings
+  resource: /networks/{networkId}/appliance/warmSpare
+  operation: update
+- group: Wired/actions/bgp
+  summary: Update a Hub BGP Configuration
+  resource: /networks/{networkId}/appliance/vpn/bgp
+  operation: settings/update
+- group: Wired/actions/enqueue route table
+  summary: Enqueue a routing table summary job for a device. The job fetches summary data such as route counts by VRF and protocol. Only Cisco Secure Routers are supported.
+  resource: /devices/{serial}/liveTools/routingTable/summaries
+  operation: summary
+- group: Wired/actions/network appliance settings
+  summary: Update the appliance settings for a network
+  resource: /networks/{networkId}/appliance/settings
+  operation: update
+- group: Wired/actions/org wide firewall/policy object group
+  summary: Updates a Policy Object Group.
+  resource: /organizations/{organizationId}/policyObjects/groups/{policyObjectGroupId}
+  operation: update
+- group: Wired/actions/single lan/single lan
+  summary: Update single LAN configuration
+  resource: /networks/{networkId}/appliance/singleLan
+  operation: update
+- group: Wired/actions/static delegated prefix
+  summary: Add a static delegated prefix from a network
+  resource: /networks/{networkId}/appliance/prefixes/delegated/statics
+  operation: create
+- group: Wired/actions/static delegated prefix
+  summary: Delete a static delegated prefix from a network
+  resource: /networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}
+  operation: destroy
+- group: Wired/actions/static delegated prefix
+  summary: Update a static delegated prefix from a network
+  resource: /networks/{networkId}/appliance/prefixes/delegated/statics/{staticDelegatedPrefixId}
+  operation: update
+- group: Wired/actions/uplink selection settings
+  summary: Update uplink selection settings for an MX network
+  resource: /networks/{networkId}/appliance/trafficShaping/uplinkSelection
+  operation: update
+- group: Wired/actions/vlan settings
+  summary: Enable/Disable VLANs for the given network
+  resource: /networks/{networkId}/appliance/vlans/settings
+  operation: update
+- group: Wired/actions/vlan/vlan
+  summary: Add a VLAN
+  resource: /networks/{networkId}/appliance/vlans
+  operation: create
+- group: Wired/actions/vlan/vlan
+  summary: Delete a VLAN from a network
+  resource: /networks/{networkId}/appliance/vlans/{vlanId}
+  operation: destroy
+- group: Wired/actions/vlan/vlan
+  summary: Update a VLAN
+  resource: /networks/{networkId}/appliance/vlans/{vlanId}
+  operation: update
+- group: Wired/actions/vpn exclusions
+  summary: Update VPN exclusion rules for an MX network.
+  resource: /networks/{networkId}/appliance/trafficShaping/vpnExclusions
+  operation: update
+- group: Wired/actions/vpn/ipsec sla policies
+  summary: Update the IPsec SLA policies for an organization
+  resource: /organizations/{organizationId}/appliance/vpn/siteToSite/ipsec/peers/slas
+  operation: update
+- group: Wired/actions/vpn/site to site vpn
+  summary: Update the site-to-site VPN settings of a network. Only valid for MX networks in NAT mode.
+  resource: /networks/{networkId}/appliance/vpn/siteToSiteVpn
+  operation: update
+- group: Wired/actions/vpn/third party vpn peers
+  summary: 'Update the third party VPN peers for an organization.
+
+
+    Subnet overlap warning: Unlike the Dashboard UI, updateOrganizationApplianceVpnThirdPartyVPNPeers does not run the org-wide subnet-overlap validation before saving changes. Requests with overlapping VPN subnets will succeed through the API, but the resulting configuration may be blocked from further edits in Dashboard until the overlaps are resolved manually. Use this endpoint only when you''ve already confirmed the advertised subnets are unique across the organization.
+
+    '
+  resource: /organizations/{organizationId}/appliance/vpn/thirdPartyVPNPeers
+  operation: update
+- group: Wired/actions/wan traffic uplink
+  summary: Update SDWAN internet traffic preferences for an MX network
+  resource: /networks/{networkId}/appliance/sdwan/internetPolicies
+  operation: update
+- group: Wired/actions/wired l7 firewall
+  summary: Update the MX L7 firewall rules for an MX network
+  resource: /networks/{networkId}/appliance/firewall/l7FirewallRules
+  operation: update
+- group: Wired/appliance RF profile
+  summary: Creates new RF profile for this network
+  resource: /networks/{networkId}/appliance/rfProfiles
+  operation: create
+- group: Wired/appliance RF profile
+  summary: Delete a RF Profile
+  resource: /networks/{networkId}/appliance/rfProfiles/{rfProfileId}
+  operation: destroy
+- group: Wired/appliance RF profile
+  summary: Updates specified RF profile for this network
+  resource: /networks/{networkId}/appliance/rfProfiles/{rfProfileId}
+  operation: update
+- group: Wired/appliance/actions/firewall/multicast forwarding
+  summary: Update static multicast forward rules for a network
+  resource: /networks/{networkId}/appliance/firewall/multicastForwarding
+  operation: update
+- group: Wired/cellular/api/actions/cellular gateway connectivity monitoring destination
+  summary: Update the connectivity testing destinations for an MG network
+  resource: /networks/{networkId}/cellularGateway/connectivityMonitoringDestinations
+  operation: update
+- group: Wired/cellular/api/actions/cellular gateway device lan
+  summary: Update the LAN Settings for a single MG.
+  resource: /devices/{serial}/cellularGateway/lan
+  operation: update
+- group: Wired/cellular/api/actions/cellular gateway dhcp setting
+  summary: Update common DHCP settings of MGs
+  resource: /networks/{networkId}/cellularGateway/dhcp
+  operation: update
+- group: Wired/cellular/api/actions/cellular gateway port forwarding rules
+  summary: Updates the port forwarding rules for a single MG.
+  resource: /devices/{serial}/cellularGateway/portForwardingRules
+  operation: update
+- group: Wired/cellular/api/actions/cellular gateway subnet pool
+  summary: Update the subnet pool and mask configuration for MGs in the network.
+  resource: /networks/{networkId}/cellularGateway/subnetPool
+  operation: update
+- group: Wired/cellular/api/actions/cellular gateway uplink setting
+  summary: Updates the uplink settings for your MG network.
+  resource: /networks/{networkId}/cellularGateway/uplink
+  operation: update
+- group: Wired/cellular/cellular band config/api/actions/cellular signal settings
+  summary: Update the cellular band masks for a device
+  resource: /devices/{serial}/cellular/uplinks/bands/masks/update
+  operation: update
+- group: Wired/cellular/cellular gps/api/actions/cellular location settings
+  summary: Update the enablement of the geolocation feature for a device
+  resource: /devices/{serial}/cellular/geolocations
+  operation: update
+- group: Wired/cellular/data management/api/actions/profile
+  summary: Add a cellular data management profile to this organization. Creates a cellular data management profile in this organization and returns the created profile, including its rules and actions.
+  resource: /organizations/{organizationId}/devices/cellular/data/profiles
+  operation: create
+- group: Wired/cellular/data management/api/actions/profile
+  summary: Delete a cellular data management profile from this organization. Removes the profile, including its associated rules and node assignments, and notifies affected devices of the resulting configuration change.
+  resource: /organizations/{organizationId}/devices/cellular/data/profiles/{profileId}
+  operation: destroy
+- group: Wired/cellular/data management/api/actions/profile
+  summary: Update a Cellular Data Management Profile. Note that changes made to this endpoint will overwrite existing settings for the profile so the entire profile, rules and actions should be sent when making an update.
+  resource: /organizations/{organizationId}/devices/cellular/data/profiles/{profileId}
+  operation: update
+- group: Wired/cellular/data management/api/actions/profile node association batch
+  summary: Assign devices to a Cellular Data Management Profile in batch. Creates up to 100 device-to-profile assignments and returns the created assignment IDs.
+  resource: /organizations/{organizationId}/devices/cellular/data/profiles/assignments
+  operation: create
+- group: Wired/cellular/data management/api/actions/profile node association bulk
+  summary: Unassign devices from a Cellular Data Management Profile in batch. Removes up to 100 device-to-profile assignments and returns no response body on success.
+  resource: /organizations/{organizationId}/devices/cellular/data/profiles/assignments
+  operation: destroy
+- group: Wired/cellular/esim/api/actions/cellular esim
+  summary: Toggle the status of an eSIM
+  resource: /organizations/{organizationId}/cellularGateway/esims/inventory/{id}
+  operation: update
+- group: Wired/cellular/esim/api/actions/cellular service provider account
+  summary: Add a service provider account.
+  resource: /organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts
+  operation: create
+- group: Wired/cellular/esim/api/actions/cellular service provider account
+  summary: Remove a service provider account's integration with the Dashboard.
+  resource: /organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}
+  operation: destroy
+- group: Wired/cellular/esim/api/actions/cellular service provider account
+  summary: Edit service provider account info stored in Meraki's database.
+  resource: /organizations/{organizationId}/cellularGateway/esims/serviceProviders/accounts/{accountId}
+  operation: update
+- group: Wired/cellular/esim/api/actions/initiate
+  summary: Swap which profile an eSIM uses.
+  resource: /organizations/{organizationId}/cellularGateway/esims/swap
+  operation: swap
+- group: Wired/cellular/esim/api/actions/sync swap
+  summary: Get the status of a profile swap.
+  resource: /organizations/{organizationId}/cellularGateway/esims/swap/{id}
+  operation: status
+- group: Wired/controller/high availability/swap/request
+  summary: Swap MX primary and warm spare appliances
+  resource: /networks/{networkId}/appliance/devices/redundancy/swap
+  operation: swap
+- group: Wired/live tools/actions/enqueue port
+  summary: Enqueue a job to retrieve port status for a device. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests.
+  resource: /devices/{serial}/liveTools/ports/status
+  operation: status
+- group: Wired/live tools/actions/enqueue power usage
+  summary: Enqueues a live tool job that retrieves details about a device's overall power usage. This endpoint has a sustained rate limit of one request every five seconds per device, with an allowed burst of five requests.
+  resource: /devices/{serial}/liveTools/power/usage
+  operation: job
+- group: Wired/live tools/actions/enqueue route table
+  summary: Enqueue a job to perform a routing table lookup request for a device. The routing table lookup request fetches a specific set of routes based on filters. Any combination of search filters can be applied. Only Cisco Secure Routers are supported.
+  resource: /devices/{serial}/liveTools/routingTable/lookups
+  operation: lookup
+- group: Wired/local dns/api/actions/bulk create
+  summary: Assign the local DNS profile to networks in the organization
+  resource: /organizations/{organizationId}/appliance/dns/local/profiles/assignments
+  operation: bulk_create
+- group: Wired/local dns/api/actions/bulk delete
+  summary: Unassign the local DNS profile to networks in the organization
+  resource: /organizations/{organizationId}/appliance/dns/local/profiles/assignments/bulkDelete
+  operation: bulk_delete
+- group: Wired/local dns/profiles/api/actions/local dns profile
+  summary: Create a new local DNS profile
+  resource: /organizations/{organizationId}/appliance/dns/local/profiles
+  operation: create
+- group: Wired/local dns/profiles/api/actions/local dns profile
+  summary: Deletes a local DNS profile
+  resource: /organizations/{organizationId}/appliance/dns/local/profiles/{profileId}
+  operation: destroy
+- group: Wired/local dns/profiles/api/actions/local dns profile
+  summary: Update a local DNS profile
+  resource: /organizations/{organizationId}/appliance/dns/local/profiles/{profileId}
+  operation: update
+- group: Wired/local dns/records/api/actions/local dns record
+  summary: Create a new local DNS record
+  resource: /organizations/{organizationId}/appliance/dns/local/records
+  operation: create
+- group: Wired/local dns/records/api/actions/local dns record
+  summary: Deletes a local DNS record
+  resource: /organizations/{organizationId}/appliance/dns/local/records/{recordId}
+  operation: destroy
+- group: Wired/local dns/records/api/actions/local dns record
+  summary: Updates a local DNS record
+  resource: /organizations/{organizationId}/appliance/dns/local/records/{recordId}
+  operation: update
+- group: Wired/organizations/actions/vrf settings
+  summary: Update the VRF setting for an organization.
+  resource: /organizations/{organizationId}/appliance/routing/vrfs/settings
+  operation: update
+- group: Wired/port/api/actions/wired port
+  summary: Update the per-port VLAN settings for a single secure router or security appliance port.
+  resource: /networks/{networkId}/appliance/ports/{portId}
+  operation: update
+- group: Wired/split dns/api/actions/bulk create
+  summary: Assign the split DNS profile to networks in the organization
+  resource: /organizations/{organizationId}/appliance/dns/split/profiles/assignments/bulkCreate
+  operation: bulk_create
+- group: Wired/split dns/api/actions/bulk delete
+  summary: Unassign the split DNS profile to networks in the organization
+  resource: /organizations/{organizationId}/appliance/dns/split/profiles/assignments/bulkDelete
+  operation: bulk_delete
+- group: Wired/split dns/api/actions/split dns profile
+  summary: Create a new split DNS profile
+  resource: /organizations/{organizationId}/appliance/dns/split/profiles
+  operation: create
+- group: Wired/split dns/api/actions/split dns profile
+  summary: Deletes a split DNS profile
+  resource: /organizations/{organizationId}/appliance/dns/split/profiles/{profileId}
+  operation: destroy
+- group: Wired/split dns/api/actions/split dns profile
+  summary: Update a split DNS profile
+  resource: /organizations/{organizationId}/appliance/dns/split/profiles/{profileId}
+  operation: update
+- group: Wired/uplink nat settings/api/actions/update uplink nat
+  summary: Update uplink NAT settings of the specified network
+  resource: /networks/{networkId}/appliance/uplinks/nat
+  operation: settings
+- group: Wired/uplinks/actions/settings
+  summary: Update the uplink settings for a secure router or security appliance
+  resource: /devices/{serial}/appliance/uplinks/settings
+  operation: update
+- group: Wired/xdr/api/actions/xdr
+  summary: Disable XDR on networks
+  resource: /organizations/{organizationId}/integrations/xdr/networks
+  operation: disable
+- group: Wired/xdr/api/actions/xdr
+  summary: Enable XDR on networks
+  resource: /organizations/{organizationId}/integrations/xdr/networks
+  operation: enable
+- group: Wireless alternate management interface
+  summary: Update alternate management interface and device static IP
+  resource: /networks/{networkId}/wireless/alternateManagementInterface
+  operation: update
+- group: Wireless l7 firewall
+  summary: Update the L7 firewall rules of an SSID on an MR network
+  resource: /networks/{networkId}/wireless/ssids/{number}/firewall/l7FirewallRules
+  operation: update
+- group: Wireless/location/scanning http servers/actions/location scanning http servers
+  summary: Add new receiver for scanning API
+  resource: /organizations/{organizationId}/wireless/location/scanning/receivers
+  operation: create
+- group: Wireless/location/scanning http servers/actions/location scanning http servers
+  summary: Delete a scanning API receiver
+  resource: /organizations/{organizationId}/wireless/location/scanning/receivers/{receiverId}
+  operation: delete
+- group: Wireless/location/scanning http servers/actions/location scanning http servers
+  summary: Change scanning API receiver settings
+  resource: /organizations/{organizationId}/wireless/location/scanning/receivers/{receiverId}
+  operation: update
+- group: Wireless/location/scanning/actions/location scanning
+  summary: Change scanning API settings
+  resource: /networks/{networkId}/wireless/location/scanning
+  operation: update
+- group: Wireless/mqtt/settings/actions/mqtt settings
+  summary: Add new broker config for wireless MQTT
+  resource: /organizations/{organizationId}/wireless/mqtt/settings
+  operation: update

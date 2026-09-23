@@ -1,15 +1,8 @@
-openapi: 3.2.0
+openapi: 3.0.0
 info:
-  title: Meraki Integrated API for Secure Connect Deployments API
-  description: 'The Cisco Meraki Integrated API for Secure Connect is a modern REST API based on the OpenAPI specification.
-
-    ---
-
-
-    API Documentation
-
-
-    Meraki Homepage'
+  title: Meraki Integrated API for Secure Connect — Deployments
+  description: "The Cisco Meraki Integrated API for Secure Connect is a modern REST API based on the OpenAPI specification.\n\
+    \  ---\n\n  [API Documentation](https://meraki.io/api)\n\n  [Meraki Homepage](https://www.meraki.com)\n"
   version: 1.8.0
   contact:
     name: Meraki Developer Community
@@ -22,6 +15,8 @@ info:
     first_party: true
     note: Published by Cisco. Retrieved unmodified except for this x-provenance block.
     provider_published: true
+    derived_view: Per-first-tag view of the source document, tag 'Deployments'. Operations and schemas are the provider's,
+      unmodified.
   x-evidence:
   - type: source
     url: https://github.com/meraki/secure-connect-openapi/blob/main/secure_connect_oas_beta.json
@@ -49,6 +44,8 @@ paths:
         The data center information includes the IP address and location details.'
       tags:
       - Deployments
+      - Data Center
+      - Umbrella
       responses:
         '200':
           description: OK
@@ -305,6 +302,8 @@ paths:
     post:
       tags:
       - Deployments
+      - Network Devices
+      - Umbrella
       summary: Create Network Device
       description: Create a network device.
       operationId: createNetworkDevice
@@ -342,7 +341,8 @@ paths:
                   example: label1
                   maxLength: 50
                   minLength: 1
-                  description: 'The name of the device. The name is a sequence of characters with a length from 1 through 50.
+                  description: 'The name of the device. The name is a sequence of characters with a length from 1 through
+                    50.
 
                     The name must be unique in your organization.'
                 serialNumber:
@@ -352,7 +352,8 @@ paths:
                   description: The serial number of the device.
                 tag:
                   type: string
-                  description: A text tag that describes the device or this origin, which is assigned to the device. Provide a tag that is unique to your organization.
+                  description: A text tag that describes the device or this origin, which is assigned to the device. Provide
+                    a tag that is unique to your organization.
                   maxLength: 50
             example:
               model: The model name of the device.
@@ -401,7 +402,8 @@ paths:
                     example: 0123456789abcdef
                     maxLength: 16
                     minLength: 15
-                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS
+                      packets.
                   deviceKey:
                     type: string
                     example: ModelName-0123456789ab
@@ -540,6 +542,8 @@ paths:
     get:
       tags:
       - Deployments
+      - Network Devices
+      - Umbrella
       summary: List Network Devices
       description: List the network devices.
       operationId: getAllNetworkDevices
@@ -590,7 +594,8 @@ paths:
                       example: 0123456789abcdef
                       maxLength: 16
                       minLength: 15
-                      description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                      description: The unique identifier for the specific network device. Insert the identifier into the EDNS
+                        packets.
                     deviceKey:
                       type: string
                       example: ModelName-0123456789ab
@@ -730,6 +735,8 @@ paths:
     patch:
       tags:
       - Deployments
+      - Network Devices
+      - Umbrella
       summary: Update Network Device
       description: Update a network device.
       operationId: updateNetworkDevice
@@ -764,7 +771,8 @@ paths:
                   example: label1
                   maxLength: 50
                   minLength: 1
-                  description: 'The name of the device. The name is a sequence of characters with a length from 1 through 50.
+                  description: 'The name of the device. The name is a sequence of characters with a length from 1 through
+                    50.
 
                     The name must be unique in your organization.'
               example:
@@ -815,7 +823,8 @@ paths:
                     example: 0123456789abcdef
                     maxLength: 16
                     minLength: 15
-                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS
+                      packets.
                   deviceKey:
                     type: string
                     example: ModelName-0123456789ab
@@ -947,6 +956,8 @@ paths:
     get:
       tags:
       - Deployments
+      - Network Devices
+      - Umbrella
       summary: Get Network Device
       description: Get a network device.
       operationId: getNetworkDevice
@@ -1009,7 +1020,8 @@ paths:
                     example: 0123456789abcdef
                     maxLength: 16
                     minLength: 15
-                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS packets.
+                    description: The unique identifier for the specific network device. Insert the identifier into the EDNS
+                      packets.
                   deviceKey:
                     type: string
                     example: ModelName-0123456789ab
@@ -1141,6 +1153,8 @@ paths:
     delete:
       tags:
       - Deployments
+      - Network Devices
+      - Umbrella
       summary: Delete Network Device
       description: Remove a network device.
       operationId: deleteNetworkDevice
@@ -1276,6 +1290,8 @@ paths:
     get:
       tags:
       - Deployments
+      - Network Devices
+      - Umbrella
       summary: List Policies for Network Device
       description: 'List the Umbrella policies associated with a network device.
 
@@ -1470,6 +1486,281 @@ paths:
                 properties:
                   Error:
                     type: string
+  /organizations/{organizationId}/policies:
+    get:
+      tags:
+      - Deployments
+      - Policy
+      - Umbrella
+      summary: List Policies
+      description: 'List the Umbrella policies. You can filter by policy type.
+
+        If you do not specify a policy type, Umbrella returns the DNS policies.'
+      operationId: listPolicies
+      security:
+      - meraki_api_key: []
+      parameters:
+      - name: organizationId
+        in: path
+        description: Organization ID associated with this resource.
+        required: true
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: The number of a page in the collection.
+        required: false
+        schema:
+          default: 1
+          type: integer
+          format: int32
+          minimum: 1
+      - name: limit
+        in: query
+        description: The number of records in the collection to return on the page.
+        required: false
+        schema:
+          default: 100
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+      - name: type
+        in: query
+        description: The type of the policy (`dns` or `web`).
+        required: false
+        schema:
+          default: dns
+          enum:
+          - dns
+          - web
+          type: string
+        example: dns
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  minProperties: 6
+                  required:
+                  - policyId
+                  - organizationId
+                  - name
+                  - priority
+                  - createdAt
+                  - isDefault
+                  properties:
+                    policyId:
+                      type: integer
+                      description: The unique policy ID.
+                      minimum: 1
+                    organizationId:
+                      type: integer
+                      example: 1234
+                      minimum: 1
+                    name:
+                      type: string
+                      description: The label for the policy.
+                      example: ApiDemoPolicy
+                      minLength: 1
+                    priority:
+                      type: integer
+                      description: The priority of the policy.
+                      minimum: 0
+                    createdAt:
+                      type: string
+                      format: date-time
+                      example: '2017-09-22T04:18:51.000Z'
+                      description: The time and date (ISO 8601-formatted timestamp) when the policy was created.
+                    isDefault:
+                      type: boolean
+                      example: true
+                      description: Specified whether the policy is the default.
+              example:
+              - policyId: 1
+                organizationId: 1234
+                name: ApiDemoPolicy
+                priority: 1
+                createdAt: '2017-09-22T04:18:51.000Z'
+                isDefault: false
+        '400':
+          description: Bad Request
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Bad Request
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 400
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Validation Error
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+                  validationErrors:
+                    type: object
+                    properties:
+                      someProperty:
+                        type: string
+                        example: must not be empty
+                        description: the name of the property failing validation.
+        '401':
+          description: Unauthorized
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Unauthorized
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 401
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Unauthorized
+                    description: The authorization header is missing or the token is unauthorized
+                  message:
+                    type: string
+                    description: Detailed error message
+        '403':
+          description: Forbidden
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Forbidden
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 403
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Forbidden, Invalid authentication credentials
+                    description: a brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '404':
+          description: Not found
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Not Found
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Not Found
+                    description: A brief description of the error
+                  message:
+                    type: string
+                    description: Detailed error message
+        '500':
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: The MIME content type of the response body.
+              example: application/json
+            Date:
+              schema:
+                type: string
+                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
+              description: The timestamp of the response.
+              example: '2023-03-14T18:34:25Z'
+          content:
+            application/json:
+              schema:
+                description: Internal Server Error
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 500
+                    description: HTTP status code
+                  error:
+                    type: string
+                    example: Internal Server Error
+                    description: The server has an internal error and could not process the request.
+                  message:
+                    type: string
+                    description: Detailed error message
   /organizations/{organizationId}/tunnels:
     get:
       summary: List Tunnels
@@ -1479,6 +1770,8 @@ paths:
       - meraki_api_key: []
       tags:
       - Deployments
+      - Organization Tunnel
+      - Umbrella
       parameters:
       - name: organizationId
         in: path
@@ -1501,9 +1794,11 @@ paths:
           type: integer
       - in: query
         name: startKey
-        description: 'Specify where to start reading in the tunnel collection (`startKey` correlates to the first tunnel to return).
+        description: 'Specify where to start reading in the tunnel collection (`startKey` correlates to the first tunnel to
+          return).
 
-          If the `startKey` query parameter is not included in the API request, Umbrella reads the collection from the first available tunnel.
+          If the `startKey` query parameter is not included in the API request, Umbrella reads the collection from the first
+          available tunnel.
 
           When the API request includes the `limit` query parameter and you have more tunnels to read,
 
@@ -1513,7 +1808,9 @@ paths:
           type: string
       - in: query
         name: filters
-        description: "Filters the tunnel list by tunnel name, device type, service type, status, data center, or site origin ID.\nFor example:\n```\n{\n  \"name\": \"test\",\n  \"deviceType\": \"ISR\",\n  \"serviceType\": \"SIG\",\n  \"status\": \"UP\",\n  \"dataCenter\": \"pao1.edc\",\n  \"siteOriginId\": 123\n}\n```"
+        description: "Filters the tunnel list by tunnel name, device type, service type, status, data center, or site origin\
+          \ ID.\nFor example:\n```\n{\n  \"name\": \"test\",\n  \"deviceType\": \"ISR\",\n  \"serviceType\": \"SIG\",\n  \"\
+          status\": \"UP\",\n  \"dataCenter\": \"pao1.edc\",\n  \"siteOriginId\": 123\n}\n```"
         required: false
         schema:
           type: string
@@ -1568,7 +1865,8 @@ paths:
                   type: object
                   description: 'Get the information about the tunnel in the organization.
 
-                    To include the tunnel state information in the response, set the `includeState` request query parameter to `true`.'
+                    To include the tunnel state information in the response, set the `includeState` request query parameter
+                    to `true`.'
                   properties:
                     id:
                       type: integer
@@ -1582,7 +1880,8 @@ paths:
                       example: /organization/2345432/tunnels/1122321
                     name:
                       type: string
-                      description: 'The display name of the tunnel. The tunnel name is required, cannot exceed 50 characters in length,
+                      description: 'The display name of the tunnel. The tunnel name is required, cannot exceed 50 characters
+                        in length,
 
                         and cannot have any special characters other than spaces and hyphens.'
                       example: Site01Tunnel
@@ -1620,13 +1919,15 @@ paths:
                               properties:
                                 id:
                                   type: string
-                                  description: The PSK ID. If an IP address is used as the ID, the IP address is the value of this field.
+                                  description: The PSK ID. If an IP address is used as the ID, the IP address is the value
+                                    of this field.
                                   readOnly: true
                                   example: admin@2561066-237952254-umbrella.com
                                 modifiedAt:
                                   type: string
                                   format: date-time
-                                  description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming computer.
+                                  description: 'The date and time (timestamp) that Umbrella updated the tag on the roaming
+                                    computer.
 
                                     The timestamp is an ISO 8601 formatted string. For example: `2023-04-12T23:20:50.52Z`.'
                                   example: '2022-04-12T23:20:50.52Z'
@@ -1719,7 +2020,8 @@ paths:
                             ikeState:
                               type: string
                               readOnly: true
-                              description: "IKE SA State:\n  * CREATED\n  * CONNECTING\n  * ESTABLISHED\n  * PASSIVE\n  * REKEYING\n  * REKEYED\n  * DELETING\n  * DESTROYING\n"
+                              description: "IKE SA State:\n  * CREATED\n  * CONNECTING\n  * ESTABLISHED\n  * PASSIVE\n  *\
+                                \ REKEYING\n  * REKEYED\n  * DELETING\n  * DESTROYING\n"
                               enum:
                               - CREATED
                               - CONNECTING
@@ -1733,7 +2035,8 @@ paths:
                             ipsecState:
                               type: string
                               readOnly: true
-                              description: "IPSec/Child SA State:\n  * CREATED\n  * ROUTED\n  * INSTALLING\n  * INSTALLED\n  * UPDATING\n  * REKEYING\n  * REKEYED\n  * RETRYING\n  * DELETING\n  * DELETED\n  * DESTROYING\n"
+                              description: "IPSec/Child SA State:\n  * CREATED\n  * ROUTED\n  * INSTALLING\n  * INSTALLED\n\
+                                \  * UPDATING\n  * REKEYING\n  * REKEYED\n  * RETRYING\n  * DELETING\n  * DELETED\n  * DESTROYING\n"
                               enum:
                               - CREATED
                               - ROUTED
@@ -1886,7 +2189,8 @@ paths:
                               type: string
                               readOnly: true
                               format: date-time
-                              description: The date and time (UTC time with milliseconds) when the tunnel's state was last updated.
+                              description: The date and time (UTC time with milliseconds) when the tunnel's state was last
+                                updated.
                               example: '2018-06-13T16:07:07.222Z'
                     createdAt:
                       type: string
@@ -2102,6 +2406,8 @@ paths:
       - meraki_api_key: []
       tags:
       - Deployments
+      - Organization Tunnel
+      - Umbrella
       requestBody:
         description: The tunnel to create.
         required: true
@@ -2177,7 +2483,8 @@ paths:
                       properties:
                         idPrefix:
                           type: string
-                          description: 'A human-readable ID for the tunnel, used to generate the ID portion of the Pre-Shared Key.
+                          description: 'A human-readable ID for the tunnel, used to generate the ID portion of the Pre-Shared
+                            Key.
 
                             If omitted, the ID is generated and provided in response. Tunnels with a device type of ASA
 
@@ -2245,7 +2552,8 @@ paths:
                     example: /tunnels/1122321
                   name:
                     type: string
-                    description: 'Display the name of the tunnel. The tunnel name is required, cannot exceed 50 characters in length,
+                    description: 'Display the name of the tunnel. The tunnel name is required, cannot exceed 50 characters
+                      in length,
 
                       and can''t have any special characters other than spaces and hyphens.'
                     example: Site01Tunnel
@@ -2283,7 +2591,8 @@ paths:
                             properties:
                               id:
                                 type: string
-                                description: The PSK ID. If an IP address is used as the ID, the IP address is the value of this field.
+                                description: The PSK ID. If an IP address is used as the ID, the IP address is the value of
+                                  this field.
                                 readOnly: true
                                 example: admin@2561066-237952254-umbrella.com
                               modifiedAt:
@@ -2296,7 +2605,8 @@ paths:
                               secret:
                                 type: string
                                 example: 123Secret
-                                description: The secret of the PSK credentials. Ensure that you save the secret. The secret is not provided at any other time.
+                                description: The secret of the PSK credentials. Ensure that you save the secret. The secret
+                                  is not provided at any other time.
                   transport:
                     type: object
                     properties:
@@ -2596,6 +2906,8 @@ paths:
           type: integer
       tags:
       - Deployments
+      - Organization Tunnel
+      - Umbrella
       responses:
         '200':
           description: OK
@@ -2629,7 +2941,8 @@ paths:
                     example: /tunnels/1122321
                   name:
                     type: string
-                    description: 'The display name of the tunnel. The tunnel name is required, cannot exceed 50 characters in length,
+                    description: 'The display name of the tunnel. The tunnel name is required, cannot exceed 50 characters
+                      in length,
 
                       and can''t have any special characters other than spaces and hyphens.'
                     example: Site01Tunnel
@@ -2667,7 +2980,8 @@ paths:
                             properties:
                               id:
                                 type: string
-                                description: The PSK ID. If an IP address is used as the ID, the IP address is the value of this field.
+                                description: The PSK ID. If an IP address is used as the ID, the IP address is the value of
+                                  this field.
                                 readOnly: true
                                 example: admin@2561066-237952254-umbrella.com
                               modifiedAt:
@@ -2953,6 +3267,8 @@ paths:
       - meraki_api_key: []
       tags:
       - Deployments
+      - Organization Tunnel
+      - Umbrella
       parameters:
       - name: organizationId
         in: path
@@ -3280,6 +3596,8 @@ paths:
         required: false
       tags:
       - Deployments
+      - Organization Tunnel
+      - Umbrella
       responses:
         '200':
           description: OK
@@ -3534,286 +3852,3 @@ paths:
                     type: string
                     example: 86e189a6-0124-47d3-a32c-25ff3f07deaf
                     description: a unique hex number that can be used for debugging
-  /organizations/{organizationId}/policies:
-    get:
-      tags:
-      - Deployments
-      summary: List Policies
-      description: 'List the Umbrella policies. You can filter by policy type.
-
-        If you do not specify a policy type, Umbrella returns the DNS policies.'
-      operationId: listPolicies
-      security:
-      - meraki_api_key: []
-      parameters:
-      - name: organizationId
-        in: path
-        description: Organization ID associated with this resource.
-        required: true
-        schema:
-          type: integer
-      - name: page
-        in: query
-        description: The number of a page in the collection.
-        required: false
-        schema:
-          default: 1
-          type: integer
-          format: int32
-          minimum: 1
-      - name: limit
-        in: query
-        description: The number of records in the collection to return on the page.
-        required: false
-        schema:
-          default: 100
-          type: integer
-          format: int32
-          minimum: 1
-          maximum: 100
-      - name: type
-        in: query
-        description: The type of the policy (`dns` or `web`).
-        required: false
-        schema:
-          default: dns
-          enum:
-          - dns
-          - web
-          type: string
-        example: dns
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: The MIME content type of the response body.
-              example: application/json
-            Date:
-              schema:
-                type: string
-                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
-              description: The timestamp of the response.
-              example: '2023-03-14T18:34:25Z'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  minProperties: 6
-                  required:
-                  - policyId
-                  - organizationId
-                  - name
-                  - priority
-                  - createdAt
-                  - isDefault
-                  properties:
-                    policyId:
-                      type: integer
-                      description: The unique policy ID.
-                      minimum: 1
-                    organizationId:
-                      type: integer
-                      example: 1234
-                      minimum: 1
-                    name:
-                      type: string
-                      description: The label for the policy.
-                      example: ApiDemoPolicy
-                      minLength: 1
-                    priority:
-                      type: integer
-                      description: The priority of the policy.
-                      minimum: 0
-                    createdAt:
-                      type: string
-                      format: date-time
-                      example: '2017-09-22T04:18:51.000Z'
-                      description: The time and date (ISO 8601-formatted timestamp) when the policy was created.
-                    isDefault:
-                      type: boolean
-                      example: true
-                      description: Specified whether the policy is the default.
-              example:
-              - policyId: 1
-                organizationId: 1234
-                name: ApiDemoPolicy
-                priority: 1
-                createdAt: '2017-09-22T04:18:51.000Z'
-                isDefault: false
-        '400':
-          description: Bad Request
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: The MIME content type of the response body.
-              example: application/json
-            Date:
-              schema:
-                type: string
-                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
-              description: The timestamp of the response.
-              example: '2023-03-14T18:34:25Z'
-          content:
-            application/json:
-              schema:
-                description: Bad Request
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 400
-                    description: HTTP status code
-                  error:
-                    type: string
-                    example: Validation Error
-                    description: A brief description of the error
-                  message:
-                    type: string
-                    description: Detailed error message
-                  validationErrors:
-                    type: object
-                    properties:
-                      someProperty:
-                        type: string
-                        example: must not be empty
-                        description: the name of the property failing validation.
-        '401':
-          description: Unauthorized
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: The MIME content type of the response body.
-              example: application/json
-            Date:
-              schema:
-                type: string
-                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
-              description: The timestamp of the response.
-              example: '2023-03-14T18:34:25Z'
-          content:
-            application/json:
-              schema:
-                description: Unauthorized
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 401
-                    description: HTTP status code
-                  error:
-                    type: string
-                    example: Unauthorized
-                    description: The authorization header is missing or the token is unauthorized
-                  message:
-                    type: string
-                    description: Detailed error message
-        '403':
-          description: Forbidden
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: The MIME content type of the response body.
-              example: application/json
-            Date:
-              schema:
-                type: string
-                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
-              description: The timestamp of the response.
-              example: '2023-03-14T18:34:25Z'
-          content:
-            application/json:
-              schema:
-                description: Forbidden
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 403
-                    description: HTTP status code
-                  error:
-                    type: string
-                    example: Forbidden, Invalid authentication credentials
-                    description: a brief description of the error
-                  message:
-                    type: string
-                    description: Detailed error message
-        '404':
-          description: Not found
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: The MIME content type of the response body.
-              example: application/json
-            Date:
-              schema:
-                type: string
-                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
-              description: The timestamp of the response.
-              example: '2023-03-14T18:34:25Z'
-          content:
-            application/json:
-              schema:
-                description: Not Found
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 404
-                    description: HTTP status code
-                  error:
-                    type: string
-                    example: Not Found
-                    description: A brief description of the error
-                  message:
-                    type: string
-                    description: Detailed error message
-        '500':
-          description: Internal Server Error
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: The MIME content type of the response body.
-              example: application/json
-            Date:
-              schema:
-                type: string
-                pattern: ^[0-90-90-90-9-0-90-9-0-90-9T0-90-9:0-90-9:0-90-9Z]+$
-              description: The timestamp of the response.
-              example: '2023-03-14T18:34:25Z'
-          content:
-            application/json:
-              schema:
-                description: Internal Server Error
-                type: object
-                properties:
-                  statusCode:
-                    type: integer
-                    example: 500
-                    description: HTTP status code
-                  error:
-                    type: string
-                    example: Internal Server Error
-                    description: The server has an internal error and could not process the request.
-                  message:
-                    type: string
-                    description: Detailed error message
-components:
-  securitySchemes:
-    meraki_api_key:
-      type: apiKey
-      name: X-Cisco-Meraki-API-Key
-      in: header
-    bearerAuth:
-      type: apiKey
-      name: Authorization
-      in: header
