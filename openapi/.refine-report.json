@@ -33,7 +33,7 @@
     "4 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "cisco-meraki-dashboard-api-openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
-    "cisco-meraki-dashboard-api-openapi.json: multi-axis tagging (418 tags, 16 first tags, 4.10x duplication over 992 operations) \u2014 split on first tag, 992 operations narrowed",
+    "cisco-meraki-dashboard-api-openapi.json: multi-axis tagging (416 tags, 16 first tags, 4.10x duplication over 992 operations) \u2014 split on first tag, 992 operations narrowed",
     "cisco-meraki-secure-connect-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "cisco-meraki-secure-connect-openapi.json: multi-axis tagging (17 tags, 4 first tags, 2.94x duplication over 31 operations) \u2014 split on first tag, 30 operations narrowed",
     "apis.yml register: already-registered"

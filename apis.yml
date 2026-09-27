@@ -311,9 +311,11 @@ apis:
   humanURL: https://developer.cisco.com/meraki/webhooks/
   baseURL: https://developer.cisco.com/meraki/webhooks/
   tags:
+  - Spaces
   - Space
   tags_raw:
   - spaces
+  - Space
   properties:
   - type: OpenAPI
     url: openapi/cisco-meraki-spaces-api-openapi.yml
