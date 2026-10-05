@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json",
+ "requested_url": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec2.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 7637092,
+ "sha256": "bbdb2c81d5bf41cbfa8c3796b89a127076529fd3399cd21945e7c206c6036ec7",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.994), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
