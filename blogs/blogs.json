@@ -2,18 +2,15 @@
   "repo": "cisco-meraki",
   "feeds": [
     {
-      "source": "https://community.meraki.com",
-      "feed_url": "https://community.meraki.com",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "source": "https://meraki.cisco.com/blog/feed/",
+      "error": "HTTPError"
     },
     {
-      "source": "https://meraki.cisco.com/blog/feed/",
-      "feed_url": "https://meraki.cisco.com/blog/feed/",
+      "source": "https://community.meraki.com",
+      "feed_url": "https://community.cisco.com/kxiwq67737/rss/Category?category.id=meraki-home&interaction.style=forum",
       "title": "",
       "saved": 0,
-      "method": "feed"
+      "method": "discovered"
     },
     {
       "source": "https://community.cisco.com/kxiwq67737/rss/Category?category.id=meraki-home&interaction.style=forum",
@@ -23,7 +20,7 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 10,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
