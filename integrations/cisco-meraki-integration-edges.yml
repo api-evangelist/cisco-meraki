@@ -30,10 +30,2343 @@ edges:
     builder: unknown (community connector; contributor not in the record)
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Splash Access
+  app: Splash Access IPSK / WPN Education Campus
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381795
+  category: Wireless Private Networks
+  partner_domain: splashaccess.co.uk
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cisco
+  app: ServiceNow for Meraki
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381243
+  category: Automation & Orchestration
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: LogicMonitor
+  app: LogicMonitor | LM Envision
+  partner: logicmonitor
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/420402
+  category: AIOps, Monitoring & Performance
+  partner_domain: logicmonitor.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Auvik
+  app: Auvik Network Management
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380676
+  category: Documentation & Reporting, IT & Productivity Tools, IT Asset Management
+  partner_domain: auvik.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Red Hat
+  app: Red Hat Ansible Automation Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/422515
+  category: AIOps, Automation & Orchestration
+  partner_domain: redhat.com
+  partner_candidate: red-hat
+  out_of_market: true
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cloud4Wi
+  app: Cloud4Wi | Guest WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381225
+  category: Client Analytics, Customer Demographics, Guest Wi-Fi
+  partner_domain: cloud4wi.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: EVERYANGLE
+  app: EVERYANGLE - Vision AI Powered Retail Intelligence
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/418010
+  category: Computer Vision AI, Footfall Analytics
+  partner_domain: everyangle.ai
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Meraki Configuration Backup & Restore by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/456330
+  category: Assurance & Risk Management, Backup & Recovery
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: ScienceLogic
+  app: ScienceLogic SL1
+  partner: sciencelogic
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/409889
+  category: Monitoring & Performance
+  partner_domain: sciencelogic.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Splash Access
+  app: Splash Access IPSK / WPN MDU Solution
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381285
+  category: Wireless Private Networks
+  partner_domain: splashaccess.co.uk
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VAPP Srl
+  app: Vision+
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380763
+  category: Computer Vision AI, Footfall Analytics, Video Analytics
+  partner_domain: v-app.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: DevNetApps.io
+  app: DNA Nucleus Automation
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381366
+  category: Automation & Orchestration
+  partner_domain: devnetapps.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Splunk
+  app: Splunk Add-on for Cisco Meraki
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/430671
+  category: SD-WAN Performance
+  partner_domain: splunk.com
+  publisher_estate_repo: splunk
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: PagerDuty
+  app: PagerDuty Platform for Action
+  partner: pagerduty
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380727
+  category: Automation & Orchestration
+  partner_domain: pagerduty.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Tufin
+  app: Tufin Orchestration Suite
+  partner: tufin
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/426593
+  category: AIOps, Automation & Orchestration
+  partner_domain: tufin.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: meldCX
+  app: meldCX Custom Computer Vision
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381777
+  category: Computer Vision AI, Video Analytics
+  partner_domain: meldcx.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cloud4Wi
+  app: Cloud4Wi | MDU WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/427463
+  category: Wireless Private Networks
+  partner_domain: cloud4wi.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: NetOp AI
+  app: 'NetOp AI for Meraki: AI-Native Network Observability & Operational Intelligence Platform'
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/391155
+  category: Agentic AI, Monitoring & Performance
+  partner_domain: netop.cloud
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cisco
+  app: Cisco Agentic Workflows
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/835678
+  category: Agentic AI, Automation & Orchestration
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Catalyst to Meraki Migration for LDOS by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/706478
+  category: Automation & Orchestration
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: ORDR
+  app: ORDR AI Protect
+  partner: ordr
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381939
+  category: AIOps, IT Asset Management, IoT Security
+  partner_domain: ordr.net
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Highlight Service Observability Platform
+  app: Monitoring and Observability for SD-WAN/Firewalls
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381711
+  category: AIOps, Monitoring & Performance, Observability
+  partner_domain: highlight.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Genea
+  app: Genea Security
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380715
+  category: Access Control
+  partner_domain: getgenea.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Envoy, Inc.
+  app: Envoy Visitors
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380907
+  category: Guest Wi-Fi
+  partner_domain: envoy.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cisco
+  app: Terraform for Meraki
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/436028
+  category: Automation & Orchestration
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Synetal Solutions Pvt Ltd
+  app: Orcamonitor
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/872578
+  category: AIOps, Agentic AI, Automation & Orchestration
+  partner_domain: synetalsolutions.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Netgraph
+  app: Netgraph EntryPoint - Radius-as-a-Service
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/790138
+  category: BYOD Onboarding & Security
+  partner_domain: netgraph-connect.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Highlight Service Observability Platform
+  app: Monitoring and Observability for Digital Experience and APM
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/456746
+  category: AIOps, Documentation & Reporting, IT & Productivity Tools
+  partner_domain: highlight.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: EZO
+  app: AssetSonar
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/422518
+  category: Building Management
+  partner_domain: ezo.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: JOTO Tech (SH) Co., Ltd.
+  app: Avaca Meraki Copilot
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/566439
+  category: AIOps, IT & Productivity Tools
+  partner_domain: jototech.cn
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Techflipp
+  app: Kaptifi MSP
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381735
+  category: Monitoring & Performance
+  partner_domain: techflipp.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Paessler AG
+  app: PRTG Network Monitor
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/407276
+  category: Monitoring & Performance
+  partner_domain: paessler.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Paessler AG
+  app: PRTG Enterprise Monitor
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/407374
+  category: Monitoring & Performance
+  partner_domain: paessler.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Basking Automation
+  app: Basking Automation
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380622
+  category: AIOps, Smart Workspace
+  partner_domain: basking.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Wipro Limited
+  app: Wipro Multi Domain Orchestrator
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/468387
+  category: Cisco App Marketplace app
+  partner_domain: wipro.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Nexivity
+  app: Backup Meraki
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/426592
+  category: Assurance & Risk Management, Backup & Recovery
+  partner_domain: nexivity.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: meldCX
+  app: Viana™ License Plate Recognition
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381438
+  category: Automatic License Plate Reader, Computer Vision AI
+  partner_domain: meldcx.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: QoS Networking, Inc.
+  app: bitB Network State Intelligence
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/806592
+  category: Automation & Orchestration, Documentation & Reporting, ITSM & ITOM
+  partner_domain: qosnetworking.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: BlueCat Networks
+  app: BlueCat Micetro
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/475544
+  category: Automation & Orchestration
+  partner_domain: bluecatnetworks.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Infoblox
+  app: Universal Asset Insights
+  partner: infoblox
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/742469
+  category: IT Asset Management
+  partner_domain: infoblox.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Augmentir
+  app: Augmentir Connected Worker
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/410951
+  category: Environmental Monitoring
+  partner_domain: augmentir.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Ariadne
+  app: StoreBit
+  partner: ariadnemaps
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/783498
+  category: Footfall Analytics, Physical Asset Tracking
+  partner_domain: ariadne.inc
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: BackBox
+  app: BackBox Cyber Resilience Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/537008
+  category: Automation & Orchestration, Backup & Recovery, Observability
+  partner_domain: backbox.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Vaidio
+  app: Vaidio AI Vision Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/539076
+  category: Computer Vision AI, Loss Prevention, Physical Security
+  partner_domain: ironyun.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: EKAHAU
+  app: Ekahau AI Pro
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/404912
+  category: Wireless Assurance
+  partner_domain: ekahau.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Syook
+  app: Syook Connected Asset
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448652
+  category: Physical Asset Tracking
+  partner_domain: syook.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: CleverFi
+  app: WhatsApp QR - iPSK for Guests
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/675770
+  category: BYOD Onboarding & Security, Guest Wi-Fi, Wireless Private Networks
+  partner_domain: cleverfi.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: AIRQUAY
+  app: AirQuay Smart Workplace
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/411930
+  category: Smart Workspace
+  partner_domain: airquay.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Highlight Service Observability Platform
+  app: Monitoring and Observability for Meraki Cameras and Sensors
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/661716
+  category: Building Management, Computer Vision AI, Documentation & Reporting
+  partner_domain: highlight.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: SolarWinds
+  app: SolarWinds NPM
+  partner: solarwinds
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380766
+  category: Monitoring & Performance
+  partner_domain: solarwinds.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: domotz
+  app: Domotz
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381768
+  category: Monitoring & Performance
+  partner_domain: domotz.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Hamina
+  app: Hamina Live (for Meraki and Cisco Catalyst Center)
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/445762
+  category: Wireless Assurance
+  partner_domain: hamina.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: AIRQUAY
+  app: AirQuay Easy Dashboard
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/408261
+  category: Monitoring & Performance
+  partner_domain: airquay.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Eccom Network System Co., Ltd
+  app: Neteagle for Managed Service Edition
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/430009
+  category: Monitoring & Performance
+  partner_domain: eccom.com.cn
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: meldCX
+  app: Viana™ Kitchen Operations
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/781305
+  category: Computer Vision AI
+  partner_domain: meldcx.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: ElastiFlow
+  app: ElastiFlow
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/539073
+  category: AIOps, Monitoring & Performance
+  partner_domain: elastiflow.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: NetBrain
+  app: NetBrain
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/416499
+  category: Automation & Orchestration
+  partner_domain: netbraintech.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: BlockAPT
+  app: BlockAPT Unify
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/458833
+  category: Monitoring & Performance, Threat Management
+  partner_domain: blockapt.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Wavespot
+  app: Unified Wi-Fi & MV Smart Camera Intelligence Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/794496
+  category: Computer Vision AI, Location Analytics
+  partner_domain: wavespot.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Progress Software Corporation
+  app: WhatsUp Gold
+  partner: progress-software
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/772728
+  category: Documentation & Reporting, IT & Productivity Tools, Monitoring & Performance
+  partner_domain: progress.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: SocialSign.in
+  app: SocialSign.in Wi-Fi Marketing Services
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/853946
+  category: Guest Wi-Fi, Location Analytics, Omnichannel Marketing
+  partner_domain: socialsign.in
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Megaport
+  app: Megaport for Meraki SD-WAN Cloud Interconnect
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/806593
+  category: Automation & Orchestration, SD-WAN Performance
+  partner_domain: megaport.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Onnen Solutions
+  app: OnBackup - Meraki Backup
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/851506
+  category: Backup & Recovery, IT & Productivity Tools
+  partner_domain: onnen.co.uk
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: EKAHAU
+  app: Ekahau Meraki Dashboard Zero-Touch Provisioning
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/409790
+  category: Wireless Assurance
+  partner_domain: ekahau.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Pollux Connect, Simplify, Accelerate
+  app: Pollux
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/535057
+  category: Monitoring & Performance
+  partner_domain: veducon.nl
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Arara
+  app: Arara Wifi Analytics
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/570627
+  category: Customer Demographics, Guest Wi-Fi, Omnichannel Marketing
+  partner_domain: arara.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Hamina Wireless
+  app: Hamina Network Planner
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/410018
+  category: Wireless Assurance
+  partner_domain: hamina.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: NetOp AI
+  app: 'NetOp AI: Real-Time Network Assessment Reports'
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/747865
+  category: AIOps, Agentic AI, Automation & Orchestration
+  partner_domain: netop.cloud
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Meraki Org Migration & Network Moves by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381498
+  category: Automation & Orchestration
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: IBM
+  app: IBM SevOne
+  partner: ibm
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/819266
+  category: Monitoring & Performance
+  partner_domain: ibm.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: InstantConnect
+  app: Instant Connect Enterprise
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381747
+  category: Mass Communication
+  partner_domain: instantconnectnow.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Infinity Labs IT Services
+  app: Automanix
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/605832
+  category: Automation & Orchestration
+  partner_domain: infinitylabsitservices.co.uk
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: IPTel Solutions
+  app: Meraki Reporting
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/816541
+  category: Monitoring & Performance
+  partner_domain: iptel.com.au
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Liongard
+  app: Liongard Roar
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380832
+  category: Assurance & Risk Management, Documentation & Reporting, Threat Management
+  partner_domain: liongard.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: N-able
+  app: N-able N-central
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381246
+  category: ITSM & ITOM
+  partner_domain: n-able.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Wiacom
+  app: Wiacom | Guest Connect
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/857023
+  category: BYOD Onboarding & Security, Guest Wi-Fi, Location Analytics
+  partner_domain: wiacom.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: 7SIGNAL, Inc.
+  app: 7SIGNAL Platform
+  partner: 7signalsolutions
+  partner_match: domain+verified
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/505874
+  category: Client Analytics, Wireless Assurance
+  partner_domain: 7signal.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: ZeroNet IT Efficient
+  app: ZeroNet Dashboard
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/428861
+  category: IT & Productivity Tools
+  partner_domain: kiw.one
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: LogCentral
+  app: LogCentral
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/528089
+  category: Observability
+  partner_domain: logcentral.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: RoamingiQ
+  app: VAULT
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/495790
+  category: BYOD Onboarding & Security, Guest Wi-Fi
+  partner_domain: roamingiq.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Audit & Compliance by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381384
+  category: Policy Compliance
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Panoramic Data Limited
+  app: ReportMagic
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/413634
+  category: IT & Productivity Tools
+  partner_domain: panoramicdata.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VAPP Srl
+  app: Customer Analysis
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381354
+  category: Computer Vision AI, Footfall Analytics, Proximity Marketing
+  partner_domain: v-app.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Zabbix
+  app: Zabbix
+  partner: zabbix
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/412728
+  category: Monitoring & Performance
+  partner_domain: zabbix.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Intelli-Mark Consolidated Sdn Bhd
+  app: Warehouse Management Insights
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/458237
+  category: Building Management
+  partner_domain: intelli-mark.com.my
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Purple
+  app: Purple Staff WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/435746
+  category: BYOD Onboarding & Security
+  partner_domain: purple.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Kiana Analytics
+  app: Connected Workplace XPRT Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381333
+  category: Omnichannel Marketing, Proximity Marketing
+  partner_domain: kiana.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: UMA
+  app: Environmental | AskUMA
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/427004
+  category: Environmental Monitoring
+  partner_domain: askuma.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Metanoia
+  app: NET Backup Vault
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/841080
+  category: IT & Productivity Tools
+  partner_domain: metanoiahq.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Netgraph
+  app: Netgraph Sign In - Guest Access Solution
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/790139
+  category: BYOD Onboarding & Security
+  partner_domain: netgraph-connect.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cogniac
+  app: Cogniac - Logistics
+  partner: cogniac
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/405966
+  category: Video Analytics
+  partner_domain: cogniac.ai
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Syook
+  app: Syook Connected Worker
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448651
+  category: Physical Asset Tracking
+  partner_domain: syook.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Thing Technologies
+  app: Thing-it Smart Workplace Platform and App
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/462572
+  category: Environmental Monitoring, Smart Workspace
+  partner_domain: thing-it.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Paessler AG
+  app: PRTG Hosted Monitor
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/406581
+  category: Monitoring & Performance
+  partner_domain: paessler.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: AlgoSec
+  app: AlgoSec
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380640
+  category: Policy Compliance
+  partner_domain: algosec.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Rayven
+  app: Air quality monitoring
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/428328
+  category: Environmental Monitoring
+  partner_domain: rayven.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cloud4Wi
+  app: Cloud4Wi | Cloud NAC
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381405
+  category: BYOD Onboarding & Security, Guest Wi-Fi
+  partner_domain: cloud4wi.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: isofy
+  app: isofy
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/581077
+  category: Automation & Orchestration, Guest Wi-Fi, Smart Workspace
+  partner_domain: isofy.tech
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Yassu
+  app: Network Visibility and Advanced Reporting
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/423523
+  category: Threat Management
+  partner_domain: yassu.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: NetBox Labs
+  app: NetBox Labs Integration
+  partner: netbox-labs
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/773161
+  category: Automation & Orchestration, Documentation & Reporting
+  partner_domain: netboxlabs.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VAPP Srl
+  app: PPE Detection
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381702
+  category: Computer Vision AI, Health and Safety Compliance, Video Analytics
+  partner_domain: v-app.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: GoZone WiFi
+  app: GoZone WiFi Marketing4WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380787
+  category: Customer Demographics
+  partner_domain: gozonewifi.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Agentic Workflows by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/872365
+  category: Agentic AI, Automation & Orchestration
+  partner_domain: boundlessdigital.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Splash Access
+  app: SplashAccess IPSK / WPN Senior Living Solution
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/423721
+  category: Wireless Private Networks
+  partner_domain: splashaccess.co.uk
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Encapto
+  app: Encapto Command
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/422965
+  category: Wireless Assurance
+  partner_domain: encapto.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cisco
+  app: Axis Communications for Cisco Meraki
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/798006
+  category: Physical Security
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Centreon
+  app: Centreon IT Monitoring Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/488358
+  category: Monitoring & Performance
+  partner_domain: centreon.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Sensing Vision
+  app: Sensing Vision Building Monitor
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/413257
+  category: AIOps, Environmental Monitoring
+  partner_domain: sensingvision.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: EA License Tracker & True Forward by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/407352
+  category: IT & Productivity Tools
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Claroty
+  app: Claroty xDome
+  partner: claroty
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/428858
+  category: IoT Security
+  partner_domain: claroty.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: GoZone WiFi
+  app: GoZone WiFi Ads4WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380901
+  category: Omnichannel Marketing
+  partner_domain: gozonewifi.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VAPP Srl
+  app: Backup & Versioning
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380883
+  category: AIOps, Backup & Recovery, IT & Productivity Tools
+  partner_domain: v-app.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Bug Labs
+  app: SignalStrength
+  partner: buglabs
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/491039
+  category: AIOps, Monitoring & Performance
+  partner_domain: buglabs.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Fuzion Power Technologies
+  app: Fuzion Solar Charged Power
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/520345
+  category: Energy Consumption, Environmental Monitoring
+  partner_domain: fuzion.tech
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Hamina
+  app: Hamina Onsite Wi-Fi Survey Kit
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/445755
+  category: Wireless Assurance
+  partner_domain: hamina.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Highlight Service Observability Platform
+  app: Monitoring and Observability for Meraki Cellular Gateways
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/427320
+  category: AIOps, ITSM & ITOM, Monitoring & Performance
+  partner_domain: highlight.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Selent
+  app: Selent.AI
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/502978
+  category: AIOps, Agentic AI, Backup & Recovery
+  partner_domain: selent.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: DIGI Singapore
+  app: BS-05
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/799659
+  category: Digital Signage, Electronic Shelf Labels
+  partner_domain: digi.inc
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Splash Access
+  app: Meraki Rebooted from SplashAccess
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/407759
+  category: IT & Productivity Tools
+  partner_domain: splashaccess.co.uk
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VusionGroup
+  app: VusionGroup
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381453
+  category: Computer Vision AI, Electronic Shelf Labels
+  partner_domain: vusion.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VAPP Srl
+  app: AI Object Detection
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381450
+  category: Computer Vision AI, Point-of-Sale, Video Analytics
+  partner_domain: v-app.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Highlight Service Observability Platform
+  app: Monitoring and Observability for WiFi and Switches
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/417351
+  category: AIOps, Documentation & Reporting, Monitoring & Performance
+  partner_domain: highlight.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Picopoint Solutions
+  app: Picopoint Solutions
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/442975
+  category: Client Analytics, Location Analytics
+  partner_domain: picopoint.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Panoramic Data Limited
+  app: DataMagic
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/413635
+  category: IT & Productivity Tools
+  partner_domain: panoramicdata.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: DevNetApps.io
+  app: DNA Assure
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/394857
+  category: Backup & Recovery
+  partner_domain: devnetapps.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Datadog
+  app: Datadog
+  partner: datadog
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380817
+  category: Monitoring & Performance
+  partner_domain: datadoghq.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Direct Stream Vox inc.
+  app: DVOX
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/627344
+  category: Cisco App Marketplace app
+  partner_domain: dvox.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: IronWiFi
+  app: IronWiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/382011
+  category: BYOD Onboarding & Security
+  partner_domain: ironwifi.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: ReliaQuest
+  app: GreyMatter
+  partner: reliaquest
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/530194
+  category: Cyber Threat Response, Observability
+  partner_domain: reliaquest.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: 22Miles Inc.
+  app: 22Miles Meraki Enterprise
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/457463
+  category: Digital Signage, Wayfinding & Mapping
+  partner_domain: 22miles.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Jurumani Solutions (Pty) Ltd
+  app: Twyn CPQ
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/475543
+  category: Documentation & Reporting
+  partner_domain: jurumani.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Highlight Service Observability Platform
+  app: Monitoring and Observability for Managed Services
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/417346
+  category: AIOps, Documentation & Reporting, IT Asset Management
+  partner_domain: highlight.net
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: XAUTOMATA
+  app: XAUTOMATA
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/430006
+  category: Monitoring & Performance
+  partner_domain: xautomata.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Dtek.ai
+  app: SIGHT
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/783515
+  category: Video Analytics
+  partner_domain: dtek.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: meldCX
+  app: Viana™ Drive-Thru Journey
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/417199
+  category: Computer Vision AI, Video Analytics
+  partner_domain: meldcx.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: VAPP Srl
+  app: Vehicle Detection
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381699
+  category: Automatic License Plate Reader, Computer Vision AI, Physical Security
+  partner_domain: v-app.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Kisi Inc
+  app: 'Tailgating and Unauthorized access: Kisi Physical Security'
+  partner: kisi
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380688
+  category: Access Control, Computer Vision AI
+  partner_domain: getkisi.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: OnStak Inc.
+  app: Worker Safety Compliance Detection
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/494189
+  category: Health and Safety Compliance
+  partner_domain: onstak.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Splash Access
+  app: SplashAuth
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/601642
+  category: BYOD Onboarding & Security, Identity Management
+  partner_domain: splashaccess.co.uk
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Setyl
+  app: Setyl — IT Asset and License Management Platform (ITAM)
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/457231
+  category: IT Asset Management, Policy Compliance
+  partner_domain: setyl.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Zoho Corporation Private Limited
+  app: ManageEngine OpManager Plus
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/478098
+  category: Monitoring & Performance
+  partner_domain: zohocorp.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Netgraph
+  app: Netgraph EasyPSK – Personal Wi-Fi Segmentation for Cisco Networks
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/790140
+  category: BYOD Onboarding & Security, Wireless Private Networks
+  partner_domain: netgraph-connect.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Switch Port Manager by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/539057
+  category: Automation & Orchestration
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Alertus Technologies LLC
+  app: Alertus Technologies
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448103
+  category: Mass Communication
+  partner_domain: alertus.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Pliant
+  app: Pliant
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/405568
+  category: Automation & Orchestration
+  partner_domain: pliant.io
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Jurumani Solutions (Pty) Ltd
+  app: Twyn Order Management
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/470175
+  category: IT & Productivity Tools
+  partner_domain: jurumani.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: formtest
+  app: ConnectWise Unite
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380796
+  category: ITSM & ITOM
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Syook
+  app: Syook Truck-In Truck-Out
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448653
+  category: Physical Asset Tracking
+  partner_domain: syook.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Arctic Wolf
+  app: Arctic Wolf Managed Detection and Response
+  partner: arctic-wolf
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/449821
+  category: Threat Management
+  partner_domain: arcticwolf.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: EfficientIP
+  app: SOLIDServer DDI
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/484096
+  category: Automation & Orchestration, Observability
+  partner_domain: efficientip.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: RadiusAI
+  app: Pulse
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/442979
+  category: Loss Prevention
+  partner_domain: radius.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Panaseer
+  app: Panaseer
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380739
+  category: Cyber Threat Response, IoT Security
+  partner_domain: panaseer.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: blaZop
+  app: Autonomous ITOps Platform
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/475540
+  category: AIOps
+  partner_domain: blazop.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Wiacom
+  app: Wiacom Guest WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/853941
+  category: Guest Wi-Fi, Location Analytics, Omnichannel Marketing
+  partner_domain: wiacom.ai
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Speak to IoT
+  app: Speak to IoT
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381312
+  category: IT & Productivity Tools
+  partner_domain: speaktoiot.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Gluware
+  app: Gluware Intelligent Network Automation
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/427365
+  category: Automation & Orchestration
+  partner_domain: gluware.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Panoramic Data Limited
+  app: AlertMagic
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/413636
+  category: AIOps, IT & Productivity Tools
+  partner_domain: panoramicdata.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Cogniac
+  app: Cogniac - Healthcare
+  partner: cogniac
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/405968
+  category: Video Analytics
+  partner_domain: cogniac.ai
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: ALERTOPS
+  app: AlertOps
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381840
+  category: ITSM & ITOM
+  partner_domain: alertops.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: meldCX
+  app: Viana™ Speed of Service
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/781304
+  category: Computer Vision AI
+  partner_domain: meldcx.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: GoZone WiFi
+  app: GoZone Presence4WiFi
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380844
+  category: Footfall Analytics, Location Analytics
+  partner_domain: gozonewifi.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: evoila
+  app: Merakifly
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448647
+  category: Monitoring & Performance
+  partner_domain: evoila.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Boundless
+  app: Bulk Config Templates for Meraki by BOUNDLESS
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381372
+  category: Automation & Orchestration
+  partner_domain: boundlessdigital.com
+  badges:
+  - available-through-cisco
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
+- partner_name: Forescout
+  app: Forescout
+  partner: forescout
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381375
+  category: IoT Security, Policy Compliance, Threat Management
+  partner_domain: forescout.com
+  detected_by: sweep-cisco-devnet-ecosystem.py
+  detected: '2026-10-21'
 method: searched
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://developer.cisco.com/ecosystem/
+- https://developer.cisco.com/ecosystem/spp/
+- https://marketplace.cisco.com/api/marketplace/v1/listing?count=1000
+- https://marketplace.cisco.com/api/marketplace/v1/products/
+- https://www.cisco.com/c/en/us/products/wireless/compatible-extensions.html
 source:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json

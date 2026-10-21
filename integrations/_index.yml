@@ -33,3 +33,1416 @@
     builder: unknown (community connector; contributor not in the record)
   status: not-a-workflow
   arazzo: null
+- slug: cisco-meraki-splash-access
+  label: Splash Access
+  partner_name: Splash Access
+  category: Wireless Private Networks
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381795
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-cisco
+  label: Cisco
+  partner_name: Cisco
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381243
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-logicmonitor
+  label: LogicMonitor
+  partner: logicmonitor
+  partner_name: LogicMonitor
+  category: AIOps, Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/420402
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-auvik
+  label: Auvik
+  partner_name: Auvik
+  category: Documentation & Reporting, IT & Productivity Tools, IT Asset Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380676
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-red-hat
+  label: Red Hat
+  partner_name: Red Hat
+  category: AIOps, Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/422515
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-cloud4wi
+  label: Cloud4Wi
+  partner_name: Cloud4Wi
+  category: Client Analytics, Customer Demographics, Guest Wi-Fi
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381225
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-everyangle
+  label: EVERYANGLE
+  partner_name: EVERYANGLE
+  category: Computer Vision AI, Footfall Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/418010
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-boundless
+  label: Boundless
+  partner_name: Boundless
+  category: Assurance & Risk Management, Backup & Recovery
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/456330
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-sciencelogic
+  label: ScienceLogic
+  partner: sciencelogic
+  partner_name: ScienceLogic
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/409889
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-vapp-srl
+  label: VAPP Srl
+  partner_name: VAPP Srl
+  category: Computer Vision AI, Footfall Analytics, Video Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380763
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-devnetapps-io
+  label: DevNetApps.io
+  partner_name: DevNetApps.io
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381366
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-splunk
+  label: Splunk
+  partner_name: Splunk
+  category: SD-WAN Performance
+  type: marketplace
+  marketplace: own
+  channel: provider-built
+  evidence: https://marketplace.cisco.com/en-US/apps/430671
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-pagerduty
+  label: PagerDuty
+  partner: pagerduty
+  partner_name: PagerDuty
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380727
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-tufin
+  label: Tufin
+  partner: tufin
+  partner_name: Tufin
+  category: AIOps, Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/426593
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-meldcx
+  label: meldCX
+  partner_name: meldCX
+  category: Computer Vision AI, Video Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381777
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-netop-ai
+  label: NetOp AI
+  partner_name: NetOp AI
+  category: Agentic AI, Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/391155
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-ordr
+  label: ORDR
+  partner: ordr
+  partner_name: ORDR
+  category: AIOps, IT Asset Management, IoT Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381939
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-highlight-service-observability-platform
+  label: Highlight Service Observability Platform
+  partner_name: Highlight Service Observability Platform
+  category: AIOps, Monitoring & Performance, Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381711
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-genea
+  label: Genea
+  partner_name: Genea
+  category: Access Control
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380715
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-envoy-inc
+  label: Envoy, Inc.
+  partner_name: Envoy, Inc.
+  category: Guest Wi-Fi
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380907
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-synetal-solutions-pvt-ltd
+  label: Synetal Solutions Pvt Ltd
+  partner_name: Synetal Solutions Pvt Ltd
+  category: AIOps, Agentic AI, Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/872578
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-netgraph
+  label: Netgraph
+  partner_name: Netgraph
+  category: BYOD Onboarding & Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/790138
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-ezo
+  label: EZO
+  partner_name: EZO
+  category: Building Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/422518
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-joto-tech-sh-co-ltd
+  label: JOTO Tech (SH) Co., Ltd.
+  partner_name: JOTO Tech (SH) Co., Ltd.
+  category: AIOps, IT & Productivity Tools
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/566439
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-techflipp
+  label: Techflipp
+  partner_name: Techflipp
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381735
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-paessler-ag
+  label: Paessler AG
+  partner_name: Paessler AG
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/407276
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-basking-automation
+  label: Basking Automation
+  partner_name: Basking Automation
+  category: AIOps, Smart Workspace
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380622
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-wipro-limited
+  label: Wipro Limited
+  partner_name: Wipro Limited
+  category: Cisco App Marketplace app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/468387
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-nexivity
+  label: Nexivity
+  partner_name: Nexivity
+  category: Assurance & Risk Management, Backup & Recovery
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/426592
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-qos-networking-inc
+  label: QoS Networking, Inc.
+  partner_name: QoS Networking, Inc.
+  category: Automation & Orchestration, Documentation & Reporting, ITSM & ITOM
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/806592
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-bluecat-networks
+  label: BlueCat Networks
+  partner_name: BlueCat Networks
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/475544
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-infoblox
+  label: Infoblox
+  partner: infoblox
+  partner_name: Infoblox
+  category: IT Asset Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/742469
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-augmentir
+  label: Augmentir
+  partner_name: Augmentir
+  category: Environmental Monitoring
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/410951
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-ariadne
+  label: Ariadne
+  partner: ariadnemaps
+  partner_name: Ariadne
+  category: Footfall Analytics, Physical Asset Tracking
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/783498
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-backbox
+  label: BackBox
+  partner_name: BackBox
+  category: Automation & Orchestration, Backup & Recovery, Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/537008
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-vaidio
+  label: Vaidio
+  partner_name: Vaidio
+  category: Computer Vision AI, Loss Prevention, Physical Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/539076
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-ekahau
+  label: EKAHAU
+  partner_name: EKAHAU
+  category: Wireless Assurance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/404912
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-syook
+  label: Syook
+  partner_name: Syook
+  category: Physical Asset Tracking
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448652
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-cleverfi
+  label: CleverFi
+  partner_name: CleverFi
+  category: BYOD Onboarding & Security, Guest Wi-Fi, Wireless Private Networks
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/675770
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-airquay
+  label: AIRQUAY
+  partner_name: AIRQUAY
+  category: Smart Workspace
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/411930
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-solarwinds
+  label: SolarWinds
+  partner: solarwinds
+  partner_name: SolarWinds
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380766
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-domotz
+  label: domotz
+  partner_name: domotz
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381768
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-hamina
+  label: Hamina
+  partner_name: Hamina
+  category: Wireless Assurance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/445762
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-eccom-network-system-co-ltd
+  label: Eccom Network System Co., Ltd
+  partner_name: Eccom Network System Co., Ltd
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/430009
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-elastiflow
+  label: ElastiFlow
+  partner_name: ElastiFlow
+  category: AIOps, Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/539073
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-netbrain
+  label: NetBrain
+  partner_name: NetBrain
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/416499
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-blockapt
+  label: BlockAPT
+  partner_name: BlockAPT
+  category: Monitoring & Performance, Threat Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/458833
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-wavespot
+  label: Wavespot
+  partner_name: Wavespot
+  category: Computer Vision AI, Location Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/794496
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-progress-software-corporation
+  label: Progress Software Corporation
+  partner: progress-software
+  partner_name: Progress Software Corporation
+  category: Documentation & Reporting, IT & Productivity Tools, Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/772728
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-socialsign-in
+  label: SocialSign.in
+  partner_name: SocialSign.in
+  category: Guest Wi-Fi, Location Analytics, Omnichannel Marketing
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/853946
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-megaport
+  label: Megaport
+  partner_name: Megaport
+  category: Automation & Orchestration, SD-WAN Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/806593
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-onnen-solutions
+  label: Onnen Solutions
+  partner_name: Onnen Solutions
+  category: Backup & Recovery, IT & Productivity Tools
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/851506
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-pollux-connect-simplify-accelerate
+  label: Pollux Connect, Simplify, Accelerate
+  partner_name: Pollux Connect, Simplify, Accelerate
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/535057
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-arara
+  label: Arara
+  partner_name: Arara
+  category: Customer Demographics, Guest Wi-Fi, Omnichannel Marketing
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/570627
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-hamina-wireless
+  label: Hamina Wireless
+  partner_name: Hamina Wireless
+  category: Wireless Assurance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/410018
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-ibm
+  label: IBM
+  partner: ibm
+  partner_name: IBM
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/819266
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-instantconnect
+  label: InstantConnect
+  partner_name: InstantConnect
+  category: Mass Communication
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381747
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-infinity-labs-it-services
+  label: Infinity Labs IT Services
+  partner_name: Infinity Labs IT Services
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/605832
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-iptel-solutions
+  label: IPTel Solutions
+  partner_name: IPTel Solutions
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/816541
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-liongard
+  label: Liongard
+  partner_name: Liongard
+  category: Assurance & Risk Management, Documentation & Reporting, Threat Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380832
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-n-able
+  label: N-able
+  partner_name: N-able
+  category: ITSM & ITOM
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381246
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-wiacom
+  label: Wiacom
+  partner_name: Wiacom
+  category: BYOD Onboarding & Security, Guest Wi-Fi, Location Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/857023
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-7signal-inc
+  label: 7SIGNAL, Inc.
+  partner: 7signalsolutions
+  partner_name: 7SIGNAL, Inc.
+  category: Client Analytics, Wireless Assurance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/505874
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-zeronet-it-efficient
+  label: ZeroNet IT Efficient
+  partner_name: ZeroNet IT Efficient
+  category: IT & Productivity Tools
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/428861
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-logcentral
+  label: LogCentral
+  partner_name: LogCentral
+  category: Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/528089
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-roamingiq
+  label: RoamingiQ
+  partner_name: RoamingiQ
+  category: BYOD Onboarding & Security, Guest Wi-Fi
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/495790
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-panoramic-data-limited
+  label: Panoramic Data Limited
+  partner_name: Panoramic Data Limited
+  category: IT & Productivity Tools
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/413634
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-zabbix
+  label: Zabbix
+  partner: zabbix
+  partner_name: Zabbix
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/412728
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-intelli-mark-consolidated-sdn-bhd
+  label: Intelli-Mark Consolidated Sdn Bhd
+  partner_name: Intelli-Mark Consolidated Sdn Bhd
+  category: Building Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/458237
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-purple
+  label: Purple
+  partner_name: Purple
+  category: BYOD Onboarding & Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/435746
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-kiana-analytics
+  label: Kiana Analytics
+  partner_name: Kiana Analytics
+  category: Omnichannel Marketing, Proximity Marketing
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381333
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-uma
+  label: UMA
+  partner_name: UMA
+  category: Environmental Monitoring
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/427004
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-metanoia
+  label: Metanoia
+  partner_name: Metanoia
+  category: IT & Productivity Tools
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/841080
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-cogniac
+  label: Cogniac
+  partner: cogniac
+  partner_name: Cogniac
+  category: Video Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/405966
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-thing-technologies
+  label: Thing Technologies
+  partner_name: Thing Technologies
+  category: Environmental Monitoring, Smart Workspace
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/462572
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-algosec
+  label: AlgoSec
+  partner_name: AlgoSec
+  category: Policy Compliance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380640
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-rayven
+  label: Rayven
+  partner_name: Rayven
+  category: Environmental Monitoring
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/428328
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-isofy
+  label: isofy
+  partner_name: isofy
+  category: Automation & Orchestration, Guest Wi-Fi, Smart Workspace
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/581077
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-yassu
+  label: Yassu
+  partner_name: Yassu
+  category: Threat Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/423523
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-netbox-labs
+  label: NetBox Labs
+  partner: netbox-labs
+  partner_name: NetBox Labs
+  category: Automation & Orchestration, Documentation & Reporting
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/773161
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-gozone-wifi
+  label: GoZone WiFi
+  partner_name: GoZone WiFi
+  category: Customer Demographics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380787
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-encapto
+  label: Encapto
+  partner_name: Encapto
+  category: Wireless Assurance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/422965
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-centreon
+  label: Centreon
+  partner_name: Centreon
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/488358
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-sensing-vision
+  label: Sensing Vision
+  partner_name: Sensing Vision
+  category: AIOps, Environmental Monitoring
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/413257
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-claroty
+  label: Claroty
+  partner: claroty
+  partner_name: Claroty
+  category: IoT Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/428858
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-bug-labs
+  label: Bug Labs
+  partner: buglabs
+  partner_name: Bug Labs
+  category: AIOps, Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/491039
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-fuzion-power-technologies
+  label: Fuzion Power Technologies
+  partner_name: Fuzion Power Technologies
+  category: Energy Consumption, Environmental Monitoring
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/520345
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-selent
+  label: Selent
+  partner_name: Selent
+  category: AIOps, Agentic AI, Backup & Recovery
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/502978
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-digi-singapore
+  label: DIGI Singapore
+  partner_name: DIGI Singapore
+  category: Digital Signage, Electronic Shelf Labels
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/799659
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-vusiongroup
+  label: VusionGroup
+  partner_name: VusionGroup
+  category: Computer Vision AI, Electronic Shelf Labels
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381453
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-picopoint-solutions
+  label: Picopoint Solutions
+  partner_name: Picopoint Solutions
+  category: Client Analytics, Location Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/442975
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-datadog
+  label: Datadog
+  partner: datadog
+  partner_name: Datadog
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380817
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-direct-stream-vox-inc
+  label: Direct Stream Vox inc.
+  partner_name: Direct Stream Vox inc.
+  category: Cisco App Marketplace app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/627344
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-ironwifi
+  label: IronWiFi
+  partner_name: IronWiFi
+  category: BYOD Onboarding & Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/382011
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-reliaquest
+  label: ReliaQuest
+  partner: reliaquest
+  partner_name: ReliaQuest
+  category: Cyber Threat Response, Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/530194
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-22miles-inc
+  label: 22Miles Inc.
+  partner_name: 22Miles Inc.
+  category: Digital Signage, Wayfinding & Mapping
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/457463
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-jurumani-solutions-pty-ltd
+  label: Jurumani Solutions (Pty) Ltd
+  partner_name: Jurumani Solutions (Pty) Ltd
+  category: Documentation & Reporting
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/475543
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-xautomata
+  label: XAUTOMATA
+  partner_name: XAUTOMATA
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/430006
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-dtek-ai
+  label: Dtek.ai
+  partner_name: Dtek.ai
+  category: Video Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/783515
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-kisi-inc
+  label: Kisi Inc
+  partner: kisi
+  partner_name: Kisi Inc
+  category: Access Control, Computer Vision AI
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380688
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-onstak-inc
+  label: OnStak Inc.
+  partner_name: OnStak Inc.
+  category: Health and Safety Compliance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/494189
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-setyl
+  label: Setyl
+  partner_name: Setyl
+  category: IT Asset Management, Policy Compliance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/457231
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-zoho-corporation-private-limited
+  label: Zoho Corporation Private Limited
+  partner_name: Zoho Corporation Private Limited
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/478098
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-alertus-technologies-llc
+  label: Alertus Technologies LLC
+  partner_name: Alertus Technologies LLC
+  category: Mass Communication
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448103
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-pliant
+  label: Pliant
+  partner_name: Pliant
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/405568
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-formtest
+  label: formtest
+  partner_name: formtest
+  category: ITSM & ITOM
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380796
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-arctic-wolf
+  label: Arctic Wolf
+  partner: arctic-wolf
+  partner_name: Arctic Wolf
+  category: Threat Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/449821
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-efficientip
+  label: EfficientIP
+  partner_name: EfficientIP
+  category: Automation & Orchestration, Observability
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/484096
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-radiusai
+  label: RadiusAI
+  partner_name: RadiusAI
+  category: Loss Prevention
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/442979
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-panaseer
+  label: Panaseer
+  partner_name: Panaseer
+  category: Cyber Threat Response, IoT Security
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/380739
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-blazop
+  label: blaZop
+  partner_name: blaZop
+  category: AIOps
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/475540
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-speak-to-iot
+  label: Speak to IoT
+  partner_name: Speak to IoT
+  category: IT & Productivity Tools
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381312
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-gluware
+  label: Gluware
+  partner_name: Gluware
+  category: Automation & Orchestration
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/427365
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-alertops
+  label: ALERTOPS
+  partner_name: ALERTOPS
+  category: ITSM & ITOM
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381840
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-evoila
+  label: evoila
+  partner_name: evoila
+  category: Monitoring & Performance
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/448647
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: cisco-meraki-forescout
+  label: Forescout
+  partner: forescout
+  partner_name: Forescout
+  category: IoT Security, Policy Compliance, Threat Management
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.cisco.com/en-US/apps/381375
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
