@@ -6,13 +6,6 @@
       "error": "HTTPError"
     },
     {
-      "source": "https://community.meraki.com",
-      "feed_url": "https://community.cisco.com/kxiwq67737/rss/Category?category.id=meraki-home&interaction.style=forum",
-      "title": "",
-      "saved": 0,
-      "method": "discovered"
-    },
-    {
       "source": "https://community.cisco.com/kxiwq67737/rss/Category?category.id=meraki-home&interaction.style=forum",
       "feed_url": "https://community.cisco.com/kxiwq67737/rss/Category?category.id=meraki-home&interaction.style=forum",
       "title": "",
@@ -20,7 +13,7 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-10-10T13:15:00Z",
+  "fetched": "2026-10-17T14:53:57Z",
   "post_count": 10,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
