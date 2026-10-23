@@ -2396,6 +2396,25 @@ edges:
   channel: partner-built
   relationship: connector-coverage
   direction: partner-built
+- partner_name: Ansible (ansible-galaxy)
+  partner: ansible
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: ansible-galaxy
+  evidence: https://galaxy.ansible.com/ui/repo/published/cisco/meraki/
+  mirror_of: ansible/integrations/ansible-integration-edges.yml
+  apps:
+  - cisco.meraki
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Ansible collection)
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
 method: searched
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
@@ -2407,6 +2426,7 @@ checked:
 - https://www.cisco.com/c/en/us/products/wireless/compatible-extensions.html
 - https://analytics.home-assistant.io/custom_integrations.json
 - https://raw.githubusercontent.com/hacs/default/dee7a0eddd9644e8373be114cdb7818443014ba0/integration
+- ansible/integrations/ansible-integration-edges.yml
 source:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
