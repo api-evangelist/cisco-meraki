@@ -1,4 +1,4 @@
-# Cisco Meraki (cisco-meraki)
+# Cisco Meraki
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,133 @@
 
 Cisco Meraki is a cloud-managed networking platform that provides wireless access points, switches, security appliances, cameras, sensors, and mobile device management from a single dashboard. The Meraki Dashboard API is a RESTful interface for programmatically managing and monitoring Meraki networks at scale, automating organization provisioning, device configuration, network operations, and analytics.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cisco-meraki/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cisco-meraki/refs/heads/main/apis.yml)
+**Areas:** Networking · Wireless · Switching · Security Appliances · Cloud-Managed Networking · MDM · Camera · IoT
 
-## Scope
+## Cisco Meraki on APIs.io
 
-- **Type:** Index
+Everything profiled for Cisco Meraki is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cisco-meraki/](https://apis.io/providers/cisco-meraki/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (21)
 
-- Networking
-- Wireless
-- Switching
-- Security Appliances
-- Cloud-Managed Networking
-- MDM
-- Cameras
-- IoT
+- [Meraki Webhooks](https://apis.io/apis/cisco-meraki/webhooks/) — Webhooks API for receiving real-time alerts and events from Meraki networks, including device, network, and security events delivered to configured HTTPS…
+- [Cisco Meraki Administered API](https://apis.io/apis/cisco-meraki/cisco-meraki-administered-api/) — The administered API from Cisco Meraki — 4 operation(s) for administered.
+- [Cisco Meraki Appliance API](https://apis.io/apis/cisco-meraki/cisco-meraki-appliance-api/) — The appliance API from Cisco Meraki — 102 operation(s) for appliance.
+- [Cisco Meraki Camera API](https://apis.io/apis/cisco-meraki/cisco-meraki-camera-api/) — The camera API from Cisco Meraki — 29 operation(s) for camera.
+- [Cisco Meraki Campus Gateway API](https://apis.io/apis/cisco-meraki/cisco-meraki-campusgateway-api/) — The campusGateway API from Cisco Meraki — 13 operation(s) for campusgateway.
+- [Cisco Meraki Cellular Gateway API](https://apis.io/apis/cisco-meraki/cisco-meraki-cellulargateway-api/) — The cellularGateway API from Cisco Meraki — 16 operation(s) for cellulargateway.
+- [Cisco Meraki Devices API](https://apis.io/apis/cisco-meraki/cisco-meraki-devices-api/) — The devices API from Cisco Meraki — 151 operation(s) for devices.
+- [Cisco Meraki Insight API](https://apis.io/apis/cisco-meraki/cisco-meraki-insight-api/) — The insight API from Cisco Meraki — 4 operation(s) for insight.
+- [Cisco Meraki Licensing API](https://apis.io/apis/cisco-meraki/cisco-meraki-licensing-api/) — The licensing API from Cisco Meraki — 8 operation(s) for licensing.
+- [Cisco Meraki Networks API](https://apis.io/apis/cisco-meraki/cisco-meraki-networks-api/) — The networks API from Cisco Meraki — 89 operation(s) for networks.
+- [Cisco Meraki Organizations API](https://apis.io/apis/cisco-meraki/cisco-meraki-organizations-api/) — The organizations API from Cisco Meraki — 170 operation(s) for organizations.
+- [Cisco Meraki Sensor API](https://apis.io/apis/cisco-meraki/cisco-meraki-sensor-api/) — The sensor API from Cisco Meraki — 13 operation(s) for sensor.
+- [Cisco Meraki Sm API](https://apis.io/apis/cisco-meraki/cisco-meraki-sm-api/) — The sm API from Cisco Meraki — 43 operation(s) for sm.
+- [Cisco Meraki Spaces API](https://apis.io/apis/cisco-meraki/cisco-meraki-spaces-api/) — The spaces API from Cisco Meraki — 2 operation(s) for spaces.
+- [Cisco Meraki Switch API](https://apis.io/apis/cisco-meraki/cisco-meraki-switch-api/) — The switch API from Cisco Meraki — 56 operation(s) for switch.
+- [Cisco Meraki Wireless API](https://apis.io/apis/cisco-meraki/cisco-meraki-wireless-api/) — The wireless API from Cisco Meraki — 108 operation(s) for wireless.
+- [Cisco Meraki Wireless Controller API](https://apis.io/apis/cisco-meraki/cisco-meraki-wirelesscontroller-api/) — The wirelessController API from Cisco Meraki — 15 operation(s) for wirelesscontroller.
+- [Cisco Meraki Deployments API](https://apis.io/apis/cisco-meraki/cisco-meraki-deployments-api/) — The Deployments API from Cisco Meraki — 8 operation(s) for deployments.
+- [Cisco Meraki Firewall Applications API](https://apis.io/apis/cisco-meraki/cisco-meraki-firewall-applications-api/) — The Firewall Applications API from Cisco Meraki — 1 operation(s) for firewall applications.
+- [Cisco Meraki Policies API](https://apis.io/apis/cisco-meraki/cisco-meraki-policies-api/) — The Policies API from Cisco Meraki — 4 operation(s) for policies.
+- [Cisco Meraki Reports API](https://apis.io/apis/cisco-meraki/cisco-meraki-reports-api/) — The Reports API from Cisco Meraki — 9 operation(s) for reports.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Meraki Dashboard API v1
+Which operations an agent can call, which act, and which need a human in the loop.
 
-RESTful API for managing and monitoring Cisco Meraki networks across organizations, networks, devices, SSIDs, VLANs, switch ports, security appliances, cameras, and clients. Uses Bearer token authentication with an API key or OAuth 2.0 credentials.
+- [Cisco Meraki Agentic Access](https://apis.io/agentic-access/cisco-meraki/cisco-meraki-agentic-access/)
 
-- **Human URL:** [https://developer.cisco.com/meraki/api-v1/](https://developer.cisco.com/meraki/api-v1/)
-- **Base URL:** `https://api.meraki.com/api/v1`
+#### Collections (17)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Dashboard
-- Networking
-- Organizations
-- Networks
-- Devices
+- [Cisco Meraki Dashboard API](https://apis.io/collections/cisco-meraki/open-cisco-meraki/)
+- [Cisco Meraki Dashboard API — administered](https://apis.io/collections/cisco-meraki/open-cisco-meraki-administered-api/)
+- [Cisco Meraki Dashboard API — appliance](https://apis.io/collections/cisco-meraki/open-cisco-meraki-appliance-api/)
+- [Cisco Meraki Dashboard API — camera](https://apis.io/collections/cisco-meraki/open-cisco-meraki-camera-api/)
+- [Cisco Meraki Dashboard API — campusGateway](https://apis.io/collections/cisco-meraki/open-cisco-meraki-campusgateway-api/)
+- [Cisco Meraki Dashboard API — cellularGateway](https://apis.io/collections/cisco-meraki/open-cisco-meraki-cellulargateway-api/)
+- [Cisco Meraki Dashboard API — devices](https://apis.io/collections/cisco-meraki/open-cisco-meraki-devices-api/)
+- [Cisco Meraki Dashboard API — insight](https://apis.io/collections/cisco-meraki/open-cisco-meraki-insight-api/)
+- [Cisco Meraki Dashboard API — licensing](https://apis.io/collections/cisco-meraki/open-cisco-meraki-licensing-api/)
+- [Cisco Meraki Dashboard API — networks](https://apis.io/collections/cisco-meraki/open-cisco-meraki-networks-api/)
+- [Cisco Meraki Dashboard API — organizations](https://apis.io/collections/cisco-meraki/open-cisco-meraki-organizations-api/)
+- [Cisco Meraki Dashboard API — sensor](https://apis.io/collections/cisco-meraki/open-cisco-meraki-sensor-api/)
+- [Cisco Meraki Dashboard API — sm](https://apis.io/collections/cisco-meraki/open-cisco-meraki-sm-api/)
+- [Cisco Meraki Dashboard API — spaces](https://apis.io/collections/cisco-meraki/open-cisco-meraki-spaces-api/)
+- [Cisco Meraki Dashboard API — switch](https://apis.io/collections/cisco-meraki/open-cisco-meraki-switch-api/)
+- [Cisco Meraki Dashboard API — wireless](https://apis.io/collections/cisco-meraki/open-cisco-meraki-wireless-api/)
+- [Cisco Meraki Dashboard API — wirelessController](https://apis.io/collections/cisco-meraki/open-cisco-meraki-wirelesscontroller-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://developer.cisco.com/meraki/api-v1/)
-- [Getting Started](https://developer.cisco.com/meraki/api-v1/getting-started/)
-- [Authentication](https://developer.cisco.com/meraki/api-v1/authorization/)
-- [A P I  Index](https://developer.cisco.com/meraki/api-v1/api-index/)
-- [OpenAPI](https://github.com/meraki/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cisco-meraki.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cisco-meraki.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Meraki Webhooks
+- [Cisco Meraki Authentication](https://apis.io/security/cisco-meraki/cisco-meraki-authentication/)
+- [Cisco Meraki Domain Security](https://apis.io/security/cisco-meraki/cisco-meraki-domain-security/)
 
-Webhooks API for receiving real-time alerts and events from Meraki networks, including device, network, and security events delivered to configured HTTPS endpoints.
+## Where to find this API
 
-- **Human URL:** [https://developer.cisco.com/meraki/webhooks/](https://developer.cisco.com/meraki/webhooks/)
-- **Base URL:** `https://developer.cisco.com/meraki/webhooks/`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Webhooks
-- Events
-- Alerts
-
-#### Properties
-
-- [Documentation](https://developer.cisco.com/meraki/webhooks/)
-- [Postman Collection](collections/cisco-meraki.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cisco-meraki.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/cisco-meraki)
 - [Website](https://meraki.cisco.com)
-- [Developer  Hub](https://developer.cisco.com/meraki/)
 - [Documentation](https://documentation.meraki.com)
-- [GitHub Organization](https://github.com/meraki)
-- [Open A P I  Source](https://github.com/meraki/openapi)
-- [Python  S D K](https://github.com/meraki/dashboard-api-python)
-- [Community](https://community.meraki.com)
+- [Blog](https://meraki.cisco.com/blog/feed/)
+- [GitHub](https://github.com/meraki)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 50.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 0.0 |
+
+**Agent readiness 31.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | yes |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cisco-meraki/](https://apis.io/providers/cisco-meraki/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cisco Meraki: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cisco-meraki/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
